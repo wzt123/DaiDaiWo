@@ -3,14 +3,14 @@ function delWord(el) {
     input.value = '';
 }
 
-function login() {
-    api.openWin({
-        name: 'userRegister',
-        url: 'userRegister.html',
-        opaque: true,
-        vScrollBarEnabled: false
-    });
-}
+//function login() {
+//  api.openWin({
+//      name: 'user_login_reg',
+//      url: 'user_login_reg.html',
+//      opaque: true,
+//      vScrollBarEnabled: false
+//  });
+//}
 
 function ensure() {
     api.showProgress({
