@@ -27,10 +27,9 @@
 <div id="wrap" class="flex-wrap flex-vertical">
     <header>
         <ul>
-        	<li class="border-b" >请人带点菜</li>
-            <li class="border-b active" >帮助别人</li>
+            <li class="border-b active" >去买菜</li>
+            <li class="border-b" >求带菜</li>
             <li class="border-b" >个人中心</li>
-            <!--<li class="border-b" >个人中心</li>-->
         </ul>
     </header>
     <div id="main" class="flex-con">
@@ -38,10 +37,9 @@
     </div>
     <div id="footer" class="border-t">
         <ul class="flex-wrap" >
-            <li tapmode="hover" onclick="randomSwitchBtn( this );" class="flex-con" >请人带点菜</li>
-            <li tapmode="hover" onclick="randomSwitchBtn( this );" class="flex-con active" >帮助别人</li>
+            <li tapmode="hover" onclick="randomSwitchBtn( this );" class="flex-con active" >去买菜</li>
+            <li tapmode="hover" onclick="randomSwitchBtn( this );" class="flex-con" >求带菜</li>
             <li tapmode="hover" onclick="randomSwitchBtn( this );" class="flex-con" >个人中心</li>
-            <!--<li tapmode="hover" onclick="randomSwitchBtn( this );" class="flex-con" >个人中心</li>-->
         </ul>
     </div>
 </div>

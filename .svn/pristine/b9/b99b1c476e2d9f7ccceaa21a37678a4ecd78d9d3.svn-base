@@ -96,26 +96,44 @@
 		</style>
 	</head>
 	<body>
-		<div class="login"  tapmode>
+		<div class="login" onclick="" tapmode>
 			<img src="../image/api_31.png" alt="" class="loginbg">
 			<img src="../image/api_32.png" alt="" class="personal_logo">
 			<div class="userinfo">
-				<div class="title" onclick="user_login()">
+				<div class="title">
 					点击登录
 				</div>
-				<div class="title" onclick="user_register()">
-					还没账号？点击注册
+				<div class="subtitle">
+					常居地：北京
 				</div>
-				<!--<div class="subtitle">
-				</div>-->
 			</div>
 			<img src="../image/personal_icon_arrow.png" alt="" class="person_arrow">
 		</div>
-		<!-- 第一块 -->
-		<div class="firstblock">
+		<!--<div class="firstblock">
+			
 			<div class="item" tapmode="presshover" onclick="">
 				<img src="../image/my_coupon_user_icon_normal.png" alt="" class="item_ico">
 				<span>我的</span>
+				<img src="../image/arrow.png" alt="" class="item_arrow">
+			</div><div class="h1"></div>
+			
+		</div>-->
+		<!-- 第二块 -->
+		<div class="h10"></div>
+		<div class="secondblock">
+		<div class="item" tapmode="presshover" onclick="">
+				<img src="../image/my_order_user_icon_normal.png" alt="" class="item_ico">
+				<span>我的菜篮子</span>
+				<img src="../image/arrow.png" alt="" class="item_arrow">
+			</div><div class="h1"></div>
+			<div class="item" tapmode="presshover" onclick="">
+				<img src="../image/my_favorite_user_icon_normal.png" alt="" class="item_ico">
+				<span>收藏的店铺</span>
+				<img src="../image/arrow.png" alt="" class="item_arrow">
+			</div><div class="h1"></div>
+			<div class="item" tapmode="presshover" onclick="">
+				<img src="../image/my_history_user_icon_normal.png" alt="" class="item_ico">
+				<span>最近浏览</span>
 				<img src="../image/arrow.png" alt="" class="item_arrow">
 			</div><div class="h1"></div>
 			<div class="item" tapmode="presshover" onclick="">
@@ -124,20 +142,6 @@
 				<img src="../image/arrow.png" alt="" class="item_arrow">
 				<span class="fr hint">余额/返现/抵用券/会员卡</span>
 			</div>
-		</div>
-		<!-- 第二块 -->
-		<div class="h10"></div>
-		<div class="secondblock">
-			<div class="item" tapmode="presshover" onclick="">
-				<img src="../image/my_favorite_user_icon_normal.png" alt="" class="item_ico">
-				<span>我的收藏</span>
-				<img src="../image/arrow.png" alt="" class="item_arrow">
-			</div><div class="h1"></div>
-			<div class="item" tapmode="presshover" onclick="">
-				<img src="../image/my_history_user_icon_normal.png" alt="" class="item_ico">
-				<span>最近浏览</span>
-				<img src="../image/arrow.png" alt="" class="item_arrow">
-			</div><div class="h1"></div>
 			<div class="item" tapmode="presshover" onclick="">
 				<img src="../image/my_review_user_icon_normal.png" alt="" class="item_ico">
 				<span>待点评</span>
@@ -161,47 +165,18 @@
 		<div class="h10"></div><div class="h10"></div>
 	</body>
 	<script>
-		function user_login() {
-			//			api.openFrame({
-			//				name : 'user_login_frm',
-			//				url : './html/user_login_frm.html',
-			//				rect : {
-			//					x : 0,
-			//					y : headerPos.h,
-			//					w : api.winWidth,
-			//					h : 200
-			//				},
-			//				pageParam : {
-			//				},
-			//				bounces : false,
-			//				vScrollBarEnabled : false,
-			//				hScrollBarEnabled : false
-			//			});
-			api.openWin({
-				name : 'user_login_frm',
-				url : './user_login_frm.html'
-			});
-		}
-
-		function user_register() {
-			api.openWin({
-				name : 'user_login_reg',
-				url : './user_login_reg.html'
-			});
-		}
-
-		apiready = function() {
-			api.setRefreshHeaderInfo({
-				visible : true,
-				bgColor : '#ccc',
-				textColer : '#fff',
-				textDown : "下拉刷新~~@_@",
-				textUp : "松开刷新~~",
-				showTime : true
-			}, function(ret, err) {
-				//coding...
-				api.refreshHeaderLoadDone();
-			});
+				apiready=function(){
+		api.setRefreshHeaderInfo({
+		visible:true,
+		bgColor:'#ccc',
+		textColer:'#fff',
+		textDown:"下拉刷新~~@_@",
+		textUp:"松开刷新~~",
+		showTime:true
+		},function(ret,err){
+		//coding...
+		api.refreshHeaderLoadDone();
+		});
 		}
 	</script>
 	<script type="text/javascript" src="../script/api.js"></script>

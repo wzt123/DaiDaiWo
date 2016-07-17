@@ -5,6 +5,8 @@
 		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
 		<title>会员注册</title>
 		<link rel="stylesheet" type="text/css" href="../css/api.css" />
+		<link rel="stylesheet" type="text/css" href="../css/aui/aui.css" />
+		<link rel="stylesheet" type="text/css" href="../css/aui/aui.main.css" />
 		<link rel="stylesheet" type="text/css" href="../css/style.css" />
 	</head>
 	<style>
@@ -80,11 +82,11 @@
 			</div>
 			<div class="aui-input-row">
 				<span class="aui-input-addon">昵称</span>
-				<input type="password" class="aui-input" id="userName" placeholder="请输入昵称"/>
+				<input type="text" class="aui-input" id="userName" placeholder="请输入昵称"/>
 			</div>
 		</div>
 		<div class="aui-btn-rows">
-			<div class="aui-btn aui-btn-success">
+			<div class="aui-btn aui-btn-success" onclick="ensure()">
 				注 册
 			</div>
 		</div>

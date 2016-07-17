@@ -28,6 +28,7 @@ function ensure() {
         title: '注册中...',
         modal: false
     });
+    var email = $api.byId('email').value;
     var uname = $api.byId('userName').value;
     var pwd = $api.byId('userPwd').value;
     var pwd2 = $api.byId('userPwd2').value;
@@ -39,10 +40,11 @@ function ensure() {
         });
         return;
     }
-    var registerUrl = '/user';
+    var registerUrl = '/user/';
     var bodyParam = {
-        username: uname,
-        password: pwd2
+    	username: uname,
+        password: pwd2,
+        email : email
     }
     ajaxRequest(registerUrl, 'post', JSON.stringify(bodyParam), function (ret, err) {
         if (ret) {

@@ -1,0 +1,178 @@
+!SESSION 2016-05-20 16:48:45.931 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.7.0_79
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=zh_CN
+Command-line arguments:  -os win32 -ws win32 -arch x86 -data D:\apiworkspace\蔬菜
+
+!ENTRY org.eclipse.ui.workbench 4 2 2016-05-20 16:57:16.666
+!MESSAGE 从插件调用代码时出现问题：“org.eclipse.ui.workbench”。
+!STACK 0
+org.eclipse.swt.SWTException: Widget is disposed
+	at org.eclipse.swt.SWT.error(SWT.java:4282)
+	at org.eclipse.swt.SWT.error(SWT.java:4197)
+	at org.eclipse.swt.SWT.error(SWT.java:4168)
+	at org.eclipse.swt.widgets.Widget.error(Widget.java:468)
+	at org.eclipse.swt.widgets.Widget.getDisplay(Widget.java:582)
+	at com.apicloud.authentication.splashHandlers.APICloudSplashHandler.doEventLoop(APICloudSplashHandler.java:127)
+	at com.apicloud.authentication.splashHandlers.APICloudSplashHandler.init(APICloudSplashHandler.java:108)
+	at org.eclipse.ui.internal.Workbench$8.run(Workbench.java:790)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.Workbench.createSplashWrapper(Workbench.java:806)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2528)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2499)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:679)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:668)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:123)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:344)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:622)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:577)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1410)
+
+!ENTRY org.eclipse.ui 4 0 2016-05-20 16:57:16.760
+!MESSAGE Could not instantiate splash
+!STACK 0
+org.eclipse.swt.SWTException: Widget is disposed
+	at org.eclipse.swt.SWT.error(SWT.java:4282)
+	at org.eclipse.swt.SWT.error(SWT.java:4197)
+	at org.eclipse.swt.SWT.error(SWT.java:4168)
+	at org.eclipse.swt.widgets.Widget.error(Widget.java:468)
+	at org.eclipse.swt.widgets.Widget.getDisplay(Widget.java:582)
+	at com.apicloud.authentication.splashHandlers.APICloudSplashHandler.doEventLoop(APICloudSplashHandler.java:127)
+	at com.apicloud.authentication.splashHandlers.APICloudSplashHandler.init(APICloudSplashHandler.java:108)
+	at org.eclipse.ui.internal.Workbench$8.run(Workbench.java:790)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.Workbench.createSplashWrapper(Workbench.java:806)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2528)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2499)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:679)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:668)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:123)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:344)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:622)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:577)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1410)
+
+!ENTRY org.eclipse.equinox.app 4 2 2016-05-20 16:57:20.254
+!MESSAGE 从插件调用代码时出现问题：“org.eclipse.equinox.app”。
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.ui.internal.Workbench$9.applicationRunning(Workbench.java:775)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle$1.run(EclipseAppHandle.java:268)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.applicationRunning(EclipseAppHandle.java:258)
+	at org.eclipse.core.internal.runtime.InternalPlatform.endSplash(InternalPlatform.java:154)
+	at org.eclipse.core.runtime.Platform.endSplash(Platform.java:567)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2632)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2499)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:679)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:668)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:123)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:344)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:622)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:577)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1410)
+
+!ENTRY com.apicloud.loader.platforms.ios 4 0 2016-05-20 16:57:20.613
+!MESSAGE earlyStartup() find device 
+
+!ENTRY org.eclipse.ui.workbench 4 2 2016-05-20 16:57:20.628
+!MESSAGE 从插件调用代码时出现问题：“org.eclipse.ui.workbench”。
+!STACK 0
+java.lang.NullPointerException
+	at com.apicloud.navigator.start.APICloudWizardStart.earlyStartup(APICloudWizardStart.java:65)
+	at org.eclipse.ui.internal.EarlyStartupRunnable.runEarlyStartup(EarlyStartupRunnable.java:87)
+	at org.eclipse.ui.internal.EarlyStartupRunnable.run(EarlyStartupRunnable.java:66)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.Workbench$63.run(Workbench.java:2470)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.ui 4 4 2016-05-20 16:57:20.628
+!MESSAGE Unhandled Exception
+
+!ENTRY com.apicloud.navigator 4 0 2016-05-20 16:57:20.628
+!MESSAGE Unable to execute early startup code for an extension
+!STACK 0
+java.lang.NullPointerException
+	at com.apicloud.navigator.start.APICloudWizardStart.earlyStartup(APICloudWizardStart.java:65)
+	at org.eclipse.ui.internal.EarlyStartupRunnable.runEarlyStartup(EarlyStartupRunnable.java:87)
+	at org.eclipse.ui.internal.EarlyStartupRunnable.run(EarlyStartupRunnable.java:66)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.Workbench$63.run(Workbench.java:2470)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.jobs 4 2 2016-05-20 16:57:23.436
+!MESSAGE 在“refresh svn view”期间发生了内部错误。
+!STACK 0
+java.lang.NullPointerException
+	at java.net.URLEncoder.encode(Unknown Source)
+	at com.apicloud.networkservice.ConnectionUtil.encodeGetSVNParam(ConnectionUtil.java:49)
+	at com.apicloud.networkservice.NetWorkService.getSvnList(NetWorkService.java:59)
+	at com.apicloud.updatemanager.startup.AddSvnAndRefreshStartUp.addSvnToView(AddSvnAndRefreshStartUp.java:112)
+	at com.apicloud.updatemanager.startup.AddSvnAndRefreshStartUp.access$5(AddSvnAndRefreshStartUp.java:110)
+	at com.apicloud.updatemanager.startup.AddSvnAndRefreshStartUp$1.runInWorkspace(AddSvnAndRefreshStartUp.java:56)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.jobs 2 2 2016-05-20 16:57:27.352
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: com.apicloud.loader.platforms.ios.ANBActivator$1
+!SESSION 2016-05-20 16:57:29.661 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.7.0_79
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=zh_CN
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY com.apicloud.authentication 4 0 2016-05-20 16:58:01.017
+!MESSAGE {  "status": 1,  "result": {    "userid": 115591,    "username": "1650208026@qq.com",    "state": 1  }}
+
+!ENTRY com.apicloud.loader.platforms.ios 4 0 2016-05-20 16:58:06.149
+!MESSAGE earlyStartup() find device 
+
+!ENTRY org.eclipse.core.jobs 2 2 2016-05-20 16:58:45.201
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: com.apicloud.loader.platforms.ios.ANBActivator$1
+!SESSION 2016-05-21 17:14:50.487 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.7.0_79
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=zh_CN
+Command-line arguments:  -os win32 -ws win32 -arch x86 -data D:\apiworkspace\蔬菜
+
+!ENTRY com.apicloud.authentication 4 0 2016-05-21 17:14:53.436
+!MESSAGE {  "status": 1,  "result": {    "userid": 115591,    "username": "1650208026@qq.com",    "state": 1  }}
+
+!ENTRY com.apicloud.loader.platforms.ios 4 0 2016-05-21 17:14:58.954
+!MESSAGE earlyStartup() find device 
+
+!ENTRY org.eclipse.core.jobs 2 2 2016-05-21 17:15:15.482
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: com.apicloud.loader.platforms.ios.ANBActivator$1

@@ -11,6 +11,6 @@
     </style>
 </head>
 <body>
-    <div class="empty" onclick=""></div>
+    <div class="empty">去买菜</div>
 </body>
 </html>
