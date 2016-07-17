@@ -1,23 +1,53 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8">
-    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
-    <title>title</title>
-    <link rel="stylesheet" type="text/css" href="../css/api.css"/>
-    <style>
-    	body{
-    		
-    	}
-    </style>
-</head>
-<body>
-	
-</body>
-<script type="text/javascript" src="../script/api.js"></script>
-<script type="text/javascript">
-	apiready = function(){
-		
-	};
-</script>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+		<title>title</title>
+		<link rel="stylesheet" type="text/css" href="../css/api.css"/>
+		<style>
+			body {
+			}
+		</style>
+	</head>
+	<body></body>
+	<script type="text/javascript" src="../script/api.js"></script>
+	<script type="text/javascript">
+		apiready = function() {
+			fixStatusBar("aui-header", function(headerPos) {
+				// 打开bMap视图模块页面
+				api.openFrame({
+					name : 'map',
+					url : './html/map.html',
+					rect : {
+						x : 0,
+						y : headerPos.h,
+						w : api.winWidth,
+						h : 200
+					},
+					pageParam : {
+					},
+					bounces : false,
+					vScrollBarEnabled : false,
+					hScrollBarEnabled : false
+				});
+				// 操作功能列表页面
+				api.openFrame({
+					name : 'map_func',
+					url : './html/map_func.html',
+					rect : {
+						x : 0,
+						y : headerPos.h + 200,
+						w : api.winWidth,
+						h : api.winHeight - headerPos.h - 200
+					},
+					pageParam : {
+					},
+					bounces : false,
+					vScrollBarEnabled : false,
+					hScrollBarEnabled : false
+				});
+			});
+		};
+	</script>
 </html>
