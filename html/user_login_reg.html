@@ -14,12 +14,13 @@
 			background-color:#FFFFFF;
 		}
 		.aui-bar-primary {
-			background-color:#FFFFFF;
+			background-color:#00BBA7;
 			color:#000000;
 			font-size:14px;
 		}
 		.aui-bar .aui-iconfont {
 			position:relative;
+			
 			z-index:20;
 			font-size:20px;
 			color:#000000;
@@ -29,8 +30,8 @@
 		.form {
 			width:280px;
 			margin:auto;
-			margin-top:50%;
-			margin-left:20%;
+			margin-top:40%;
+			margin-left:10%;
 		}
 		.aui-title {
 			text-align:center
@@ -43,10 +44,10 @@
 		.aui-btn-success {
 			font-size:20px;
 			width:280px;
-			height:80%;
+/*			height:50%;*/
 			border:1px solid;
 			margin-top:20%;
-			margin-left:10%;
+		/*	margin-left:10%;*/
 			border-radius:25px;
 			background-color:#00C8B8;
 			line-height:45px;
@@ -58,15 +59,12 @@
 		}
 	</style>
 	<body>
-		<header class="aui-bar aui-bar-nav aui-bar-primary" id="header">
+            <header id="header"  class="aui-bar aui-bar-nav aui-bar-primary ">
 			<a class="aui-pull-left"> <span class="aui-iconfont aui-icon-left" onClick="gb()"></span> </a>
-			<div class="aui-title">
-				<div id="header">
-					<a class="back-icon" tapmode="" onclick="api.closeWin()"></a>
-					<h1>注册</h1>
-				</div>
-			</div>
+			<div class="aui-title">注册</div>
 		</header>
+		
+		
 		<div class="form">
 			<div class="aui-input-row">
 				<label class="aui-input-addon">邮箱</label>
