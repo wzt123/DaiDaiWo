@@ -99,13 +99,52 @@
 		<div class="login"  tapmode>
 			<img src="../image/api_31.png" alt="" class="loginbg">
 			<img src="../image/api_32.png" alt="" class="personal_logo">
-			<div class="userinfo">
-				<div class="title" onclick="user_login()">
+			<div class="userinfo" >
+				<div class="title" onclick="user_login()" id="login">
 					点击登录
 				</div>
-				<div class="title" onclick="user_register()">
+				<div class="title" onclick="user_register()" id="register">
 					还没账号？点击注册
 				</div>
+				<script id="template" type="text/x-dot-template">
+                <ul class="info shadow">
+	                <li class="nickname">
+	                	{{? it.nickname }}
+	                		<a tapmode="" onclick="modifyNick('{{=it.username}}');">
+		                    	昵称<em>{{=it.username}}</em>
+		                	</a>
+		                {{??}}
+		                	<a tapmode="" onclick="modifyNick('带带我');">
+		                    	昵称<em>带带我</em>
+		                	</a>
+	                	{{?}}
+	                	
+	                </li>
+	                <li class="nickname">
+	                	{{? it.nickname }}
+	                		<a tapmode="" onclick="modifyNick('{{=it.tel}}');">
+		                    	电话<em>{{=it.tel}}</em>
+		                	</a>
+		                {{??}}
+		                	<a>
+		                    	电话<em>12345678901</em>
+		                	</a>
+	                	{{?}}
+	                	
+	                </li>
+	                <li class="gender">
+	                	{{? it.gender }}
+	                		<a>
+		                    	性别<em>{{=it.gender}}</em>
+		                	</a>
+	                	{{??}}
+	                		<a>
+		                    	性别<em>男</em>
+		                	</a>
+	                	{{?}}
+	                </li>
+	            </ul>
+            </script>
 				<!--<div class="subtitle">
 				</div>-->
 			</div>
@@ -160,23 +199,10 @@
 		</div>
 		<div class="h10"></div><div class="h10"></div>
 	</body>
-	<script>
+	<script type="text/javascript" src="../script/common.js"></script>
+	<script type="text/javascript" src="../script/doT.min.js"></script>
+	<script type="text/javascript" >
 		function user_login() {
-			//			api.openFrame({
-			//				name : 'user_login_frm',
-			//				url : './html/user_login_frm.html',
-			//				rect : {
-			//					x : 0,
-			//					y : headerPos.h,
-			//					w : api.winWidth,
-			//					h : 200
-			//				},
-			//				pageParam : {
-			//				},
-			//				bounces : false,
-			//				vScrollBarEnabled : false,
-			//				hScrollBarEnabled : false
-			//			});
 			api.openWin({
 				name : 'user_login_frm',
 				url : './user_login_frm.html'
@@ -202,8 +228,17 @@
 				//coding...
 				api.refreshHeaderLoadDone();
 			});
+			api.addEventListener({
+				name : 'reg_login_successEvent'
+			}, function(ret, err) {
+				//coding...
+				if (ret) {
+					var islogin = $api.getStorage('islogin');
+					var userId = $api.getStorage('uid');
+				}
+			});
 		}
+		
 	</script>
 	<script type="text/javascript" src="../script/api.js"></script>
-	<script type="text/javascript"></script>
 </html>
