@@ -5,50 +5,66 @@
     <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
     <title>底部导航</title>
     <link rel="stylesheet" type="text/css" href="./css/api.css"/>
-    <link rel="stylesheet" type="text/css" href="./css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="./css/style.css"/>	
+    <link rel="stylesheet" type="text/css" href="../css/common.css" />	
     <style>
         header{ background-color: #f2f2f2; }
         header ul li { height: 50px; line-height: 50px; text-align: center; display: none; color: #323237; position: relative;font-size: 18px;  }
         header ul li.active{ display: block; }
+         .topbar {background: #FF8400; height:50px; border-bottom: 1px solid #DDDFE3;position: relative;}	
+         .whitebar {background-color: #f2f2f2;}	
+        .secCitylistarrow {vertical-align: top; width: 15px; padding-top: 12px; padding-left: 15px;}	
+        .back {float: left;}	
+        .filter {float: right;}	
+        .filter img {width: 25px;padding-top: 10px;padding-right: 10px;}	
+        .switch {position: absolute; left: 90px; right: 90px;background-color: #fcfcfc;text-align: center;height: 30px;line-height: 30px;bottom: 10px;border-radius: 4px;color: #fff;border: 1px solid #6ab494;}	
+        .switch div {width: 50%;display: inline-block;color: #6ab494;}	
+        .switch div:first-child {border-radius: 4px 0 0 4px;}	
+        .switch div:last-child {border-radius: 0px 4px 4px 0px;}	
+        .selectswitch {background-color: #6ab494;color: #fff !important;}
         #footer{  background-color: #f2f2f2; }
         #footer ul li{  padding-top: 36px; padding-bottom: 4px; background: url() no-repeat center 2px; background-size: auto 30px; text-align: center; }
         #footer ul li.active{ color: #6ab494; }
         #footer ul li:nth-child(1){ background-image: url(./image/bottombtn0101.png); }
         #footer ul li:nth-child(2){ background-image: url(./image/bottombtn0201.png); }
         #footer ul li:nth-child(3){ background-image: url(./image/bottombtn0301.png); }
-        #footer ul li:nth-child(4){ background-image: url(./image/bottombtn0401.png); }
         #footer ul li:nth-child(1).active{ background-image: url(./image/bottombtn0102.png); }
         #footer ul li:nth-child(2).active{ background-image: url(./image/bottombtn0202.png); }
         #footer ul li:nth-child(3).active{ background-image: url(./image/bottombtn0302.png); }
-        #footer ul li:nth-child(4).active{ background-image: url(./image/bottombtn0402.png); }
     </style>
 </head>
 <body>
 <div id="wrap" class="flex-wrap flex-vertical">
     <header>
         <ul>
-        	<li class="border-b" >请人带点菜</li>
-            <li class="border-b active" >帮助别人</li>
-            <li class="border-b" >个人中心</li>
-            <!--<li class="border-b" >个人中心</li>-->
+             <li class="border-b active">
+             <div class="topbar whitebar" id="topbar">	
+                <div class="back" tapmode onclick=""><img src="../image/ic_back_u.png" alt="" class="secCitylistarrow"></div>	
+                <div class="switch">	
+                    <div class="shop" id="leftbtn" >商铺</div><div class="tuan" id="rightbtn" tapmode onclick="openRight()">今日菜价</div>	
+                </div>	
+                <div class="filter"><img src="../image/list_icon_filter.png" alt=""></div>	
+            </div>
+            </li>
+           <li class="border-b " >抢单</li>
+            <li class="border-b " >我的</li>
         </ul>
     </header>
     <div id="main" class="flex-con">
-
     </div>
     <div id="footer" class="border-t">
         <ul class="flex-wrap" >
-            <li tapmode="hover" onclick="randomSwitchBtn( this );" class="flex-con" >请人带点菜</li>
-            <li tapmode="hover" onclick="randomSwitchBtn( this );" class="flex-con active" >帮助别人</li>
-            <li tapmode="hover" onclick="randomSwitchBtn( this );" class="flex-con" >个人中心</li>
-            <!--<li tapmode="hover" onclick="randomSwitchBtn( this );" class="flex-con" >个人中心</li>-->
+            <li tapmode="hover" onclick="randomSwitchBtn( this );" class="flex-con active" >求带</li>
+            <li tapmode="hover" onclick="randomSwitchBtn( this );" class="flex-con " >抢单</li>
+            <li tapmode="hover" onclick="randomSwitchBtn( this );" class="flex-con " >我的</li>
         </ul>
     </div>
 </div>
 </body>
+
 </html>
 <script type="text/javascript" src="script/api.js"></script>
-<script type="text/javascript">
+<script type="text/javascript">	
     apiready = function () {
         $api.fixStatusBar( $api.dom('header') );
         api.setStatusBarStyle({
@@ -106,4 +122,12 @@
             index: index
         });
     }
+         function openRight () {	
+			api.openWin({
+				name : 'pricehome',
+				url : './html/pricehome.html'
+			});
+		}
+      
+        			
 </script>
