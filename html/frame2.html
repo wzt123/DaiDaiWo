@@ -46,25 +46,25 @@
 				margin-left: 20px;
 			}
 			/*第一块样式*/
-			 .aui-btn-success{
-			width:150px;
-			border:1px solid;
-/*     		margin-top:60px;*/
-/*			margin-left: 60px;*/
-			border-radius:15px;
-			line-height:30px;
-			text-align:center;
+			.aui-btn-success {
+				width: 150px;
+				border: 1px solid;
+				/*     		margin-top:60px;*/
+				/*			margin-left: 60px;*/
+				border-radius: 15px;
+				line-height: 30px;
+				text-align: center;
 			}
-		   .login .userinfo {
+			.login .userinfo {
 				position: absolute;
 				top: 70px;
 				margin-left: 100px;
 			}
 			.login .userinfo .title {
 				font-size: 17px;
-				font-style:italic;
+				font-style: italic;
 				color: #fff;
-		    }
+			}
 			/*第二块样式*/
 			.login .userinfo .subtitle {
 				font-size: 14px;
@@ -98,70 +98,110 @@
 		</style>
 	</head>
 	<body>
-
 		<div class="login"  tapmode>
 			<img src="../image/api_31.png" alt="" class="loginbg">
 			<img src="../image/api_32.png" alt="" class="personal_logo">
-
 			<div class="userinfo">
-			<!--	<div class="title" onclick="user_login()">-->
-				<div class=" aui-btn-success" onclick="user_login();">点击登陆</div>
+				<!--	<div class="title" onclick="user_login()">-->
+				<div class=" aui-btn-success" onclick="user_login();">
+					点击登陆
+				</div>
 				<!--<br/>-->
 				<div class="title" onclick="user_register()">
 					还没账号？点击注册
 				</div>
-		</div>
-		<!-- 第一块 -->
-		<div class="firstblock">
-			<div class="item" tapmode="presshover" onclick="">
-				<img src="../image/my_coupon_user_icon_normal.png" alt="" class="item_ico">
-				<span>我的</span>
-				<img src="../image/arrow.png" alt="" class="item_arrow">
-			</div><div class="h1"></div>
-			<div class="item" tapmode="presshover" onclick="">
-				<img src="../image/my_wallet_user_icon_normal.png" alt="" class="item_ico">
-				<span>我的钱包</span>
-				<img src="../image/arrow.png" alt="" class="item_arrow">
-				<span class="fr hint">余额/返现/抵用券/会员卡</span>
 			</div>
-		</div>
-		<!-- 第二块 -->
-		<div class="h10"></div>
-		<div class="secondblock">
-			<div class="item" tapmode="presshover" onclick="">
-				<img src="../image/my_favorite_user_icon_normal.png" alt="" class="item_ico">
-				<span>我的收藏</span>
-				<img src="../image/arrow.png" alt="" class="item_arrow">
-			</div><div class="h1"></div>
-			
-			<div class="item" tapmode="presshover" onclick="">
-				<img src="../image/shop.png" alt="" class="item_ico">
-				<span>购物车</span>
-			<!--	<img src="../image/arrow.png" alt="" class="item_arrow">-->
-			</div><div class="h1"></div>
-			
-			<div class="item" tapmode="presshover" onclick="">
-				<img src="../image/my_review_user_icon_normal.png" alt="" class="item_ico">
-				<span>待点评</span>
-				<img src="../image/arrow.png" alt="" class="item_arrow">
+			<!-- 第一块 -->
+			<div class="firstblock">
+				<script id="template" type="text/x-dot-template">
+					<ul class="info shadow">
+					<li class="nickname">
+					{{? it.nickname }}
+					<a tapmode="" onclick="modifyNick('{{=it.username}}');">
+					昵称<em>{{=it.username}}</em>
+					</a>
+					{{??}}
+					<a tapmode="" onclick="modifyNick('带带我');">
+					昵称<em>带带我</em>
+					</a>
+					{{?}}
+					</li>
+					<li class="nickname">
+					{{? it.nickname }}
+					<a tapmode="" onclick="modifyNick('{{=it.tel}}');">
+					电话<em>{{=it.tel}}</em>
+					</a>
+					{{??}}
+					<a onclick="modifyTel('12345678901')">
+					电话<em>12345678901</em>
+					</a>
+					{{?}}
+					</li>
+					<li class="gender">
+					{{? it.gender }}
+					<a>
+					性别<em>{{=it.gender}}</em>
+					</a>
+					{{??}}
+					<a>
+					性别<em>男</em>
+					</a>
+					{{?}}
+					</li>
+					</ul>
+				</script>
+				<div id="content"></div>
+				<div class="item" tapmode="presshover" onclick="me()">
+					<img src="../image/my_coupon_user_icon_normal.png" alt="" class="item_ico">
+					<span>我的</span>
+					<img src="../image/arrow.png" alt="" class="item_arrow">
+				</div><div class="h1"></div>
+				<div class="item" tapmode="presshover" onclick="">
+					<img src="../image/my_wallet_user_icon_normal.png" alt="" class="item_ico">
+					<span>我的钱包</span>
+					<img src="../image/arrow.png" alt="" class="item_arrow">
+					<span class="fr hint">余额/返现/抵用券/会员卡</span>
+				</div>
 			</div>
-		</div>
-		<!-- 第三块 -->
-		<div class="h10"></div>
-		<div class="thirdblock">
-			<div class="item" tapmode="presshover" onclick="">
-				<img src="../image/my_order_user_icon_normal.png" alt="" class="item_ico">
-				<span>服务中心</span>
-				<img src="../image/arrow.png" alt="" class="item_arrow">
-			</div><div class="h1"></div>
-			<div class="item" tapmode="presshover" onclick="">
-				<img src="../image/my_setting_user_icon_normal.png" alt="" class="item_ico">
-				<span>设置</span>
-				<img src="../image/arrow.png" alt="" class="item_arrow">
+			<!-- 第二块 -->
+			<div class="h10"></div>
+			<div class="secondblock">
+				<div class="item" tapmode="presshover" onclick="">
+					<img src="../image/my_favorite_user_icon_normal.png" alt="" class="item_ico">
+					<span>我的收藏</span>
+					<img src="../image/arrow.png" alt="" class="item_arrow">
+				</div><div class="h1"></div>
+				<div class="item" tapmode="presshover" onclick="">
+					<img src="../image/shop.png" alt="" class="item_ico">
+					<span>购物车</span>
+					<!--	<img src="../image/arrow.png" alt="" class="item_arrow">-->
+				</div><div class="h1"></div>
+				<div class="item" tapmode="presshover" onclick="">
+					<img src="../image/my_review_user_icon_normal.png" alt="" class="item_ico">
+					<span>待点评</span>
+					<img src="../image/arrow.png" alt="" class="item_arrow">
+				</div>
 			</div>
-		</div>
-		<div class="h10"></div><div class="h10"></div>
+			<!-- 第三块 -->
+			<div class="h10"></div>
+			<div class="thirdblock">
+				<div class="item" tapmode="presshover" onclick="">
+					<img src="../image/my_order_user_icon_normal.png" alt="" class="item_ico">
+					<span>服务中心</span>
+					<img src="../image/arrow.png" alt="" class="item_arrow">
+				</div><div class="h1"></div>
+				<div class="item" tapmode="presshover" onclick="">
+					<img src="../image/my_setting_user_icon_normal.png" alt="" class="item_ico">
+					<span>设置</span>
+					<img src="../image/arrow.png" alt="" class="item_arrow">
+				</div>
+			</div>
+			<div class="h10"></div><div class="h10"></div>
 	</body>
+	<script type="text/javascript" src="../script/api.js"></script>
+	<script type="text/javascript" src="../script/common.js"></script>
+	<script type="text/javascript" src="../script/doT.min.js"></script>
+	<script type="text/javascript" src="../script/setting-con.js"></script>
 	<script>
 		function user_login() {
 			api.openWin({
@@ -169,10 +209,18 @@
 				url : './user_login_frm.html'
 			});
 		}
+
 		function user_register() {
 			api.openWin({
 				name : 'user_login_reg',
 				url : './user_login_reg.html'
+			});
+		}
+
+		function me() {
+			api.openWin({
+				name : 'setting',
+				url : 'setting.html',
 			});
 		}
 
@@ -188,8 +236,15 @@
 				//coding...
 				api.refreshHeaderLoadDone();
 			});
+			api.addEventListener({
+				name : 'reg_login_successEvent'
+			}, function(ret, err) {
+				//coding...
+				if (ret) {
+					var islogin = $api.getStorage('islogin');
+					var userId = $api.getStorage('uid');
+				}
+			});
 		}
 	</script>
-	<script type="text/javascript" src="../script/api.js"></script>
-	<script type="text/javascript"></script>
 </html>
