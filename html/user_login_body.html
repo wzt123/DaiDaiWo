@@ -8,7 +8,6 @@
 		<link rel="stylesheet" type="text/css" href="../css/aui.css" />
 		<link rel="stylesheet" type="text/css" href="../css/common.css" />
 		<style type="text/css">
-	
 			html, body {
 				background: rgba(0,0,0,0);
 			}
@@ -83,7 +82,7 @@
 				background: rgba(0,0,0,0);
 				border: none;
 				outline: none;
-				color:#999;
+				color: #999;
 				padding: 4px;
 				margin: 0;
 			}
@@ -127,7 +126,6 @@
 				-webkit-flex: 1;
 				flex: 1;
 			}
-
 			.sdk-list p span i {
 				font-size: 50px;
 			}
@@ -185,8 +183,10 @@
 			</div>
 			<div class="form-o">
 
+
 				<span tapmode onclick="openWinto();">注册账号</span>
 				<span tapmode  onclick="zhmm();">忘记密码？</span>
+
 
 			</div>
 		</div>
@@ -212,51 +212,55 @@
 	<script type="text/javascript" src="../script/zepto.min.js"></script>
 	<script type="text/javascript" src="../script/userLogin.js"></script>
 	<script type="text/javascript">
-	
-	function openWinto(){
+		login = function() {
+			$api.setStorage('user', '1');
+		}
+		function openWinto() {
 			api.openWin({
 				name : 'reg_head',
 				url : './reg_head.html'
 			});
 		}
-	function zhmm(){
+
+		function zhmm() {
 			api.openWin({
 				name : 'zhmm_head',
 				url : './zhmm_head.html'
 			});
 		}
-//		Ze
-		login = function(){
-			$api.setStorage('user','1');
+
+		//		Ze
+		login = function() {
+			$api.setStorage('user', '1');
 		}
-		function user_reg(){
-		api.openWin({
-	        name: 'user_login_reg',
-	        url: './user_login_reg.html'
-        });
+		function user_reg() {
+			api.openWin({
+				name : 'user_login_reg',
+				url : './user_login_reg.html'
+			});
 		}
-		function user_zhmm(){
-		api.openWin({
-	        name: 'user_login_zhmm',
-	        url: './user_login_zhmm.html'
-        });
+
+		function user_zhmm() {
+			api.openWin({
+				name : 'user_login_zhmm',
+				url : './user_login_zhmm.html'
+			});
 		}
+
 		Zepto(function($) {
 			var bodyH = $("body").height();
 			$(".top-area").css("height", (bodyH - 150) + "px");
 			$("#login-btn").on("tap", function() {
 				//点击登录codding...
-				
-//				H.$setPrefs(function(ret, err) {
-//					H.$execScript('index', 'launch', 'closeFrame();');
-//					H.$closeCurrentToWin("index");
-//				}, 'user_info', {
-//					name : '点点多',
-//					id : 1
-//				});
+				//				H.$setPrefs(function(ret, err) {
+				//					H.$execScript('index', 'launch', 'closeFrame();');
+				//					H.$closeCurrentToWin("index");
+				//				}, 'user_info', {
+				//					name : '点点多',
+				//					id : 1
+				//				});
 			});
 		});
-		
 		apiready = function() {
 			api.parseTapmode();
 		};
