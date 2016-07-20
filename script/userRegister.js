@@ -48,11 +48,11 @@ function delWord(el) {
 
 function ensure() {
 	
-	var email = $api.byId('email').value;
+	var tel = $api.byId('tel').value;
 	var uname = $api.byId('userName').value;
 	var pwd = $api.byId('userPwd').value;
 	var pwd2 = $api.byId('userPwd2').value;
-	if (email.length == 0||email.length!=11) {
+	if (tel.length == 0||tel.length!=11) {
 		api.alert({
 			msg : "电话格式不对"
 		});
@@ -86,9 +86,9 @@ function ensure() {
 	});
 	var registerUrl = '/user/';
 	var bodyParam = {
-		username : uname,
+//		username : uname,
 		password : pwd2,
-		email : email
+		tel : tel
 	}
 	ajaxRequest(registerUrl, 'post', JSON.stringify(bodyParam), function(ret, err) {
 		if (ret) {

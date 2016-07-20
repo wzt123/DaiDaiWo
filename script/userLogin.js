@@ -17,12 +17,12 @@ function ensure() {
 		title : '正在登录...',
 		modal : false
 	});
-	var email = $api.byId('tel').value;
+	var tel = $api.byId('tel').value;
 	var pwd = $api.byId('password').value;
 
 	var loginUlr = '/user/login';
 	var bodyParam = {
-		email : email,
+		tel : tel,
 		password : pwd
 	}
 	ajaxRequest(loginUlr, 'post', JSON.stringify(bodyParam), function(ret, err) {
