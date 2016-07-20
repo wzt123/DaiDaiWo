@@ -28,8 +28,8 @@
 			}
 			.user-allinfo {
 				height: 215px;
-				padding-top:20px;
-				background-color:rgba(255,255,255,0.2);
+				padding-top: 20px;
+				background-color: rgba(255,255,255,0.2);
 				position: relative;
 				overflow: visible;
 				text-align: center;
@@ -111,7 +111,6 @@
 			.aui-list-view-cell {
 				color: #767677;
 			}
-			
 			.aui-badge {
 				margin-right: 20px;
 				margin-top: 4px;
@@ -120,41 +119,41 @@
 				background: rgba(255,255,255,0.4);
 			}
 			.aui-grid-nine {
-    overflow: auto;
-   background: rgba(255,255,255,0.3);
-    position: relative;
-}
-	.aui-grid-nine li:active {
-   background: rgba(255,255,255,0.2);
-}
-.content-area {
-	width: 100%;
-}
-.content-area p {
-	width: 50px;
-	height: 50px;
-	display: -webkit-box;
-	-webkit-box-orient: horizontal;
-	-webkit-box-pack: center;
-	-webkit-box-align: center;
-	display: box;
-	box-orient: horizontal;
-	box-pack: center;
-	box-align: center;
-	border-radius: 15px;
-	-webkit-border-radius: 15px;
-	margin: 0 auto;
-}
-.aui-grid-nine li .aui-iconfont {
-    margin-bottom: 0px;
-}
-.content-area span {
-    display: block;
-    padding: 12px 0 0 0;
-    font-size: 14px;
-    color: #666;
-    text-align: center;
-}
+				overflow: auto;
+				background: rgba(255,255,255,0.3);
+				position: relative;
+			}
+			.aui-grid-nine li:active {
+				background: rgba(255,255,255,0.2);
+			}
+			.content-area {
+				width: 100%;
+			}
+			.content-area p {
+				width: 50px;
+				height: 50px;
+				display: -webkit-box;
+				-webkit-box-orient: horizontal;
+				-webkit-box-pack: center;
+				-webkit-box-align: center;
+				display: box;
+				box-orient: horizontal;
+				box-pack: center;
+				box-align: center;
+				border-radius: 15px;
+				-webkit-border-radius: 15px;
+				margin: 0 auto;
+			}
+			.aui-grid-nine li .aui-iconfont {
+				margin-bottom: 0px;
+			}
+			.content-area span {
+				display: block;
+				padding: 12px 0 0 0;
+				font-size: 14px;
+				color: #666;
+				text-align: center;
+			}
 		</style>
 	</head>
 	<body>
@@ -165,87 +164,170 @@
 					<span class="aui-iconfont aui-icon-friendfavor"></span>
 				</p>
 			</div>
-			<p class="unames" tapmode onclick="user_login();">
+			<p class="unames" tapmode onclick="user_login();" id="requestLogin">
 				登录<!--<label class="level">官方人员</label>-->
 			</p>
+			<script id="login" type="text/x-dot-template">
+				<ul class="info shadow">
+				<li class="nickname">
+				{{? it.nickname }}
+				<a tapmode="" onclick="modifyNick('{{=it.username}}');">
+				<!--昵称--><em>{{=it.username}}</em>
+				</a>
+				{{??}}
+				<a tapmode="" onclick="modifyNick('{{=it.username}}');">
+				<!-- 昵称 --><em>{{=it.username}}</em>
+				</a>
+				{{?}}
+				</li>
+				<li class="gender">
+				{{? it.eamil }}
+				<a>
+				<!--邮箱--><em>{{=it.email}}</em>
+				</a>
+				{{??}}
+				<a>
+				<!--邮箱--><em>{{=it.email}}</em>
+				</a>
+				{{?}}
+				</li>
+				</ul>
+			</script>
+			<div id="inclu"></div>
 			<div class=" aui-tree aui-text-center aui-text-686868">
-				<div class="aui-col-xs-4">积分<span class="aui-text-FF9800">100</span></div>
-				<div class="aui-col-xs-4" tapmode onclick="openWin('paycheck','paycheck_head',true)">余额<span class="aui-text-FF9800">￥100</span></div>
-				<div class="aui-col-xs-4" tapmode onclick="openWin('coupon_head','coupon_head',true)">优惠券<span class="aui-text-FF9800">2</span></div>
+				<div class="aui-col-xs-4">
+					积分<span class="aui-text-FF9800">100</span>
+				</div>
+				<div class="aui-col-xs-4" tapmode onclick="openWin('paycheck','paycheck_head',true)">
+					余额<span class="aui-text-FF9800">￥100</span>
+				</div>
+				<div class="aui-col-xs-4" tapmode onclick="openWin('coupon_head','coupon_head',true)">
+					优惠券<span class="aui-text-FF9800">2</span>
+				</div>
 			</div>
 		</div>
 		<div class="aui-content">
-	        <ul class="aui-grid-nine">
-	            <li class="aui-col-xs-4 aui-text-center" tapmode onclick="openWin('myProfile_head','myProfile_head',true)">
-	            		<div class="content-area">
+			<ul class="aui-grid-nine">
+				<li class="aui-col-xs-4 aui-text-center" tapmode onclick="setting()">
+					<div class="content-area">
 						<p class="aui-bg-ffc74e">
 							<i class="aui-iconfont aui-icon-profile"></i>
 						</p>
-						<span>个人资料</span>
-					</div>	                
-	            </li>
-	            <li class="aui-col-xs-4 aui-text-center">
-	                <div class="content-area">
+						<span >个人资料</span>
+					</div>
+				</li>
+				<li class="aui-col-xs-4 aui-text-center">
+					<div class="content-area">
 						<p class="aui-bg-33CB9A">
 							<i class="aui-iconfont aui-icon-presentfill"></i>
 						</p>
 						<span>赠品</span>
-					</div>	 
-	            </li>
-	            <li class="aui-col-xs-4 aui-text-center" tapmode onclick="openWin('official_head','official_head',true)">
-	                <div class="content-area">
+					</div>
+				</li>
+				<li class="aui-col-xs-4 aui-text-center" tapmode onclick="openWin('official_head','official_head',true)">
+					<div class="content-area">
 						<p class="aui-bg-67d2f8">
 							<i class="aui-iconfont aui-icon-noticefill"></i>
 						</p>
 						<span>消息中心</span>
 					</div>
-	            </li>
-	            <li class="aui-col-xs-4 aui-text-center" tapmode onclick="openWin('my_goods_head','my_goods_head',true)">
-	               <div class="content-area">
+				</li>
+				<li class="aui-col-xs-4 aui-text-center" tapmode onclick="openWin('my_goods_head','my_goods_head',true)">
+					<div class="content-area">
 						<p class="aui-bg-FF6665">
 							<i class="aui-iconfont aui-icon-form"></i>
 						</p>
 						<span>我的订单</span>
 					</div>
-	            </li>
-	            <li class="aui-col-xs-4 aui-text-center" tapmode onclick="openWin('follow_my_head','follow_my_head',true)">
-	                <div class="content-area">
+				</li>
+				<li class="aui-col-xs-4 aui-text-center" tapmode onclick="openWin('follow_my_head','follow_my_head',true)">
+					<div class="content-area">
 						<p class="aui-bg-96e462">
 							<i class="aui-iconfont aui-icon-favorfill"></i>
 						</p>
 						<span>我的收藏</span>
 					</div>
-	            </li>
-	            <li class="aui-col-xs-4 aui-text-center" onclick="call('10010')">
-	                <div class="content-area">
+				</li>
+				<li class="aui-col-xs-4 aui-text-center" onclick="call('10010')">
+					<div class="content-area">
 						<p class="aui-bg-fd6e90">
 							<i class="aui-iconfont aui-icon-servicefill"></i>
 						</p>
 						<span>客服</span>
 					</div>
-	            </li>
-            </ul>
-	    </div>
+				</li>
+			</ul>
+		</div>
 	</body>
 	<script type="text/javascript" src="../script/api.js"></script>
+	<script type="text/javascript" src="../script/doT.min.js"></script>
 	<script type="text/javascript" src="../script/common.js"></script>
 	<script type="text/javascript" src="../script/zepto.min.js"></script>
 	<script type="text/javascript">
-	function user_login() {
+		function setting() {
+			api.openWin({
+				name : 'setting',
+				url : './setting.html',
+				opaque : true,
+				vScrollBarEnabled : false
+			});
+		}
+
+		function user_login() {
 			api.openWin({
 				name : 'user_login_frm',
 				url : './user_login_frm.html'
 			});
 		}
-//		Zepto(function($) {
-//			$(".aui-list-view").on("tap", "li", function() {
-//				var funcName = $(this).attr("data-funcName");
-//				if (funcName) {
-//					H.$openWin(funcName, funcName + '.html');
-//				}
-//			});
-//		});
+
+		//		Zepto(function($) {
+		//			$(".aui-list-view").on("tap", "li", function() {
+		//				var funcName = $(this).attr("data-funcName");
+		//				if (funcName) {
+		//					H.$openWin(funcName, funcName + '.html');
+		//				}
+		//			});
+		//		}) ;
+		function init() {
+			islogin = $api.getStorage('islogin');
+			if (islogin) {
+			var requestLogin = $api.byId('requestLogin');
+			requestLogin.innerHTML = "";
+				api.showProgress({
+					title : '加载中...',
+					modal : false
+				});
+				var uid = $api.getStorage('uid');
+				var getUserById = '/user/' + uid;
+				var bodyParam = {
+					id : uid
+				}
+				ajaxRequest(getUserById, 'get', JSON.stringify(bodyParam), function(ret, err) {
+					if (ret) {
+						$api.setStorage('username', ret.username);
+						$api.setStorage('email', ret.email);
+						$api.setStorage('favicon', ret.favicon);
+						var inclu = $api.byId('inclu');
+						var tpl = $api.byId('login').text;
+						var tempFn = doT.template(tpl);
+						inclu.innerHTML = tempFn(ret);
+					} else {
+						api.toast({
+							msg : err.msg
+						})
+					}
+					api.hideProgress();
+				})
+			}
+		}
+
 		apiready = function() {
+			//			var islogin = $api.getStorage('islogin');
+			//			if (islogin) {
+			//				var logined = $api.byId('login');
+			//				logined.innerHTML = $api.getStorage('username');
+			//			}
+			init();
 			api.parseTapmode();
 			//doLogin('../login/login_head');
 		}

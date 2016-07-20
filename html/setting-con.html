@@ -29,24 +29,24 @@
                 <ul class="info shadow">
 	                <li class="nickname">
 	                	{{? it.nickname }}
-	                		<a tapmode="" onclick="modifyNick('{{=it.nickname}}');">
-		                    	昵称<em>{{=it.nickname}}</em>
+	                		<a tapmode="" onclick="modifyNick('{{=it.username}}');">
+		                    	昵称<em>{{=it.username}}</em>
 		                	</a>
 		                {{??}}
-		                	<a tapmode="" onclick="modifyNick('APICloud');">
-		                    	昵称<em>APICloud</em>
+		                	<a tapmode="" onclick="modifyNick('{{=it.username}}');">
+		                    	昵称<em>{{=it.username}}</em>
 		                	</a>
 	                	{{?}}
 	                	
 	                </li>
 	                <li class="gender">
-	                	{{? it.gender }}
+	                	{{? it.eamil }}
 	                		<a>
-		                    	性别<em>{{=it.gender}}</em>
+		                    	邮箱<em>{{=it.email}}</em>
 		                	</a>
 	                	{{??}}
 	                		<a>
-		                    	性别<em>男</em>
+		                    	邮箱<em>{{=it.email}}</em>
 		                	</a>
 	                	{{?}}
 	                </li>
