@@ -17,7 +17,7 @@ function ensure() {
 		title : '正在登录...',
 		modal : false
 	});
-	var email = $api.byId('email').value;
+	var email = $api.byId('tel').value;
 	var pwd = $api.byId('password').value;
 
 	var loginUlr = '/user/login';
