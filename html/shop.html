@@ -9,7 +9,7 @@
 		<link rel="stylesheet" type="text/css" href="../css/common.css" />
 		<style type="text/css">
 			body {
-				background: url(../image/ucenter_bg.png) no-repeat left top;
+				background: url(../../image/ucenter_bg.png) no-repeat left top;
 				background-size: cover;
 				-webkit-background-size: cover;
 			}
@@ -160,13 +160,13 @@
 	<body>
 		<div class="user-allinfo">
 			<div class="img-container">
-				<img src="../image/pic.jpg" />
+				<img src="../../image/pic.jpg" />
 				<p class="ico-gender">
 					<span class="aui-iconfont aui-icon-friendfavor"></span>
 				</p>
 			</div>
-			<p class="unames" tapmode onclick="user_login();">
-				登录<!--<label class="level">官方人员</label>-->
+			<p class="unames" tapmode onclick="goLogin();">
+				登录<label class="level">官方人员</label>
 			</p>
 			<div class=" aui-tree aui-text-center aui-text-686868">
 				<div class="aui-col-xs-4">积分<span class="aui-text-FF9800">100</span></div>
@@ -227,16 +227,10 @@
             </ul>
 	    </div>
 	</body>
-	<script type="text/javascript" src="../script/api.js"></script>
-	<script type="text/javascript" src="../script/common.js"></script>
-	<script type="text/javascript" src="../script/zepto.min.js"></script>
+	<script type="text/javascript" src="../../script/api.js"></script>
+	<script type="text/javascript" src="../../script/common.js"></script>
+	<script type="text/javascript" src="../../script/zepto.min.js"></script>
 	<script type="text/javascript">
-	function user_login() {
-			api.openWin({
-				name : 'user_login_frm',
-				url : './user_login_frm.html'
-			});
-		}
 //		Zepto(function($) {
 //			$(".aui-list-view").on("tap", "li", function() {
 //				var funcName = $(this).attr("data-funcName");

@@ -167,25 +167,30 @@
 					<div class="form-row">
 						<span class="aui-iconfont aui-icon-mobilefill">&nbsp;|</span>
 						<div class="input-box">
-							<input type="text" name="phone" value="" placeholder="请输入手机号" />
+							<input type="number" id="tel" name="phone" value="" placeholder="请输入手机号" />
 						</div>
 					</div>
 					<div class="form-row">
 						<span class="aui-iconfont aui-icon-lock">&nbsp;|</span>
 						<div class="input-box">
-							<input type="password" name="phone" value="" placeholder="请输入密码" />
+							<input type="password" id="password" name="phone" value="" placeholder="请输入密码" />
 						</div>
 					</div>
 				</div>
 			</div>
 			<div class="form-btn">
-				<button class="aui-btn aui-btn-ff9800 aui-btn-block" id="login-btn" tapmode onclick="login()">
+				<button class="aui-btn aui-btn-ff9800 aui-btn-block" id="login-btn" tapmode onclick="ensure()">
 					登 录
 				</button>
 			</div>
 			<div class="form-o">
+<<<<<<< HEAD
 				<span tapmode onclick="openWinto();">注册账号</span>
 				<span tapmode  onclick="zhmm();">忘记密码？</span>
+=======
+				<span tapmode onclick="user_reg()">注册账号</span>
+				<span tapmode  onclick="user_zhmm()">忘记密码？</span>
+>>>>>>> 79376240d62683a0b1482d5b4e1fe0b80536944e
 			</div>
 		</div>
 		<div class="form-otherlogin">
@@ -208,6 +213,7 @@
 	<script type="text/javascript" src="../script/api.js"></script>
 	<script type="text/javascript" src="../script/common.js"></script>
 	<script type="text/javascript" src="../script/zepto.min.js"></script>
+	<script type="text/javascript" src="../script/userLogin.js"></script>
 	<script type="text/javascript">
 	
 	function openWinto(){
@@ -225,6 +231,18 @@
 //		Ze
 		login = function(){
 			$api.setStorage('user','1');
+		}
+		function user_reg(){
+		api.openWin({
+	        name: 'user_login_reg',
+	        url: './user_login_reg.html'
+        });
+		}
+		function user_zhmm(){
+		api.openWin({
+	        name: 'user_login_zhmm',
+	        url: './user_login_zhmm.html'
+        });
 		}
 		Zepto(function($) {
 			var bodyH = $("body").height();
