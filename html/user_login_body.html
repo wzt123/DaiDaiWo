@@ -182,8 +182,9 @@
 				</button>
 			</div>
 			<div class="form-o">
-				<span tapmode onclick="user_reg()">注册账号</span>
-				<span tapmode  onclick="user_zhmm()">忘记密码？</span>
+
+				<span tapmode onclick="openWinto();">注册账号</span>
+				<span tapmode  onclick="zhmm();">忘记密码？</span>
 			</div>
 		</div>
 		<div class="form-otherlogin">
@@ -210,6 +211,21 @@
 	<script type="text/javascript">
 		login = function() {
 			$api.setStorage('user', '1');
+	function openWinto(){
+			api.openWin({
+				name : 'reg_head',
+				url : './reg_head.html'
+			});
+		}
+	function zhmm(){
+			api.openWin({
+				name : 'zhmm_head',
+				url : './zhmm_head.html'
+			});
+		}
+//		Ze
+		login = function(){
+			$api.setStorage('user','1');
 		}
 		function user_reg() {
 			api.openWin({
