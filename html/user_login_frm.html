@@ -1,87 +1,51 @@
-<!doctype html>
+<!DOCTYPE HTML>
 <html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
-    <title>会员登录</title>
-    <link rel="stylesheet" type="text/css" href="../css/aui-win.css" />    
-		<link rel="stylesheet" type="text/css" href="../css/aui/aui.css" />
-		<link rel="stylesheet" type="text/css" href="../css/aui/aui.main.css" />
-    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
-</head>
-<style>
-        body{ background-color:#FFFFFF;}
-        .aui-bar-primary { background-color: #00BBA7; color:#000000; font-size:14px;}
-        .aui-bar .aui-iconfont { position: relative; z-index: 20; font-size: 20px; color: #000000; font-size: 400; line-height: 45px;}
-        .aui-title{text-align:center}
-        .form{ width:280px; margin:auto; margin-top:50%;margin-left:10%;}
-        
-        .aui-btn-rows {
-    position:0;
-    text-align: center;
-    padding:0px;
-}
-.aui-btn-success{ font-size:20px; width:280px; height:50%; border:1px solid; margin:auto; border-radius: 25px; background-color:#00C8B8; line-height:45px; color:#FFFFFF; text-align:center; margin-top:60px;}
-.aui-btn-success:hover{ background-color:#00BBA7;}
-.aui-input-addons{ float:right; font-size: 14px; margin-top:20px; color: #999999;}
-.aui-btn-rowss{ width:100%;}
-</style>
-<body>
-        <header class="aui-bar aui-bar-nav aui-bar-primary" id="header">
-        <a class="aui-pull-left">
-            <span class="aui-iconfont aui-icon-left" onClick="gb()"></span>
-        </a>
-        <div class="aui-title">登录</div>
-        </header>
-    
-    
-    <div class="form">
-    <div class="aui-input-row">
-        <label class="aui-input-addon">邮箱</label>
-        <input type="number" class="aui-input" id="email" placeholder="注册邮箱"/>
-    </div>
-    <div class="aui-input-row">
-        <span class="aui-input-addon">密码 </span>
-        <input type="password" class="aui-input" id="password" placeholder="账户密码"/>
-    </div>
-     <div class="aui-btn-rowsss">
-       <span class="aui-input-addons" onClick="zhmm()">忘记密码？？</span>
-    </div>
-    </div>
-    <div class="aui-btn-rows">
-        <div class="aui-btn aui-btn-success" onclick="ensure()">登 陆</div>
-    </div>
-    
-    
-</body>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../css/aui.css" />
+		<link rel="stylesheet" type="text/css" href="../css/common.css" />
+		<style type="text/css">
+			body {
+				background: url(../image/ucenter_bg.png) no-repeat left top;
+				background-size: cover;
+				-webkit-background-size: cover;
+			}
+			#aui-header,.aui-bar,.aui-bar-nav {
+				background: rgba(255,152,0,0.0)!important;
+				color:#FF9800;
+			}
+		</style>
+	</head>
+	<body>
+		<header id='aui-header'></header>
+		<header class="aui-bar aui-bar-nav" id="aui-header">
+			<a class="aui-pull-left"> 
+				<span class="aui-iconfont aui-icon-roundclosefill" style="color:rgba(255,152,0,0.6)!important; font-size: 40px;"  tapmode onclick="api.closeWin();"></span> </a>
+			<div class="aui-title">
+				 
+			</div>
+		</header>
+	</body>
+	<script type="text/javascript" src="../script/api.js"></script>
+	<script type="text/javascript" src="../script/zepto.min.js"></script>
+	<script type="text/javascript">
+		apiready = function() {
+			api.parseTapmode();
+			var header = $api.byId('aui-header');
+	        $api.fixStatusBar(header); 
+	        api.openFrame({
+	            name: 'user_login_body',
+	            url: 'user_login_body.html',
+	            rect: {
+	                x: 0,
+	                y: 40,
+	                w: 'auto',
+	                h: 'auto'
+	            }
+	        });
+		}
+	</script>
 </html>
-<script type="text/javascript" src="../script/api.js"></script>
-<script type="text/javascript" src="../script/common.js"></script>
-<script type="text/javascript" src="../script/userLogin.js"></script>
-
-<script type="text/javascript">
-    apiready = function () {
-            api.parseTapmode();
-        var header = $api.byId('header');
-        $api.fixStatusBar(header); 
-        var headerPos = $api.offset(header);
-        var body_h = $api.offset($api.dom('body')).h;
-    }
-    
-    function gb(){
-     api.closeWin();
-    }
-        
-        //找回密码
-        function zhmm(){
-         api.openWin({
-            name: 'zhmm',
-            url: 'user_login_zhmm.html',
-            animation:{
-            type:"push",                //动画类型（详见动画类型常量）
-            duration:400                //动画过渡时间，默认300毫秒
-                        }
-                });
-    }
-    
-</script>
