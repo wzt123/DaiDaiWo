@@ -49,12 +49,18 @@ function delWord(el) {
 function ensure() {
 	
 	var email = $api.byId('email').value;
+	var tel = $api.byId('tel').value;
 	var uname = $api.byId('userName').value;
 	var pwd = $api.byId('userPwd').value;
 	var pwd2 = $api.byId('userPwd2').value;
 	if (email.length <6) {
 		api.alert({
 			msg : "邮箱格式不对"
+		});
+		return;
+	} else if (tel.length != 11) {
+		api.alert({
+			msg : "请输入正确的手机号"
 		});
 		return;
 	} else if (pwd.length == 0||pwd2.length == 0) {
@@ -86,6 +92,7 @@ function ensure() {
 	});
 	var registerUrl = '/user/';
 	var bodyParam = {
+		tel : tel,
 		username : uname,
 		password : pwd2,
 		email : email
