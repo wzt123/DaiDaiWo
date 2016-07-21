@@ -32,8 +32,8 @@ function loginBtn() {
 function loginOut() {
 
 	var common_url = 'https://d.apicloud.com/mcm/api';
-	var appId = 'A6918265909594';
-	var key = '56003AEF-EF7C-9886-BE07-CB95C2F57BDF';
+	var appId = 'A6913489764881';
+	var key = '7810E5E4-7F54-E1E6-B07F-9ADA6FA49D46';
 	var now = Date.now();
 	var appKey = SHA1(appId + "UZ" + key + "UZ" + now) + "." + now;
 	var logoutUlr = '/user/logout';

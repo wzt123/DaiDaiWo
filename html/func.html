@@ -1,0 +1,123 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../css/api.css" />
+		<link rel="stylesheet" type="text/css" href="../css/aui/aui.min.css" />
+		<style type="text/css">
+		</style>
+	</head>
+	<body>
+		<div class="aui-content">
+			<ul class="aui-list-view" id="funcBtn">
+				<li class="aui-list-view-cell" data-win="list_arrow" data-event="bmapOpen">
+					bMap模块<b>open</b>方法的使用
+				</li>
+				<li class="aui-list-view-cell" data-win="list_thumb" data-event="bmapClose">
+					bMap模块<b>close</b>方法的使用
+				</li>
+				<li class="aui-list-view-cell" data-win="list-image"  data-event="bmapShow">
+					bMap模块<b>show</b>方法的使用
+				</li>
+				<li class="aui-list-view-cell" data-win="list-image"  data-event="bmapHide">
+					bMap模块<b>hide</b>方法的使用
+				</li>
+				<li class="aui-list-view-cell" data-win="list-image"  data-event="bmapGetLocation">
+					bMap模块<b>getLocation</b>方法的使用
+				</li>
+				<li class="aui-list-view-cell" data-win="list-image"  data-event="bmapStopLocation">
+					bMap模块<b>stopLocation</b>方法的使用
+				</li>
+				<li class="aui-list-view-cell" data-win="list-image"  data-event="bmapGetCoordsFromName">
+					bMap模块<b>getCoordsFromName</b>方法的使用
+				</li>
+				<li class="aui-list-view-cell" data-win="list-image"  data-event="bmapGetNameFromCoords">
+					bMap模块<b>getNameFromCoords</b>方法的使用
+				</li>
+				<li class="aui-list-view-cell" data-win="list-image"  data-event="bmapGetDistance">
+					bMap模块<b>getDistance</b>方法的使用
+				</li>
+				<li class="aui-list-view-cell" data-win="list-image"  data-event="bmapShowUserLocation">
+					bMap模块<b>showUserLocation</b>方法的使用
+				</li>
+				<li class="aui-list-view-cell" data-win="list-image"  data-event="bmapSetCenter">
+					bMap模块<b>setCenter</b>方法的使用
+				</li>
+				<li class="aui-list-view-cell" data-win="list-image"  data-event="bmapSetZoomLevel">
+					bMap模块<b>setZoomLevel</b>方法的使用
+				</li>
+				<li class="aui-list-view-cell" data-win="list-image"  data-event="bmapSetMapAttr">
+					bMap模块<b>setMapAttr</b>方法的使用
+				</li>
+				<li class="aui-list-view-cell" data-win="list-image"  data-event="bmapSetRotation">
+					bMap模块<b>setRotation</b>方法的使用
+				</li>
+				<li class="aui-list-view-cell" data-win="list-image"  data-event="bmapSetOverlook">
+					bMap模块<b>setOverlook</b>方法的使用
+				</li>
+				<li class="aui-list-view-cell" data-win="list-image"  data-event="bmapSetScaleBar">
+					bMap模块<b>setScaleBar</b>方法的使用
+				</li>
+				<li class="aui-list-view-cell" data-win="list-image"  data-event="bmapSetCompass">
+					bMap模块<b>setCompass</b>方法的使用
+				</li>
+				<li class="aui-list-view-cell" data-win="list-image"  data-event="bmapSetTraffic">
+					bMap模块<b>setTraffic</b>方法的使用
+				</li>
+				<li class="aui-list-view-cell" data-win="list-image"  data-event="bmapSetHeatMap">
+					bMap模块<b>setHeatMap</b>方法的使用
+				</li>
+				<li class="aui-list-view-cell" data-win="list-image"  data-event="bmapSetBuilding">
+					bMap模块<b>setBuilding</b>方法的使用
+				</li>
+				<li class="aui-list-view-cell" data-win="list-image"  data-event="bmapSetRegion">
+					bMap模块<b>setRegion</b>方法的使用
+				</li>
+				<li class="aui-list-view-cell" data-win="list-image"  data-event="bmapGetRegion">
+					bMap模块<b>getRegion</b>方法的使用
+				</li>
+				<li class="aui-list-view-cell" data-win="list-image"  data-event="bmapTransCoords">
+					bMap模块<b>transCoords</b>方法的使用
+				</li>
+				<li class="aui-list-view-cell" data-win="list-image"  data-event="bmapZoomIn">
+					bMap模块<b>zoomIn</b>方法的使用
+				</li>
+				<li class="aui-list-view-cell" data-win="list-image"  data-event="bmapZoomOut">
+					bMap模块<b>zoomOut</b>方法的使用
+				</li>
+			</ul>
+		</div>
+	</body>
+	<script type="text/javascript" src="../script/api.js"></script>
+	<script type="text/javascript" src="../script/zepto.min.js"></script>
+	<script type="text/javascript">
+		// 向bMap页面发送指定事件
+		function sendEventTobMap(eventName, data) {
+			api.showProgress({
+				style : 'default',
+				animationType : 'fade',
+				title : '努力加载中...',
+				text : '先喝杯茶...',
+				modal : false
+			});
+			data = ( typeof arguments[1] == "undefined" || arguments[1] == null) ? {} : arguments[1];
+			api.sendEvent({
+				name : eventName,
+				extra : data
+			});
+			api.hideProgress();
+		}
+
+		Zepto(function($) {
+			$("#funcBtn li").tap(function() {
+				var eventName = $(this).attr("data-event");
+				sendEventTobMap(eventName);
+			});
+		});
+		apiready = function() {
+		};
+	</script>
+</html>

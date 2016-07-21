@@ -1,0 +1,168 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../css/api.css" />
+		<link rel="stylesheet" type="text/css" href="../css/aui/aui.min.css" />
+		<style type="text/css">
+		</style>
+	</head>
+	<body>
+		<div class="aui-form">
+			<div class="aui-input-row">
+				<label class="aui-input-addon">起始点：</label>
+				<input type="text" class="aui-input" placeholder="请输入起始点" id="start" />
+			</div>
+			<div class="aui-input-row">
+				<span class="aui-input-addon">目的地：</span>
+				<input type="text" class="aui-input" placeholder="请输入起始点" id="end" readonly="readonly" onclick="openCityList();" />
+			</div>
+			<div class="aui-btn-row">
+				<div class="aui-btn aui-btn-success" id="daohan">
+					开始导航
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="../script/api.js"></script>
+	<script type="text/javascript" src="../script/zepto.min.js"></script>
+	<script type="text/javascript">
+		var bMap = null;
+		var baiduNavigation = null;
+		// 打开城市选择
+		function openCityList() {
+			api.openWin({
+				name : 'cityList_win',
+				url : 'cityList_win.html',
+				pageParam : {},
+				vScrollBarEnabled : false,
+				delay : api.systemType == "ios" ? 0 : 300
+			});
+		}
+
+		Zepto(function($) {
+			$("#daohan").tap(function() {
+				var startVal = $("#start").val();
+				var startLat = parseFloat($("#start").attr("data-lat"));
+				var startLon = parseFloat($("#start").attr("data-lon"));
+				var endtVal = $("#end").val();
+				var endLat = parseFloat($("#end").attr("data-lat"));
+				var endLon = parseFloat($("#end").attr("data-lon"));
+				if (startVal != "" && endtVal != "") {
+					api.showProgress({
+						style : 'default',
+						animationType : 'fade',
+						title : '努力加载中...',
+						text : '先喝杯茶...',
+						modal : false
+					});
+					baiduNavigation.start({
+						start : {// 起点信息.
+							position : {// 经纬度，与address配合可为空
+								lon : startLon, // 经度.
+								lat : startLat // 纬度.
+							},
+							title : startVal, // 描述信息
+							address : startVal // 地址信息，与position配合为空
+						},
+						goBy : [],
+						end : {// 终点信息.
+							position : {// 经纬度，与address配合可为空
+								lon : endLon, // 经度
+								lat : endLat // 纬度
+							},
+							title : endtVal, // 描述信息
+							address : endtVal // 地址信息，与position配合为空
+						}
+					}, function(ret, err) {
+						api.hideProgress();
+						if (ret.status) {
+							api.alert({
+								title : "提示",
+								msg : '导航成功'
+							});
+						} else {
+							var msg = "未知错误";
+							if (1 == err.code) {
+								msg = "获取地理位置失败";
+							}
+							if (2 == err.code) {
+								msg = "定位服务未开启";
+							}
+							if (3 == err.code) {
+								msg = "线路取消";
+							}
+							if (4 == err.code) {
+								msg = "退出导航";
+							}
+							if (5 == err.code) {
+								msg = "退出导航声明页面";
+							}
+							api.alert({
+								title : "导航出错",
+								msg : msg
+							});
+						}
+					});
+				} else {
+					api.alert({
+						msg : '地址有误'
+					}, function(ret, err) {
+						//coding...
+					});
+				}
+			});
+		});
+		apiready = function() {
+			bMap = api.require('bMap');
+			baiduNavigation = api.require('baiduNavigation');
+			api.showProgress({
+				style : 'default',
+				animationType : 'fade',
+				title : '努力加载中...',
+				text : '先喝杯茶...',
+				modal : false
+			});
+			// 获取当前位置
+			bMap.getLocation({
+				accuracy : '10m',
+				autoStop : true,
+				filter : 1
+			}, function(ret, err) {
+				if (ret.status) {
+					bMap.getNameFromCoords({
+						lon : ret.lon,
+						lat : ret.lat
+					}, function(ret, err) {
+						if (ret.status) {
+							var _lon = ret.lon;
+							var _lat = ret.lat;
+							var _address = ret.address;
+							$("#start").attr({
+								"data-lat" : _lat,
+								"data-lon" : _lon
+							}).val(_address);
+						}
+					});
+				} else {
+					alert(err.code);
+				}
+				api.hideProgress();
+			});
+			api.addEventListener({
+				name : 'endAddrEvent'
+			}, function(ret) {
+				if (ret && ret.value) {
+					var obj = ret.value;
+					$("#end").attr({
+						"data-lat" : obj.lat,
+						"data-lon" : obj.lon
+					}).val(obj.city + obj.address);
+				}
+			});
+		};
+	</script>
+</html>

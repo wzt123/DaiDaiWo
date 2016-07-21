@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<widget id="A6918265909594" version="0.0.1"> 
+<widget id="A6913489764881" version="0.0.1"> 
   <name>带带我</name>  
   <description/>  
   <author email="1650208026@qq.com" href="http://www.apicloud.com">我爱我窝火爆</author>  
@@ -17,7 +17,11 @@
   <permission name="internet"/>  
   <access origin="*"/>  
   <feature name="bMap"> 
-    <param name="android_api_key" value="TKRsjax7GqUtLYNHvyN4eepFiUza0vl4"/>  
-    <param name="ios_api_key" value="OPCOuD9YD0HaV10OdSH4MpwTFPpl6UHy "/> 
+    <param name="android_api_key" value="DuefdR9q8nVAGCgRhYjujLp6uGSNPBGB"/>  
+    <param name="ios_api_key" value="AeCB2pEeu4uNL5Io3GsT5OyZFzllGGZH"/> 
+  </feature>  
+  <feature name="baiduNavigation"> 
+    <param name="android_api_key " value="DuefdR9q8nVAGCgRhYjujLp6uGSNPBGB"/>  
+    <param name="ios_api_key " value="AeCB2pEeu4uNL5Io3GsT5OyZFzllGGZH"/> 
   </feature> 
 </widget>
