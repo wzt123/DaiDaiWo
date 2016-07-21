@@ -7,14 +7,20 @@
     <meta name="format-detection" content="address=no" />
     <title>api</title>
     <link rel="stylesheet" type="text/css" href="../css/api.css" />
-    <link rel="stylesheet" type="text/css" href="../css/common.css" />
     <link rel="stylesheet" type="text/css" href="../css/modifyPwd.css" />
+    <link rel="stylesheet" type="text/css" href="../css/common.css" />
+    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+    <style type="text/css">
+		.aui-bar-nav {text-align: center;color:#6ab494;background-color: #f2f2f2;}
+	</style>
 </head>
 <body>
     <div id="wrap">
-        <div id="header">
-            <a class="back-icon" tapmode="" onclick="api.closeWin()"></a>
-            <h1>修改密码</h1>
+        <div id="header" class='aui-bar aui-bar-nav aui-bar-warning'>
+            <a class="aui-pull-left" tapmode onclick="api.closeWin();"> <span class="aui-iconfont aui-icon-left"></span>返回 </a>
+			<div class="aui-title">
+				修改密码
+			</div>
         </div>
         <div id="main">
             <div class="input-wrap">
