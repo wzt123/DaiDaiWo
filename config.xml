@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <widget id="A6918265909594" version="0.0.1"> 
-  <name>Cai</name>  
+  <name>带带我</name>  
   <description/>  
   <author email="1650208026@qq.com" href="http://www.apicloud.com">我爱我窝火爆</author>  
   <content src="index.html"/>  
@@ -19,11 +19,5 @@
   <feature name="bMap"> 
     <param name="android_api_key" value="TKRsjax7GqUtLYNHvyN4eepFiUza0vl4"/>  
     <param name="ios_api_key" value="OPCOuD9YD0HaV10OdSH4MpwTFPpl6UHy "/> 
-  </feature>  
-  <feature name="smsVerify"> 
-    <param name="android_app_key" value="152c5bee60a72"/>  
-    <param name="android_app_secret" value="b0547c4ccd0aed3dda3c1f536c9050e1"/>  
-    <param name="ios_app_key" value="152c670453b0d"/>  
-    <param name="ios_app_secret" value="e0cc37d46e683f638faf461b3d5fc513"/> 
   </feature> 
 </widget>

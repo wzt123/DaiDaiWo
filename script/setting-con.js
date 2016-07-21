@@ -55,10 +55,12 @@ function loginOut() {
 	}, function(ret, err) {
 		if (ret) {
 			$api.clearStorage();
-//			api.execScript({
-//				name : 'root',
-//				script : 'openTab("main");'
-//			});
+			api.sendEvent({
+				name : 'reg_loginout_successEvent',
+				extra : {
+					key : true
+				}
+			});
 			setTimeout(function() {
 				api.closeWin();
 			}, 100);
@@ -95,6 +97,7 @@ function openAbout() {
 		url : './about.html'
 	});
 }
+
 function init() {
 	api.showProgress({
 		title : '加载中...',
@@ -126,4 +129,4 @@ function init() {
 
 apiready = function() {
 	init();
-}; 
+};
