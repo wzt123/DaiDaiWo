@@ -1,16 +1,51 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
-    <title>我要去买菜</title>
-    <link rel="stylesheet" type="text/css" href="../css/api.css"/>
-    <link rel="stylesheet" type="text/css" href="../css/style.css"/>
-    <style>
-        .empty{ text-align: center; padding: 120px 0; }
-    </style>
+    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=0, width=device-width"/>
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="address=no" />
+    <title>api</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/common.css" />
+    <link rel="stylesheet" type="text/css" href="../css/setting.css" />
 </head>
 <body>
-    <div class="empty">我要去买菜</div>
+    <div id="wrap">
+        <div id="header">
+            <a class="back-icon" tapmode="" onclick="api.closeWin();"></a>
+            <h1>附近的请求</h1>
+        </div>
+        <div id="" onclick="goMap()">
+                去地图上
+        </div>
+    </div>
 </body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" >
+function goMap(){
+api.openWin({
+	name: 'map_index',
+	url: './map_index.html'
+});
+}
+apiready = function(){
+//  var header = $api.byId('header');
+//  $api.fixIos7Bar(header);
+//  
+//  var pos = $api.offset(header);
+//  api.openFrame({
+//      name: 'bMap',
+//      url: './bmap.html',
+//      rect:{
+//          x: 0,
+//          y: pos.h,
+//          w: 'auto',
+//          h: 'auto'
+//      },
+//      bounces: true,
+//      vScrollBarEnabled: false
+//  });
+};
+</script>
 </html>

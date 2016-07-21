@@ -1,0 +1,109 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../css/api.css" />
+		<link rel="stylesheet" type="text/css" href="../css/aui/aui.min.css" />
+		<style type="text/css">
+		</style>
+	</head>
+	<body>
+		<div class="aui-form">
+			<div class="aui-input-row">
+				<span class="aui-input-addon">当前城市：</span>
+				<input type="text" class="aui-input" placeholder="请输入起始点" id="city" readonly="readonly" />
+			</div>
+			<div class="aui-input-row">
+				<span class="aui-input-addon">关键字词：</span>
+				<input type="text" class="aui-input" placeholder="请输入起始点" id="keyword"  />
+			</div>
+			<div class="aui-btn-row">
+				<div class="aui-btn aui-btn-success" id="seachAddr">
+					搜索地址
+				</div>
+			</div>
+		</div>
+		<div class="aui-content">
+			<ul class="aui-list-view" id="result"></ul>
+		</div>
+	</body>
+	<script type="text/javascript" src="../script/api.js"></script>
+	<script type="text/javascript" src="../script/zepto.min.js"></script>
+	<script type="text/javascript">
+		var city = "";
+		Zepto(function($) {
+			$("#seachAddr").tap(function() {
+				var keyword = $.trim($("#keyword").val());
+				if (keyword != "") {
+					api.showProgress({
+						style : 'default',
+						animationType : 'fade',
+						title : '努力加载中...',
+						text : '先喝杯茶...',
+						modal : false
+					});
+					api.ajax({
+						url : 'http://api.map.baidu.com/place/v2/suggestion?query=' + keyword + '&region=' + city + '&output=json&ak=ikGXsc4Sdbmm6OZ73qvEMuoO',
+						method : 'get',
+						timeout : 30,
+						dataType : 'json',
+						returnAll : false,
+						data : {
+						}
+					}, function(ret, err) {
+						if (ret) {
+							var resultList = ret.result;
+							var _html = "";
+							for (var i = 0; i < resultList.length; i++) {
+								_html += "<li class='aui-list-view-cell' data-win='list_arrow' data-lat='" + resultList[i].location.lat + "' data-lng='" + resultList[i].location.lng + "'>" + resultList[i].name + "</li>";
+							}
+							$("#result").html(_html);
+						} else {
+							api.alert({
+								msg : ('错误码：' + err.code + '；错误信息：' + err.msg + '网络状态码：' + err.statusCode)
+							});
+						}
+						api.hideProgress();
+					});
+				} else {
+					api.alert({
+						msg : '请输入关键字'
+					}, function(ret, err) {
+						//coding...
+					});
+				}
+			});
+			$("#result").on("tap", "li", function() {
+				var _addr = $(this).text();
+				var _lat = $(this).attr("data-lat");
+				var _lon = $(this).attr("data-lng");
+				api.sendEvent({
+					name : 'endAddrEvent',
+					extra : {
+						address : _addr,
+						lat : _lat,
+						lon : _lon,
+						city : city
+					}
+				});
+				setTimeout(function() {
+					api.closeToWin({
+						name : 'navigation_win',
+						animation : {
+							type : "none",
+							subType : "from_right",
+							duration : 300
+						}
+					});
+				}, 500);
+			});
+		});
+		apiready = function() {
+			city = api.pageParam.city;
+			$("#city").val(city);
+		};
+	</script>
+</html>
