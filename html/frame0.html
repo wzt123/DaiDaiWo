@@ -106,37 +106,37 @@
             <div class="aui-flex-item-9">
                 <ul class="aui-list-view demo-box aui-text-center" style="margin-bottom: 0;">
                     
-                    <li class="aui-list-view-cells aui-img aui-col-xs-6" tapmode onclick="openGoods()">
+                    <li class="aui-list-view-cells aui-img aui-col-xs-6" tapmode onclick="openyeGoods()">
 		                <img class="aui-img-object" src="../image/pic.jpg" data-echo="../image/pic.jpg">
 		                    <p>
 		                        <span class="goods-price aui-money">叶菜类</span>
 		                    </p>
 		            </li>
-		            <li class="aui-list-view-cells aui-img aui-col-xs-6" tapmode onclick="openGoods()">
+		            <li class="aui-list-view-cells aui-img aui-col-xs-6" tapmode onclick="opengenGoods()">
 		                <img class="aui-img-object" src="../image/pic.jpg" data-echo="../image/pic.jpg">
 		                    <p>
 		                        <span class="goods-price aui-money">根茎类</span>
 		                    </p>
 		            </li>
-		            <li class="aui-list-view-cells aui-img aui-col-xs-6" tapmode onclick="openGoods()">
+		            <li class="aui-list-view-cells aui-img aui-col-xs-6" tapmode onclick="openjunGoods()">
 		                <img class="aui-img-object" src="../image/pic.jpg" data-echo="../image/pic.jpg">
 		                    <p>
 		                        <span class="goods-price aui-money">菌类</span>
 		                    </p>
 		            </li>
-		            <li class="aui-list-view-cells aui-img aui-col-xs-6" tapmode onclick="openGoods()">
+		            <li class="aui-list-view-cells aui-img aui-col-xs-6" tapmode onclick="openguoGoods()">
 		                <img class="aui-img-object" src="../image/pic.jpg" data-echo="../image/pic.jpg">
 		                    <p>
 		                        <span class="goods-price aui-money">果菜类</span>
 		                    </p>
 		            </li>
-		            <li class="aui-list-view-cells aui-img aui-col-xs-6" tapmode onclick="openGoods()">
+		            <li class="aui-list-view-cells aui-img aui-col-xs-6" tapmode onclick="openhuaGoods()">
 		                <img class="aui-img-object" src="../image/pic.jpg" data-echo="../image/pic.jpg">
 		                    <p>
 		                        <span class="goods-price aui-money">花菜类</span>
 		                    </p>
 		            </li>
-		            <li class="aui-list-view-cells aui-img aui-col-xs-6" tapmode onclick="openGoods()">
+		            <li class="aui-list-view-cells aui-img aui-col-xs-6" tapmode onclick="openyaGoods()">
 		                <img class="aui-img-object" src="../image/pic.jpg" data-echo="../image/pic.jpg">
 		                    <p>
 		                        <span class="goods-price aui-money">芽苗类</span>
@@ -153,10 +153,40 @@
 	<script type="text/javascript" src="../script/zepto.min.js"></script>
 	<script type="text/javascript" src="../script/echo.min.js"></script>
 	<script type="text/javascript">	
-		function openGoods() {
+		function openyeGoods() {
 			api.openWin({
-				name : 'shopcar_body',
-				url : './shopcar_body.html'
+				name : 'shopcar_body1',
+				url : './shopcar_body1.html'
+			});
+		}
+		function opengenGoods() {
+			api.openWin({
+				name : 'shopcar_body2',
+				url : './shopcar_body2.html'
+			});
+		}
+		function openjunGoods() {
+			api.openWin({
+				name : 'shopcar_body3',
+				url : './shopcar_body3.html'
+			});
+		}
+		function openguoGoods() {
+			api.openWin({
+				name : 'shopcar_body4',
+				url : './shopcar_body4.html'
+			});
+		}
+		function openhuaGoods() {
+			api.openWin({
+				name : 'shopcar_body5',
+				url : './shopcar_body5.html'
+			});
+		}
+		function openyaGoods() {
+			api.openWin({
+				name : 'shopcar_body6',
+				url : './shopcar_body6.html'
 			});
 		}
 		Zepto(function() {
