@@ -13,13 +13,24 @@ function delWord(el) {
 //}
 
 function ensure() {
+	
+	var email = $api.byId('email').value;
+	var pwd = $api.byId('password').value;
+	if (email.length == 0) {
+		api.alert({
+			msg : "手机号不能为空"
+		});
+		return
+	} else if (pwd.length == 0) {
+		api.alert({
+			msg : "密码不能为空"
+		});
+		return
+	}
 	api.showProgress({
 		title : '正在登录...',
 		modal : false
 	});
-	var email = $api.byId('email').value;
-	var pwd = $api.byId('password').value;
-
 	var loginUlr = '/user/login';
 	var bodyParam = {
 		email : email,
@@ -54,7 +65,7 @@ function ensure() {
 			});
 		} else {
 			api.alert({
-				msg : err.msg
+				msg : "手机号或密码错误"
 			});
 		}
 		api.hideProgress();

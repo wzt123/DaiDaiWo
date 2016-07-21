@@ -156,7 +156,7 @@
 			}
 		</style>
 	</head>
-	<body>
+	<body onload="refresh()">
 		<div class="user-allinfo">
 			<div class="img-container">
 				<img src="../image/pic.jpg" />
@@ -321,6 +321,10 @@
 			}
 		}
 
+		function refresh(){
+		document.execCommand('Refresh');
+		}
+		
 		apiready = function(){
 			//			var islogin = $api.getStorage('islogin');
 			//			if (islogin) {
@@ -328,6 +332,14 @@
 			//				logined.innerHTML = $api.getStorage('username');
 			//			}
 			init();
+			api.addEventListener({
+	        name:'reg_login_successEvent'
+        },function(ret,err){
+        	if(ret)
+        	{
+        	init();
+        	}
+        });
 			api.parseTapmode();
 			//doLogin('../login/login_head');
 		}
