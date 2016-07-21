@@ -291,8 +291,8 @@
 		function init() {
 			islogin = $api.getStorage('islogin');
 			if (islogin) {
-			var requestLogin = $api.byId('requestLogin');
-			requestLogin.innerHTML = "";
+				var requestLogin = $api.byId('requestLogin');
+				requestLogin.innerHTML = "";
 				api.showProgress({
 					title : '加载中...',
 					modal : false
@@ -321,11 +321,11 @@
 			}
 		}
 
-		function refresh(){
-		document.execCommand('Refresh');
+		function refresh() {
+			document.execCommand('Refresh');
 		}
-		
-		apiready = function(){
+
+		apiready = function() {
 			//			var islogin = $api.getStorage('islogin');
 			//			if (islogin) {
 			//				var logined = $api.byId('login');
@@ -333,13 +333,28 @@
 			//			}
 			init();
 			api.addEventListener({
-	        name:'reg_login_successEvent'
-        },function(ret,err){
-        	if(ret)
-        	{
-        	init();
-        	}
-        });
+				name : 'reg_login_successEvent'
+			}, function(ret, err) {
+				if (ret) {
+					init();
+				}
+			});
+			api.addEventListener({
+				name : 'reg_loginout_successEvent'
+			}, function(ret, err) {
+				if (ret) {
+					var requestLogin2 = $api.byId('requestLogin');
+					requestLogin2.innerHTML = "登录";
+					var includ = {
+						username : "",
+						email : ""
+					}
+					var inclu = $api.byId('inclu');
+					var tpl = $api.byId('login').text;
+					var tempFn = doT.template(tpl);
+					inclu.innerHTML = tempFn(includ);
+				}
+			});
 			api.parseTapmode();
 			//doLogin('../login/login_head');
 		}

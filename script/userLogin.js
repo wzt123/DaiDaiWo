@@ -3,15 +3,6 @@ function delWord(el) {
 	input.value = '';
 }
 
-//function login() {
-//  api.openWin({
-//      name: 'user_login_reg',
-//      url: 'user_login_reg.html',
-//      opaque: true,
-//      vScrollBarEnabled: false
-//  });
-//}
-
 function ensure() {
 	
 	var email = $api.byId('email').value;
@@ -46,18 +37,17 @@ function ensure() {
 			setTimeout(function() {
 				api.closeWin();
 			}, 100);
-			//			var request = '/user/userId'
-			//			var bodyP = {userId:usrId}
-			var userId = ret.userId;
-			api.alert({
-				msg : "登录成功"
-			}, function(ret, err) {
-				api.sendEvent({
+			api.sendEvent({
 					name : 'reg_login_successEvent',
 					extra : {
 						key : true
 					}
 				});
+			var userId = ret.userId;
+			api.alert({
+				msg : "登录成功"
+			}, function(ret, err) {
+				
 				// 回到首页
 				api.closeToWin({
 					name : 'root'
