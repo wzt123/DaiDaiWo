@@ -39,7 +39,7 @@
 		<header class="aui-bar aui-bar-nav aui-bar-warning" id='aui-header'>
 			<a class="aui-pull-left" tapmode onclick="api.closeWin();"> <span class="aui-iconfont aui-icon-left"></span>返回 </a>
 			<div class="aui-title">
-				今日菜价
+				购物车
 			</div>
 		</header>
 	</body>
@@ -54,8 +54,8 @@
 	        var headerPos = $api.offset(header);
     		var body_h = $api.offset($api.dom('body')).h;
 	        api.openFrame({
-	            name: 'priceframe',
-	            url: 'priceframe.html',
+	            name: 'carbody',
+	            url: 'carbody.html',
 	            rect: {
 	                x: 0,
 	                y: headerPos.h,
