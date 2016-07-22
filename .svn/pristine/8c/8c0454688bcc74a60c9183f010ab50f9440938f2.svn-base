@@ -1,0 +1,771 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../css/api.css" />
+		<link rel="stylesheet" type="text/css" href="../css/aui/aui.min.css" />
+		<style type="text/css">
+		</style>
+	</head>
+	<body>
+		这里是百度显示地图的模块
+	</body>
+	<script type="text/javascript" src="../script/api.js"></script>
+	<script type="text/javascript" src="../script/zepto.min.js"></script>
+	<script type="text/javascript">
+		var bMap = null;
+		// 监听来自func页面的事件
+		function addEventListenerFromFunc(eventName, callback) {
+			api.addEventListener({
+				name : eventName
+			}, function(ret) {
+				if (ret && ret.value) {
+					var obj = ret.value;
+					if ( typeof callback == "function") {
+						callback(obj);
+					}
+				}
+			});
+		}
+
+		apiready = function() {
+			bMap = api.require('bMap');
+			// ########################################### 功能实战 ###################################
+			// open 方法的使用
+			addEventListenerFromFunc("bmapOpen", function(ret) {
+				bMap.open({
+					rect : {
+						x : 0,
+						y : 0,
+						w : api.frameWidth,
+						h : api.frameHeight
+					},
+					center : {
+						lon : 116.4021310000,
+						lat : 39.9994480000
+					},
+					zoomLevel : 10,
+					showUserLocation : true,
+					fixedOn : 'bmap', // 别忘了设置这个
+					fixed : true
+				}, function(ret) {
+					if (ret.status) {
+						api.alert({
+							msg : 'open方法执行成功！'
+						}, function(ret, err) {
+						});
+					}
+				});
+			});
+			// close 方法的使用
+			addEventListenerFromFunc("bmapClose", function(ret) {
+				bMap.close();
+				api.alert({
+					msg : 'close方法执行成功！'
+				}, function(ret, err) {
+				});
+			});
+			// show 方法的使用
+			addEventListenerFromFunc("bmapShow", function(ret) {
+				bMap.show();
+				api.alert({
+					msg : 'show方法执行成功！'
+				}, function(ret, err) {
+				});
+			});
+			// hide 方法的使用
+			addEventListenerFromFunc("bmapHide", function(ret) {
+				bMap.hide();
+				api.alert({
+					msg : 'hide方法执行成功！'
+				}, function(ret, err) {
+				});
+			});
+			// getLocation 方法的使用
+			addEventListenerFromFunc("bmapGetLocation", function(ret) {
+				bMap.getLocation({
+					accuracy : '100m',
+					autoStop : true,
+					filter : 1
+				}, function(ret, err) {
+					if (ret.status) {
+						alert(JSON.stringify(ret));
+						api.alert({
+							msg : 'getLocation方法执行成功！'
+						}, function(ret, err) {
+						});
+					} else {
+						alert(err.code);
+					}
+				});
+			});
+			// stopLocation 方法的使用
+			addEventListenerFromFunc("bmapStopLocation", function(ret) {
+				bMap.stopLocation();
+				api.alert({
+					msg : 'stopLocation方法执行成功！'
+				}, function(ret, err) {
+				});
+			});
+			// getCoordsFromName 方法的使用
+			addEventListenerFromFunc("bmapGetCoordsFromName", function(ret) {
+				bMap.getCoordsFromName({
+					city : '北京',
+					address : '天安门'
+				}, function(ret, err) {
+					if (ret.status) {
+						alert(JSON.stringify(ret));
+						api.alert({
+							msg : 'getCoordsFromName方法执行成功！'
+						}, function(ret, err) {
+						});
+					}
+				});
+			});
+			// getNameFromCoords 方法的使用
+			addEventListenerFromFunc("bmapGetNameFromCoords", function(ret) {
+				bMap.getLocation({
+					accuracy : '10m',
+					autoStop : true,
+					filter : 1
+				}, function(ret, err) {
+					if (ret.status) {
+						bMap.getNameFromCoords({
+							lon : ret.lon,
+							lat : ret.lat
+						}, function(ret, err) {
+							if (ret.status) {
+								alert(JSON.stringify(ret));
+								api.alert({
+									msg : 'getNameFromCoords方法执行成功！'
+								}, function(ret, err) {
+								});
+							}
+						});
+					} else {
+						alert(err.code);
+					}
+				});
+			});
+			// getDistance 方法的使用
+			addEventListenerFromFunc("bmapGetDistance", function(ret) {
+				bMap.getLocation({
+					accuracy : '10m',
+					autoStop : true,
+					filter : 1
+				}, function(ret, err) {
+					if (ret.status) {
+						// 北京天安门经度纬度：116.404015  39.912733
+						bMap.getDistance({
+							start : {
+								lon : ret.lon,
+								lat : ret.lat
+							},
+							end : {
+								lon : 116.404015,
+								lat : 39.912733
+							}
+						}, function(ret) {
+							if (ret.status) {
+								alert("你距离北京天安门有：" + ret.distance + "米");
+								api.alert({
+									msg : 'getDistance方法执行成功！'
+								}, function(ret, err) {
+								});
+							}
+						});
+					} else {
+						alert(err.code);
+					}
+				});
+			});
+			// showUserLocation 方法的使用
+			addEventListenerFromFunc("bmapShowUserLocation", function(ret) {
+				bMap.close();
+				bMap.getLocation({
+					accuracy : '10m',
+					autoStop : true,
+					filter : 1
+				}, function(ret, err) {
+					if (ret.status) {
+						bMap.open({
+							rect : {
+								x : 0,
+								y : 0,
+								w : api.frameWidth,
+								h : api.frameHeight
+							},
+							center : {
+								lon : ret.lon,
+								lat : ret.lat
+							},
+							zoomLevel : 10,
+							showUserLocation : true,
+							fixedOn : 'bmap', // 别忘了设置这个
+							fixed : true
+						}, function(ret) {
+							if (ret.status) {
+								bMap.showUserLocation({
+									isShow : true,
+									trackingMode : 'none'
+								});
+							}
+						});
+					} else {
+						alert(err.code);
+					}
+				});
+			});
+			// setCenter 方法的使用
+			addEventListenerFromFunc("bmapSetCenter", function(ret) {
+				bMap.close();
+				bMap.getLocation({
+					accuracy : '10m',
+					autoStop : true,
+					filter : 1
+				}, function(ret, err) {
+					if (ret.status) {
+						bMap.open({
+							rect : {
+								x : 0,
+								y : 0,
+								w : api.frameWidth,
+								h : api.frameHeight
+							},
+							center : {
+								lon : ret.lon,
+								lat : ret.lat
+							},
+							zoomLevel : 10,
+							showUserLocation : true,
+							fixedOn : 'bmap', // 别忘了设置这个
+							fixed : true
+						}, function(ret) {
+							if (ret.status) {
+								setTimeout(function() {
+									// 北京天安门经度纬度：116.404015  39.912733
+									bMap.setCenter({
+										coords : {
+											lon : 116.404015,
+											lat : 39.912733
+										},
+										animation : true
+									});
+								}, 1000);
+							}
+						});
+					} else {
+						alert(err.code);
+					}
+				});
+			});
+			// setZoomLevel 方法的使用
+			addEventListenerFromFunc("bmapSetZoomLevel", function(ret) {
+				bMap.close();
+				bMap.getLocation({
+					accuracy : '10m',
+					autoStop : true,
+					filter : 1
+				}, function(ret, err) {
+					if (ret.status) {
+						bMap.open({
+							rect : {
+								x : 0,
+								y : 0,
+								w : api.frameWidth,
+								h : api.frameHeight
+							},
+							center : {
+								lon : ret.lon,
+								lat : ret.lat
+							},
+							zoomLevel : 10,
+							showUserLocation : true,
+							fixedOn : 'bmap', // 别忘了设置这个
+							fixed : true
+						}, function(ret) {
+							if (ret.status) {
+								setTimeout(function() {
+									bMap.setZoomLevel({
+										level : 18
+									});
+								}, 1000);
+							}
+						});
+					} else {
+						alert(err.code);
+					}
+				});
+			});
+			// setMapAttr 方法的使用
+			addEventListenerFromFunc("bmapSetMapAttr", function(ret) {
+				bMap.close();
+				bMap.getLocation({
+					accuracy : '10m',
+					autoStop : true,
+					filter : 1
+				}, function(ret, err) {
+					if (ret.status) {
+						bMap.open({
+							rect : {
+								x : 0,
+								y : 0,
+								w : api.frameWidth,
+								h : api.frameHeight
+							},
+							center : {
+								lon : ret.lon,
+								lat : ret.lat
+							},
+							zoomLevel : 10,
+							showUserLocation : true,
+							fixedOn : 'bmap', // 别忘了设置这个
+							fixed : true
+						}, function(ret) {
+							if (ret.status) {
+								setTimeout(function() {
+									bMap.setMapAttr({
+										type : 'satellite'
+									});
+								}, 1000);
+							}
+						});
+					} else {
+						alert(err.code);
+					}
+				});
+			});
+			// setRotation 方法的使用
+			addEventListenerFromFunc("bmapSetRotation", function(ret) {
+				bMap.close();
+				bMap.getLocation({
+					accuracy : '10m',
+					autoStop : true,
+					filter : 1
+				}, function(ret, err) {
+					if (ret.status) {
+						bMap.open({
+							rect : {
+								x : 0,
+								y : 0,
+								w : api.frameWidth,
+								h : api.frameHeight
+							},
+							center : {
+								lon : ret.lon,
+								lat : ret.lat
+							},
+							zoomLevel : 10,
+							showUserLocation : true,
+							fixedOn : 'bmap', // 别忘了设置这个
+							fixed : true
+						}, function(ret) {
+							if (ret.status) {
+								setTimeout(function() {
+									bMap.setRotation({
+										degree : 90
+									});
+								}, 1000);
+							}
+						});
+					} else {
+						alert(err.code);
+					}
+				});
+			});
+			// setOverlook 方法的使用
+			addEventListenerFromFunc("bmapSetOverlook", function(ret) {
+				bMap.close();
+				bMap.getLocation({
+					accuracy : '10m',
+					autoStop : true,
+					filter : 1
+				}, function(ret, err) {
+					if (ret.status) {
+						bMap.open({
+							rect : {
+								x : 0,
+								y : 0,
+								w : api.frameWidth,
+								h : api.frameHeight
+							},
+							center : {
+								lon : ret.lon,
+								lat : ret.lat
+							},
+							zoomLevel : 10,
+							showUserLocation : true,
+							fixedOn : 'bmap', // 别忘了设置这个
+							fixed : true
+						}, function(ret) {
+							if (ret.status) {
+								setTimeout(function() {
+									bMap.setOverlook({
+										degree : -45
+									});
+								}, 1000);
+							}
+						});
+					} else {
+						alert(err.code);
+					}
+				});
+			});
+			// setScaleBar 方法的使用
+			addEventListenerFromFunc("bmapSetScaleBar", function(ret) {
+				bMap.close();
+				bMap.getLocation({
+					accuracy : '10m',
+					autoStop : true,
+					filter : 1
+				}, function(ret, err) {
+					if (ret.status) {
+						bMap.open({
+							rect : {
+								x : 0,
+								y : 0,
+								w : api.frameWidth,
+								h : api.frameHeight
+							},
+							center : {
+								lon : ret.lon,
+								lat : ret.lat
+							},
+							zoomLevel : 10,
+							showUserLocation : true,
+							fixedOn : 'bmap', // 别忘了设置这个
+							fixed : true
+						}, function(ret) {
+							if (ret.status) {
+								setTimeout(function() {
+									bMap.setScaleBar({
+										show : true,
+										position : {
+											x : 100,
+											y : 100
+										}
+									});
+								}, 1000);
+							}
+						});
+					} else {
+						alert(err.code);
+					}
+				});
+			});
+			// setCompass 方法的使用
+			addEventListenerFromFunc("bmapSetCompass", function(ret) {
+				bMap.close();
+				bMap.getLocation({
+					accuracy : '10m',
+					autoStop : true,
+					filter : 1
+				}, function(ret, err) {
+					if (ret.status) {
+						bMap.open({
+							rect : {
+								x : 0,
+								y : 0,
+								w : api.frameWidth,
+								h : api.frameHeight
+							},
+							center : {
+								lon : ret.lon,
+								lat : ret.lat
+							},
+							zoomLevel : 10,
+							showUserLocation : true,
+							fixedOn : 'bmap', // 别忘了设置这个
+							fixed : true
+						}, function(ret) {
+							if (ret.status) {
+								setTimeout(function() {
+									bMap.setCompass({
+										position : {
+											x : 100,
+											y : 100
+										}
+									});
+								}, 1000);
+							}
+						});
+					} else {
+						alert(err.code);
+					}
+				});
+			});
+			// setTraffic 方法的使用
+			addEventListenerFromFunc("bmapSetTraffic", function(ret) {
+				bMap.close();
+				bMap.getLocation({
+					accuracy : '10m',
+					autoStop : true,
+					filter : 1
+				}, function(ret, err) {
+					if (ret.status) {
+						bMap.open({
+							rect : {
+								x : 0,
+								y : 0,
+								w : api.frameWidth,
+								h : api.frameHeight
+							},
+							center : {
+								lon : ret.lon,
+								lat : ret.lat
+							},
+							zoomLevel : 10,
+							showUserLocation : true,
+							fixedOn : 'bmap', // 别忘了设置这个
+							fixed : true
+						}, function(ret) {
+							if (ret.status) {
+								setTimeout(function() {
+									bMap.setTraffic({
+										traffic : true
+									});
+								}, 1000);
+							}
+						});
+					} else {
+						alert(err.code);
+					}
+				});
+			});
+			// setHeatMap 方法的使用
+			addEventListenerFromFunc("bmapSetHeatMap", function(ret) {
+				bMap.close();
+				bMap.getLocation({
+					accuracy : '10m',
+					autoStop : true,
+					filter : 1
+				}, function(ret, err) {
+					if (ret.status) {
+						bMap.open({
+							rect : {
+								x : 0,
+								y : 0,
+								w : api.frameWidth,
+								h : api.frameHeight
+							},
+							center : {
+								lon : ret.lon,
+								lat : ret.lat
+							},
+							zoomLevel : 10,
+							showUserLocation : true,
+							fixedOn : 'bmap', // 别忘了设置这个
+							fixed : true
+						}, function(ret) {
+							if (ret.status) {
+								setTimeout(function() {
+									bMap.setHeatMap({
+										heatMap : true
+									});
+								}, 1000);
+							}
+						});
+					} else {
+						alert(err.code);
+					}
+				});
+			});
+			// setBuilding 方法的使用
+			addEventListenerFromFunc("bmapSetBuilding", function(ret) {
+				bMap.close();
+				bMap.getLocation({
+					accuracy : '10m',
+					autoStop : true,
+					filter : 1
+				}, function(ret, err) {
+					if (ret.status) {
+						bMap.open({
+							rect : {
+								x : 0,
+								y : 0,
+								w : api.frameWidth,
+								h : api.frameHeight
+							},
+							center : {
+								lon : ret.lon,
+								lat : ret.lat
+							},
+							zoomLevel : 10,
+							showUserLocation : true,
+							fixedOn : 'bmap', // 别忘了设置这个
+							fixed : true
+						}, function(ret) {
+							if (ret.status) {
+								setTimeout(function() {
+									bMap.setBuilding({
+										building : true
+									});
+								}, 1000);
+							}
+						});
+					} else {
+						alert(err.code);
+					}
+				});
+			});
+			// setRegion 方法的使用
+			addEventListenerFromFunc("bmapSetRegion", function(ret) {
+				bMap.close();
+				bMap.getLocation({
+					accuracy : '10m',
+					autoStop : true,
+					filter : 1
+				}, function(ret, err) {
+					if (ret.status) {
+						bMap.open({
+							rect : {
+								x : 0,
+								y : 0,
+								w : api.frameWidth,
+								h : api.frameHeight
+							},
+							center : {
+								lon : ret.lon,
+								lat : ret.lat
+							},
+							zoomLevel : 10,
+							showUserLocation : true,
+							fixedOn : 'bmap', // 别忘了设置这个
+							fixed : true
+						}, function(ret) {
+							if (ret.status) {
+								setTimeout(function() {
+									bMap.setRegion({
+										lbLon : 116.027143,
+										lbLat : 39.772348,
+										rtLon : 116.832025,
+										rtLat : 40.126349,
+										animation : true
+									});
+								}, 1000);
+							}
+						});
+					} else {
+						alert(err.code);
+					}
+				});
+			});
+			// getRegion 方法的使用
+			addEventListenerFromFunc("bmapGetRegion", function(ret) {
+				bMap.close();
+				bMap.getLocation({
+					accuracy : '10m',
+					autoStop : true,
+					filter : 1
+				}, function(ret, err) {
+					if (ret.status) {
+						bMap.open({
+							rect : {
+								x : 0,
+								y : 0,
+								w : api.frameWidth,
+								h : api.frameHeight
+							},
+							center : {
+								lon : ret.lon,
+								lat : ret.lat
+							},
+							zoomLevel : 10,
+							showUserLocation : true,
+							fixedOn : 'bmap', // 别忘了设置这个
+							fixed : true
+						}, function(ret) {
+							if (ret.status) {
+								setTimeout(function() {
+									bMap.getRegion(function(ret) {
+										if (ret.status) {
+											alert(JSON.stringify(ret));
+										}
+									});
+								}, 500);
+							}
+						});
+					} else {
+						alert(err.code);
+					}
+				});
+			});
+			// zoomIn 方法的使用
+			addEventListenerFromFunc("bmapZoomIn", function(ret) {
+				bMap.close();
+				bMap.getLocation({
+					accuracy : '10m',
+					autoStop : true,
+					filter : 1
+				}, function(ret, err) {
+					if (ret.status) {
+						bMap.open({
+							rect : {
+								x : 0,
+								y : 0,
+								w : api.frameWidth,
+								h : api.frameHeight
+							},
+							center : {
+								lon : ret.lon,
+								lat : ret.lat
+							},
+							zoomLevel : 10,
+							showUserLocation : true,
+							fixedOn : 'bmap', // 别忘了设置这个
+							fixed : true
+						}, function(ret) {
+							if (ret.status) {
+								setTimeout(function() {
+									bMap.zoomIn();
+								}, 1000);
+							}
+						});
+					} else {
+						alert(err.code);
+					}
+				});
+			});
+			// zoomOut 方法的使用
+			addEventListenerFromFunc("bmapZoomOut", function(ret) {
+				bMap.close();
+				bMap.getLocation({
+					accuracy : '10m',
+					autoStop : true,
+					filter : 1
+				}, function(ret, err) {
+					if (ret.status) {
+						bMap.open({
+							rect : {
+								x : 0,
+								y : 0,
+								w : api.frameWidth,
+								h : api.frameHeight
+							},
+							center : {
+								lon : ret.lon,
+								lat : ret.lat
+							},
+							zoomLevel : 10,
+							showUserLocation : true,
+							fixedOn : 'bmap', // 别忘了设置这个
+							fixed : true
+						}, function(ret) {
+							if (ret.status) {
+								setTimeout(function() {
+									bMap.zoomOut();
+								}, 1000);
+							}
+						});
+					} else {
+						alert(err.code);
+					}
+				});
+			});
+			// 更多例子敬请期待
+		};
+	</script>
+</html>
