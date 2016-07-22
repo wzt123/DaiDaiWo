@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="../css/api.css" />
     <link rel="stylesheet" type="text/css" href="../css/common.css" />
     <link rel="stylesheet" type="text/css" href="../css/setting.css" />
+    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
     <style>
          #loginTip{
             text-align: center;
@@ -20,6 +21,18 @@
             font-size: 1em;
             font-family: '微软雅黑';
          }
+         .form-btn {
+				padding: 30px 30px 15px 30px;
+			}
+			.aui-btn-6ab494 {
+				background: #6ab494 !important;
+				color: #f9f9f9 !important;
+				border: none;
+				outline: none;
+			}
+			/*.form-btn button:active {
+				background: rgba(255,152,0,0.8) !important;
+			}*/
     </style>
 </head>
 <body>
@@ -60,10 +73,14 @@
                  <li class="update"><a>检测新版本<em>已经是最新版本</em></a></li>
                  <li class="about" tapmode="" onclick="openAbout();"><a>关于我们</a></li>
             </ul> 
-            <div id="loginOut">
+            <!--<div id="loginOut">
                 <a class="btn" tapmode="active" onclick='loginOut();'>退出登录</a>
-            </div>
-              
+            </div>-->
+            <div class="form-btn">
+				<button class="aui-btn aui-btn-6ab494 aui-btn-block" id="loginOut" tapmode="active"  onclick='loginOut();'>
+					退出登录
+				</button>
+			</div>  
         </div>
     </div>
 </body>

@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=0, width=device-width"/>
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="address=no" />
+    <title>api</title>
+<!--    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/modifyNick.css" />-->
+    <link rel="stylesheet" type="text/css" href="../css/common.css" />
+    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+    <style type="text/css">
+		.aui-bar-nav {text-align: center;color:#f2f2f2 ;background-color: #6ab494;}
+		.form-btn {
+				padding: 30px 30px 15px 30px;
+			}
+			.aui-btn-6ab494 {
+				background: #6ab494 !important;
+				color: #f9f9f9 !important;
+				border: none;
+				outline: none;
+			}
+		</style>
+</head>
+<body>
+    <div id="wrap">
+        <!--<div id="header" class='aui-bar aui-bar-nav aui-bar-warning'>
+            <a class="aui-pull-left" tapmode onclick="api.closeWin();"> <span class="aui-iconfont aui-icon-left"></span>返回 </a>
+			<div class="aui-title">
+				修改昵称
+			</div>
+        </div>-->
+        
+        <div id="main">
+            <div class="input-wrap">
+                <input type="text" id="nickname" placeholder="昵称" onfocus="edit(this)" onblur="cancel(this)" class="txt" value="" />
+                <i class="del" tapmode="" onclick="delWord(this)"></i>
+            </div>
+            <div class="form-btn">
+				<button class="aui-btn aui-btn-6ab494 aui-btn-block"  tapmode="active"  onclick="ensure()">
+					确认修改
+				</button>
+			</div>
+            <!--<a class="btn" tapmode="active" onclick="ensure()">确认修改</a>-->
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript" src="../script/modifyNick.js"></script>
+</html>

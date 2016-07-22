@@ -39,7 +39,7 @@
 		<header class="aui-bar aui-bar-nav aui-bar-warning" id='aui-header'>
 			<a class="aui-pull-left" tapmode onclick="api.closeWin();"> <span class="aui-iconfont aui-icon-left"></span>返回 </a>
 			<div class="aui-title">
-				修改密码
+				我的订单
 			</div>
 		</header>
 	</body>
@@ -54,8 +54,8 @@
 	        var headerPos = $api.offset(header);
     		var body_h = $api.offset($api.dom('body')).h;
 	        api.openFrame({
-	            name: 'modifyPwdbody',
-	            url: 'modifyPwdbody.html',
+	            name: 'my_goods_body',
+	            url: 'my_goods_body.html',
 	            rect: {
 	                x: 0,
 	                y: headerPos.h,
@@ -67,3 +67,4 @@
 	
 	</script>
 </html>
+	

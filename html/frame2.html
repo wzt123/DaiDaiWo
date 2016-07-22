@@ -165,7 +165,7 @@
 				</p>
 			</div>
 			<p class="unames" tapmode onclick="user_login();" id="requestLogin">
-				登录<!--<label class="level">官方人员</label>-->
+				登录
 			</p>
 			<script id="login" type="text/x-dot-template">
 				<ul class="info shadow">
@@ -224,7 +224,7 @@
 						<span>购物车</span>
 					</div>
 				</li>
-				<li class="aui-col-xs-4 aui-text-center" tapmode onclick="openWin('official_head','official_head',true)">
+				<li class="aui-col-xs-4 aui-text-center" tapmode onclick="opennew()">
 					<div class="content-area">
 						<p class="aui-bg-67d2f8">
 							<i class="aui-iconfont aui-icon-noticefill"></i>
@@ -232,7 +232,7 @@
 						<span>消息中心</span>
 					</div>
 				</li>
-				<li class="aui-col-xs-4 aui-text-center" tapmode onclick="openWin('my_goods_head','my_goods_head',true)">
+				<li class="aui-col-xs-4 aui-text-center" tapmode onclick="openmenu()">
 					<div class="content-area">
 						<p class="aui-bg-FF6665">
 							<i class="aui-iconfont aui-icon-form"></i>
@@ -240,7 +240,7 @@
 						<span>我的订单</span>
 					</div>
 				</li>
-				<li class="aui-col-xs-4 aui-text-center" tapmode onclick="openWin('follow_my_head','follow_my_head',true)">
+				<li class="aui-col-xs-4 aui-text-center" tapmode onclick="">
 					<div class="content-area">
 						<p class="aui-bg-96e462">
 							<i class="aui-iconfont aui-icon-favorfill"></i>
@@ -268,6 +268,22 @@
 			api.openWin({
 				name : 'setting',
 				url : './setting.html',
+				opaque : true,
+				vScrollBarEnabled : false
+			});
+		}
+		function openmenu() {
+			api.openWin({
+				name : 'my_goods_head',
+				url : './my_goods_head.html',
+				opaque : true,
+				vScrollBarEnabled : false
+			});
+		}
+		function opennew() {
+			api.openWin({
+				name : 'official_head',
+				url : './official_head.html',
 				opaque : true,
 				vScrollBarEnabled : false
 			});

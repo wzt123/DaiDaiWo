@@ -29,7 +29,7 @@
     <header>
         <ul>
            <li class="border-b active" tapmode onclick="openRight()">查看菜价 </li> 
-           <li class="border-b " >抢单</li>
+           <li class="border-b " tapmode onclick="openmap()">抢单</li>
            <li class="border-b " >个人中心</li>
         </ul>
     </header>
@@ -109,6 +109,12 @@
 			api.openWin({
 				name : 'pricehome',
 				url : './html/pricehome.html'
+			});
+		}
+		function openmap () {	
+			api.openWin({
+				name : 'baidumaphead',
+				url : './html/baidumaphead.html'
 			});
 		}
       

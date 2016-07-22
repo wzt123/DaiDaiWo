@@ -19,21 +19,27 @@
 }
 #main li.nickname a{
     background-image: url(../image/user.png);
+    color:#686868;
 }
 #main li.gender a{
     background-image: url(../image/gender.png);
+    color:#686868;
 }
 #main li.modify a{
     background-image: url(../image/password.png);
+    color:#686868;
 }
 #main li.clear a{
     background-image: url(../image/clear.png);
+    color:#686868;
 }
 #main li.update a{
     background-image: url(../image/update.png);
+    color:#686868;
 }
 #main li.about a{
     background-image: url(../image/user.png);
+    color:#686868;
 }
 
 #main ul li a em{
