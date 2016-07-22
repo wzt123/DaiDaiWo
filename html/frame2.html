@@ -216,12 +216,12 @@
 						<span >个人资料</span>
 					</div>
 				</li>
-				<li class="aui-col-xs-4 aui-text-center">
+				<li class="aui-col-xs-4 aui-text-center" tapmode onclick="opencar()">
 					<div class="content-area">
 						<p class="aui-bg-33CB9A">
 							<i class="aui-iconfont aui-icon-presentfill"></i>
 						</p>
-						<span>赠品</span>
+						<span>购物车</span>
 					</div>
 				</li>
 				<li class="aui-col-xs-4 aui-text-center" tapmode onclick="openWin('official_head','official_head',true)">
@@ -268,6 +268,14 @@
 			api.openWin({
 				name : 'setting',
 				url : './setting.html',
+				opaque : true,
+				vScrollBarEnabled : false
+			});
+		}
+        function opencar() {
+			api.openWin({
+				name : 'carhead',
+				url : './carhead.html',
 				opaque : true,
 				vScrollBarEnabled : false
 			});
