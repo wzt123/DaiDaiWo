@@ -181,14 +181,16 @@
 					登 录
 				</button>
 			</div>
-			<div class="form-o">
-
-
+			<!--<div class="form">
+	
+			</div >-->
+		 	<div class="form-o">
+			 				
+					<span tapmode  onclick="zhmm();">找回密码？</span>
 				<span tapmode onclick="openWinto();">注册账号</span>
-			<!--	<span tapmode  onclick="zhmm();">忘记密码？</span>
--->
-
-			</div>
+			
+			</div> 
+			
 		</div>
 		<div class="form-otherlogin">
 			<!--<p class="sdk-txt">
@@ -224,8 +226,8 @@
 
 		function zhmm() {
 			api.openWin({
-				name : 'zhmm_head',
-				url : './zhmm_head.html'
+				name : 'find password_head',
+				url : './find password_head.html'
 			});
 		}
 
