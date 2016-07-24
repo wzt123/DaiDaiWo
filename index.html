@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="./css/common.css" />
      <link rel="stylesheet" type="text/css" href="../css/aui.css" />	
     <style>
-        header{ background-color:#6ab494;}
+        header{ background-color:#1db6a0;}
         header ul li { height: 50px; line-height: 50px; text-align: center; display: none; color: #323237; position: relative;font-size: 18px;  }
         header ul li.active{ display: block; }
         .border-b{color:#f2f2f2; }
@@ -17,11 +17,13 @@
         #footer ul li{  padding-top: 36px; padding-bottom: 4px; background: url() no-repeat center 2px; background-size: auto 30px; text-align: center; }
         #footer ul li.active{ color: #6ab494; }
         #footer ul li:nth-child(1){ background-image: url(./image/bottombtn0101.png); }
-        #footer ul li:nth-child(2){ background-image: url(./image/bottombtn0201.png); }
-        #footer ul li:nth-child(3){ background-image: url(./image/bottombtn0301.png); }
+        #footer ul li:nth-child(2){ background-image: url(./image/bottombtn0301.png); }
+        #footer ul li:nth-child(3){ background-image: url(./image/menu1.png); }
+        #footer ul li:nth-child(4){ background-image: url(./image/main_index_my_normal.png); }
         #footer ul li:nth-child(1).active{ background-image: url(./image/bottombtn0102.png); }
-        #footer ul li:nth-child(2).active{ background-image: url(./image/bottombtn0202.png); }
-        #footer ul li:nth-child(3).active{ background-image: url(./image/bottombtn0302.png); }
+        #footer ul li:nth-child(2).active{ background-image: url(./image/bottombtn0301.png); }
+        #footer ul li:nth-child(3).active{ background-image: url(./image/menu2.png); }
+        #footer ul li:nth-child(4).active{ background-image: url(./image/main_index_my_pressed.png); }
     </style>
 </head>
 <body>
@@ -29,6 +31,7 @@
     <header>
         <ul>
            <li class="border-b active" tapmode onclick="openRight()">查看菜价 </li> 
+           <li class="border-b " >商家</li>
            <li class="border-b " tapmode onclick="openmap()">抢单</li>
            <li class="border-b " >个人中心</li>
         </ul>
@@ -38,6 +41,7 @@
     <div id="footer" class="border-t">
         <ul class="flex-wrap" >
             <li tapmode="hover" onclick="randomSwitchBtn( this );" class="flex-con active" >求带</li>
+            <li tapmode="hover" onclick="randomSwitchBtn( this );" class="flex-con " >商家</li>
             <li tapmode="hover" onclick="randomSwitchBtn( this );" class="flex-con " >抢单</li>
             <li tapmode="hover" onclick="randomSwitchBtn( this );" class="flex-con " >我的</li>
         </ul>
