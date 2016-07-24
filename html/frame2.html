@@ -160,10 +160,10 @@
 	<body onload="refresh()">
 		<div class="user-allinfo">
 			<div class="img-container">
-				<img src="../image/login.png" />
-				<p class="ico-gender">
+				<img src="../image/login.png"tapmode onclick="user_login();" />
+				<!--<p class="ico-gender">
 					<span class="aui-iconfont aui-icon-friendfavor"></span>
-				</p>
+				</p>-->
 			</div>
 			<p class="unames" tapmode onclick="user_login();" id="requestLogin">
 				登录
@@ -199,10 +199,10 @@
 				<div class="aui-col-xs-4">
 					积分<span class="aui-text-FF9800">100</span>
 				</div>
-				<div class="aui-col-xs-4" tapmode onclick="openWin('paycheck','paycheck_head',true)">
+				<div class="aui-col-xs-4" tapmode onclick="">
 					余额<span class="aui-text-FF9800">￥100</span>
 				</div>
-				<div class="aui-col-xs-4" tapmode onclick="openWin('coupon_head','coupon_head',true)">
+				<div class="aui-col-xs-4" tapmode onclick="">
 					优惠券<span class="aui-text-FF9800">2</span>
 				</div>
 			</div>
@@ -249,7 +249,7 @@
 						<span>我的收藏</span>
 					</div>
 				</li>
-				<li class="aui-col-xs-4 aui-text-center" onclick="call('10010')">
+				<li class="aui-col-xs-4 aui-text-center" onclick="">
 					<div class="content-area">
 						<p class="aui-bg-fd6e90">
 							<i class="aui-iconfont aui-icon-servicefill"></i>
