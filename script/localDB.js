@@ -5,7 +5,7 @@ apiready = function() {
 		name : 'orderForm'
 	}, function(ret, err) {
 		if (ret.status) {
-			var sql = 'CREATE TABLE orderForm(VG_name varchar(255), VG_price varchar(255), FirstName varchar(255), Address varchar(255), City varchar(255))';
+			var sql = 'CREATE TABLE orderForm (VG_name varchar(255), VG_price varchar(255), FirstName varchar(255), Address varchar(255), City varchar(255))';
 			db.executeSql({
 				name : 'orderForm',
 				sql : sql
