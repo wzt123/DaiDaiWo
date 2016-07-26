@@ -47,22 +47,64 @@
 	<script type="text/javascript" src="../script/common.js"></script>
 	<script type="text/javascript" src="../script/zepto.min.js"></script>
 	<script type="text/javascript">
+	function fixStatusBar(headerid, callback) {
+			var header = $api.byId(headerid);
+			var systemType = api.systemType;
+			var systemVersion = parseFloat(api.systemVersion);
+			if (systemType == "ios" || (systemType == "android" && systemVersion >= 4.4)) {
+				if (systemType == "android") {
+					header.style.paddingTop = '25px';
+				}
+				$api.fixStatusBar(header);
+			} else {
+				$api.fixIos7Bar(header);
+			}
+			var headerPos = $api.offset(header);
+			if ( typeof callback == "function") {
+				callback(headerPos);
+			}
+		}
 	apiready = function() {
 			api.parseTapmode();
 			var header = $api.byId('aui-header');
 	        $api.fixStatusBar(header); 
 	        var headerPos = $api.offset(header);
     		var body_h = $api.offset($api.dom('body')).h;
-	        api.openFrame({
-	            name: 'baidumapbody',
-	            url: 'baidumapbody.html',
-	            rect: {
-	                x: 0,
-	                y: headerPos.h,
-	                w: 'auto',
-	                h: body_h - headerPos.h
-	            }
-	        });
+    		
+	        fixStatusBar("aui-header", function(headerPos) {
+				// 打开bMap视图模块页面
+				api.openFrame({
+					name : 'bmap',
+					url : './bmap.html',
+					rect : {
+						x : 0,
+						y : headerPos.h,
+						w : api.winWidth,
+						h : 200
+					},
+					pageParam : {
+					},
+					bounces : false,
+					vScrollBarEnabled : false,
+					hScrollBarEnabled : false
+				});
+				// 操作功能列表页面
+				api.openFrame({
+					name : 'func',
+					url : './func.html',
+					rect : {
+						x : 0,
+						y : headerPos.h + 200,
+						w : api.winWidth,
+						h : api.winHeight - headerPos.h - 200
+					},
+					pageParam : {
+					},
+					bounces : false,
+					vScrollBarEnabled : false,
+					hScrollBarEnabled : false
+				});
+			});
 		}
 	
 	</script>
