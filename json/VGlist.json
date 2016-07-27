@@ -1,0 +1,396 @@
+var vgjson={
+    "yecai": 
+	[
+                 {
+                 "name": "°×²Ë",
+                 "price": 25,
+                 "amount": 0,
+				 "money": 0
+                 },
+                 {
+                 "name": "Çà²Ë",
+                 "price": 20,
+                 "amount": 0,
+				 "money": 0
+                 },
+				 {
+                 "name": "²¤²Ë",
+                 "price": 20,
+                 "amount": 0,
+				 "money": 0
+                 },
+				 {
+                 "name": "ÓÍÂó²Ë",
+                 "price": 30,
+                 "amount": 0,
+				 "money": 0
+                 },
+				 {
+                 "name": "ÓÍ²Ë",
+                 "price": 30,
+                 "amount": 0,
+				 "money": 0
+                 },{
+                 "name": "¾Â²Ë",
+                 "price": 30,
+                 "amount": 0,
+				 "money": 0
+                 },
+				 {
+                 "name": "ËâÃç",
+                 "price": 30,
+                 "amount": 0,
+				 "money": 0
+                 },
+				 {
+                 "name": "ÇÛ²Ë",
+                 "price": 30,
+                 "amount": 0,
+				 "money": 0
+                 },
+				 {
+                 "name": "¿ÕÐÄ²Ë",
+                 "price": 30,
+                 "amount": 0,
+				 "money": 0
+                 },
+				 {
+                 "name": "º£´ø",
+                 "price": 30,
+                 "amount": 0,
+				 "money": 0
+                 },
+				 {
+                 "name": "×Ï²Ë",
+                 "price": 30,
+                 "amount": 0,
+				 "money": 0
+                 },
+				 {
+                 "name": "Üù²Ë",
+                 "price": 30,
+                 "amount": 0,
+				 "money": 0
+                 },
+				 {
+                 "name": "´Ð",
+                 "price": 30,
+                 "amount": 0,
+				 "money": 0
+                 },
+				 {
+                 "name": "À±¸ù",
+                 "price": 30,
+                 "amount": 0,
+				 "money": 0
+                 }
+            ],
+	"genjing":
+	[
+				{
+                 "name": "ÂÜ²·",
+                 "price": 25,
+                 "amount": 0,
+				 "money": 0
+                 },
+				 {
+                 "name": "´óËâ",
+                 "price": 20,
+                 "amount": 0,
+				 "money": 0
+                 },
+				 {
+                 "name": "Ñó´Ð",
+                 "price": 20,
+                 "amount": 0,
+				 "money": 0
+                 },
+				 {
+                 "name": "Éú½ª",
+                 "price": 30,
+                 "amount": 0,
+				 "money": 0
+                 },
+				 {
+                 "name": "Á«²Ë",
+                 "price": 30,
+                 "amount": 0,
+				 "money": 0
+                 },
+				 
+				 {
+                 "name": "Ý«Ëñ",
+                 "price": 30,
+                 "amount": 0,
+				 "money": 0
+                 },
+				 {
+                 "name": "É½Ò©",
+                 "price": 30,
+                 "amount": 0,
+				 "money": 0
+                 },
+				 {
+                 "name": "ÓóÍ·",
+                 "price": 30,
+                 "amount": 0,
+				 "money": 0
+                 },
+				 {
+                 "name": "ÍÁ¶¹",
+                 "price": 30,
+                 "amount": 0,
+				 "money": 0
+                 },
+				 {
+                 "name": "ºìÊí",
+                 "price": 30,
+                 "amount": 0,
+				 "money": 0
+                 },
+				 {
+                 "name": "ÖñËñ",
+                 "price": 30,
+                 "amount": 0,
+				 "money": 0
+                 },
+				 {
+                 "name": "Þ§²Ë",
+                 "price": 30,
+                 "amount": 0,
+				 "money": 0
+                 },
+				 {
+                 "name": "Á«Åº",
+                 "price": 30,
+                 "amount": 0,
+				 "money": 0
+                 }				 
+			],
+	"jun":
+	[
+		{
+		 "name": "Ä¾¶ú",
+		 "price": 25,
+		 "amount": 0,
+		 "money": 0
+		 },	
+		 {
+		 "name": "ÒøÕë",
+		 "price": 20,
+		 "amount": 0,
+		 "money": 0
+		 },	
+		 {
+		 "name": "ÐÓ±«¹½",
+		 "price": 20,
+		 "amount": 0,
+		 "money": 0
+		 },	
+		 {
+		 "name": "½ðÕë¹½",
+		 "price": 30,
+		 "amount": 0,
+		 "money": 0
+		 },	
+		 {
+		 "name": "Ïã¹½",
+		 "price": 30, 
+		 "amount": 0,
+		 "money": 0
+		 }		 
+	],		
+	
+	"guocai":
+	[
+		 {
+		 "name": "À±½·",
+		 "price": 25,
+		 "amount": 0,
+		 "money": 0
+		 },	
+		 {
+		 "name": "ÄÏ¹Ï",
+		 "price": 20,
+		 "amount": 0,
+		 "money": 0
+		 },	
+		 {
+		 "name": "¶¬¹Ï",
+		 "price": 20,
+		 "amount": 0,
+		 "money": 0
+		 },	
+		 {
+		 "name": "¿à¹Ï",
+		 "price": 30,
+		 "amount": 0,
+		 "money": 0
+		 },	
+		 {
+		 "name": "»Æ¹Ï",
+		 "price": 30,
+		 "amount": 0,
+		 "money": 0
+		 },	
+		 {
+		 "name": "Ë¿¹Ï",
+		 "price": 30,
+		 "amount": 0,
+		 "money": 0
+		 },	
+		 {
+		 "name": "Î÷ºùÂ«",
+		 "price": 30,
+		 "amount": 0,
+		 "money": 0
+		 },	
+		 {
+		 "name": "·¬ÇÑ",
+		 "price": 30,
+		 "amount": 0,
+		 "money": 0
+		 },	
+		 {
+		 "name": "ÇÑ×Ó",
+		 "price": 30,
+		 "amount": 0,
+		 "money": 0
+		 },	
+		 {
+		 "name": "Íã¶¹",
+		 "price": 30,
+		 "amount": 0,
+		 "money": 0
+		 },	
+		 {
+		 "name": "±â¶¹",
+		 "price": 30,
+		 "amount": 0,
+		 "money": 0
+		 },	
+		 {
+		 "name": "Ã«¶¹",
+		 "price": 30,
+		 "amount": 0,
+		 "money": 0
+		 },	
+		 {
+		 "name": "ÓñÃ×",
+		 "price": 30,
+		 "amount": 0,
+		 "money": 0
+		 },	
+		 {
+		 "name": "Éú½ª",
+		 "price": 30,
+		 "amount": 0,
+		 "money": 0
+		 },	
+		 {
+		 "name": "Éú½ª",
+		 "price": 30,
+		 "amount": 0,
+		 "money": 0
+		 },	
+		 {
+		 "name": "Éú½ª",
+		 "price": 30,
+		 "amount": 0,
+		 "money": 0
+		 },	
+		 {
+		 "name": "Éú½ª",
+		 "price": 30,
+		 "amount": 0,
+		 "money": 0
+		 },	
+		 {
+		 "name": "Éú½ª",
+		 "price": 30,
+		 "amount": 0,
+		 "money": 0
+		 },	
+		 {
+		 "name": "Éú½ª",
+		 "price": 30,
+		 "amount": 0,
+		 "money": 0
+		 }
+	],
+	"huacai":
+	[
+		 {
+		 "name": "»¨Ò¬²Ë",
+		 "price": 25,
+		 "amount": 0,
+		 "money": 0
+		 },	
+		 {
+		 "name": "½ðÕë²Ë",
+		 "price": 20,
+		 "amount": 0,
+		 "money": 0
+		 },	
+		 {
+		 "name": "Çà»¨²Ë",
+		 "price": 20,
+		 "amount": 0,
+		 "money": 0
+		 },	
+		 {
+		 "name": "×Ï²ËÂü",
+		 "price": 30,
+		 "amount": 0,
+		 "money": 0
+		 },	
+		 {
+		 "name": "½æÀ¶",
+		 "price": 30,
+		 "amount": 0,
+		 "money": 0
+		 }
+	],
+	
+	"yamiao":
+	[
+		
+		 {
+		 "name": "»Æ¶¹Ñ¿",
+		 "price": 25,
+		 "amount": 0,
+		 "money": 0
+		 },	
+		 {
+		 "name": "ÂÜ²·Ñ¿",
+		 "price": 20,
+		 "amount": 0,
+		 "money": 0
+		 },	
+		 {
+		 "name": "Íã¶¹Ñ¿",
+		 "price": 20,
+		 "amount": 0,
+		 "money": 0
+		 },	
+		 {
+		 "name": "ÜñÂó²Ë",
+		 "price": 30,
+		 "amount": 0,
+		 "money": 0
+		 },	
+		 {
+		 "name": "½ªÑ¿",
+		 "price": 30,
+		 "amount": 0,
+		 "money": 0
+		 },	
+		 {
+		 "name": "ÂÌ¶¹Ñ¿",
+		 "price": 30,
+		 "amount": 0,
+		 "money": 0
+		 }
+	]
+	
+}

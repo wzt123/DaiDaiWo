@@ -1,23 +1,73 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8">
-    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
-    <title>title</title>
-    <link rel="stylesheet" type="text/css" href="../css/api.css"/>
-    <style>
-    	body{
-    		
-    	}
-    </style>
-</head>
-<body>
-	
-</body>
-<script type="text/javascript" src="../script/api.js"></script>
-<script type="text/javascript">
-	apiready = function(){
-		
-	};
-</script>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+		<title>title</title>
+		<link rel="stylesheet" type="text/css" href="../css/api.css"/>
+		<style>
+			body {
+			}
+		</style>
+	</head>
+	<body></body>
+	<script type="text/javascript" src="../script/api.js"></script>
+	<script type="text/javascript">
+		var lat = null;
+		var lon = null;
+		var bMap = null;
+		function init(){
+		bMap = api.require('bMap');
+			bMap.getLocation({
+				accuracy : '10m',
+				autoStop : true,
+				filter : 1
+			}, function(ret, err) {
+				if (ret) {
+					lon = ret.lon;
+					lat = ret.lat;
+				}
+				if (ret.status) {
+					alert(JSON.stringify(ret));
+					api.alert({
+						msg : 'getLocation方法执行成功！'
+					});
+				} else {
+					alert(err.code);
+				}
+			});
+			bMap.open({
+				rect : {
+					x : 0,
+					y : 0,
+					w : api.frameWidth,
+					h : api.frameHeight
+				},
+				center : {
+					lon : lon,
+					lat : lat
+				},
+				zoomLevel : 10,
+				showUserLocation : true,
+				fixedOn : 'baidumapbody', // 别忘了设置这个
+				fixed : true
+			}, function(ret) {
+				if (ret) {
+					map.show();
+				}
+				if (ret.status) {
+					api.alert({
+						msg : 'open方法执行成功！'
+					});
+				} else {
+					api.alert({
+						msg : 'open方法执行失败！'
+					});
+				}
+			});
+		};
+		apiready = function() {
+			init();
+		};
+	</script>
 </html>

@@ -52,13 +52,14 @@
 	<script type="text/javascript" src="../script/api.js"></script>
 	<script type="text/javascript" src="../script/common.js"></script>
 	<script type="text/javascript" src="../script/zepto.min.js"></script>
+	<script type="text/javascript" src="../script/oderEnsure.js"></script>
 	<script type="text/javascript">
-	function openoder() {
-			api.openWin({
-				name : 'payment_head',
-				url : './payment_head.html'
-			});
-		}
+//			api.openWin({
+//				name : 'payment_head',
+//				url : './payment_head.html'
+//			});
+			
+		
 	apiready = function() {
 			api.parseTapmode();
 			var header = $api.byId('aui-header');
