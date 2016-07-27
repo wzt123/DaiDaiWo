@@ -446,7 +446,7 @@
 			<img src="../image/cart.png" alt="">
 			<span class="buyinfo" id="buyinfo"><span id="buynum">1</span>份 ￥<span id="totalcash">10</span></span>
 			<span id="minbuy">￥0元起送</span>
-			<span id="buyit" tapmode="total-hover" onclick="openoder()">去结算</span>
+			<span id="buyit" tapmode="total-hover" onclick="openorder()">去结算</span>
 		</div>
 	</body>
 	<script type="text/javascript" src="../script/api.js"></script>
@@ -459,10 +459,10 @@
 		var totalcashs = new Array([14]);
 		var buynum = 0;
 		var buynums = new Array([14])
-		for (var i in totalcashs) {
+		for (var i=0;i< totalcashs.length;i++) {
 			totalcashs[i] = 0;
 		}
-		for (var i in buynums) {
+		for (var i =0;i< buynums.length;i++) {
 			buynums[i] = 0;
 		}
 		function buyfood(index) {
@@ -575,9 +575,9 @@
 				buyinfodom.style.display = 'inline-block';
 				buynumdom.innerHTML = buynum;
 				totalcashdom.innerHTML = totalcash;
-				for (var i = 0; i < 14; i++) {
-					buynums[i]
-				}
+//				for (var i = 0; i < 14; i++) {
+//					buynums[i]
+//				}
 			}
 		}
 
@@ -601,16 +601,86 @@
 				case 0:
 					totalcash -= 25;
 					buynum -= 1;
+					buynums[0] -= 1;
+					totalcash[0] -= 25;
 					break;
 				case 1:
+					totalcash -= 20;
+					buynum -= 1;
+					buynums[1] -= 1;
+					totalcash[1] -= 20;
+					break;
 				case 2:
 					totalcash -= 20;
 					buynum -= 1;
+					buynums[2] -= 1;
+					totalcash[2] -= 20;
 					break;
 				case 3:
-				case 4:
 					totalcash -= 30;
 					buynum -= 1;
+					buynums[3] -= 1;
+					totalcash[3] -= 30;
+					break;
+				case 4:
+					totalcash -= 30;
+					buynum += 1;
+					buynums[4] -= 1;
+					totalcash[4] -= 30;
+					break;
+				case 5:
+					totalcash -= 30;
+					buynum -= 1;
+					buynums[5] -= 1;
+					totalcash[5] -= 30;
+					break;
+				case 6:
+					totalcash -= 30;
+					buynum -= 1;
+					buynums[6] -= 1;
+					totalcash[6] -= 30;
+					break;
+				case 7:
+					totalcash -= 30;
+					buynum -= 1;
+					buynums[7] -= 1;
+					totalcash[7] -= 30;
+					break;
+				case 8:
+					totalcash -= 30;
+					buynum -= 1;
+					buynums[8] -= 1;
+					totalcash[8] -= 30;
+					break;
+				case 9:
+					totalcash -= 30;
+					buynum -= 1;
+					buynums[9] -= 1;
+					totalcash[9] -= 30;
+					break;
+				case 10:
+					totalcash -= 30;
+					buynum -= 1;
+					buynums[10] -= 1;
+					totalcash[10] -= 30;
+					break;
+				case 11:
+					totalcash -= 30;
+					buynum -= 1;
+					buynums[11] -= 1;
+					totalcash[11] -= 30;
+					break;
+				case 12:
+					totalcash -= 30;
+					buynum -= 1;
+					buynums[12] -= 1;
+					totalcash[12] -= 30;
+					break;
+				case 13:
+					totalcash -= 30;
+					buynum -= 1;
+					buynums[13] -= 1;
+					totalcash[13] -= 30;
 					break;
 				default:
 					break;
@@ -642,35 +712,17 @@
 			});
 		}
 
-		function openoder() {
-			api.showProgress({
-				title : '正在寻找',
-				modal : false
-			});
-			var i = 0;
-			
-			VGdata(vgjson.yecai[i].name, vgjson.yecai[i].price, buynums[i], totalcashs[i]);
-			
-			
-			for (var i in buynums) {
-				setTimeout(function() {
-					api.hideProgress();
-					if (buynums[i] > 0) {
-						//						$api.get(VGdata_url, function(data) {
-						//							}, 'json');
-					} else {
-						api.alert({
-							msg : i + "没有"
-						}, function(ret, err) {
-							//coding...
-						});
-					}
-				}, 100);
+		function openorder() {
+			for (var i =0;i<14;i++) {
+				if (buynums[i] > 0) {
+					VGdata(i, vgjson.yecai[i].name, vgjson.yecai[i].price, buynums[i], totalcashs[i]);
+				}
+				
 			}
-			//			api.openWin({
+		}
+		//			api.openW in({
 			//				name : 'enter_order_detail_head',
 			//				url : './enter_order_detail_head.html'
 			//			});
-		}
 	</script>
 </html>
