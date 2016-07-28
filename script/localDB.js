@@ -24,10 +24,10 @@ function localDatabase() {
 }
 
 function VGdata(i,name, price, amount, money) {
-//	db.openDatabase({
-//		name : 'ordertable'
-//	}, function(ret, err) {
-//		if (ret) {
+	db.openDatabase({
+		name : 'ordertable'
+	}, function(ret, err) {
+		if (ret) {
 			//var sql = "INSERT INTO orderform(VG_name,VG_price,VG_amount,amountMoney) VALUES (name,price,amount,money)"
 			db.executeSql({
 				name : 'ordertable',
@@ -41,11 +41,11 @@ function VGdata(i,name, price, amount, money) {
 					alert(JSON.stringify(err)+"失败");
 				}
 			});
-//		} else {
-//			api.alert({
-//				msg : "本地数据库打开失败"
-//			});
-//		}
-//	});
+		} else {
+			api.alert({
+				msg : "本地数据库打开失败"
+			});
+		}
+	});
 
 }
