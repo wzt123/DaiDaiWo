@@ -453,6 +453,7 @@
 	<script type="text/javascript" src="../script/localDB.js"></script>
 	<script type="text/javascript" src="../script/zepto.min.js"></script>
 	<script type="text/javascript" src="../json/VGlist.json"></script>
+	<script type="text/javascript" src="../script/transformCoding.js"></script>
 	<script type="text/javascript">
 		var VGdata_url = '../script/VGlist.json';
 		var totalcash = 0;
@@ -713,38 +714,31 @@
 		}
 
 		function openorder() {
-			var orderData = new Array;
-			var i = 0
-			for (; i < 14; i++) {
+			var orderData = new Array([buynums.length]);
+			for (var j = 0; j <= buynums.length; j += 1) {
 			
-				if (buynums[i] > 0)
-					orderData[i] = {
-						name : vgjson.yecai[i].name,
-						price : vgjson.yecai[i].price,
-						amount : buynums[i],
-						money : totalcashs[i]
-					}
-				$api.setStorage(orderData[i], JSON.stringify(orderData[i]));
-				api.alert({
-                    	msg:"成功"
-                    });
-//				setTimeout(function() {
-//					
-//				}, 0);
+				orderData[j] = {
+					name : vgjson.yecai[j].name,
+					price : vgjson.yecai[j].price,
+					amount : buynums[j],
+					money : totalcashs[j]
+				}
+				
+				
+				$api.setStorage('orderData' + '[' + j + ']', $api.jsonToStr(orderData[j]));
+				$api.setStorage('jArray', j);
 			}
-			
 			api.sendEvent({
-				name : 'place_oder_localstorage',
+				name : 'place_order_localstorage',
 				extra : {
 					key : true
 				}
 			});
-			$api.clearStorage();
+			//			$api.clearStorage();
+			api.openWin({
+				name : 'enter_order_detail_head',
+				url : './enter_order_detail_head.html'
+			});
 		}
-
-		//			api.openW in({
-		//				name : 'enter_order_detail_head',
-		//				url : './enter_order_detail_head.html'
-		//			});
 	</script>
 </html>

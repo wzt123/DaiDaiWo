@@ -241,6 +241,13 @@
 <script type="text/javascript" src="../script/api.js"></script>
 <script type="text/javascript">
 function openoder() {
+for(var j=0;j<12;j++){
+var orderD = new Array([12])
+ orderD[j]= $api.getStorage('orderData'+'['+j+']');
+api.alert({
+msg:orderD[j]
+});
+}
 			api.openWin({
 				name : 'enter_order_detail_head',
 				url : './enter_order_detail_head.html'
