@@ -2,166 +2,167 @@ var vgjson={
     "yecai": 
 	[
                  {
-                 "name": "°×²Ë",
+                 "name": "ç™½èœ",
                  "price": 25,
                  "amount": 0,
 				 "money": 0
                  },
                  {
-                 "name": "Çà²Ë",
+                 "name": "é’èœ",
                  "price": 20,
                  "amount": 0,
 				 "money": 0
                  },
 				 {
-                 "name": "²¤²Ë",
+                 "name": "è èœ",
                  "price": 20,
                  "amount": 0,
 				 "money": 0
                  },
 				 {
-                 "name": "ÓÍÂó²Ë",
+                 "name": "æ²¹éº¦èœ",
                  "price": 30,
                  "amount": 0,
 				 "money": 0
                  },
 				 {
-                 "name": "ÓÍ²Ë",
+                 "name": "æ²¹èœ",
                  "price": 30,
                  "amount": 0,
 				 "money": 0
                  },{
-                 "name": "¾Â²Ë",
+                 "name": "éŸ­èœ",
                  "price": 30,
                  "amount": 0,
 				 "money": 0
                  },
 				 {
-                 "name": "ËâÃç",
+                 "name": "è’œè‹—",
                  "price": 30,
                  "amount": 0,
 				 "money": 0
                  },
 				 {
-                 "name": "ÇÛ²Ë",
+                 "name": "èŠ¹èœ",
                  "price": 30,
                  "amount": 0,
 				 "money": 0
                  },
 				 {
-                 "name": "¿ÕĞÄ²Ë",
+                 "name": "ç©ºå¿ƒèœ",
+                 "price": 30,
+                 "amount": 0,
+				 "money": 0
+                 },
+                 {
+                 "name": "æµ·å¸¦",
                  "price": 30,
                  "amount": 0,
 				 "money": 0
                  },
 				 {
-                 "name": "º£´ø",
+                 "name": "ç´«èœ",
                  "price": 30,
                  "amount": 0,
 				 "money": 0
                  },
 				 {
-                 "name": "×Ï²Ë",
+                 "name": "è èœ",
                  "price": 30,
                  "amount": 0,
 				 "money": 0
                  },
 				 {
-                 "name": "Üù²Ë",
+                 "name": "è‘±",
                  "price": 30,
                  "amount": 0,
 				 "money": 0
                  },
 				 {
-                 "name": "´Ğ",
-                 "price": 30,
-                 "amount": 0,
-				 "money": 0
-                 },
-				 {
-                 "name": "À±¸ù",
+                 "name": "è¾£æ ¹",
                  "price": 30,
                  "amount": 0,
 				 "money": 0
                  }
+				 
             ],
 	"genjing":
 	[
 				{
-                 "name": "ÂÜ²·",
+                 "name": "èåœ",
                  "price": 25,
                  "amount": 0,
 				 "money": 0
                  },
 				 {
-                 "name": "´óËâ",
+                 "name": "å¤§è’œ",
                  "price": 20,
                  "amount": 0,
 				 "money": 0
                  },
 				 {
-                 "name": "Ñó´Ğ",
+                 "name": "æ´‹è‘±",
                  "price": 20,
                  "amount": 0,
 				 "money": 0
                  },
 				 {
-                 "name": "Éú½ª",
+                 "name": "ç”Ÿå§œ",
                  "price": 30,
                  "amount": 0,
 				 "money": 0
                  },
 				 {
-                 "name": "Á«²Ë",
+                 "name": "è²èœ",
                  "price": 30,
                  "amount": 0,
 				 "money": 0
                  },
 				 
 				 {
-                 "name": "İ«Ëñ",
+                 "name": "è´ç¬‹",
                  "price": 30,
                  "amount": 0,
 				 "money": 0
                  },
 				 {
-                 "name": "É½Ò©",
+                 "name": "å±±è¯",
                  "price": 30,
                  "amount": 0,
 				 "money": 0
                  },
 				 {
-                 "name": "ÓóÍ·",
+                 "name": "èŠ‹å¤´",
                  "price": 30,
                  "amount": 0,
 				 "money": 0
                  },
 				 {
-                 "name": "ÍÁ¶¹",
+                 "name": "åœŸè±†",
                  "price": 30,
                  "amount": 0,
 				 "money": 0
                  },
 				 {
-                 "name": "ºìÊí",
+                 "name": "çº¢è–¯",
                  "price": 30,
                  "amount": 0,
 				 "money": 0
                  },
 				 {
-                 "name": "ÖñËñ",
+                 "name": "ç«¹ç¬‹",
                  "price": 30,
                  "amount": 0,
 				 "money": 0
                  },
 				 {
-                 "name": "Ş§²Ë",
+                 "name": "è•¨èœ",
                  "price": 30,
                  "amount": 0,
 				 "money": 0
                  },
 				 {
-                 "name": "Á«Åº",
+                 "name": "è²è—•",
                  "price": 30,
                  "amount": 0,
 				 "money": 0
@@ -170,31 +171,31 @@ var vgjson={
 	"jun":
 	[
 		{
-		 "name": "Ä¾¶ú",
+		 "name": "æœ¨è€³",
 		 "price": 25,
 		 "amount": 0,
 		 "money": 0
 		 },	
 		 {
-		 "name": "ÒøÕë",
+		 "name": "é“¶é’ˆ",
 		 "price": 20,
 		 "amount": 0,
 		 "money": 0
 		 },	
 		 {
-		 "name": "ĞÓ±«¹½",
+		 "name": "æé²è‡",
 		 "price": 20,
 		 "amount": 0,
 		 "money": 0
 		 },	
 		 {
-		 "name": "½ğÕë¹½",
+		 "name": "é‡‘é’ˆè‡",
 		 "price": 30,
 		 "amount": 0,
 		 "money": 0
 		 },	
 		 {
-		 "name": "Ïã¹½",
+		 "name": "é¦™è‡",
 		 "price": 30, 
 		 "amount": 0,
 		 "money": 0
@@ -204,115 +205,79 @@ var vgjson={
 	"guocai":
 	[
 		 {
-		 "name": "À±½·",
+		 "name": "è¾£æ¤’",
 		 "price": 25,
 		 "amount": 0,
 		 "money": 0
 		 },	
 		 {
-		 "name": "ÄÏ¹Ï",
+		 "name": "å—ç“œ",
 		 "price": 20,
 		 "amount": 0,
 		 "money": 0
 		 },	
 		 {
-		 "name": "¶¬¹Ï",
+		 "name": "å†¬ç“œ",
 		 "price": 20,
 		 "amount": 0,
 		 "money": 0
 		 },	
 		 {
-		 "name": "¿à¹Ï",
+		 "name": "è‹¦ç“œ",
 		 "price": 30,
 		 "amount": 0,
 		 "money": 0
 		 },	
 		 {
-		 "name": "»Æ¹Ï",
+		 "name": "é»„ç“œ",
 		 "price": 30,
 		 "amount": 0,
 		 "money": 0
 		 },	
 		 {
-		 "name": "Ë¿¹Ï",
+		 "name": "ä¸ç“œ",
 		 "price": 30,
 		 "amount": 0,
 		 "money": 0
 		 },	
 		 {
-		 "name": "Î÷ºùÂ«",
+		 "name": "è¥¿è‘«èŠ¦",
 		 "price": 30,
 		 "amount": 0,
 		 "money": 0
 		 },	
 		 {
-		 "name": "·¬ÇÑ",
+		 "name": "ç•ªèŒ„",
 		 "price": 30,
 		 "amount": 0,
 		 "money": 0
 		 },	
 		 {
-		 "name": "ÇÑ×Ó",
+		 "name": "èŒ„å­",
 		 "price": 30,
 		 "amount": 0,
 		 "money": 0
 		 },	
 		 {
-		 "name": "Íã¶¹",
+		 "name": "è±Œè±†",
 		 "price": 30,
 		 "amount": 0,
 		 "money": 0
 		 },	
 		 {
-		 "name": "±â¶¹",
+		 "name": "æ‰è±†",
 		 "price": 30,
 		 "amount": 0,
 		 "money": 0
 		 },	
 		 {
-		 "name": "Ã«¶¹",
+		 "name": "æ¯›è±†",
 		 "price": 30,
 		 "amount": 0,
 		 "money": 0
 		 },	
 		 {
-		 "name": "ÓñÃ×",
-		 "price": 30,
-		 "amount": 0,
-		 "money": 0
-		 },	
-		 {
-		 "name": "Éú½ª",
-		 "price": 30,
-		 "amount": 0,
-		 "money": 0
-		 },	
-		 {
-		 "name": "Éú½ª",
-		 "price": 30,
-		 "amount": 0,
-		 "money": 0
-		 },	
-		 {
-		 "name": "Éú½ª",
-		 "price": 30,
-		 "amount": 0,
-		 "money": 0
-		 },	
-		 {
-		 "name": "Éú½ª",
-		 "price": 30,
-		 "amount": 0,
-		 "money": 0
-		 },	
-		 {
-		 "name": "Éú½ª",
-		 "price": 30,
-		 "amount": 0,
-		 "money": 0
-		 },	
-		 {
-		 "name": "Éú½ª",
+		 "name": "ç‰ç±³",
 		 "price": 30,
 		 "amount": 0,
 		 "money": 0
@@ -321,31 +286,31 @@ var vgjson={
 	"huacai":
 	[
 		 {
-		 "name": "»¨Ò¬²Ë",
+		 "name": "èŠ±æ¤°èœ",
 		 "price": 25,
 		 "amount": 0,
 		 "money": 0
 		 },	
 		 {
-		 "name": "½ğÕë²Ë",
+		 "name": "é‡‘é’ˆèœ",
 		 "price": 20,
 		 "amount": 0,
 		 "money": 0
 		 },	
 		 {
-		 "name": "Çà»¨²Ë",
+		 "name": "é’èŠ±èœ",
 		 "price": 20,
 		 "amount": 0,
 		 "money": 0
 		 },	
 		 {
-		 "name": "×Ï²ËÂü",
+		 "name": "ç´«èœæ›¼",
 		 "price": 30,
 		 "amount": 0,
 		 "money": 0
 		 },	
 		 {
-		 "name": "½æÀ¶",
+		 "name": "èŠ¥è“",
 		 "price": 30,
 		 "amount": 0,
 		 "money": 0
@@ -356,37 +321,37 @@ var vgjson={
 	[
 		
 		 {
-		 "name": "»Æ¶¹Ñ¿",
+		 "name": "é»„è±†èŠ½",
 		 "price": 25,
 		 "amount": 0,
 		 "money": 0
 		 },	
 		 {
-		 "name": "ÂÜ²·Ñ¿",
+		 "name": "èåœèŠ½",
 		 "price": 20,
 		 "amount": 0,
 		 "money": 0
 		 },	
 		 {
-		 "name": "Íã¶¹Ñ¿",
+		 "name": "è±Œè±†èŠ½",
 		 "price": 20,
 		 "amount": 0,
 		 "money": 0
 		 },	
 		 {
-		 "name": "ÜñÂó²Ë",
+		 "name": "èéº¦èœ",
 		 "price": 30,
 		 "amount": 0,
 		 "money": 0
 		 },	
 		 {
-		 "name": "½ªÑ¿",
+		 "name": "å§œèŠ½",
 		 "price": 30,
 		 "amount": 0,
 		 "money": 0
 		 },	
 		 {
-		 "name": "ÂÌ¶¹Ñ¿",
+		 "name": "ç»¿è±†èŠ½",
 		 "price": 30,
 		 "amount": 0,
 		 "money": 0

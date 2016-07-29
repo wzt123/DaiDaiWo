@@ -452,21 +452,27 @@
 	<script type="text/javascript" src="../script/api.js"></script>
 	<script type="text/javascript" src="../script/localDB.js"></script>
 	<script type="text/javascript" src="../script/zepto.min.js"></script>
-	<script type="text/javascript" src="../json/VGlist.json"></script>
+	<script type="text/javascript"  src="../json/VGlist.json"></script>
 	<script type="text/javascript" src="../script/transformCoding.js"></script>
 	<script type="text/javascript">
-		var VGdata_url = '../script/VGlist.json';
 		var totalcash = 0;
-		var totalcashs = new Array([14]);
+		var cashArray = new Array();
 		var buynum = 0;
-		var buynums = new Array([14])
-		for (var i = 0; i < totalcashs.length; i++) {
-			totalcashs[i] = 0;
-		}
-		for (var i = 0; i < buynums.length; i++) {
-			buynums[i] = 0;
+		var numArray = new Array();
+		apiready = function() {
+			for (var i = 0; i < 14; i++) {
+				
+					cashArray[i] = 0;
+				
+			}
+			for (var i = 0; i < 14; i++) {
+				
+					numArray[i] = 0;
+				
+			}
 		}
 		function buyfood(index) {
+		
 			var buyinfodom = document.getElementById('buyinfo');
 			var buynumdom = document.getElementById('buynum');
 			var totalcashdom = document.getElementById('totalcash');
@@ -480,90 +486,92 @@
 				thisordernumdom[index].innerHTML = num;
 			}
 			minusorderdom[index].style.display = 'inline-block';
+			
 			switch(index) {
 				case 0:
 					totalcash += 25;
 					buynum += 1;
-					buynums[0] += 1;
-					totalcashs[0] += 25;
+					numArray[index] += 1;
+					cashArray[index] += 25;
+					
 					break;
 				case 1:
 					totalcash += 20;
 					buynum += 1;
-					buynums[1] += 1;
-					totalcashs[1] += 20;
+					numArray[index] += 1;
+					cashArray[index] += 20;
 					break;
 				case 2:
 					totalcash += 20;
 					buynum += 1;
-					buynums[2] += 1;
-					totalcashs[2] += 20;
+					numArray[index] += 1;
+					cashArray[index] += 20;
 					break;
 				case 3:
 					totalcash += 30;
 					buynum += 1;
-					buynums[3] += 1;
-					totalcashs[3] += 30;
+					numArray[index] += 1;
+					cashArray[index] += 30;
 					break;
 				case 4:
 					totalcash += 30;
 					buynum += 1;
-					buynums[4] += 1;
-					totalcashs[4] += 30;
+					numArray[index] += 1;
+					cashArray[index] += 30;
 					break;
 				case 5:
 					totalcash += 30;
 					buynum += 1;
-					buynums[5] += 1;
-					totalcashs[5] += 30;
+					numArray[index] += 1;
+					cashArray[index] += 30;
 					break;
 				case 6:
 					totalcash += 30;
 					buynum += 1;
-					buynums[6] += 1;
-					totalcashs[6] += 30;
+					numArray[index] += 1;
+					cashArray[index] += 30;
 					break;
 				case 7:
 					totalcash += 30;
 					buynum += 1;
-					buynums[7] += 1;
-					totalcashs[7] += 30;
+					numArray[index] += 1;
+					cashArray[index] += 30;
 					break;
 				case 8:
 					totalcash += 30;
 					buynum += 1;
-					buynums[8] += 1;
-					totalcashs[8] += 30;
+					numArray[index] += 1;
+					cashArray[index] += 30;
 					break;
 				case 9:
 					totalcash += 30;
 					buynum += 1;
-					buynums[9] += 1;
-					totalcashs[9] += 30;
+					numArray[index] += 1;
+					cashArray[index] += 30;
 					break;
 				case 10:
 					totalcash += 30;
 					buynum += 1;
-					buynums[10] += 1;
-					totalcashs[10] += 30;
+					numArray[index] += 1;
+					cashArray[index] += 30;
 					break;
 				case 11:
 					totalcash += 30;
 					buynum += 1;
-					buynums[11] += 1;
-					totalcashs[11] += 30;
+					numArray[index] += 1;
+					cashArray[index] += 30;
 					break;
 				case 12:
 					totalcash += 30;
 					buynum += 1;
-					buynums[12] += 1;
-					totalcashs[12] += 30;
+					numArray[index] += 1;
+					cashArray[index] += 30;
 					break;
 				case 13:
 					totalcash += 30;
 					buynum += 1;
-					buynums[13] += 1;
-					totalcashs[13] += 30;
+					numArray[index] += 1;
+					cashArray[index] += 30;
 					break;
 				default:
 					break;
@@ -576,9 +584,6 @@
 				buyinfodom.style.display = 'inline-block';
 				buynumdom.innerHTML = buynum;
 				totalcashdom.innerHTML = totalcash;
-				//				for (var i = 0; i < 14; i++) {
-				//					buynums[i]
-				//				}
 			}
 		}
 
@@ -602,86 +607,87 @@
 				case 0:
 					totalcash -= 25;
 					buynum -= 1;
-					buynums[0] -= 1;
-					totalcashs[0] -= 25;
+					numArray[index] -= 1;
+					cashArray[index] -= 25;
+					
 					break;
 				case 1:
 					totalcash -= 20;
 					buynum -= 1;
-					buynums[1] -= 1;
-					totalcashs[1] -= 20;
+					numArray[index] -= 1;
+					cashArray[index] -= 20;
 					break;
 				case 2:
 					totalcash -= 20;
 					buynum -= 1;
-					buynums[2] -= 1;
-					totalcashs[2] -= 20;
+					numArray[index] -= 1;
+					cashArray[index] -= 20;
 					break;
 				case 3:
 					totalcash -= 30;
 					buynum -= 1;
-					buynums[3] -= 1;
-					totalcashs[3] -= 30;
+					numArray[index] -= 1;
+					cashArray[index] -= 30;
 					break;
 				case 4:
 					totalcash -= 30;
 					buynum += 1;
-					buynums[4] -= 1;
-					totalcashs[4] -= 30;
+					numArray[index] -= 1;
+					cashArray[index] -= 30;
 					break;
 				case 5:
 					totalcash -= 30;
 					buynum -= 1;
-					buynums[5] -= 1;
-					totalcashs[5] -= 30;
+					numArray[index] -= 1;
+					cashArray[index] -= 30;
 					break;
 				case 6:
 					totalcash -= 30;
 					buynum -= 1;
-					buynums[6] -= 1;
-					totalcashs[6] -= 30;
+					numArray[index] -= 1;
+					cashArray[index] -= 30;
 					break;
 				case 7:
 					totalcash -= 30;
 					buynum -= 1;
-					buynums[7] -= 1;
-					totalcashs[7] -= 30;
+					numArray[index] -= 1;
+					cashArray[index] -= 30;
 					break;
 				case 8:
 					totalcash -= 30;
 					buynum -= 1;
-					buynums[8] -= 1;
-					totalcashs[8] -= 30;
+					numArray[index] -= 1;
+					cashArray[index] -= 30;
 					break;
 				case 9:
 					totalcash -= 30;
 					buynum -= 1;
-					buynums[9] -= 1;
-					totalcashs[9] -= 30;
+					numArray[index] -= 1;
+					cashArray[index] -= 30;
 					break;
 				case 10:
 					totalcash -= 30;
 					buynum -= 1;
-					buynums[10] -= 1;
-					totalcashs[10] -= 30;
+					numArray[index] -= 1;
+					cashArray[index] -= 30;
 					break;
 				case 11:
 					totalcash -= 30;
 					buynum -= 1;
-					buynums[11] -= 1;
-					totalcashs[11] -= 30;
+					numArray[index] -= 1;
+					cashArray[index] -= 30;
 					break;
 				case 12:
 					totalcash -= 30;
 					buynum -= 1;
-					buynums[12] -= 1;
-					totalcashs[12] -= 30;
+					numArray[index] -= 1;
+					cashArray[index] -= 30;
 					break;
 				case 13:
 					totalcash -= 30;
 					buynum -= 1;
-					buynums[13] -= 1;
-					totalcashs[13] -= 30;
+					numArray[index] -= 1;
+					cashArray[index] -= 30;
 					break;
 				default:
 					break;
@@ -714,31 +720,32 @@
 		}
 
 		function openorder() {
-			var orderData = new Array([buynums.length]);
-			for (var j = 0; j <= buynums.length; j += 1) {
-			
+			var orderData = new Array(14);
+			for (var j = 0; j < numArray.length; j += 1) {
+//				api.alert({
+//					msg : "名称：" + vgjson.yecai[j].name + '<br/>' + "数量" + numArray[j] + "，付款：" + cashArray[j]
+//				});
 				orderData[j] = {
 					name : vgjson.yecai[j].name,
 					price : vgjson.yecai[j].price,
-					amount : buynums[j],
-					money : totalcashs[j]
+					amount : numArray[j],
+					money : cashArray[j]
 				}
-				
-				
 				$api.setStorage('orderData' + '[' + j + ']', $api.jsonToStr(orderData[j]));
 				$api.setStorage('jArray', j);
 			}
+			$api.setStorage('amount', buynum);
+			$api.setStorage('totalcash', totalcash);
 			api.sendEvent({
 				name : 'place_order_localstorage',
 				extra : {
 					key : true
 				}
 			});
-			//			$api.clearStorage();
-			api.openWin({
-				name : 'enter_order_detail_head',
-				url : './enter_order_detail_head.html'
-			});
+						api.openWin({
+							name : 'enter_order_detail_head',
+							url : './enter_order_detail_head.html'
+						});
 		}
 	</script>
 </html>

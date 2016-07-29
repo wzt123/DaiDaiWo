@@ -44,7 +44,7 @@
 		</header>		
 		<footer class="aui-nav" id="aui-footer">
 			<div class="aui-col-xs-12 aui-text-center aui-nnav">
-				<div class="aui-col-xs-8 demo">共<span class="aui-text-danger">1</span>件,总金额: <span class="aui-text-danger">￥88.00</span></div>
+				<div class="aui-col-xs-8 demo">共<span class="aui-text-danger">1</span>件,总金额: ￥<span class="aui-text-danger" id="cash">0.00</span></div>
 				<div class="aui-col-xs-4 buy" tapmode onclick="openoder();">提交订单</div>
 			</div>
 		</footer>
@@ -77,6 +77,9 @@
 	                h: body_h - headerPos.h - footer_h
 	            }
 	        });
+	        var totalcash = $api.getStorage('totalcash');
+	        var cash = $api.byId('cash');
+	        cash.innerHTML = totalcash
 		}
 	
 	</script>

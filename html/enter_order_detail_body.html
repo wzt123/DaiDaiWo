@@ -59,7 +59,48 @@
 				</li>
 			</ul>
 		</div>
-		<div class="aui-content">
+		<ul class="aui-list-view">
+			<li class="aui-list-view-cell aui-img aui-counter-list" >
+				<img class="aui-img-object aui-pull-left" src="../image/pic.jpg" data-echo="../image/pic.jpg">
+				<div class="aui-img-body">
+						<div class="aui-text-default aui-ellipsis-1" id="orderName">
+							CLASSNAME
+						</div>
+						<div class="aui-counter-box">
+							<div class="aui-pull-left" id="orderCash2">
+								
+							</div>
+							<div class="aui-text-default aui-pull-right">
+								
+							</div>
+						</div>
+					</div>
+					<br/>
+					<br/>
+				<script id="ordertpl" type="text/x-dot-template" charset="UTF-8">
+					<div class="aui-img-body">
+					<div class="aui-counter-box">
+					<div class="aui-pull-left" id="orderName">
+					{{=it.name}}
+					</div>
+					<div class="aui-text-default aui-pull-right" id="orderamount">
+					{{=it.amount}}
+					</div>
+					</div>
+					<div class="aui-counter-box">
+					<div class="aui-pull-left" id="orderCash2">
+					{{=it.price}}
+					</div>
+					<div class="aui-text-default aui-pull-right">
+					{{=it.money}}
+					</div>
+					</div>
+					</div>
+				</script>
+				<div id="orderinclude"></div>
+			</li>
+		</ul>
+		<!--<div class="aui-content">
 			<ul class="aui-list-view">
 				<li class="aui-list-view-cell aui-img aui-counter-list" >
 					<img class="aui-img-object aui-pull-left" src="../image/pic.jpg" data-echo="../image/pic.jpg">
@@ -78,8 +119,8 @@
 					</div>
 				</li>
 			</ul>
-		</div>
-		<div class="aui-content">
+		</div>-->
+		<!--<div class="aui-content">
 			<ul class="aui-list-view aui-in">
 				<li class="aui-list-view-cell">
 					<a class="aui-arrow-right"> 优惠券
@@ -100,12 +141,12 @@
 					</div>
 				</li>
 			</ul>
-		</div>
+		</div>-->
 		<div class="aui-content">
 			<ul class="aui-list-view aui-in">
 				<li class="aui-list-view-cell">
 					商品总价
-					<div class="aui-pull-right aui-text-FF9800">
+					<div class="aui-pull-right aui-text-FF9800" id="cash">
 						￥49.90
 					</div>
 				</li>
@@ -134,6 +175,7 @@
 	<script type="text/javascript" src="../script/common.js"></script>
 	<script type="text/javascript" src="../script/zepto.min.js"></script>
 	<script type="text/javascript" src="../script/echo.min.js"></script>
+	<script type="text/javascript" src="../script/doT.min.js"></script>
 	<script type="text/javascript" src="../script/transformCoding.js"></script>
 	<script type="text/javascript">
 		function openaddress() {
@@ -159,17 +201,24 @@
 			var length = $api.getStorage('jArray');
 			for (var j = 0; j <= length; j += 1) {
 				var order = $api.getStorage('orderData' + '[' + j + ']');
-				order = $api.strToJson(order);
-//				var xx=new GB2312UTF8();
-//				 var Utf8=xx.Utf8ToGb2312(order.name);
-				 unicode = GB2312UnicodeConverter.ToGB2312(order.name);
-				 
-				//			dataObj  = JSON.parse(dataObj);
-				//			var order=JSON.eval("("+dataObj+")");
-				api.alert({
-					msg : "名称：" + unicode + "，价格：" + order.price + "，重量：" + order.amount + "，金额:" + order.money
-				});
+				order = JSON.parse(order);
+				if (order.amount == 0) {
+					continue;
+				}
+				//				api.alert({
+				//					msg : "名称：" + order.name + "，价格：" + order.price + "，重量：" + order.amount + "，金额:" + order.money
+				//				});
+				var para = document.createElement("div");
+				para.id = 'userorder' + j;
+				var orderinclude = $api.byId('orderinclude');
+				orderinclude.appendChild(para)
+				var tpl = $api.byId('ordertpl').text;
+				var tempFn = doT.template(tpl);
+				para.innerHTML = tempFn(order);
 			}
+			var totalcash = $api.getStorage('totalcash');
+			var cash = $api.byId('cash');
+			cash.innerHTML = totalcash;
 		}
 	</script>
 </html>
