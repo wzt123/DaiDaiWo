@@ -198,6 +198,9 @@
 			api.parseTapmode();
 		};
 		function initFrame() {
+		var orderName = $api.byId('orderName');
+		var classname = $api.getStorage('classname');
+		orderName.innerHTML = classname
 			var length = $api.getStorage('jArray');
 			for (var j = 0; j <= length; j += 1) {
 				var order = $api.getStorage('orderData' + '[' + j + ']');
