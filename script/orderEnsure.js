@@ -17,6 +17,7 @@ function openoder() {
 	var order = {};
 	var length = $api.getStorage('jArray');
 	var classpic = $api.getStorage('classpic');
+	var classname = $api.getStorage('classname');
 	for (var i = 0; i < length; i++) {
 		var singleorder = $api.getStorage('orderData' + '[' + i + ']');
 		singleorder = JSON.parse(singleorder);
@@ -36,7 +37,8 @@ function openoder() {
 		order : order,
 		location : location,
 		userid:userid,
-		classpic:classpic
+		classpic:classpic,
+		classname:classname
 	}
 api.showProgress({
 		title : '正在下单...',
