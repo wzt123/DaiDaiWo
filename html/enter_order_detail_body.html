@@ -61,8 +61,8 @@
 		</div>
 		<ul class="aui-list-view">
 			<li class="aui-list-view-cell aui-img aui-counter-list" >
-				<img class="aui-img-object aui-pull-left" src="../image/pic.jpg" data-echo="../image/pic.jpg">
-				<div class="aui-img-body">
+				<img class="aui-img-object aui-pull-left" src="../image/pic.jpg" id="classPS"> <!--data-echo="../image/pic.jpg"--> 
+			 	<div class="aui-img-body">
 						<div class="aui-text-default aui-ellipsis-1" id="orderName">
 							CLASSNAME
 						</div>
@@ -199,6 +199,10 @@
 		};
 		function initFrame() {
 		var orderName = $api.byId('orderName');
+		var classpic = $api.getStorage('classpic');
+		var classPS = $api.byId('classPS');
+		classPS.src = classpic;
+		//classPS.data-echo = classpic;
 		var classname = $api.getStorage('classname');
 		orderName.innerHTML = classname
 			var length = $api.getStorage('jArray');

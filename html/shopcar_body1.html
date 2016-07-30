@@ -453,7 +453,6 @@
 	<script type="text/javascript" src="../script/localDB.js"></script>
 	<script type="text/javascript" src="../script/zepto.min.js"></script>
 	<script type="text/javascript"  src="../json/VGlist.json"></script>
-	<script type="text/javascript" src="../script/transformCoding.js"></script>
 	<script type="text/javascript">
 		var totalcash = 0;
 		var cashArray = new Array();
@@ -722,9 +721,6 @@
 		function openorder() {
 			var orderData = new Array(14);
 			for (var j = 0; j < numArray.length; j += 1) {
-//				api.alert({
-//					msg : "名称：" + vgjson.yecai[j].name + '<br/>' + "数量" + numArray[j] + "，付款：" + cashArray[j]
-//				});
 				orderData[j] = {
 					name : vgjson.yecai[j].name,
 					price : vgjson.yecai[j].price,
