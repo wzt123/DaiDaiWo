@@ -237,19 +237,20 @@
 						qid : ret.qid
 					}, function(ret, err) {
 						if (ret) {
-							
 							for (var i = 0; ; i++) {
-							if(ret[i]==null){break;}
-							var order = ret[i].order
-							order = JSON.parse(order)
-							api.alert({
-								msg : order.name
-							});
-							
-//								var allorder = $api.byId('allorder');
-//								var tpl = $api.byId('myordertpl').text;
-//								var tempFn = doT.template(tpl);
-//								allorder.innerHTML = tempFn(ret.order);
+								if (ret[i] == null) {
+									break;
+								}
+								var order = ret[i].order
+								order = JSON.parse(order)
+								for(var j=0;;j++)
+								api.alert({
+									msg : order[0].name
+								});
+								//								var allorder = $api.byId('allorder');
+								//								var tpl = $api.byId('myordertpl').text;
+								//								var tempFn = doT.template(tpl);
+								//								allorder.innerHTML = tempFn(ret.order);
 							}
 						}
 					});
@@ -272,7 +273,7 @@
 			//						msg : err.msg
 			//					});
 			//				}
-							api.hideProgress();
+			api.hideProgress();
 			//			});
 		}
 	</script>
