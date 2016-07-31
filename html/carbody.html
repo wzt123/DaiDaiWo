@@ -183,6 +183,8 @@
 	<script type="text/javascript" src="../script/echo.min.js"></script>
 	<script type="text/javascript" src="../script/common.js"></script>
 	<script type="text/javascript">
+		var model;
+		var query;
 		function openoder() {
 			api.openWin({
 				name : 'enter_order_detail_head',
@@ -191,7 +193,14 @@
 		}
 
 		apiready = function() {
+			model = api.require('model');
+			query = api.require('query');
+			model.config({
+				appKey : '7810E5E4-7F54-E1E6-B07F-9ADA6FA49D46',
+				host : 'https://d.apicloud.com'
+			});
 			api.parseTapmode();
+			initframe();
 		}
 		function initframe() {
 			var userid = $api.getStorage('uid');
@@ -207,29 +216,64 @@
 				});
 				return;
 			}
-			var url = '/orderform';
-			var bodyParam = {
-				userid : userid,
-			}
 			api.showProgress({
-				title : '正在下单...',
+				title : '正在...',
 				modal : false
 			});
-			ajaxRequest(url, 'get', JSON.stringify(bodyParam), function(ret, err) {
-				if (ret) {
-				for(var i=0;i<ret.body.length;i++){
-					var allorder = $api.byId('allorder');
-					var tpl = $api.byId('myordertpl').text;
-					var tempFn = doT.template(tpl);
-					allorder.innerHTML = tempFn(ret.body[i].order);
-					}
-				} else {
-					api.alert({
-						msg : err.msg
+			query.createQuery({
+			}, function(ret, err) {
+				if (ret && ret.qid) {
+					query.whereEqual({
+						qid : ret.qid,
+						column : 'userid',
+						value : userid
+					});
+					query.asc({
+						qid : ret.qid,
+						column : 'createdAt'
+					});
+					model.findAll({
+						class : 'orderForm',
+						qid : ret.qid
+					}, function(ret, err) {
+						if (ret) {
+							
+							for (var i = 0; ; i++) {
+							if(ret[i]==null){break;}
+							var order = ret[i].order
+							order = JSON.parse(order)
+							api.alert({
+								msg : order.name
+							});
+							
+//								var allorder = $api.byId('allorder');
+//								var tpl = $api.byId('myordertpl').text;
+//								var tempFn = doT.template(tpl);
+//								allorder.innerHTML = tempFn(ret.order);
+							}
+						}
 					});
 				}
-				api.hideProgress();
 			});
+			//			var url = '/orderform';
+			//			var bodyParam = {
+			//				userid : userid,
+			//			}
+			//			ajaxRequest(url, 'get', JSON.stringify(bodyParam), function(ret, err) {
+			//				if (ret) {
+			//					for (var i = 0; ; i++) {
+			//						var allorder = $api.byId('allorder');
+			//						var tpl = $api.byId('myordertpl').text;
+			//						var tempFn = doT.template(tpl);
+			//						allorder.innerHTML = tempFn(ret.body[i].order);
+			//					}
+			//				} else {
+			//					api.alert({
+			//						msg : err.msg
+			//					});
+			//				}
+							api.hideProgress();
+			//			});
 		}
 	</script>
 </html>

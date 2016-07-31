@@ -3,7 +3,7 @@ function openoder() {
 	var userid = $api.getStorage('uid');
 	if (username == null) {
 		api.alert({
-			msg : "亲，找人帮忙要先告诉别人你的名字哦"
+			msg : "亲，找人帮忙要先告诉别人你的电话号码哦"
 		}, function(ret, err) {
 			if (ret) {
 				api.closeToWin({
@@ -24,19 +24,21 @@ function openoder() {
 		if (singleorder.amount == 0) {
 			continue;
 		}
-		order[i] = singleorder;
+		order[i] = JSON.stringify(singleorder);
 		//		api.alert({
 		//		msg:"名字："+ order[i].name+"，单价："+order[i].price+"，重量："+order[i].amount+"，金钱："+order[i].money
 		//      });
 	}
-	var location = $api.getStorage('location');
+	var lon = null;
+	var lat = null;
 	var totalcash = $api.getStorage('totalcash');
 	var bodyParam = {
 		username : username,
 		money : totalcash,
 		order : order,
-		location : location,
-		userid:userid,
+		lon:lon,
+		lat:lat,
+		userid:JSON.stringify(userid),
 		classpic:classpic,
 		classname:classname
 	}
