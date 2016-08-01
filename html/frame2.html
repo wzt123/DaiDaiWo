@@ -138,7 +138,18 @@
 	<script type="text/javascript">
 		var model;
 		var query;
-
+		
+				function helpthis(lon,lat)
+				{
+					
+				   api.openWin({
+    				name: 'baidumaphead',
+    				url: './baidumaphead.html',
+    				pageParam: {
+        			name: 'test'
+    }
+});
+				}
 		apiready = function() {
 			model = api.require('model');
 			query = api.require('query');

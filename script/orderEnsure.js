@@ -47,8 +47,8 @@ function openoder() {
 		//		msg:"名字："+ order[i].name+"，单价："+order[i].price+"，重量："+order[i].amount+"，金钱："+order[i].money
 		//      });
 	}
-	var lon = null;
-	var lat = null;
+	var lon = $api.getStorage('lon');
+	var lat = $api.getStorage('lat');
 	var time = new Date().Format("yyyy-MM-dd hh:mm:ss");
 	var totalcash = $api.getStorage('totalcash');
 	var bodyParam = {
