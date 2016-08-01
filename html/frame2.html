@@ -99,6 +99,7 @@
 			</li>
 			</script>-->
 			<script id="ordertpl" type="text/x-dot-template" >
+				<div onclick="helpthis('{{=it.lon}}','{{=it.lat}}');">
 				{{for(var i in it) { }}
 				<div class="aui-img-body">
 				<div class="aui-counter-box">
@@ -125,6 +126,7 @@
 				</div>
 				</div>
 				{{ } }}
+				</div>
 			</script>
 			<!--<div id="orderinclude"></div>-->
 			<ul class="aui-list-view" id="include"></ul>
@@ -136,6 +138,7 @@
 	<script type="text/javascript">
 		var model;
 		var query;
+
 		apiready = function() {
 			model = api.require('model');
 			query = api.require('query');
@@ -156,6 +159,7 @@
 				//在这里从服务器加载数据，加载完成后调用api.refreshHeaderLoadDone()方法恢复组件到默认状态
 				allorder()
 				api.refreshHeaderLoadDone();
+				
 			});
 		};
 		function allorder() {
