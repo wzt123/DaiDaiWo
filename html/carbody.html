@@ -91,7 +91,7 @@
 		<div class="aui-tips aui-tips-warning">
 			<div class="aui-tips-content aui-arrow-right aui-ellipsis-1 aui-text-777776">
 				<i class="aui-iconfont aui-icon-notificationfill"></i>
-				消息提示条消息提示条消息提示条消息提示条消息提示条
+				<!--消息提示条消息提示条消息提示条消息提示条消息提示条-->
 			</div>
 		</div>
 		<div class="aui-content">
@@ -192,6 +192,19 @@
 			});
 			api.parseTapmode();
 			initframe();
+			api.setRefreshHeaderInfo({
+				visible : true,
+				loadingImg : '../image/refresh.png',
+				bgColor : '#ccc',
+				textColor : '#fff',
+				textDown : '下拉刷新...',
+				textUp : '松开刷新...',
+				showTime : true
+			}, function(ret, err) {
+				//在这里从服务器加载数据，加载完成后调用api.refreshHeaderLoadDone()方法恢复组件到默认状态
+				initframe()
+				api.refreshHeaderLoadDone();
+			});
 		}
 		function initframe() {
 			var userid = $api.getStorage('uid');
@@ -225,11 +238,7 @@
 						qid : ret.qid
 					}, function(ret, err) {
 						if (ret){
-							api.alert({
-								msg : ret
-							}, function(ret, err) {
-								//coding...
-							});
+							
 							var include = $api.byId('include');
 							var tpl = $api.byId('ordertpl').text;
 							var tempFn = doT.template(tpl);

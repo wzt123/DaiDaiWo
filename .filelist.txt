@@ -17,6 +17,7 @@
 /A6913489764881/image/image/image/more_icon_80.png
 /A6913489764881/image/image/image/bottombtn0202.png
 /A6913489764881/image/image/image/image/coupon_bg_white.png
+/A6913489764881/image/refresh.png
 /A6913489764881/image/guocai.png
 /A6913489764881/image/bottombtn0301.png
 /A6913489764881/css/modifyNick.css

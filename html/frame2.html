@@ -106,7 +106,6 @@
 				种类：{{=it[i].classname}}
 				</div>
 				<div class="aui-text-default aui-pull-sright" id="orderamount"style="padding-left:20px">
-				
 				</div>
 				<br />
 				<div class="aui-pull-left" id="orderCash2">
@@ -117,8 +116,8 @@
 				<div>钱：{{= it[i].order[prop].money}}</div>
 				{{ } }}
 				<!--{{~it.order:value:index}}
-        <li><span>菜名：{{=value.name}}</span><span>单价：{{=value.price}}</span><span>重量：{{=value.amount}}</span><span>钱：{{=value.money}}</span></li>
-        {{~}}-->
+				<li><span>菜名：{{=value.name}}</span><span>单价：{{=value.price}}</span><span>重量：{{=value.amount}}</span><span>钱：{{=value.money}}</span></li>
+				{{~}}-->
 				</div>
 				<div class="aui-text-default aui-pull-right" >
 				总价：{{=it[i].money}}
@@ -126,7 +125,6 @@
 				</div>
 				</div>
 				{{ } }}
-				
 			</script>
 			<!--<div id="orderinclude"></div>-->
 			<ul class="aui-list-view" id="include"></ul>
@@ -146,11 +144,26 @@
 				host : 'https://d.apicloud.com'
 			});
 			allorder();
+			api.setRefreshHeaderInfo({
+				visible : true,
+				loadingImg : '../image/refresh.png',
+				bgColor : '#ccc',
+				textColor : '#fff',
+				textDown : '下拉刷新...',
+				textUp : '松开刷新...',
+				showTime : true
+			}, function(ret, err) {
+				//在这里从服务器加载数据，加载完成后调用api.refreshHeaderLoadDone()方法恢复组件到默认状态
+				allorder()
+				api.refreshHeaderLoadDone();
+			});
 		};
 		function allorder() {
 			var date = new Date().Format("yyyy-MM-dd");
 			query.createQuery({
 			}, function(ret, err) {
+				api.showProgress({
+				});
 				if (ret.qid && ret) {
 					query.whereLike({
 						qid : ret.qid,
@@ -167,22 +180,20 @@
 						qid : ret.qid
 					}, function(ret, err) {
 						if (ret) {
-							api.alert({
-								msg : ret
-							}, function(ret, err) {
-								//coding...
-							});
 							var include = $api.byId('include');
 							var tpl = $api.byId('ordertpl').text;
 							var tempFn = doT.template(tpl);
 							include.innerHTML = tempFn(ret);
+							api.hideProgress();
 						} else
 							api.alert({
 								msg : JSON.stringify(err)
 							});
+						api.hideProgress();
 					});
 				}
 			});
+			api.hideProgress();
 		}
 	</script>
 </html>
