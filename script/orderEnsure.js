@@ -34,13 +34,15 @@ function openoder() {
 	var length = $api.getStorage('jArray');
 	var classpic = $api.getStorage('classpic');
 	var classname = $api.getStorage('classname');
+	var j=0;
 	for (var i = 0; i < length; i++) {
 		var singleorder = $api.getStorage('orderData' + '[' + i + ']');
 		singleorder = JSON.parse(singleorder);
 		if (singleorder.amount == 0) {
 			continue;
 		}
-		order[i] = JSON.stringify(singleorder);
+		order[j] = singleorder;
+		j+=1;
 		//		api.alert({
 		//		msg:"名字："+ order[i].name+"，单价："+order[i].price+"，重量："+order[i].amount+"，金钱："+order[i].money
 		//      });

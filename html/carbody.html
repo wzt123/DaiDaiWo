@@ -95,50 +95,40 @@
 			</div>
 		</div>
 		<div class="aui-content">
+		<script id="ordertpl" type="text/x-dot-template" >
+				{{for(var i in it) { }}
+				<div class="aui-img-body">
+				<div class="aui-counter-box">
+				<div class="aui-pull-left" id="orderName">
+				种类：{{=it[i].classname}}
+				</div>
+				<div class="aui-text-default aui-pull-sright" id="orderamount"style="padding-left:20px">
+				
+				</div>
+				<br />
+				<div class="aui-pull-left" id="orderCash2">
+				{{ for(var prop in it[i].order) { }}
+				<div>菜名：{{= it[i].order[prop].name}}</div>
+				<div>单价：{{= it[i].order[prop].price}}</div>
+				<div>重量：{{= it[i].order[prop].amount}}</div>
+				<div>钱：{{= it[i].order[prop].money}}</div>
+				{{ } }}
+				<!--{{~it.order:value:index}}
+        <li><span>菜名：{{=value.name}}</span><span>单价：{{=value.price}}</span><span>重量：{{=value.amount}}</span><span>钱：{{=value.money}}</span></li>
+        {{~}}-->
+				</div>
+				<div class="aui-text-default aui-pull-right" >
+				总价：{{=it[i].money}}
+				</div>
+				</div>
+				</div>
+				{{ } }}
+				
+			</script>
+			<!--<div id="orderinclude"></div>-->
+			<ul class="aui-list-view" id="include"></ul>
+		
 			<ul class="aui-list-view">
-				<script id="myordertpl" type="text/x-dot-template" charset="UTF-8">
-					<li class="aui-list-view-cell aui-img aui-counter-list">
-					<ul class="aui-list-view">
-					<li class="aui-list-view-cell aui-img aui-counter-list" >
-					<img class="aui-img-object aui-pull-left" src="../image/pic.jpg" id="classPS"><!--data-echo="../image/pic.jpg"-->
-					<div class="aui-img-body">
-					<div class="aui-text-default aui-ellipsis-1" id="orderName">
-					classname
-					</div>
-					<div class="aui-counter-box">
-					<div class="aui-pull-left" id="orderCash2"></div>
-					<div class="aui-text-default aui-pull-right"></div>
-					</div>
-					</div>
-					<br/>
-					<br/>
-					{{ for(var prop in it) { }}
-					<div>KEY:{{= prop }}---VALUE:{{= it[prop] }}</div>
-					<div class="aui-img-body">
-					<div class="aui-counter-box">
-					<div class="aui-pull-left" id="orderName">
-					KEY:{{= prop }}---VALUE:{{= it[prop].name }}
-					</div>
-					<div class="aui-text-default aui-pull-right" id="orderamount">
-					KEY:{{= prop }}---VALUE:{{= it[prop].amount}}
-					</div>
-					</div>
-					<div class="aui-counter-box">
-					<div class="aui-pull-left" id="orderCash2">
-					KEY:{{= prop }}---VALUE:{{= it[prop].price}}
-					</div>
-					<div class="aui-text-default aui-pull-right">
-					KEY:{{= prop }}---VALUE:{{= it[prop].money}}
-					</div>
-					</div>
-					</div>
-					{{ } }}
-					<div id="orderinclude"></div>
-					</li>
-					</ul>
-					</li>
-				</script>
-				<div id="allorder"></div>
 				<!--<li class="aui-list-view-cell aui-img aui-counter-list">
 				<input class="aui-pull-left aui-checkbox aui-checkbox-danger" type="checkbox">
 				<img class="aui-img-object aui-pull-left" src="../image/pic.jpg" data-echo="../image/pic.jpg">
@@ -182,6 +172,7 @@
 	<script type="text/javascript" src="../script/zepto.min.js"></script>
 	<script type="text/javascript" src="../script/echo.min.js"></script>
 	<script type="text/javascript" src="../script/common.js"></script>
+	<script type="text/javascript" src="../script/doT.min.js"></script>
 	<script type="text/javascript">
 		var model;
 		var query;
@@ -204,6 +195,7 @@
 		}
 		function initframe() {
 			var userid = $api.getStorage('uid');
+			userid = '"'+userid+'"';
 			if (userid == null) {
 				api.alert({
 					msg : "亲，要先登录哦~"
@@ -217,7 +209,7 @@
 				return;
 			}
 			api.showProgress({
-				title : '正在...',
+				title : '正在查找...',
 				modal : false
 			});
 			query.createQuery({
@@ -228,53 +220,25 @@
 						column : 'userid',
 						value : userid
 					});
-					query.asc({
-						qid : ret.qid,
-						column : 'createdAt'
-					});
 					model.findAll({
 						class : 'orderForm',
 						qid : ret.qid
 					}, function(ret, err) {
-						if (ret) {
-							for (var i = 0; ; i++) {
-								if (ret[i] == null) {
-									break;
-								}
-								var order = ret[i].order
-								order = JSON.parse(order)
-								for(var j=0;;j++)
-								api.alert({
-									msg : order[0].name
-								});
-								//								var allorder = $api.byId('allorder');
-								//								var tpl = $api.byId('myordertpl').text;
-								//								var tempFn = doT.template(tpl);
-								//								allorder.innerHTML = tempFn(ret.order);
-							}
+						if (ret){
+							api.alert({
+								msg : ret
+							}, function(ret, err) {
+								//coding...
+							});
+							var include = $api.byId('include');
+							var tpl = $api.byId('ordertpl').text;
+							var tempFn = doT.template(tpl);
+							include.innerHTML = tempFn(ret);
 						}
 					});
 				}
 			});
-			//			var url = '/orderform';
-			//			var bodyParam = {
-			//				userid : userid,
-			//			}
-			//			ajaxRequest(url, 'get', JSON.stringify(bodyParam), function(ret, err) {
-			//				if (ret) {
-			//					for (var i = 0; ; i++) {
-			//						var allorder = $api.byId('allorder');
-			//						var tpl = $api.byId('myordertpl').text;
-			//						var tempFn = doT.template(tpl);
-			//						allorder.innerHTML = tempFn(ret.body[i].order);
-			//					}
-			//				} else {
-			//					api.alert({
-			//						msg : err.msg
-			//					});
-			//				}
 			api.hideProgress();
-			//			});
 		}
 	</script>
 </html>
