@@ -20,6 +20,14 @@ function modifyPwd() {
 	});
 }
 
+function address(){
+	api.openWin({
+	    name: 'address_head',
+	    url: 'address_head.html'
+	  
+    });
+}
+
 function loginBtn() {
 	api.openWin({
 		name : 'userLogin',

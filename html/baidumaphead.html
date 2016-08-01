@@ -8,31 +8,44 @@
 		<link rel="stylesheet" type="text/css" href="../css/aui.css" />
 		<link rel="stylesheet" type="text/css" href="../css/common.css" />
 		<style type="text/css">
-		.aui-bar-nav {text-align: center;color:#f2f2f2 ;background-color: #1db6a0 ;}
-		.aui-tab-nav {
-		    width: 100%;
-		    display: box;
-		    display: -webkit-box;
-		    box-sizing: border-box;
-		    font-size: 14px;
-		    height: 40px;
-		    background-color: #fff;
-		    overflow: hidden;
-		}
-		.aui-tab-nav li {
-		    height: 40px;
-		    line-height: 40px;
-		    box-flex: 1;
-		    -webkit-box-flex: 1;
-		    box-sizing: border-box;
-		    text-align: center;
-		    color: #666;
-		    border-bottom: 2px solid transparent;
-		    width: 100%;
-		}
-		.aui-nnav{line-height:55px;}
-		.demo{font-size:15px;color: #333;background:#fff;}
-		.buy{background:#FF9800;color:#fff;}
+			.aui-bar-nav {
+				text-align: center;
+				color: #f2f2f2;
+				background-color: #1db6a0;
+			}
+			.aui-tab-nav {
+				width: 100%;
+				display: box;
+				display: -webkit-box;
+				box-sizing: border-box;
+				font-size: 14px;
+				height: 40px;
+				background-color: #fff;
+				overflow: hidden;
+			}
+			.aui-tab-nav li {
+				height: 40px;
+				line-height: 40px;
+				box-flex: 1;
+				-webkit-box-flex: 1;
+				box-sizing: border-box;
+				text-align: center;
+				color: #666;
+				border-bottom: 2px solid transparent;
+				width: 100%;
+			}
+			.aui-nnav {
+				line-height: 55px;
+			}
+			.demo {
+				font-size: 15px;
+				color: #333;
+				background: #fff;
+			}
+			.buy {
+				background: #FF9800;
+				color: #fff;
+			}
 		</style>
 	</head>
 	<body>
@@ -47,65 +60,200 @@
 	<script type="text/javascript" src="../script/common.js"></script>
 	<script type="text/javascript" src="../script/zepto.min.js"></script>
 	<script type="text/javascript">
-	function fixStatusBar(headerid, callback) {
-			var header = $api.byId(headerid);
-			var systemType = api.systemType;
-			var systemVersion = parseFloat(api.systemVersion);
-			if (systemType == "ios" || (systemType == "android" && systemVersion >= 4.4)) {
-				if (systemType == "android") {
-					header.style.paddingTop = '25px';
-				}
-				$api.fixStatusBar(header);
-			} else {
-				$api.fixIos7Bar(header);
-			}
-			var headerPos = $api.offset(header);
-			if ( typeof callback == "function") {
-				callback(headerPos);
-			}
-		}
-	apiready = function() {
-			api.parseTapmode();
-			var header = $api.byId('aui-header');
-	        $api.fixStatusBar(header); 
-	        var headerPos = $api.offset(header);
-    		var body_h = $api.offset($api.dom('body')).h;
-    		
-	        fixStatusBar("aui-header", function(headerPos) {
-				// 打开bMap视图模块页面
-				api.openFrame({
-					name : 'bmap',
-					url : './bmap.html',
-					rect : {
-						x : 0,
-						y : headerPos.h,
-						w : api.winWidth,
-						h : 200
-					},
-					pageParam : {
-					},
-					bounces : false,
-					vScrollBarEnabled : false,
-					hScrollBarEnabled : false
-				});
-				// 操作功能列表页面
-				api.openFrame({
-					name : 'func',
-					url : './func.html',
-					rect : {
-						x : 0,
-						y : headerPos.h + 200,
-						w : api.winWidth,
-						h : api.winHeight - headerPos.h - 200
-					},
-					pageParam : {
-					},
-					bounces : false,
-					vScrollBarEnabled : false,
-					hScrollBarEnabled : false
-				});
-			});
-		}
+function fixStatusBar(headerid, callback) {
+var header = $api.byId(headerid);
+var systemType = api.systemType;
+var systemVersion = parseFloat(api.systemVersion);
+if (systemType == "ios" || (systemType == "android" && systemVersion >= 4.4)) {
+if (systemType == "android") {
+header.style.paddingTop = '25px';
+}
+$api.fixStatusBar(header);
+} else {
+$api.fixIos7Bar(header);
+}
+var headerPos = $api.offset(header);
+if ( typeof callback == "function") {
+callback(headerPos);
+}
+}
+apiready = function() {
+api.parseTapmode();
+var header = $api.byId('aui-header');
+$api.fixStatusBar(header);
+var headerPos = $api.offset(header);
+var body_h = $api.offset($api.dom('body')).h;
+bMap=api.require('bMap');
+//bMap.open({
+//rect: {
+//x: 0,
+//y: 0,
+////w: 'auto',
+////h: 'auto'
+//},
+//center: {
+//lon: 116.4021310000,
+//lat: 39.9994480000
+//},
+//zoomLevel: 10,
+//showUserLocation: true,
+//fixedOn: api.frameName,
+//fixed: true
+//});
+var end = {
+									lon:000,
+									lat:000
+									}
+									
+									
+									
+									
+					bMap.open({
+    rect: {
+        x: 0,
+        y: 0,
+        w: 320,
+        h: 300
+    },
+    center: {
+        lon: 116.4021310000,
+        lat: 39.9994480000
+    },
+    zoomLevel: 10,
+    showUserLocation: true,
+    fixedOn: api.frameName,
+    fixed: true
+});
+						
+					
+						
+    						
+				
+									 
+
+		
+							bMap.addAnnotations({
+    annotations: [{
+        id: 1, lon: 120.1, lat: 38.26
+    },
+    {
+        id: 2, lon: 116.29, lat: 40.109
+    },
+    {
+        id: 3, lon: 116.298, lat: 40.11
+    }],
+    //icon: 'widget://',
+    draggable: true
+});			
 	
+									
+									
+									
+//bMap.getLocation({	
+//					accuracy : '10m',
+//					autoStop : true,
+//					filter : 1
+//				},function(ret,err){
+//				bMap.showUserLocation({
+//									isShow : true,
+//									trackingMode : 'follow'
+//								});
+//									bMap.setZoomLevel({
+//  									level: 15
+//										});
+//					bMap.searchRoute({
+//  					id: 1,
+// 					 type: 'drive',
+//  						policy: 'ecar_fee_first',
+//  						start: {
+//     					 lon: ret.lon,
+//      				lat: ret.lat
+// 							 },
+//  					end: {
+//      				lon: end.lon,
+//      					lat: end.lat
+//  					}
+//							}, 
+//							function(ret,err){
+//							bMap.drawRoute({
+//          id: 1,
+//         autoresizing:false,
+//          index: 0,
+//          styles: {
+//              start: {
+//                  icon: 'widget://image/bmap_start.png'
+//              },
+//              end: {
+//                  icon: 'widget://image/bmap_end.png'
+//              }
+//          }
+//      });
+//			}				
+//							);}
+//							
+//							);
+					
+						
+						
+//						bMap.getCoordsFromName({
+//  							city: '山东',
+//  							address: '中国石油大学'
+//									},function(ret,err){
+//								
+//										bMap.addAnnotations({
+//  						annotations: [{
+//      						
+//  								
+//      						id: 2, lon: ret.lon, lat: ret.lat
+// 										 },
+// 								 {
+//      						id: 3, lon: 116.298, lat: 40.11
+//  									}],
+// 							// icon: 'widget://',
+//  							draggable: true
+//									});	
+//									
+//									});
+									
+								
+							
+								
+						
+							
+//	        fixStatusBar("aui-header", function(headerPos) {
+//				// 打开bMap视图模块页面
+//				api.openFrame({
+//					name : 'bmap',
+//					url : './bmap.html',
+//					rect : {
+//						x : 0,
+//						y : headerPos.h,
+//						w : api.winWidth,
+//						h : 200
+//					},
+//					pageParam : {
+//					},
+//					bounces : false,
+//					vScrollBarEnabled : false,
+//					hScrollBarEnabled : false
+//				});
+//				// 操作功能列表页面
+//				api.openFrame({
+//					name : 'func',
+//					url : './func.html',
+//					rect : {
+//						x : 0,
+//						y : headerPos.h + 200,
+//						w : api.winWidth,
+//						h : api.winHeight - headerPos.h - 200
+//					},
+//					pageParam : {
+//					},
+//					bounces : false,
+//					vScrollBarEnabled : false,
+//					hScrollBarEnabled : false
+//				});
+//			});
+}
 	</script>
 </html>

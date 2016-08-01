@@ -96,6 +96,7 @@
 			}
 		</style>
 	</head>
+	
 	<body>
 		<div id="result"></div>
 		<div class="aui-content">
@@ -110,6 +111,8 @@
 						</div>
 						<div class="active-bg"></div>
 					</div>
+					
+				
 					<div class="hidden-menu" tapmode onclick="toast('点击删除','middle')">
 						<p class="one">
 							删除
@@ -159,6 +162,18 @@
 	<script type="text/javascript" src="../script/zepto.min.js"></script>
 	<script type="text/javascript" src="../script/hammer.min.js"></script>
 	<script type="text/javascript">
+	
+    apiready =function(){
+	var map = api.require('bMap');
+		map.getCoordsFromName({
+            		city: '山东',
+    				address: '山东省济南市历下区华强电子世界华强电子世界B栋2211'
+						},function(ret,err){
+						  $api.setStorage('lon',ret.lon);
+						  $api.setStorage('lat',ret.lat);
+    						
+							});
+							}
 	function openaddadress() {
 			api.openWin({
 				name : 'edit_address_head',
