@@ -20,13 +20,19 @@
 			<div class="aui-title">
 				地址管理
 			</div>
-			<a class="aui-pull-right" tapmode onclick="openWinto('add_address_head','add_address_head')"> <span class="aui-iconfont aui-icon-add" style="font-size: 26px;"></span></a>
+			<a class="aui-pull-right" tapmode onclick="address()"> <span class="aui-iconfont aui-icon-add" style="font-size: 26px;"></span></a>
 		</header>
 	</body>
 	<script type="text/javascript" src="../script/api.js"></script>
 	<script type="text/javascript" src="../script/common.js"></script>
 	<script type="text/javascript" src="../script/zepto.min.js"></script>
 	<script type="text/javascript">
+	function address(){
+	api.openWin({
+	    name: 'edit_address_head',
+	    url: './edit_address_head.html'
+    });
+	}
 	apiready = function() {
 			api.parseTapmode();
 			var header = $api.byId('aui-header');

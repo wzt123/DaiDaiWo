@@ -60,27 +60,27 @@
 				<div class="aui-form">
 					<div class="aui-input-row">
 						<span class="aui-input-addon">收货人</span>
-						<input type="text" class="aui-input" placeholder="收货人姓名">
+						<input type="text" class="aui-input" placeholder="收货人姓名" id="name">
 					</div>
 					<div class="aui-input-row">
 						<span class="aui-input-addon">联系电话</span>
-						<input type="tel" class="aui-input" placeholder="联系电话">
+						<input type="tel" class="aui-input" placeholder="联系电话" id="tel">
 					</div>
 					<div class="aui-input-row">
-						<span class="aui-input-addon" id="city">城市选择</span>
-						<input type="text" class="aui-input" placeholder="选择地区">
+						<span class="aui-input-addon" >地址名称</span>
+						<input type="text" class="aui-input" placeholder="地址名称" id="addressname">
 					</div>
-					<div class="aui-input-row">
-						<span class="aui-input-addon" id="address">详细地址</span>
-						<input type="text" class="aui-input" placeholder="详细地址">
+					<div class="aui-input-row" style="padding: 10px 0;">
+						<span class="aui-input-addon">允许获取您当前坐标</span>
+						<input type="checkbox" class="aui-switch aui-pull-right" id="getlocation" checked="">
 					</div>
 					<div class="aui-input-row" style="padding: 10px 0;">
 						<span class="aui-input-addon">设为默认地址</span>
-						<input type="checkbox" class="aui-switch aui-pull-right" checked="">
+						<input type="checkbox" class="aui-switch aui-pull-right" id="defAdd" checked="defAddress()">
 					</div>
 					<div class="aui-col-xs-12 aui-text-center aui-padded-15">
 						<div class="aui-col-xs-6">
-							<button class="aui-btn aui-btn-danger">
+							<button class="aui-btn aui-btn-danger" onclick="delete()">
 								删除
 							</button>
 						</div>
@@ -99,24 +99,106 @@
 	<script type="text/javascript" src="../script/zepto.min.js"></script>
 	<script type="text/javascript" src="../script/location.json"></script>
 	<script type="text/javascript">
+		var bMap;
 		apiready = function() {
 			api.parseTapmode();
+			bMap = api.require('bMap');
 		}
 		function saveAddress() {
-			var city = $api.byId('city');
-			var address = $api.byId('address');
+			var uid = $api.getStorage('uid');
+			var addressname = $api.byId('addressname').value;
+			var tel = $api.byId('tel').value;
+			var name = $api.byId('name').value;
+			var getlocation = $api.byId('getlocation');
+			var defAdd = $api.byId('defAdd');
+			if (name.length == 0) {
+				api.alert({
+					msg : "收件人姓名不能为空"
+				});
+				return;
+			} else if (tel.length < 11) {
+				api.alert({
+					msg : "电话格式不对"
+				});
+				return;
+			} else if (addressname.length == 0) {
+				api.alert({
+					msg : "地址名称不能为空"
+				});
+				return;
+			}
+			$api.rmStorage('lon');
+			$api.rmStorage('lat');
+			if (getlocation.checked) {
+				bMap.getLocation({
+					accuracy : '10m',
+					autoStop : true,
+					filter : 1
+				}, function(ret, err) {
+					if (ret) {
+						$api.setStorage('lon', ret.lon);
+						$api.setStorage('lat', ret.lat);
+					} else {
+						alert(err.code);
+					}
+				});
+			} else {
+				api.alert({
+					msg : "请给我您当前坐标"
+				});
+				return;
+			}
+			var def
+			if (defAdd.checked) {
+				def = true;
+			} else {
+				def = false;
+			}
 			api.alert({
-msg:city.value+"wwwww"+address
-},function(ret,err){
-	//coding...
-});
-			bMap.getCoordsFromName({
-				city : 'city',
-				address : 'address'
+				msg : JSON.stringify(address)
 			}, function(ret, err) {
-				location.lon = ret.lon;
-				location.lat = ret.lat;
+				//coding...
 			});
+			api.showProgress({
+				title : '保存中...',
+				modal : false
+			});
+			var address = {
+				lon : $api.getStorage('lon'),
+				lat : $api.getStorage('lat')
+			}
+			api.alert({
+            msg:$api.jsonToStr(address)
+            },function(ret,err){
+            	//coding...
+            });
+			var registerUrl = '/userAddress';
+			var bodyParam = {
+				name : name,
+				tel : tel,
+				addressname : addressname,
+				userid : uid,
+				address : address,
+				deFault : def
+			}
+			ajaxRequest(registerUrl, 'post', JSON.stringify(bodyParam), function(ret, err) {
+				if (ret) {
+					api.alert({
+						msg : '保存成功！'
+					}, function() {
+						api.closeWin();
+					});
+				} else {
+					api.alert({
+						msg : err.msg
+					});
+				}
+				api.hideProgress();
+			})
+			if (def == false) {
+				$api.rmStorage('lon');
+				$api.rmStorage('lat');
+			}
 		}
 	</script>
 </html>
