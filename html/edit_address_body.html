@@ -100,9 +100,13 @@
 	<script type="text/javascript" src="../script/location.json"></script>
 	<script type="text/javascript">
 		var bMap;
+		var model;
+		var query;
 		apiready = function() {
 			api.parseTapmode();
 			bMap = api.require('bMap');
+			model = api.require('model');
+			query = api.require('query');
 		}
 		function saveAddress() {
 			var uid = $api.getStorage('uid');
@@ -127,17 +131,84 @@
 				});
 				return;
 			}
-			$api.rmStorage('lon');
-			$api.rmStorage('lat');
 			if (getlocation.checked) {
 				bMap.getLocation({
 					accuracy : '10m',
 					autoStop : true,
 					filter : 1
 				}, function(ret, err) {
+					api.showProgress({
+						title : '保存中...',
+						modal : false
+					});
 					if (ret) {
-						$api.setStorage('lon', ret.lon);
-						$api.setStorage('lat', ret.lat);
+						var address = {
+							lon : ret.lon,
+							lat : ret.lon
+						}
+						var def
+						if (defAdd.checked) {
+							def = true;
+							query.createQuery({
+                            },function(ret,err){
+                            	if(ret&&ret.qid)
+                            	{
+                            		query.whereEqual({
+	                                    qid:ret.qid,
+	                                    column:'userid',
+	                                    value:uid
+                                    });
+                                    query.whereEqual({
+	                                    qid:ret.qid,
+	                                    column:'def',
+	                                    value:true
+                                    });
+                                    model.findAll({
+	                                    class:'userAddress',
+	                                    qid:ret.qid
+                                    },function(ret,err){
+                                    if(ret){
+                                    	for(var i in ret){
+                                    	model.updateById({
+	                                        class:'userAddress',
+	                                        id:ret.id,
+	                                        value:{
+	                                        	def:false
+	                                        }
+                                        },function(ret,err){
+                                        	//coding...
+                                        });
+                                    	}
+                                    }
+                                    });
+                            	}
+                            });
+						} else {
+							def = false;
+						}
+						var registerUrl = '/userAddress';
+						var bodyParam = {
+							name : name,
+							tel : tel,
+							addressname : addressname,
+							userid : uid,
+							address : address,
+							def : def
+						}
+						ajaxRequest(registerUrl, 'post', JSON.stringify(bodyParam), function(ret, err) {
+							if (ret) {
+								api.alert({
+									msg : '保存成功！'
+								}, function() {
+									api.closeWin();
+								});
+							} else {
+								api.alert({
+									msg : err.msg
+								});
+							}
+							api.hideProgress();
+						})
 					} else {
 						alert(err.code);
 					}
@@ -148,57 +219,11 @@
 				});
 				return;
 			}
-			var def
-			if (defAdd.checked) {
-				def = true;
-			} else {
-				def = false;
-			}
-			api.alert({
-				msg : JSON.stringify(address)
-			}, function(ret, err) {
-				//coding...
-			});
-			api.showProgress({
-				title : '保存中...',
-				modal : false
-			});
-			var address = {
-				lon : $api.getStorage('lon'),
-				lat : $api.getStorage('lat')
-			}
-			api.alert({
-            msg:$api.jsonToStr(address)
-            },function(ret,err){
-            	//coding...
-            });
-			var registerUrl = '/userAddress';
-			var bodyParam = {
-				name : name,
-				tel : tel,
-				addressname : addressname,
-				userid : uid,
-				address : address,
-				deFault : def
-			}
-			ajaxRequest(registerUrl, 'post', JSON.stringify(bodyParam), function(ret, err) {
-				if (ret) {
-					api.alert({
-						msg : '保存成功！'
-					}, function() {
-						api.closeWin();
-					});
-				} else {
-					api.alert({
-						msg : err.msg
-					});
-				}
-				api.hideProgress();
-			})
-			if (def == false) {
-				$api.rmStorage('lon');
-				$api.rmStorage('lat');
-			}
+			//			api.alert({
+			//				msg : JSON.stringify(address)
+			//			}, function(ret, err) {
+			//				//coding...
+			//			});
 		}
 	</script>
 </html>
