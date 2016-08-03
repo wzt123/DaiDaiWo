@@ -9,30 +9,50 @@
 		<link rel="stylesheet" type="text/css" href="../css/common.css" />
 		<style type="text/css">
 		.aui-bar-nav {text-align: center;color:#f2f2f2 ;background-color: #1db6a0;}
-		.aui-tab-nav {
-		    width: 100%;
-		    display: box;
-		    display: -webkit-box;
-		    box-sizing: border-box;
-		    font-size: 14px;
-		    height: 40px;
-		    background-color: #fff;
-		    overflow: hidden;
-		}
-		.aui-tab-nav li {
-		    height: 40px;
-		    line-height: 40px;
-		    box-flex: 1;
-		    -webkit-box-flex: 1;
-		    box-sizing: border-box;
-		    text-align: center;
-		    color: #666;
-		    border-bottom: 2px solid transparent;
-		    width: 100%;
-		}
-		.aui-nnav{line-height:55px;}
-		.demo{font-size:15px;color: #333;background:#fff;}
-		.buy{background:#FF9800;color:#fff;}
+		.aui-counter-box {
+				width: 100%;
+				padding: 0;
+				line-height: 26px;
+			}
+			.aui-nav {
+				background: #ff9900;
+				font-size: 18px;
+				color: #fff;
+				text-align: center;
+			}
+			.aui-nav  div {
+				height: 55px;
+			}
+			.aui-nav .buy {
+				line-height: 55px;
+			}
+			.blue {
+				background: #fff;
+			}
+			.blue .aui-iconfont, .blue p {
+				color: #999;
+			}
+			.buy {
+				background: #FF9800;
+			}
+			.aui-input-row:first-child:after {
+				border-top: 0px solid #c8c7cc;
+			}
+			.aui-input-row .aui-input-addon {
+				width: auto;
+			}
+			.aui-input-row:last-child:after {
+				border-bottom: 0px solid #000;
+			}
+			.heji {
+				font-size: 14px;
+				vertical-align: middle;
+				white-space: nowrap;
+				line-height: 55px;
+			}
+			.font-color {
+				color: #E74C3C;
+			}
 		</style>
 	</head>
 	<body>
@@ -42,6 +62,22 @@
 				购物车
 			</div>
 		</header>
+		<footer class="aui-nav" id="aui-footer">
+			<div class="aui-col-xs-12">
+				<div class="aui-col-xs-4 blue" id="collection-btn" tapmode="">
+					<div class="aui-input-row">
+						<input class="aui-radio aui-radio-warning" type="radio" name="demo">
+						<label class="aui-input-addon">全选</label>
+					</div>
+				</div>
+				<div class="aui-col-xs-4 blue aui-text-danger heji" id="collection-btn" tapmode="">
+					合计:￥ 88元
+				</div>
+				<div class="aui-col-xs-4 buy" id="main" tapmode onclick="openoder()">
+					结算（5）
+				</div>
+			</div>
+		</footer>
 	</body>
 	<script type="text/javascript" src="../script/api.js"></script>
 	<script type="text/javascript" src="../script/common.js"></script>
@@ -53,14 +89,15 @@
 	        $api.fixStatusBar(header); 
 	        var headerPos = $api.offset(header);
     		var body_h = $api.offset($api.dom('body')).h;
+    		var footer_h = $api.offset($api.byId('aui-footer')).h;
 	        api.openFrame({
-	            name: 'carbody',
-	            url: 'carbody.html',
+	            name: 'frame2',
+	            url: 'frame2.html',
 	            rect: {
 	                x: 0,
 	                y: headerPos.h,
 	                w: 'auto',
-	                h: body_h - headerPos.h
+	                h: body_h - headerPos.h - footer_h
 	            }
 	        });
 		}

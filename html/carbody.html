@@ -8,46 +8,10 @@
 		<link rel="stylesheet" type="text/css" href="../css/aui.css" />
 		<link rel="stylesheet" type="text/css" href="../css/common.css" />
 		<style type="text/css">
-			.aui-checkbox {
-				width: 20px;
-				height: 20px;
-				position: relative;
-				margin: 8px 15px;
-				background: #ffffff;
-				border: solid 1px #dddddd;
-				border-radius: 4px;
-				display: table;
-				float: left;
-				-webkit-appearance: none;
-				transition: background-color ease 0.1s;
-			}
 			.aui-counter-box {
 				width: 100%;
 				padding: 0;
 				line-height: 26px;
-			}
-			.aui-list-view .aui-img-object {
-				max-width: 70px;
-				height: 70px;
-				line-height: 70px;
-			}
-			.aui-list-view-cell:last-child:after {
-				left: 0;
-			}
-			.aui-list-view-cell:after {
-				left: 15px;
-			}
-			.aui-list-view-cell:active {
-				background: #fff;
-			}
-			.aui-nav .aui-bar-tab {
-				background: #34495E;
-			}
-			.aui-nav .aui-bar-tab li .aui-iconfont, .aui-nav .aui-bar-tab li p {
-				color: #fff;
-			}
-			.aui-nav .aui-bar-tab li.active .aui-iconfont, .aui-nav .aui-bar-tab li.active p {
-				color: #14bd7c;
 			}
 			.aui-nav {
 				background: #ff9900;
@@ -85,88 +49,44 @@
 				white-space: nowrap;
 				line-height: 55px;
 			}
+			.font-color {
+				color: #E74C3C;
+			}
 		</style>
 	</head>
 	<body>
-		<div class="aui-tips aui-tips-warning">
-			<div class="aui-tips-content aui-arrow-right aui-ellipsis-1 aui-text-777776">
-				<i class="aui-iconfont aui-icon-notificationfill"></i>
-				<!--消息提示条消息提示条消息提示条消息提示条消息提示条-->
-			</div>
-		</div>
 		<div class="aui-content">
 		<script id="ordertpl" type="text/x-dot-template" >
+				<div onclick="helpthis('{{=it.lon}}','{{=it.lat}}');">
 				{{for(var i in it) { }}
 				<div class="aui-img-body">
 				<div class="aui-counter-box">
-				<div class="aui-pull-left" id="orderName">
-				种类：{{=it[i].classname}}
+				<div class="aui-pull-left" id="orderName" style="color:#E74C3C;font-size:15px;">
+				<b>种类：{{=it[i].classname}}</b>
 				</div>
-				<div class="aui-text-default aui-pull-sright" id="orderamount"style="padding-left:20px">
-				
+				<div class="aui-text-default aui-pull-sright" id="orderamount"style="padding-left:15px">
 				</div>
 				<br />
 				<div class="aui-pull-left" id="orderCash2">
 				{{ for(var prop in it[i].order) { }}
-				<div>菜名：{{= it[i].order[prop].name}}</div>
-				<div>单价：{{= it[i].order[prop].price}}</div>
-				<div>重量：{{= it[i].order[prop].amount}}</div>
-				<div>钱：{{= it[i].order[prop].money}}</div>
+				<div style="font-size:14px; padding-left: 15px">菜名：{{= it[i].order[prop].name}}</div>
+				<div style="font-size:14px; padding-left: 15px">单价：{{= it[i].order[prop].price}}/斤</div>
+				<div style="font-size:14px; padding-left: 15px">数量：{{= it[i].order[prop].amount}}</div>
+				<div style="font-size:14px; padding-left: 15px">总价：{{= it[i].order[prop].money}}</div><br/>
 				{{ } }}
-				<!--{{~it.order:value:index}}
-        <li><span>菜名：{{=value.name}}</span><span>单价：{{=value.price}}</span><span>重量：{{=value.amount}}</span><span>钱：{{=value.money}}</span></li>
-        {{~}}-->
 				</div>
-				<div class="aui-text-default aui-pull-right" >
-				总价：{{=it[i].money}}
-				</div>
+				<div class="aui-line-x" style="margin: 17px 0 8px 0;"></div>
+	                	<p class="aui-text-right" style="color:#6ab494;font-size:17px;padding-right: 20px">总金额：{{=it[i].money}}元</p>
+	             <div class="aui-line-x" style="margin: 8px 0 5px 0;"></div>
 				</div>
 				</div>
 				{{ } }}
-				
+				</div>
 			</script>
 			<!--<div id="orderinclude"></div>-->
-			<ul class="aui-list-view" id="include"></ul>
-		
-			<ul class="aui-list-view">
-				<!--<li class="aui-list-view-cell aui-img aui-counter-list">
-				<input class="aui-pull-left aui-checkbox aui-checkbox-danger" type="checkbox">
-				<img class="aui-img-object aui-pull-left" src="../image/pic.jpg" data-echo="../image/pic.jpg">
-				<div class="aui-img-body">
-				<div class="aui-text-default aui-ellipsis-1">
-				茅山榴莲王 越南进口越南进口越南进口
-				</div>
-				<span class="aui-carfont aui-ellipsis-1"> 茅山榴莲王 越南进口</span>
-				<div class="aui-counter-box">
-				<div class="aui-pull-left aui-text-danger">
-				￥ 88元
-				</div>
-				<div class="aui-counter aui-pull-right">
-				<div class="aui-counter-minus aui-disabled"></div>
-				<input class="aui-counter-input" type="text" value="1" readOnly>
-				<div class="aui-counter-plus"></div>
-				</div>
-				</div>
-				</div>
-				</li>-->
-			</ul>
+			<ul class="aui-list-view" id="include"></ul>		
 		</div>
-		<footer class="aui-nav" id="aui-footer">
-			<div class="aui-col-xs-12">
-				<div class="aui-col-xs-4 blue" id="collection-btn" tapmode="">
-					<div class="aui-input-row">
-						<input class="aui-radio aui-radio-warning" type="radio" name="demo">
-						<label class="aui-input-addon">全选</label>
-					</div>
-				</div>
-				<div class="aui-col-xs-4 blue aui-text-danger heji" id="collection-btn" tapmode="">
-					合计:￥ 88元
-				</div>
-				<div class="aui-col-xs-4 buy" id="main" tapmode onclick="openoder()">
-					结算（5）
-				</div>
-			</div>
-		</footer>
+		
 	</body>
 	<script type="text/javascript" src="../script/api.js"></script>
 	<script type="text/javascript" src="../script/zepto.min.js"></script>
