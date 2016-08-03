@@ -34,9 +34,9 @@
 				padding: 13px 13px;
 			}
 			.aui-user-view-cell p {
-			    margin-top: 3px;
-			    margin-bottom: 0;
-			    font-size: 14px;
+				margin-top: 3px;
+				margin-bottom: 0;
+				font-size: 14px;
 			}
 			.aui-user-view-cell:after {
 				border-bottom: 0;
@@ -84,7 +84,7 @@
 			.three {
 				background: #0000FF;
 			}
-			.aui-user-view-cell .aui-img, .aui-user-view-cell  .active-bg{
+			.aui-user-view-cell .aui-img, .aui-user-view-cell  .active-bg {
 				width: 70px;
 				height: 70px;
 				position: absolute;
@@ -96,65 +96,29 @@
 			}
 		</style>
 	</head>
-	
 	<body>
 		<div id="result"></div>
 		<div class="aui-content">
-			<ul class="aui-user-view aui-in">
-				<li tapmode >					
-					<div class="aui-user-view-cell aui-img drop-div" tapmode onclick="openaddadress()">
-						<div class="aui-img-body">
-							<span>陈奕迅</span> <span>18663767656</span>
-							<p class='aui-ellipsis-2' style="margin-right:12px;">
-								山东省济南市历下区华强电子世界华强电子世界B栋2211
-							</p>
-						</div>
-						<div class="active-bg"></div>
-					</div>
-					
-				
-					<div class="hidden-menu" tapmode onclick="toast('点击删除','middle')">
-						<p class="one">
-							删除
-						</p>
-					</div>	
-					<a class="aui-arrow-right"></a>				
+			<script id="ordertpl" type="text/x-dot-template" >
+				<li tapmode >
+				<div class="aui-user-view-cell aui-img drop-div" tapmode onclick="openaddadress()">
+				<div class="aui-img-body">
+				<span>{{=it.name}}</span> <span>{{=it.tel}}</span>
+				<p class='aui-ellipsis-2' style="margin-right:12px;">
+				{{=it.addressname}}
+				</p>
+				</div>
+				<div class="active-bg"></div>
+				</div>
+				<div class="hidden-menu" tapmode onclick="toast('{{=it.id}}')">
+				<p class="one">
+				删除
+				</p>
+				</div>
+				<a class="aui-arrow-right"></a>
 				</li>
-				<li tapmode >					
-					<div class="aui-user-view-cell aui-img drop-div" tapmode onclick="openaddadress()">
-						<div class="aui-img-body">
-							<span>陈奕迅</span> <span>18663767656</span>
-							<p class='aui-ellipsis-2' style="margin-right:12px;">
-								山东省济南市历下区华强电子世界华强电子世界B栋2211
-							</p>
-						</div>
-						<!--<div class="active-bg"></div>-->
-					</div>
-					<div class="hidden-menu">
-						<p class="one" tapmode  >
-							删除
-						</p>
-					</div>	
-					<a class="aui-arrow-right"></a>				
-				</li>	
-				<li tapmode >					
-					<div class="aui-user-view-cell aui-img drop-div" tapmode onclick="openaddadress()">
-						<div class="aui-img-body">
-							<span>陈奕迅</span> <span>18663767656</span>
-							<p class='aui-ellipsis-2' style="margin-right:12px;">
-								山东省济南市历下区华强电子世界华强电子世界B栋2211
-							</p>
-						</div>
-						<!--<div class="active-bg"></div>-->
-					</div>
-					<div class="hidden-menu">
-						<p class="one" tapmode >
-							删除
-						</p>
-					</div>	
-					<a class="aui-arrow-right"></a>				
-				</li>					
-			</ul>
+			</script>
+			<ul class="aui-user-view aui-in" id="include"></ul>
 		</div>
 	</body>
 	<script type="text/javascript" src="../script/api.js"></script>
@@ -162,24 +126,28 @@
 	<script type="text/javascript" src="../script/zepto.min.js"></script>
 	<script type="text/javascript" src="../script/hammer.min.js"></script>
 	<script type="text/javascript">
-	
-    apiready =function(){
-	var map = api.require('bMap');
-		map.getCoordsFromName({
-            		city: '山东',
-    				address: '山东省济南市历下区华强电子世界华强电子世界B栋2211'
-						},function(ret,err){
-						  $api.setStorage('lon',ret.lon);
-						  $api.setStorage('lat',ret.lat);
-    						
-							});
-							}
-	function openaddadress() {
+	function toast(id){
+		
+	}
+	function init(){
+	}
+		apiready = function() {
+			var map = api.require('bMap');
+//			map.getCoordsFromName({
+//				city : '山东',
+//				address : '山东省济南市历下区华强电子世界华强电子世界B栋2211'
+//			}, function(ret, err) {
+//				$api.setStorage('lon', ret.lon);
+//				$api.setStorage('lat', ret.lat);
+//			});
+		}
+		function openaddadress() {
 			api.openWin({
 				name : 'edit_address_head',
 				url : './edit_address_head.html'
 			});
 		}
+
 		var hammertime = null;
 		var maxWidth = 0;
 		var marginLeft = 0;
