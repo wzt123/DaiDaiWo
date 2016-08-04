@@ -146,7 +146,7 @@
 							lon : ret.lon,
 							lat : ret.lon
 						}
-						var def
+						var def;
 						if (defAdd.checked) {
 							def = true;
 							query.createQuery({
@@ -168,10 +168,10 @@
 	                                    qid:ret.qid
                                     },function(ret,err){
                                     if(ret){
-                                    	for(var i in ret){
+                                    	for(var i=0 ;i<ret.length-1;i++){
                                     	model.updateById({
 	                                        class:'userAddress',
-	                                        id:ret.id,
+	                                        id:ret[i].id,
 	                                        value:{
 	                                        	def:false
 	                                        }
