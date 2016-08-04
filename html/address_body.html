@@ -109,12 +109,7 @@
 				<p class='aui-ellipsis-2' style="margin-right:12px;">
 				地址：{{=it[i].addressname}}
 				</p>
-				{{? it.def==true}}
-				<br />
-				<p class='aui-ellipsis-2' style="margin-right:12px;">
-				默认地址
-				</p>
-				{{?}}
+				
 				</div>
 				<div class="active-bg"></div>
 				</div>
@@ -123,11 +118,7 @@
 				删除
 				</div>
 				</div>
-				<div class="hidden-menu" tapmode onclick="def('{{=it[i].id}}')">
-				<div class="one">
-				设置为默认
-				</div>
-				</div>
+				
 				<a class="aui-arrow-right"></a>
 				</li>
 				{{ } }}
@@ -171,7 +162,6 @@
 				//在这里从服务器加载数据，加载完成后调用api.refreshHeaderLoadDone()方法恢复组件到默认状态
 				init()
 				api.refreshHeaderLoadDone();
-				
 			});
 		}
 		function del(id) {

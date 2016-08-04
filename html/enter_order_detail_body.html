@@ -61,22 +61,18 @@
 		</div>
 		<ul class="aui-list-view">
 			<li class="aui-list-view-cell aui-img aui-counter-list" >
-				<img class="aui-img-object aui-pull-left" src="../image/pic.jpg" id="classPS"> <!--data-echo="../image/pic.jpg"--> 
-			 	<div class="aui-img-body">
-						<div class="aui-text-default aui-ellipsis-1" id="orderName">
-							CLASSNAME
-						</div>
-						<div class="aui-counter-box">
-							<div class="aui-pull-left" id="orderCash2">
-								
-							</div>
-							<div class="aui-text-default aui-pull-right">
-								
-							</div>
-						</div>
+				<img class="aui-img-object aui-pull-left" src="../image/pic.jpg" id="classPS"><!--data-echo="../image/pic.jpg"-->
+				<div class="aui-img-body">
+					<div class="aui-text-default aui-ellipsis-1" id="orderName">
+						CLASSNAME
 					</div>
-					<br/>
-					<br/>
+					<div class="aui-counter-box">
+						<div class="aui-pull-left" id="orderCash2"></div>
+						<div class="aui-text-default aui-pull-right"></div>
+					</div>
+				</div>
+				<br/>
+				<br/>
 				<script id="ordertpl" type="text/x-dot-template" charset="UTF-8">
 					<div class="aui-img-body">
 					<div class="aui-counter-box">
@@ -91,7 +87,7 @@
 					</div>
 					<div class="aui-text-default aui-pull-right" >
 					总价：{{=it.money}}
-					</div>										
+					</div>
 					</div>
 					</div>
 				</script>
@@ -99,46 +95,59 @@
 			</li>
 		</ul>
 		<!--<div class="aui-content">
-			<ul class="aui-list-view">
-				<li class="aui-list-view-cell aui-img aui-counter-list" >
-					<img class="aui-img-object aui-pull-left" src="../image/pic.jpg" data-echo="../image/pic.jpg">
-					<div class="aui-img-body">
-						<div class="aui-text-default aui-ellipsis-1" id="orderName">
-							茅山榴莲王 越南进口越南进口越南进口
-						</div>
-						<div class="aui-counter-box">
-							<div class="aui-pull-left" id="orderCash2">
-								￥48.00
-							</div>
-							<div class="aui-text-default aui-pull-right">
-								x 1
-							</div>
-						</div>
-					</div>
-				</li>
-			</ul>
+		<ul class="aui-list-view">
+		<li class="aui-list-view-cell aui-img aui-counter-list" >
+		<img class="aui-img-object aui-pull-left" src="../image/pic.jpg" data-echo="../image/pic.jpg">
+		<div class="aui-img-body">
+		<div class="aui-text-default aui-ellipsis-1" id="orderName">
+		茅山榴莲王 越南进口越南进口越南进口
+		</div>
+		<div class="aui-counter-box">
+		<div class="aui-pull-left" id="orderCash2">
+		￥48.00
+		</div>
+		<div class="aui-text-default aui-pull-right">
+		x 1
+		</div>
+		</div>
+		</div>
+		</li>
+		</ul>
 		</div>-->
+		<script id="addresstpl" type="text/x-dot-template" >
+			{{for(var i in it) { }}
+			<li tapmode >
+			<div class="aui-user-view-cell aui-img drop-div" tapmode onclick="selectaddadress('{{=it[i].id}}')">
+			<div class="aui-img-body">
+			<div>收件人：{{=it[i].name}}</div>
+			<div>电话：{{=it[i].tel}}</div>
+			<p class='aui-ellipsis-2' style="margin-right:12px;">
+			地址：{{=it[i].addressname}}
+			</p>
+			</div>
+			{{ } }}
+		</script>
 		<!--<div class="aui-content">
-			<ul class="aui-list-view aui-in">
-				<li class="aui-list-view-cell">
-					<a class="aui-arrow-right"> 优惠券
-					<div class="aui-pull-right aui-right">
-						请选择优惠券
-					</div> </a>
-				</li>
-				<li class="aui-list-view-cell">
-					<a class="aui-arrow-right"> 积分
-					<div class="aui-pull-right aui-right">
-						请选择优惠券
-					</div> </a>
-				</li>
-				<li class="aui-list-view-cell" style="padding:0 0 0 15px;">
-					<div class="aui-input-row">
-						<span class="aui-input-addon">备注</span>
-						<input type="text" class="aui-input" placeholder="填写留言备注">
-					</div>
-				</li>
-			</ul>
+		<ul class="aui-list-view aui-in">
+		<li class="aui-list-view-cell">
+		<a class="aui-arrow-right"> 优惠券
+		<div class="aui-pull-right aui-right">
+		请选择优惠券
+		</div> </a>
+		</li>
+		<li class="aui-list-view-cell">
+		<a class="aui-arrow-right"> 积分
+		<div class="aui-pull-right aui-right">
+		请选择优惠券
+		</div> </a>
+		</li>
+		<li class="aui-list-view-cell" style="padding:0 0 0 15px;">
+		<div class="aui-input-row">
+		<span class="aui-input-addon">备注</span>
+		<input type="text" class="aui-input" placeholder="填写留言备注">
+		</div>
+		</li>
+		</ul>
 		</div>-->
 		<div class="aui-content">
 			<ul class="aui-list-view aui-in">
@@ -176,6 +185,8 @@
 	<script type="text/javascript" src="../script/doT.min.js"></script>
 	<script type="text/javascript" src="../script/transformCoding.js"></script>
 	<script type="text/javascript">
+		var model;
+		var query;
 		function openaddress() {
 			api.openWin({
 				name : 'address_head',
@@ -194,15 +205,26 @@
 		apiready = function() {
 			initFrame();
 			api.parseTapmode();
+			model = api.require('model');
+			model.config({
+				appKey : '7810E5E4-7F54-E1E6-B07F-9ADA6FA49D46',
+				host : 'https://d.apicloud.com'
+			});
+			query = api.require('query');
 		};
+		
+		function selectaddadress(id){
+		
+		}
+		
 		function initFrame() {
-		var orderName = $api.byId('orderName');
-		var classpic = $api.getStorage('classpic');
-		var classPS = $api.byId('classPS');
-		classPS.src = classpic;
-		//classPS.data-echo = classpic;
-		var classname = $api.getStorage('classname');
-		orderName.innerHTML = classname
+			var orderName = $api.byId('orderName');
+			var classpic = $api.getStorage('classpic');
+			var classPS = $api.byId('classPS');
+			classPS.src = classpic;
+			//classPS.data-echo = classpic;
+			var classname = $api.getStorage('classname');
+			orderName.innerHTML = classname
 			var length = $api.getStorage('jArray');
 			for (var j = 0; j <= length; j += 1) {
 				var order = $api.getStorage('orderData' + '[' + j + ']');
@@ -224,6 +246,28 @@
 			var totalcash = $api.getStorage('totalcash');
 			var cash = $api.byId('cash');
 			cash.innerHTML = totalcash;
+			
+//////获取地址
+			var uid = $api.getStorage('uid');
+			query.createQuery({
+			}, function(ret, err) {
+				if (ret && ret.qid) {
+					query.whereEqual({
+						qid : ret.qid,
+						column : 'userid',
+						value : uid
+					});
+					model.findAll({
+						class : 'userAddress',
+						qid : ret.qid
+					}, function(ret, err) {
+						var include = $api.byId('include');
+						var addresstpl = $api.byId('addresstpl').text;
+						var dealwith = doT.template(addresstpl);
+						include.innerHTML = dealwith(ret)
+					});
+				}
+			});
 		}
 	</script>
 </html>
