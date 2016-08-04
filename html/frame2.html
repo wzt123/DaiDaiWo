@@ -82,53 +82,33 @@
 	</head>
 	<body>
 		<div class="aui-content">
-			<!--<script id="ordertpl" type="text/x-dot-template">
-			<li class="aui-list-view-cell aui-img aui-counter-list" tapmode onclick="">
-			<h5 class="font-color">{{=it.creatTime}}</h5>
-			<div class="aui-line-x" style="margin: 5px 0 8px 0;"></div>
-			<img class="aui-img-object aui-pull-left" src={{it.classpic}} data-echo={{it.classpic}}>
-			<div class="aui-img-body">
-			<div class="aui-text-default aui-ellipsis-1">{{=it.classname}}</div>
-			<div class="aui-counter-box">
-			<div class="aui-pull-left">{{=it.order}}</div>
-			</div>
-			</div>
-			<div class="aui-line-x" style="margin: 17px 0 8px 0;"></div>
-			<p class="aui-text-right">{{=it.money}}</p>
-			<div class="aui-line-x" style="margin: 8px 0 5px 0;"></div>
-			</li>
-			</script>-->
 			<script id="ordertpl" type="text/x-dot-template" >
 				<div onclick="helpthis('{{=it.lon}}','{{=it.lat}}');">
 				{{for(var i in it) { }}
 				<div class="aui-img-body">
 				<div class="aui-counter-box">
-				<div class="aui-pull-left" id="orderName">
+				<div class="aui-pull-left" id="orderName" style="color: #FF9800;font-size:15px;">
 				种类：{{=it[i].classname}}
 				</div>
-				<div class="aui-text-default aui-pull-sright" id="orderamount"style="padding-left:20px">
+				<div class="aui-text-default aui-pull-sright" id="orderamount"style="padding-left:15px">
 				</div>
 				<br />
 				<div class="aui-pull-left" id="orderCash2">
 				{{ for(var prop in it[i].order) { }}
-				<div>菜名：{{= it[i].order[prop].name}}</div>
-				<div>单价：{{= it[i].order[prop].price}}</div>
-				<div>重量：{{= it[i].order[prop].amount}}</div>
-				<div>钱：{{= it[i].order[prop].money}}</div>
+				<div style="font-size:14px; padding-left: 15px; color: #16A085;">菜名：{{= it[i].order[prop].name}}</div>
+				<div style="font-size:14px; padding-left: 15px; color: #16A085;">单价：{{= it[i].order[prop].price}}/斤</div>
+				<div style="font-size:14px; padding-left: 15px; color: #16A085;">数量：{{= it[i].order[prop].amount}}</div>
+				<div style="font-size:14px; padding-left: 15px; color: #16A085;">总价：{{= it[i].order[prop].money}}</div><br/>
 				{{ } }}
-				<!--{{~it.order:value:index}}
-				<li><span>菜名：{{=value.name}}</span><span>单价：{{=value.price}}</span><span>重量：{{=value.amount}}</span><span>钱：{{=value.money}}</span></li>
-				{{~}}-->
 				</div>
-				<div class="aui-text-default aui-pull-right" >
-				总价：{{=it[i].money}}
-				</div>
+				<div class="aui-line-x" style="margin: 17px 0 8px 0;"></div>
+	                	<p class="aui-text-right" style="color:#E74C3C;font-size:17px;padding-right: 20px">总金额：{{=it[i].money}}元</p>
+	             <div class="aui-line-x" style="margin: 8px 0 5px 0;"></div>
 				</div>
 				</div>
 				{{ } }}
 				</div>
 			</script>
-			<!--<div id="orderinclude"></div>-->
 			<ul class="aui-list-view" id="include"></ul>
 		</div>
 	</body>
