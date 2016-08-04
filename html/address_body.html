@@ -126,13 +126,19 @@
 	<script type="text/javascript" src="../script/zepto.min.js"></script>
 	<script type="text/javascript" src="../script/hammer.min.js"></script>
 	<script type="text/javascript">
+	var model;
+	var query;
+	var bMap;
 	function toast(id){
 		
 	}
 	function init(){
+		var uid = $api.getStorage('uid');
 	}
 		apiready = function() {
-			var map = api.require('bMap');
+			bMap = api.require('bMap');
+			model = api.require('model');
+			query = api.require('query');
 //			map.getCoordsFromName({
 //				city : '山东',
 //				address : '山东省济南市历下区华强电子世界华强电子世界B栋2211'
