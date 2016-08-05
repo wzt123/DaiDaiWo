@@ -102,8 +102,8 @@
 				{{ } }}
 				</div>
 				<div class="aui-line-x" style="margin: 17px 0 8px 0;"></div>
-	                	<p class="aui-text-right" style="color:#E74C3C;font-size:17px;padding-right: 20px">总金额：{{=it[i].money}}元</p>
-	             <div class="aui-line-x" style="margin: 8px 0 5px 0;"></div>
+				<p class="aui-text-right" style="color:#E74C3C;font-size:17px;padding-right: 20px">总金额：{{=it[i].money}}元</p>
+				<div class="aui-line-x" style="margin: 8px 0 5px 0;"></div>
 				</div>
 				</div>
 				{{ } }}
@@ -119,18 +119,18 @@
 	<script type="text/javascript">
 		var model;
 		var query;
-		
-				function helpthis(lon,lat)
-				{
-					
-				   api.openWin({
-    				name: 'baidumaphead',
-    				url: './baidumaphead.html',
-    				pageParam: {
-        			name: 'test'
-    }
-});
+		function helpthis(lon, lat) {
+		$api.setStorage('lon',lon);
+		$api.setStorage('lat',lat);
+			api.openWin({
+				name : 'baidumaphead',
+				url : './baidumaphead.html',
+				pageParam : {
+					name : 'test'
 				}
+			});
+		}
+
 		apiready = function() {
 			model = api.require('model');
 			query = api.require('query');
@@ -151,7 +151,6 @@
 				//在这里从服务器加载数据，加载完成后调用api.refreshHeaderLoadDone()方法恢复组件到默认状态
 				allorder()
 				api.refreshHeaderLoadDone();
-				
 			});
 		};
 		function allorder() {
@@ -174,14 +173,14 @@
 					model.findAll({
 						class : 'orderForm',
 						qid : ret.qid
-					}, function(ret, err) {
+					}, function(ret, err){
 						if (ret) {
 							var include = $api.byId('include');
 							var tpl = $api.byId('ordertpl').text;
 							var tempFn = doT.template(tpl);
 							include.innerHTML = tempFn(ret);
 							api.hideProgress();
-						} else
+						}else
 							api.alert({
 								msg : JSON.stringify(err)
 							});

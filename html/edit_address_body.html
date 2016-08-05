@@ -146,6 +146,9 @@
 							lon : ret.lon,
 							lat : ret.lon
 						}
+						var	lon = ret.lon;
+						var	lat = ret.lon;
+						
 						var def;
 						if (defAdd.checked) {
 							def = true;
@@ -195,6 +198,8 @@
 							addressname : addressname,
 							userid : uid,
 							address : address,
+							lon : lon,
+							lat : lat,
 							def : def
 						}
 						ajaxRequest(registerUrl, 'post', JSON.stringify(bodyParam), function(ret, err) {

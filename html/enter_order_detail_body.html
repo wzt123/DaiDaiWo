@@ -116,7 +116,7 @@
 		</div>-->
 		<script id="addresstpl" type="text/x-dot-template" >
 			{{for(var i in it) { }}
-			<li tapmode >
+			<li class="aui-list-view-cell">
 			<div class="aui-user-view-cell aui-img drop-div" tapmode onclick="selectaddadress('{{=it[i].id}}')">
 			<div class="aui-img-body">
 			<div>收件人：{{=it[i].name}}</div>
@@ -125,8 +125,16 @@
 			地址：{{=it[i].addressname}}
 			</p>
 			</div>
+			</li>
 			{{ } }}
 		</script>
+		<div class="aui-content">
+			<div><p>请选择地址</p>
+			<ul class="aui-list-view aui-in" id="include">
+			
+			</ul>
+			</div>
+		</div>
 		<!--<div class="aui-content">
 		<ul class="aui-list-view aui-in">
 		<li class="aui-list-view-cell">
@@ -187,6 +195,16 @@
 	<script type="text/javascript">
 		var model;
 		var query;
+		apiready = function() {
+			query = api.require('query');
+			model = api.require('model');
+			model.config({
+				appKey : '7810E5E4-7F54-E1E6-B07F-9ADA6FA49D46',
+				host : 'https://d.apicloud.com'
+			});
+			api.parseTapmode();
+			initFrame();
+		};
 		function openaddress() {
 			api.openWin({
 				name : 'address_head',
@@ -202,21 +220,11 @@
 			callback : function(element, op) {
 			}
 		});
-		apiready = function() {
-			initFrame();
-			api.parseTapmode();
-			model = api.require('model');
-			model.config({
-				appKey : '7810E5E4-7F54-E1E6-B07F-9ADA6FA49D46',
-				host : 'https://d.apicloud.com'
-			});
-			query = api.require('query');
-		};
-		
-		function selectaddadress(id){
-		
+		function selectaddadress(id) {
+			$api.setStorage('orderid', id);
+			alert("选择成功");
 		}
-		
+
 		function initFrame() {
 			var orderName = $api.byId('orderName');
 			var classpic = $api.getStorage('classpic');
@@ -232,9 +240,6 @@
 				if (order.amount == 0) {
 					continue;
 				}
-				//				api.alert({
-				//					msg : "名称：" + order.name + "，价格：" + order.price + "，重量：" + order.amount + "，金额:" + order.money
-				//				});
 				var para = document.createElement("div");
 				para.id = 'userorder' + j;
 				var orderinclude = $api.byId('orderinclude');
@@ -246,8 +251,7 @@
 			var totalcash = $api.getStorage('totalcash');
 			var cash = $api.byId('cash');
 			cash.innerHTML = totalcash;
-			
-//////获取地址
+			//////获取地址
 			var uid = $api.getStorage('uid');
 			query.createQuery({
 			}, function(ret, err) {
@@ -261,10 +265,14 @@
 						class : 'userAddress',
 						qid : ret.qid
 					}, function(ret, err) {
-						var include = $api.byId('include');
-						var addresstpl = $api.byId('addresstpl').text;
-						var dealwith = doT.template(addresstpl);
-						include.innerHTML = dealwith(ret)
+						if (ret) {
+							var include = $api.byId('include');
+							var tpl = $api.byId('addresstpl').text;
+							var tempFn = doT.template(tpl);
+							include.innerHTML = tempFn(ret);
+						} else {
+							alert(JSON.stringify(err));
+						}
 					});
 				}
 			});

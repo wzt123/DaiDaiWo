@@ -172,7 +172,7 @@
 		function init() {
 			var uid = $api.getStorage('uid');
 			query.createQuery({
-			}, function(ret, err) {
+			}, function(ret, err){
 				if (ret && ret.qid) {
 					query.whereEqual({
 						qid : ret.qid,

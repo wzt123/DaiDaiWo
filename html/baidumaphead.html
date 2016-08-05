@@ -80,11 +80,6 @@
 		}
 
 		apiready = function() {
-			api.alert({
-				msg : location.lon + "wwwww" + location.lat
-			}, function(ret, err) {
-				//coding...
-			});
 			api.parseTapmode();
 			var header = $api.byId('aui-header');
 			$api.fixStatusBar(header);

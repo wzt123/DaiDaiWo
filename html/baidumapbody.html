@@ -16,8 +16,8 @@
 		var lat = null;
 		var lon = null;
 		var bMap = null;
-		function init(){
-		bMap = api.require('bMap');
+		function init() {
+			bMap = api.require('bMap');
 			bMap.getLocation({
 				accuracy : '10m',
 				autoStop : true,
@@ -26,42 +26,55 @@
 				if (ret) {
 					lon = ret.lon;
 					lat = ret.lat;
-				}
-				if (ret.status) {
-					alert(JSON.stringify(ret));
-					api.alert({
-						msg : 'getLocation方法执行成功！'
-					});
-				} else {
-					alert(err.code);
-				}
-			});
-			bMap.open({
-				rect : {
-					x : 0,
-					y : 0,
-					w : api.frameWidth,
-					h : api.frameHeight
-				},
-				center : {
-					lon : lon,
-					lat : lat
-				},
-				zoomLevel : 10,
-				showUserLocation : true,
-				fixedOn : 'baidumapbody', // 别忘了设置这个
-				fixed : true
-			}, function(ret) {
-				if (ret) {
-					map.show();
-				}
-				if (ret.status) {
-					api.alert({
-						msg : 'open方法执行成功！'
-					});
-				} else {
-					api.alert({
-						msg : 'open方法执行失败！'
+					bMap.open({
+						rect : {
+							x : 0,
+							y : 0,
+							w : api.frameWidth,
+							h : api.frameHeight
+						},
+						center : {
+							lon : lon,
+							lat : lat
+						},
+						zoomLevel : 10,
+						showUserLocation : true,
+						fixedOn : 'baidumapbody', // 别忘了设置这个
+						fixed : true
+					}, function(ret) {
+						if (ret) {
+							map.show();
+							var endlon = $api.getStorage('lon');
+							var endlat = $api.getStorage('lat');
+							map.searchRoute({
+								id : 1,
+								type : 'drive',
+								policy : 'ecar_fee_first',
+								start : {
+									lon : 116.903838,
+									lat : 39.914437
+								},
+								end : {
+									lon : endlon,
+									lat : endlat
+								}
+							}, function(ret, err) {
+								if (ret.status) {
+									api.alert({
+										msg : JSON.stringify(ret)
+									});
+								}
+							});
+						}
+						if (ret.status) {
+							api.alert({
+								msg : 'open方法执行成功！'
+							});
+						} else {
+							api.alert({
+								msg : 'open方法执行失败！'
+							});
+						}
 					});
 				}
 			});
