@@ -16,36 +16,7 @@
 			   	width:100%;
 			    height: 100%;
 			}
-			.o2o {
-				display: -webkit-box;
-				display: -webkit-flex;
-				display: flex;
-				-webkit-box-orient: horizontal;
-				-webkit-flex-flow: row;
-				flex-flow: row;
-				width: 100%;
-				background: #ffff;
-				margin-bottom: 5px;
-			}
-			.o2o-item {
-				-webkit-box-flex: 1;
-				-webkit-flex: 1;
-				flex: 1;
-				height: 150px;
-				text-align: center;
-				line-height: 0;
-				color: #fff;
-				font-size: 20px;
-			}
-			.o2o-item:nth-child(1) {
-				margin-right: 3px;
-				background: url(../image/hd.png) no-repeat left top;
-				background-size: cover;
-				-webkit-background-size: cover;
-			}
-			.o2o-item:nth-child(2) {
-				margin-left: 2px
-			}
+			
 			.item-item {
 				height: 73px;
 				width: 100%;
@@ -122,76 +93,75 @@
 		</style>
 	</head>
 	<body>
-		<div class="aui-content" style="margin-bottom: 5px;">
-			<p class="aui-padded-10 aui-bg-ffffff aui-text-black"><label class="active-ars"></label>人气推荐</p>
-			<ul id="nice-articles">
-				<li>
-					<img src="../image/genjing.png" data-echo="../image/genjing.png" alt="" title="" class="article-img" />
-					<div class="article-info">
-						<div class="aui-ellipsis-1" style="margin-bottom: 8px;">
-						     新鲜萝卜，原生态产品。
-						</div>
-						<p class="aui-padded-5-0">1.2元/斤 <em class="aui-pull-right aui-money">1.2元/斤</em></p>
-					</div>					
-				</li>
-				<li>
-					<img src="../image/yecai.png" data-echo="../image/yecai.png" alt="" title="" class="article-img" />
-					<div class="article-info">
-						<div class="aui-ellipsis-1" style="margin-bottom: 8px;">
-							新鲜生菜，营养健康
-						</div>
-						<p class="aui-padded-5-0">墨西哥牛油果4个/盒 <em class="aui-pull-right aui-money">0.3元/斤</em></p>
-					</div>					
-				</li>
-				<li>
-					<img src="../image/junlei.png" data-echo="../image/junlei.png" alt="" title="" class="article-img" />
-					<div class="article-info">
-						<div class="aui-ellipsis-1" style="margin-bottom: 8px;">
-							新鲜蘑菇，营养美味						</div>
-						<p class="aui-padded-5-0">墨西哥牛油果4个/盒 <em class="aui-pull-right aui-money">1.3元/斤</em></p>
-					</div>					
-				</li>
-			</ul>
+	  <div id="aui-slide">
+			<div class="aui-slide-wrap" >
+				<div class="aui-slide-node bg-dark aui-slide-node-middle aui-slide-node-center">
+					<img src="../image/banner.jpg" />
+				</div>
+				<div class="aui-slide-node bg-dark aui-slide-node-middle aui-slide-node-center">
+					<img src="../image/banner2.jpg" />
+				</div>
+				<div class="aui-slide-node bg-dark aui-slide-node-middle aui-slide-node-center">
+					<img src="../image/banner.jpg" />
+				</div>
+			</div>
+			<div class="aui-slide-page-wrap"><!--分页容器--></div>
 		</div>
-		
 		<div class="aui-content box">
-        <p class="aui-padded-10 aui-bg-ffffff aui-text-black"><label class="active-ars"></label>热卖蔬菜</p>
-        
+        <p class="aui-padded-10 aui-bg-ffffff aui-text-black"><label class="active-ars"></label>蔬菜.油粮.肉类</p>        
         <ul class="aui-list-view aui-grid-view">
-            <li class="aui-list-view-cell aui-img aui-col-xs-6" tapmode onclick="openshopcar1()">
+            <li class="aui-list-view-cell aui-img aui-col-xs-4" tapmode onclick="openshopcar1()">
                 <img class="aui-img-object" src="../image/yecai.png" data-echo="../image/yecai.png">
                 <div class="aui-img-body aui-text-left">
                     	<span class="aui-ellipsis-1">叶菜类蔬菜</span>
                 </div>
             </li>
-            <li class="aui-list-view-cell aui-img aui-col-xs-6" tapmode onclick="openshopcar6()">
+            <li class="aui-list-view-cell aui-img aui-col-xs-4" tapmode onclick="openshopcar6()">
                 <img class="aui-img-object" src="../image/yamiao.png" data-echo="../image/yamiao.png">
                 <div class="aui-img-body aui-text-left aui-ellipsis-2">
                     <span class="aui-ellipsis-1">芽苗类蔬菜</span>
                 </div>
             </li>
-            <li class="aui-list-view-cell aui-img aui-col-xs-6" tapmode onclick="openshopcar3()">
+            <li class="aui-list-view-cell aui-img aui-col-xs-4" tapmode onclick="openshopcar3()">
                 <img class="aui-img-object" src="../image/junlei.png" data-echo="../image/junlei.png">
                 <div class="aui-img-body aui-text-left aui-ellipsis-2">
                     <span class="aui-ellipsis-1">菌类蔬菜</span>                 
                 </div>
             </li>
-            <li class="aui-list-view-cell aui-img aui-col-xs-6" tapmode onclick="openshopcar2()">
+            <li class="aui-list-view-cell aui-img aui-col-xs-4" tapmode onclick="openshopcar2()">
                 <img class="aui-img-object" src="../image/genjing.png" data-echo="../image/genjing.png">
                 <div class="aui-img-body aui-text-left aui-ellipsis-2">
                     <span class="aui-ellipsis-1">根茎类蔬菜</span>
                 </div>
             </li>
-            <li class="aui-list-view-cell aui-img aui-col-xs-6" tapmode onclick="openshopcar4()">
+            <li class="aui-list-view-cell aui-img aui-col-xs-4" tapmode onclick="openshopcar4()">
                 <img class="aui-img-object" src="../image/guocai.png" data-echo="../image/guocai.png">
                 <div class="aui-img-body aui-text-left aui-ellipsis-2">
                     <span class="aui-ellipsis-1">果菜类蔬菜</span>
                 </div>
             </li>
-            <li class="aui-list-view-cell aui-img aui-col-xs-6" tapmode onclick="openshopcar5()">
+            <li class="aui-list-view-cell aui-img aui-col-xs-4" tapmode onclick="openshopcar5()">
                 <img class="aui-img-object" src="../image/huacai.png" data-echo="../image/huacai.png">
                 <div class="aui-img-body aui-text-left aui-ellipsis-2">
-                    <span class="aui-ellipsis-1">花菜类蔬菜</span
+                    <span class="aui-ellipsis-1">花菜类蔬菜</span>
+                </div>
+            </li>
+            <li class="aui-list-view-cell aui-img aui-col-xs-4" tapmode onclick="openshopcar7()">
+                <img class="aui-img-object" src="../image/huacai.png" data-echo="../image/liangyou1.png">
+                <div class="aui-img-body aui-text-left aui-ellipsis-2">
+                    <span class="aui-ellipsis-1">油粮类</span>
+                </div>
+            </li>
+            <li class="aui-list-view-cell aui-img aui-col-xs-4" tapmode onclick="openshopcar8()">
+                <img class="aui-img-object" src="../image/huacai.png" data-echo="../image/rou1.png">
+                <div class="aui-img-body aui-text-left aui-ellipsis-2">
+                    <span class="aui-ellipsis-1">肉类</span>
+                </div>
+            </li>
+            <li class="aui-list-view-cell aui-img aui-col-xs-4" tapmode onclick="openshopcar9()">
+                <img class="aui-img-object" src="../image/huacai.png" data-echo="../image/xiancai1.png">
+                <div class="aui-img-body aui-text-left aui-ellipsis-2">
+                    <span class="aui-ellipsis-1">咸菜类</span>
                 </div>
             </li>
             
@@ -202,7 +172,19 @@
 	<script type="text/javascript" src="../script/common.js"></script>
 	<script type="text/javascript" src="../script/zepto.min.js"></script>
 	<script type="text/javascript" src="../script/echo.min.js"></script>
+	<script type="text/javascript" src="../script/aui-slide.js"></script>
 	<script type="text/javascript">
+	var slide = new auiSlide({
+			container:document.getElementById("aui-slide"),
+			// "width":300,
+			"height":180,
+			"speed":300,
+			"autoPlay": 3000, //自动播放
+			"pageShow":true,
+			"pageStyle":'dot',
+			"loop":true,
+			'dotPosition':'center'
+		});
 		echo.init({
 			offset : 100,
 			throttle : 250,
@@ -274,6 +256,27 @@
 			api.openWin({
 				name : 'shopcar_body6',
 				url : '../html/shopcar_body6.html'
+			});
+		}
+		function openshopcar7() {
+		$api.setStorage('classpic',"../image/liangyou1.png");	
+			api.openWin({
+				name : 'shopcar_body7',
+				url : '../html/shopcar_body7.html'
+			});
+		}
+		function openshopcar8() {
+		$api.setStorage('classpic',"../image/rou1.png");	
+			api.openWin({
+				name : 'shopcar_body8',
+				url : '../html/shopcar_body8.html'
+			});
+		}
+		function openshopcar9() {
+		$api.setStorage('classpic',"../image/xiancai1.png");	
+			api.openWin({
+				name : 'shopcar_body9',
+				url : '../html/shopcar_body9.html'
 			});
 		}
 	</script>
