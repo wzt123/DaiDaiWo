@@ -26,6 +26,11 @@
 				if (ret) {
 					lon = ret.lon;
 					lat = ret.lat;
+					api.alert({
+                    msg:lon+",lat:"+lat
+                    },function(ret,err){
+                    	//coding...
+                    });
 					bMap.open({
 						rect : {
 							x : 0,
@@ -46,13 +51,18 @@
 							map.show();
 							var endlon = $api.getStorage('lon');
 							var endlat = $api.getStorage('lat');
+							api.alert({
+                            msg:"endlon:"+endlon+",endlat:"+endlat
+                            },function(ret,err){
+                            	//coding...
+                            });
 							map.searchRoute({
 								id : 1,
 								type : 'drive',
 								policy : 'ecar_fee_first',
 								start : {
-									lon : 116.903838,
-									lat : 39.914437
+									lon : lon,
+									lat : lon
 								},
 								end : {
 									lon : endlon,

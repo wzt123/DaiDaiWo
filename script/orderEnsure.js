@@ -29,13 +29,20 @@ function openoder() {
 	var userid = $api.getStorage('uid');
 	if (userid == null) {
 		api.alert({
-			msg : "亲，找人帮忙要先告诉别人你的电话号码哦"
+			msg : "亲，你要先登录哦~"
 		}, function(ret, err) {
 			if (ret) {
 				api.closeToWin({
 					name : 'root'
 				});
 			}
+		});
+		return;
+	} else if (orderid == null) {
+		api.alert({
+			msg : "亲，请给我个地址~"
+		}, function(ret, err) {
+
 		});
 		return;
 	}
@@ -57,24 +64,26 @@ function openoder() {
 		}
 		order[j] = singleorder;
 		j += 1;
-		
+
 	}
 
 	//获取地址
 	var lon;
 	var lat;
 	var orderid = $api.getStorage('orderid');
+
 	var getUserById = '/userAddress/' + orderid;
 	var bodyParam = {
 		id : orderid
 	}
 	ajaxRequest(getUserById, 'get', JSON.stringify(bodyParam), function(ret, err) {
 		if (ret) {
+
 			lon = ret.lon;
 			lat = ret.lat;
 			var time = new Date().Format("yyyy-MM-dd hh:mm:ss");
 			var totalcash = $api.getStorage('totalcash');
-			
+
 			var bodyParam = {
 				username : username,
 				money : totalcash,
@@ -105,6 +114,7 @@ function openoder() {
 				}
 				api.hideProgress();
 			});
+
 		} else {
 			api.toast({
 				msg : JSON.stringify(err)

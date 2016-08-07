@@ -80,52 +80,57 @@
 		}
 
 		apiready = function() {
+			//		init();
+			var endlon = $api.getStorage('lon');
+			var endlat = $api.getStorage('lat');
 			api.parseTapmode();
 			var header = $api.byId('aui-header');
 			$api.fixStatusBar(header);
 			var headerPos = $api.offset(header);
 			var body_h = $api.offset($api.dom('body')).h;
 			bMap = api.require('bMap');
-			//bMap.open({
-			//rect: {
-			//x: 0,
-			//y: 0,
-			////w: 'auto',
-			////h: 'auto'
-			//},
-			//center: {
-			//lon: 116.4021310000,
-			//lat: 39.9994480000
-			//},
-			//zoomLevel: 10,
-			//showUserLocation: true,
-			//fixedOn: api.frameName,
-			//fixed: true
-			//});
-			bMap.open({
-				rect : {
-					x : 0,
-					y : 0,
-					w : 'auto',
-					h : 'auto'
-				},
-				center : {
-					lon : 116.4021310000,
-					lat : 39.9994480000
-				},
-				zoomLevel : 10,
-				showUserLocation : true,
-				// fixedOn: api.frameName,
-				fixed : true
-			});
 			bMap.getLocation({
 				accuracy : '10m',
 				autoStop : true,
 				filter : 1
 			}, function(ret, err) {
+				bMap.open({
+					rect : {
+						x : 0,
+						y : 0,
+						w : 'auto',
+						h : 'auto'
+					},
+					center : {
+						lon : ret.lon,
+						lat : ret.lat
+					},
+					zoomLevel : 10,
+					showUserLocation : true,
+					// fixedOn: api.frameName,
+					fixed : true
+				});
 				bMap.showUserLocation({
 					isShow : true,
 					trackingMode : 'follow'
+				});
+				api.alert({
+                msg:endlon+",lat:"+endlat
+                },function(ret,err){
+                	//coding...
+                });
+				bMap.addAnnotations({
+					annotations : [{
+						id : 1,
+						lon : ret.lon,
+						lat : ret.lat
+					}, {
+						id : 2,
+						lon : endlon,
+						lat : endlat
+					}],
+					//icon: 'widget://',
+					draggable : true
 				});
 				bMap.setZoomLevel({
 					level : 15
@@ -139,8 +144,8 @@
 						lat : ret.lat
 					},
 					end : {
-						lon : location.lon,
-						lat : location.lat
+						lon : endlon,
+						lat : endlat
 					}
 				}, function(ret, err) {
 					bMap.drawRoute({
@@ -149,31 +154,14 @@
 						index : 0,
 						styles : {
 							start : {
-								icon : 'widget://image/bmap_start.png'
+								icon : '../image/marker_red_hd.png'
 							},
 							end : {
-								icon : 'widget://image/bmap_end.png'
+								icon : '../image/marker_red_sprite.png'
 							}
 						}
 					});
 				});
-			});
-			bMap.addAnnotations({
-				annotations : [{
-					id : 1,
-					lon : location.lon,
-					lat : location.lat
-				}, {
-					id : 2,
-					lon : 116.29,
-					lat : 40.109
-				}, {
-					id : 3,
-					lon : 116.298,
-					lat : 40.11
-				}],
-				//icon: 'widget://',
-				draggable : true
 			});
 			//						bMap.getCoordsFromName({
 			//  							city: '山东',
@@ -228,6 +216,81 @@
 			//					hScrollBarEnabled : false
 			//				});
 			//			});
+		}
+		function init() {
+			bMap = api.require('bMap');
+			bMap.getLocation({
+				accuracy : '10m',
+				autoStop : true,
+				filter : 1
+			}, function(ret, err) {
+				if (ret) {
+					lon = ret.lon;
+					lat = ret.lat;
+					//					api.alert({
+					//						msg : lon + ",lat:" + lat
+					//					}, function(ret, err) {
+					//						//coding...
+					//					});
+					bMap.open({
+						rect : {
+							x : 0,
+							y : 0,
+							w : api.frameWidth,
+							h : api.frameHeight
+						},
+						center : {
+							lon : lon,
+							lat : lat
+						},
+						zoomLevel : 10,
+						showUserLocation : true,
+						fixedOn : 'baidumapbody', // 别忘了设置这个
+						fixed : true
+					}, function(ret) {
+						if (ret) {
+							map.show();
+							var endlon = $api.getStorage('lon');
+							var endlat = $api.getStorage('lat');
+							api.alert({
+								msg : "endlon:" + endlon + ",endlat:" + endlat
+							}, function(ret, err) {
+								//coding...
+							});
+							map.searchRoute({
+								id : 1,
+								type : 'drive',
+								policy : 'ecar_fee_first',
+								start : {
+									lon : lon,
+									lat : lon
+								},
+								end : {
+									lon : endlon,
+									lat : endlat
+								}
+							}, function(ret, err) {
+								if (ret.status) {
+									api.alert({
+										msg : JSON.stringify(ret)
+									});
+								}
+							});
+						}
+						if (ret.status) {
+							api.alert({
+								msg : 'open方法执行成功！'
+							});
+						} else {
+							api.alert({
+								msg : 'open方法执行失败！'
+							});
+						}
+					});
+				}
+			});
+		};
+		function getaddress() {
 		}
 	</script>
 </html>

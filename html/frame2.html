@@ -83,8 +83,8 @@
 	<body>
 		<div class="aui-content">
 			<script id="ordertpl" type="text/x-dot-template" >
-				<div onclick="helpthis('{{=it.lon}}','{{=it.lat}}');">
-				{{for(var i in it) { }}
+			{{for(var i in it) { }}
+				<div onclick="helpthis('{{=it[i].lon}}','{{=it[i].lat}}');">
 				<div class="aui-img-body">
 				<div class="aui-counter-box">
 				<div class="aui-pull-left" id="orderName" style="color: #FF9800;font-size:15px;">
@@ -120,8 +120,8 @@
 		var model;
 		var query;
 		function helpthis(lon, lat) {
-		$api.setStorage('lon',lon);
-		$api.setStorage('lat',lat);
+			$api.setStorage('lon', lon);
+			$api.setStorage('lat', lat);
 			api.openWin({
 				name : 'baidumaphead',
 				url : './baidumaphead.html',
@@ -173,14 +173,14 @@
 					model.findAll({
 						class : 'orderForm',
 						qid : ret.qid
-					}, function(ret, err){
+					}, function(ret, err) {
 						if (ret) {
 							var include = $api.byId('include');
 							var tpl = $api.byId('ordertpl').text;
 							var tempFn = doT.template(tpl);
 							include.innerHTML = tempFn(ret);
 							api.hideProgress();
-						}else
+						} else
 							api.alert({
 								msg : JSON.stringify(err)
 							});

@@ -170,27 +170,15 @@
 			</p>
 			<script id="login" type="text/x-dot-template">
 				<ul class="info shadow">
-				<li class="nickname">
-				{{? it.nickname }}
+				<li class="nickname">				
 				<a tapmode="" onclick="modifyNick('{{=it.username}}');">
 				<em>{{=it.username}}</em>
 				</a>
-				{{??}}
-				<a tapmode="" onclick="modifyNick('{{=it.username}}');">
-				<em>{{=it.username}}</em>
-				</a>
-				{{?}}
 				</li>
-				<li class="gender">
-				{{? it.eamil }}
+				<li class="gender">				
 				<a>
 				<em>{{=it.email}}</em>
-				</a>
-				{{??}}
-				<a>
-				<em>{{=it.email}}</em>
-				</a>
-				{{?}}
+				</a>				
 				</li>
 				</ul>
 			</script>
@@ -273,6 +261,8 @@
 				opaque : true,
 				vScrollBarEnabled : false
 			});
+		}
+		function modifyNick(name){
 		}
 		function openmenu() {
 			api.openWin({
