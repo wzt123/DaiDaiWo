@@ -271,12 +271,16 @@
 						class : 'userAddress',
 						qid : ret.qid
 					}, function(ret, err) {
-						if (ret) {
+						if (ret&&ret!=null) {
 							var include = $api.byId('include');
 							var tpl = $api.byId('addresstpl').text;
 							var tempFn = doT.template(tpl);
 							include.innerHTML = tempFn(ret);
-						} else {
+						}else if(ret == null)
+						{
+							var 
+						} 
+						else {
 							alert(JSON.stringify(err));
 						}
 					});
