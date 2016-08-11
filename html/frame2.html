@@ -115,14 +115,15 @@
 		var model;
 		var query;
 		function helpthis(lon, lat) {
-			$api.setStorage('lon', lon);
-			$api.setStorage('lat', lat);
+			$api.setStorage('endlon', lon);
+			$api.setStorage('endlat', lat);
+			
 			api.openWin({
 				name : 'baidumaphead',
 				url : './baidumaphead.html',
-				pageParam : {
-					name : 'test'
-				}
+//				pageParam : {
+//					name : 'test'
+//				}
 			});
 		}
 

@@ -141,13 +141,15 @@
 						title : '保存中...',
 						modal : false
 					});
-					if (ret) {
+					
+					if (ret.status) {
+					
 						var address = {
 							lon : ret.lon,
-							lat : ret.lon
+							lat : ret.lat
 						}
 						var	lon = ret.lon;
-						var	lat = ret.lon;
+						var	lat = ret.lat;
 						
 						var def;
 						if (defAdd.checked) {

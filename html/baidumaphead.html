@@ -80,9 +80,8 @@
 		}
 
 		apiready = function() {
-			//		init();
-			var endlon = $api.getStorage('lon');
-			var endlat = $api.getStorage('lat');
+			var endlon = $api.getStorage('endlon');
+			var endlat = $api.getStorage('endlat');
 			api.parseTapmode();
 			var header = $api.byId('aui-header');
 			$api.fixStatusBar(header);
@@ -94,6 +93,8 @@
 				autoStop : true,
 				filter : 1
 			}, function(ret, err) {
+				var startlon = ret.lon;
+				var startlat = ret.lat;
 				bMap.open({
 					rect : {
 						x : 0,
@@ -109,58 +110,65 @@
 					showUserLocation : true,
 					// fixedOn: api.frameName,
 					fixed : true
+				}, function(ret) {
+					if (ret.status) {
+						
+						var baiduNavigation = api.require('baiduNavigation');
+								baiduNavigation.start({
+									start : {// 起点信息.
+										position : {// 经纬度，与address配合可为空
+											lon : startlon, // 经度.
+											lat : startlat// 纬度.
+										},
+										title : "当前位置", // 描述信息
+										address : "当前位置" // 地址信息，与position配合为空
+									},
+									
+									end : {// 终点信息.
+										position : {// 经纬度，与address配合可为空
+											lon : endlon, // 经度
+											lat : endlat // 纬度
+										},
+										title : "收货地址", // 描述信息
+										address : "收货地址" // 地址信息，与position配合为空
+									}
+								}, function(ret, err) {
+									if (ret.status) {
+										api.alert({
+											title : "提示",
+											msg : '导航成功'
+										});
+									} else {
+										var msg = "未知错误";
+										if (1 == err.code) {
+											msg = "获取地理位置失败";
+										}
+										if (2 == err.code) {
+											msg = "定位服务未开启";
+										}
+										if (3 == err.code) {
+											msg = "线路取消";
+										}
+										if (4 == err.code) {
+											msg = "退出导航";
+										}
+										if (5 == err.code) {
+											msg = "退出导航声明页面";
+										}
+										api.alert({
+											title : "导航出错",
+											msg : msg
+										});
+									}
+								});
+					}
 				});
 				bMap.showUserLocation({
 					isShow : true,
 					trackingMode : 'follow'
 				});
-				api.alert({
-                msg:endlon+",lat:"+endlat
-                },function(ret,err){
-                	//coding...
-                });
-				bMap.addAnnotations({
-					annotations : [{
-						id : 1,
-						lon : ret.lon,
-						lat : ret.lat
-					}, {
-						id : 2,
-						lon : endlon,
-						lat : endlat
-					}],
-					//icon: 'widget://',
-					draggable : true
-				});
 				bMap.setZoomLevel({
 					level : 15
-				});
-				bMap.searchRoute({
-					id : 1,
-					type : 'drive',
-					policy : 'ecar_fee_first',
-					start : {
-						lon : ret.lon,
-						lat : ret.lat
-					},
-					end : {
-						lon : endlon,
-						lat : endlat
-					}
-				}, function(ret, err) {
-					bMap.drawRoute({
-						id : 1,
-						autoresizing : false,
-						index : 0,
-						styles : {
-							start : {
-								icon : '../image/marker_red_hd.png'
-							},
-							end : {
-								icon : '../image/marker_red_sprite.png'
-							}
-						}
-					});
 				});
 			});
 			//						bMap.getCoordsFromName({
@@ -217,79 +225,6 @@
 			//				});
 			//			});
 		}
-		function init() {
-			bMap = api.require('bMap');
-			bMap.getLocation({
-				accuracy : '10m',
-				autoStop : true,
-				filter : 1
-			}, function(ret, err) {
-				if (ret) {
-					lon = ret.lon;
-					lat = ret.lat;
-					//					api.alert({
-					//						msg : lon + ",lat:" + lat
-					//					}, function(ret, err) {
-					//						//coding...
-					//					});
-					bMap.open({
-						rect : {
-							x : 0,
-							y : 0,
-							w : api.frameWidth,
-							h : api.frameHeight
-						},
-						center : {
-							lon : lon,
-							lat : lat
-						},
-						zoomLevel : 10,
-						showUserLocation : true,
-						fixedOn : 'baidumapbody', // 别忘了设置这个
-						fixed : true
-					}, function(ret) {
-						if (ret) {
-							map.show();
-							var endlon = $api.getStorage('lon');
-							var endlat = $api.getStorage('lat');
-							api.alert({
-								msg : "endlon:" + endlon + ",endlat:" + endlat
-							}, function(ret, err) {
-								//coding...
-							});
-							map.searchRoute({
-								id : 1,
-								type : 'drive',
-								policy : 'ecar_fee_first',
-								start : {
-									lon : lon,
-									lat : lon
-								},
-								end : {
-									lon : endlon,
-									lat : endlat
-								}
-							}, function(ret, err) {
-								if (ret.status) {
-									api.alert({
-										msg : JSON.stringify(ret)
-									});
-								}
-							});
-						}
-						if (ret.status) {
-							api.alert({
-								msg : 'open方法执行成功！'
-							});
-						} else {
-							api.alert({
-								msg : 'open方法执行失败！'
-							});
-						}
-					});
-				}
-			});
-		};
 		function getaddress() {
 		}
 	</script>
