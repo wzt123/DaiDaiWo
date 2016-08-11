@@ -135,10 +135,8 @@
 			{{ } }}
 		</script>
 		<div class="aui-content">
-			<div>
-				<p id="slect">
-					请选择地址
-				</p>
+			<div >
+				<div id="slect">请选择地址 </div>
 				<ul class="aui-list-view aui-in" id="include"></ul>
 			</div>
 		</div>
@@ -228,6 +226,7 @@
 			}
 		});
 		function selectaddadress(id) {
+			$api.setStorage('orderid',id);
 			alert("选择成功");
 		}
 
@@ -271,16 +270,13 @@
 						class : 'userAddress',
 						qid : ret.qid
 					}, function(ret, err) {
-						if (ret&&ret!=null) {
+						if (ret) {
 							var include = $api.byId('include');
 							var tpl = $api.byId('addresstpl').text;
 							var tempFn = doT.template(tpl);
 							include.innerHTML = tempFn(ret);
-						}else if(ret == null)
-						{
-							var 
-						} 
-						else {
+							
+						}else {
 							alert(JSON.stringify(err));
 						}
 					});

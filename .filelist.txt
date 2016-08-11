@@ -74,6 +74,7 @@
 /A6913489764881/html/shopcar_body2.html
 /A6913489764881/image/image/88.png
 /A6913489764881/html/user_zhmm.html
+/A6913489764881/html/shopcar_body7.html
 /A6913489764881/css/aui/aui_iconfont.ttf
 /A6913489764881/html/official_head.html
 /A6913489764881/html/seachAddress_frm.html
@@ -98,6 +99,7 @@
 /A6913489764881/image/image/image/image/gray.jpg
 /A6913489764881/html/modifyPwdbody.html
 /A6913489764881/index.html
+/A6913489764881/image/banner2.jpg
 /A6913489764881/image/image/image/banner.jpg
 /A6913489764881/css/style.css
 /A6913489764881/image/ic-back.png
@@ -108,6 +110,7 @@
 /A6913489764881/image/icon_7.png
 /A6913489764881/image/image/my_coupon_user_icon_normal.png
 /A6913489764881/image/image/image/bottombtn0102.png
+/A6913489764881/image/liangyou2.png
 /A6913489764881/image/image/weixin_iner_icon.png
 /A6913489764881/image/image/user.png
 /A6913489764881/image/image/image/image/loading.gif
@@ -136,6 +139,7 @@
 /A6913489764881/image/image/92.png
 /A6913489764881/html/my_goods_body.html
 /A6913489764881/image/image/shopdetailcover.png
+/A6913489764881/html/shopcar_body8.html
 /A6913489764881/html/carbody.html
 /A6913489764881/image/image/image/banner2.jpg
 /A6913489764881/image/image/94.png
@@ -187,8 +191,8 @@
 /A6913489764881/image/image/image/image/jc.png
 /A6913489764881/image/image/shop.png
 /A6913489764881/image/image/image/ic_arrow_down_black.png
-/A6913489764881/html/setting.html
 /A6913489764881/json/VGlist.json
+/A6913489764881/html/setting.html
 /A6913489764881/image/my_order_user_icon_normal.png
 /A6913489764881/image/image/image/main_index_search_pressed.png
 /A6913489764881/image/image/more_icon_70.png
@@ -201,6 +205,7 @@
 /A6913489764881/html/address_body.html
 /A6913489764881/image/image/image/location-border.png
 /A6913489764881/image/image/my_order_user_icon_normal.png
+/A6913489764881/image/xiancai2.png
 /A6913489764881/image/huacai.png
 /A6913489764881/css/aui/aui-win.css
 /A6913489764881/image/image/image/sc.png
@@ -213,6 +218,7 @@
 /A6913489764881/image/cai.png
 /A6913489764881/image/image/more_icon_50.png
 /A6913489764881/image/image/image/image/coupon_bg_yellow.png
+/A6913489764881/image/rou2.png
 /A6913489764881/html/carhead.html
 /A6913489764881/image/image/more_icon_10.png
 /A6913489764881/image/image/more_icon_80.png
@@ -225,6 +231,7 @@
 /A6913489764881/image/image/image/pic2.jpg
 /A6913489764881/image/image/my_favorite_user_icon_normal.png
 /A6913489764881/image/image/pic.jpg
+/A6913489764881/image/rou1.png
 /A6913489764881/image/my_history_user_icon_normal.png
 /A6913489764881/image/image/image/jc.png
 /A6913489764881/image/image/bottombtn0302.png
@@ -267,6 +274,7 @@
 /A6913489764881/image/ucenter_bg.png
 /A6913489764881/image/image/image/ic-tag.png
 /A6913489764881/image/image/image/image/location-border.png
+/A6913489764881/image/banner.jpg
 /A6913489764881/image/ic-article.png
 /A6913489764881/html/findpassword1_head.html
 /A6913489764881/image/image/main_index_tuan_normal.png
@@ -274,8 +282,10 @@
 /A6913489764881/image/image/image/coupon_bg_orange.png
 /A6913489764881/image/image/image/coupon_bg_white.png
 /A6913489764881/image/image/ic-like.png
+/A6913489764881/html/shopcar_body9.html
 /A6913489764881/image/image/image/detail_couponicon.png
 /A6913489764881/image/image/image/nopic_post.jpg
+/A6913489764881/image/liangyou1.png
 /A6913489764881/image/image/bottombtn0301.png
 /A6913489764881/image/image/image/hd.png
 /A6913489764881/image/image/image/image/blank.gif
@@ -284,10 +294,12 @@
 /A6913489764881/image/image/image/ic-article.png
 /A6913489764881/image/image/image/bottombtn0302.png
 /A6913489764881/html/shopcar_body6.html
+/A6913489764881/image/xiancai1.png
 /A6913489764881/image/my_review_user_icon_normal.png
 /A6913489764881/image/ic_arrow_down_black.png
 /A6913489764881/script/echo.min.js
 /A6913489764881/image/image/image/image/star.png
+/A6913489764881/script/aui-slide.js
 /A6913489764881/image/image/ic-article.png
 /A6913489764881/image/image/86.png
 /A6913489764881/image/marker_red_hd.png

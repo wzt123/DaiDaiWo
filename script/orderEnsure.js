@@ -20,6 +20,7 @@ var model;
 function openoder() {
 	query = api.require('query');
 	model = api.require('model');
+var orderid = $api.getStorage('orderid');
 
 	model.config({
 		appKey : '7810E5E4-7F54-E1E6-B07F-9ADA6FA49D46',
@@ -38,7 +39,8 @@ function openoder() {
 			}
 		});
 		return;
-	} else if (orderid == null) {
+	}
+	if (orderid == null) {
 		api.alert({
 			msg : "亲，请给我个地址~"
 		}, function(ret, err) {
@@ -70,8 +72,7 @@ function openoder() {
 	//获取地址
 	var lon;
 	var lat;
-	var orderid = $api.getStorage('orderid');
-
+	
 	var getUserById = '/userAddress/' + orderid;
 	var bodyParam = {
 		id : orderid
