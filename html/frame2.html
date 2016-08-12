@@ -35,7 +35,7 @@
 				line-height: 26px;
 				color: #848f94;
 				font-size: 14px;
-				background-color:white;
+				background-color: white;
 			}
 			.aui-list-view .aui-img-object {
 				max-width: 60px;
@@ -79,34 +79,32 @@
 			.font-color {
 				color: #E74C3C;
 			}
-			
 		</style>
 	</head>
 	<body>
-			<script id="ordertpl" type="text/x-dot-template" >
+		<script id="ordertpl" type="text/x-dot-template" >
 			{{for(var i in it) { }}
-				<div onclick="helpthis('{{=it[i].lon}}','{{=it[i].lat}}');">
-				<div class="aui-img-body">
-
-				<div class="aui-counter-box">
-				<h5 class="font-color" style="padding-left:10px; padding-top:10px;">种类：{{=it[i].classname}}</h5>
-	            <div class="aui-line-x" style="margin: 5px 0 8px 0;"></div>
-				<div class="aui-pull-left" id="orderCash2">
-				{{ for(var prop in it[i].order) { }}
-				<div style=" padding-left: 15px;">菜名：{{= it[i].order[prop].name}}</div>
-				<div style=" padding-left: 15px;">单价：{{= it[i].order[prop].price}}/斤</div>
-				<div style=" padding-left: 15px;">数量：{{= it[i].order[prop].amount}}</div>
-				<div style=" padding-left: 15px;">总价：{{= it[i].order[prop].money}}</div><br/>
-				{{ } }}
-				</div>
-				<div class="aui-line-x" style="margin: 17px 0 8px 0;"></div>
-				<p class="aui-text-right" style="color:#E74C3C;font-size:15px;padding-right: 20px">总金额：{{=it[i].money}}元</p>
-				<div class="aui-line-x" style="margin: 8px 0 5px 0;"></div>
-				</div>				
-				{{ } }}
-				</div>
-			</script>
-			<ul class="aui-list-view" id="include"></ul>
+			<div onclick="helpthis('{{=it[i].lon}}','{{=it[i].lat}}');">
+			<div class="aui-img-body">
+			<div class="aui-counter-box">
+			<h5 class="font-color" style="padding-left:10px; padding-top:10px;">种类：{{=it[i].classname}}</h5>
+			<div class="aui-line-x" style="margin: 5px 0 8px 0;"></div>
+			<div class="aui-pull-left" id="orderCash2">
+			{{ for(var prop in it[i].order) { }}
+			<div style=" padding-left: 15px;">菜名：{{= it[i].order[prop].name}}</div>
+			<div style=" padding-left: 15px;">单价：{{= it[i].order[prop].price}}/斤</div>
+			<div style=" padding-left: 15px;">数量：{{= it[i].order[prop].amount}}</div>
+			<div style=" padding-left: 15px;">总价：{{= it[i].order[prop].money}}</div><br/>
+			{{ } }}
+			</div>
+			<div class="aui-line-x" style="margin: 17px 0 8px 0;"></div>
+			<p class="aui-text-right" style="color:#E74C3C;font-size:15px;padding-right: 20px">总金额：{{=it[i].money}}元</p>
+			<div class="aui-line-x" style="margin: 8px 0 5px 0;"></div>
+			</div>
+			{{ } }}
+			</div>
+		</script>
+		<ul class="aui-list-view" id="include"></ul>
 	</body>
 	<script type="text/javascript" src="../script/api.js"></script>
 	<script type="text/javascript" src="../script/common.js"></script>
@@ -117,13 +115,12 @@
 		function helpthis(lon, lat) {
 			$api.setStorage('endlon', lon);
 			$api.setStorage('endlat', lat);
-			
 			api.openWin({
 				name : 'baidumaphead',
 				url : './baidumaphead.html',
-//				pageParam : {
-//					name : 'test'
-//				}
+				//				pageParam : {
+				//					name : 'test'
+				//				}
 			});
 		}
 
@@ -176,11 +173,17 @@
 							var tempFn = doT.template(tpl);
 							include.innerHTML = tempFn(ret);
 							api.hideProgress();
-						} else
-							api.alert({
-								msg : JSON.stringify(err)
-							});
-						api.hideProgress();
+						} else {
+							setTimeout(function() {
+								api.alert({
+									msg : '获取订单失败'
+								}, function(ret, err) {
+								});
+								api.hideProgress();
+							}, 1200);
+							
+//							api.hideProgress();
+						}
 					});
 				}
 			});

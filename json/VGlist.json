@@ -86,6 +86,7 @@ var vgjson={
                  }
 				 
             ],
+            
 	"genjing":
 	[
 				{
@@ -356,6 +357,144 @@ var vgjson={
 		 "amount": 0,
 		 "money": 0
 		 }
-	]
+	],
 	
+	"liangyou":
+	[
+		{
+                 "name": "大米",
+                 "price": 25,
+                 "amount": 0,
+				 "money": 0
+                 },
+                 {
+                 "name": "小米",
+                 "price": 20,
+                 "amount": 0,
+				 "money": 0
+                 },
+                 {
+                 "name": "白面",
+                 "price": 20,
+                 "amount": 0,
+				 "money": 0
+                 }
+                 ,
+                 {
+                 "name": "植物油",
+                 "price": 30,
+                 "amount": 0,
+				 "money": 0
+                 },
+                 {
+                 "name": "醋",
+                 "price": 30,
+                 "amount": 0,
+				 "money": 0
+                 },
+                 {
+                 "name": "苦荞米",
+                 "price": 30,
+                 "amount": 0,
+				 "money": 0
+                 },
+                 {
+                 "name": "江米",
+                 "price": 30,
+                 "amount": 0,
+				 "money": 0
+                 },
+                 {
+                 "name": "酱油",
+                 "price": 30,
+                 "amount": 0,
+				 "money": 0
+                 },
+                 {
+                 "name": "香油",
+                 "price": 30,
+                 "amount": 0,
+				 "money": 0
+                 },
+                 {
+                 "name": "芥末油",
+                 "price": 30,
+                 "amount": 0,
+				 "money": 0
+                 },
+                 {
+                 "name": "辣椒油",
+                 "price": 30,
+                 "amount": 0,
+				 "money": 0
+                 }		 
+	],
+	"rou":
+	[
+		{
+                 "name": "猪肉",
+                 "price": 25,
+                 "amount": 0,
+				 "money": 0
+                 },
+                 {
+                 "name": "鱼肉",
+                 "price": 20,
+                 "amount": 0,
+				 "money": 0
+                 },
+                 {
+                 "name": "羊肉",
+                 "price": 20,
+                 "amount": 0,
+				 "money": 0
+                 }
+                 ,
+                 {
+                 "name": "牛肉",
+                 "price": 30,
+                 "amount": 0,
+				 "money": 0
+                 },
+                 {
+                 "name": "鸡",
+                 "price": 30,
+                 "amount": 0,
+				 "money": 0
+                 },
+                 {
+                 "name": "鸭",
+                 "price": 30,
+                 "amount": 0,
+				 "money": 0
+                 },
+                 
+	],
+	"yancai":
+	[
+		{
+                 "name": "咸菜",
+                 "price": 25,
+                 "amount": 0,
+				 "money": 0
+                 },
+                 {
+                 "name": "泡菜",
+                 "price": 20,
+                 "amount": 0,
+				 "money": 0
+                 },
+                 {
+                 "name": "酸菜",
+                 "price": 20,
+                 "amount": 0,
+				 "money": 0
+                 },
+                 {
+                 "name": "腌蒜",
+                 "price": 30,
+                 "amount": 0,
+				 "money": 0
+                 },                 
+	],
 }

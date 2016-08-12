@@ -339,12 +339,12 @@
 		var buynum = 0;
 		var numArray = new Array();
 		apiready = function() {
-			for (var i = 0; i < 14; i++) {
+			for (var i = 0; i < 5; i++) {
 				
 					cashArray[i] = 0;
 				
 			}
-			for (var i = 0; i < 14; i++) {
+			for (var i = 0; i < 5; i++) {
 				
 					numArray[i] = 0;
 				
@@ -472,54 +472,7 @@
 					numArray[index] -= 1;
 					cashArray[index] -= 30;
 					break;
-				case 6:
-					totalcash -= 30;
-					buynum -= 1;
-					numArray[index] -= 1;
-					cashArray[index] -= 30;
-					break;
-				case 7:
-					totalcash -= 30;
-					buynum -= 1;
-					numArray[index] -= 1;
-					cashArray[index] -= 30;
-					break;
-				case 8:
-					totalcash -= 30;
-					buynum -= 1;
-					numArray[index] -= 1;
-					cashArray[index] -= 30;
-					break;
-				case 9:
-					totalcash -= 30;
-					buynum -= 1;
-					numArray[index] -= 1;
-					cashArray[index] -= 30;
-					break;
-				case 10:
-					totalcash -= 30;
-					buynum -= 1;
-					numArray[index] -= 1;
-					cashArray[index] -= 30;
-					break;
-				case 11:
-					totalcash -= 30;
-					buynum -= 1;
-					numArray[index] -= 1;
-					cashArray[index] -= 30;
-					break;
-				case 12:
-					totalcash -= 30;
-					buynum -= 1;
-					numArray[index] -= 1;
-					cashArray[index] -= 30;
-					break;
-				case 13:
-					totalcash -= 30;
-					buynum -= 1;
-					numArray[index] -= 1;
-					cashArray[index] -= 30;
-					break;
+				
 				default:
 					break;
 			}
@@ -554,8 +507,8 @@
 			var orderData = new Array(14);
 			for (var j = 0; j < numArray.length; j += 1) {
 				orderData[j] = {
-					name : vgjson.yecai[j].name,
-					price : vgjson.yecai[j].price,
+					name : vgjson.rou[j].name,
+					price : vgjson.rou[j].price,
 					amount : numArray[j],
 					money : cashArray[j]
 				}
@@ -563,7 +516,7 @@
 				$api.setStorage('jArray', j);
 			}
 			$api.setStorage('amount', buynum);
-			$api.setStorage('classname', "叶菜类");
+			$api.setStorage('classname', "肉类");
 			$api.setStorage('totalcash', totalcash);
 			api.sendEvent({
 				name : 'place_order_localstorage',

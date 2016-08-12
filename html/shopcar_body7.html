@@ -414,19 +414,41 @@
 		var buynum = 0;
 		var numArray = new Array();
 		apiready = function() {
-			for (var i = 0; i < 14; i++) {
-				
-					cashArray[i] = 0;
-				
+			for (var i = 0; i < 10; i++) {
+				cashArray[i] = 0;
 			}
-			for (var i = 0; i < 14; i++) {
-				
-					numArray[i] = 0;
-				
+			for (var i = 0; i < 10; i++) {
+				numArray[i] = 0;
 			}
 		}
+		function openorder() {
+			var orderData = new Array(10);
+			for (var j = 0; j < numArray.length; j += 1) {
+				orderData[j] = {
+					name : vgjson.liangyou[j].name,
+					price : vgjson.liangyou[j].price,
+					amount : numArray[j],
+					money : cashArray[j]
+				}
+				$api.setStorage('orderData' + '[' + j + ']', $api.jsonToStr(orderData[j]));
+				$api.setStorage('jArray', j);
+			}
+			$api.setStorage('amount', buynum);
+			$api.setStorage('classname', "粮油类");
+			$api.setStorage('totalcash', totalcash);
+			api.sendEvent({
+				name : 'place_order_localstorage',
+				extra : {
+					key : true
+				}
+			});
+			api.openWin({
+				name : 'enter_order_detail_head',
+				url : './enter_order_detail_head.html'
+			});
+		}
+
 		function buyfood(index) {
-		
 			var buyinfodom = document.getElementById('buyinfo');
 			var buynumdom = document.getElementById('buynum');
 			var totalcashdom = document.getElementById('totalcash');
@@ -440,14 +462,12 @@
 				thisordernumdom[index].innerHTML = num;
 			}
 			minusorderdom[index].style.display = 'inline-block';
-			
 			switch(index) {
 				case 0:
 					totalcash += 25;
 					buynum += 1;
 					numArray[index] += 1;
 					cashArray[index] += 25;
-					
 					break;
 				case 1:
 					totalcash += 20;
@@ -509,6 +529,12 @@
 					numArray[index] += 1;
 					cashArray[index] += 30;
 					break;
+				case 11:
+					totalcash += 30;
+					buynum += 1;
+					numArray[index] += 1;
+					cashArray[index] += 30;
+					break;
 				default:
 					break;
 			}
@@ -545,7 +571,6 @@
 					buynum -= 1;
 					numArray[index] -= 1;
 					cashArray[index] -= 25;
-					
 					break;
 				case 1:
 					totalcash -= 20;
@@ -613,18 +638,6 @@
 					numArray[index] -= 1;
 					cashArray[index] -= 30;
 					break;
-				case 12:
-					totalcash -= 30;
-					buynum -= 1;
-					numArray[index] -= 1;
-					cashArray[index] -= 30;
-					break;
-				case 13:
-					totalcash -= 30;
-					buynum -= 1;
-					numArray[index] -= 1;
-					cashArray[index] -= 30;
-					break;
 				default:
 					break;
 			}
@@ -653,33 +666,6 @@
 				},
 				bounces : false
 			});
-		}
-
-		function openorder() {
-			var orderData = new Array(14);
-			for (var j = 0; j < numArray.length; j += 1) {
-				orderData[j] = {
-					name : vgjson.yecai[j].name,
-					price : vgjson.yecai[j].price,
-					amount : numArray[j],
-					money : cashArray[j]
-				}
-				$api.setStorage('orderData' + '[' + j + ']', $api.jsonToStr(orderData[j]));
-				$api.setStorage('jArray', j);
-			}
-			$api.setStorage('amount', buynum);
-			$api.setStorage('classname', "叶菜类");
-			$api.setStorage('totalcash', totalcash);
-			api.sendEvent({
-				name : 'place_order_localstorage',
-				extra : {
-					key : true
-				}
-			});
-						api.openWin({
-							name : 'enter_order_detail_head',
-							url : './enter_order_detail_head.html'
-						});
 		}
 	</script>
 </html>
