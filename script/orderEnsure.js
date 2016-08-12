@@ -84,7 +84,8 @@ var orderid = $api.getStorage('orderid');
 			lat = ret.lat;
 			var time = new Date().Format("yyyy-MM-dd hh:mm:ss");
 			var totalcash = $api.getStorage('totalcash');
-
+			var orderRequest= $api.getStorage('orderRequest');
+			
 			var bodyParam = {
 				username : username,
 				money : totalcash,
@@ -95,7 +96,8 @@ var orderid = $api.getStorage('orderid');
 				classpic : classpic,
 				classname : classname,
 				creatTime : time,
-				rec : false
+				rec : false,
+				orderRequest:orderRequest,
 			}
 
 			ajaxRequest(url, 'post', JSON.stringify(bodyParam), function(ret, err) {

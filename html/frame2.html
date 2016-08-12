@@ -97,9 +97,14 @@
 			<div style=" padding-left: 15px;">总价：{{= it[i].order[prop].money}}</div><br/>
 			{{ } }}
 			</div>
+			<ul>
+			<li>
 			<div class="aui-line-x" style="margin: 17px 0 8px 0;"></div>
 			<p class="aui-text-right" style="color:#E74C3C;font-size:15px;padding-right: 20px">总金额：{{=it[i].money}}元</p>
-			<div class="aui-line-x" style="margin: 8px 0 5px 0;"></div>
+			</li>
+			<li><div >具体要求：{{=it[i].orderRequest}}</div>
+			</li>
+			</ul>
 			</div>
 			{{ } }}
 			</div>
@@ -181,8 +186,7 @@
 								});
 								api.hideProgress();
 							}, 1200);
-							
-//							api.hideProgress();
+							//							api.hideProgress();
 						}
 					});
 				}

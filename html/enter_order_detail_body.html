@@ -114,10 +114,22 @@
 		</li>
 		</ul>
 		</div>-->
-		<div class="aui-user-view-cell aui-img drop-div" tapmode onclick="setaddress()">
-			<p class='aui-ellipsis-2' style="margin-right:12px;">
-				点我设置地址
-			</p>
+		<div class="aui-content">
+			<ul class="aui-list-view aui-in">
+				<li class="aui-list-view-cell">
+					<div class="aui-input-row">
+						<!--<div class="aui-input-addon">具体要求</div>-->
+						<input type="text" class="aui-input" placeholder="点击输入具体要求"  onchange="writeRequest()" id="orderRequest">
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class="aui-content" tapmode onclick="setaddress()">
+			<div class="aui-content">
+				<div id="slect">
+					点我设置地址
+				</div>
+			</div>
 		</div>
 		<script id="addresstpl" type="text/x-dot-template" >
 			{{for(var i in it) { }}
@@ -136,59 +148,11 @@
 		</script>
 		<div class="aui-content">
 			<div >
-				<div id="slect">请选择地址 </div>
+				<div id="slect">
+					默认地址
+				</div>
 				<ul class="aui-list-view aui-in" id="include"></ul>
 			</div>
-		</div>
-		<!--<div class="aui-content">
-		<ul class="aui-list-view aui-in">
-		<li class="aui-list-view-cell">
-		<a class="aui-arrow-right"> 优惠券
-		<div class="aui-pull-right aui-right">
-		请选择优惠券
-		</div> </a>
-		</li>
-		<li class="aui-list-view-cell">
-		<a class="aui-arrow-right"> 积分
-		<div class="aui-pull-right aui-right">
-		请选择优惠券
-		</div> </a>
-		</li>
-		<li class="aui-list-view-cell" style="padding:0 0 0 15px;">
-		<div class="aui-input-row">
-		<span class="aui-input-addon">备注</span>
-		<input type="text" class="aui-input" placeholder="填写留言备注">
-		</div>
-		</li>
-		</ul>
-		</div>-->
-		<div class="aui-content">
-			<ul class="aui-list-view aui-in">
-				<li class="aui-list-view-cell">
-					商品总价
-					<div class="aui-pull-right aui-text-FF9800" id="cash">
-						￥49.90
-					</div>
-				</li>
-				<li class="aui-list-view-cell">
-					运费
-					<div class="aui-pull-right aui-text-FF9800">
-						￥0.00
-					</div>
-				</li>
-				<li class="aui-list-view-cell">
-					优惠券抵扣
-					<div class="aui-pull-right aui-text-default">
-						-￥0.00
-					</div>
-				</li>
-				<li class="aui-list-view-cell">
-					积分抵扣
-					<div class="aui-pull-right aui-text-default">
-						-￥0.00
-					</div>
-				</li>
-			</ul>
 		</div>
 	</body>
 	<script type="text/javascript" src="../script/api.js"></script>
@@ -207,6 +171,7 @@
 				appKey : '7810E5E4-7F54-E1E6-B07F-9ADA6FA49D46',
 				host : 'https://d.apicloud.com'
 			});
+//			$api.rmStorage('orderRequest');
 			api.parseTapmode();
 			initFrame();
 		};
@@ -215,6 +180,12 @@
 				name : 'address_head',
 				url : './address_head.html'
 			});
+		}
+
+		function writeRequest() {
+			var orderRequest = document.getElementById("orderRequest").value;
+			$api.setStorage('orderRequest', orderRequest);
+			
 		}
 
 
@@ -226,7 +197,7 @@
 			}
 		});
 		function selectaddadress(id) {
-			$api.setStorage('orderid',id);
+			$api.setStorage('orderid', id);
 			alert("选择成功");
 		}
 
@@ -254,8 +225,8 @@
 				para.innerHTML = tempFn(order);
 			}
 			var totalcash = $api.getStorage('totalcash');
-			var cash = $api.byId('cash');
-			cash.innerHTML = totalcash;
+			//			var cash = $api.byId('cash');
+			//			cash.innerHTML = totalcash;
 			//////获取地址
 			var uid = $api.getStorage('uid');
 			query.createQuery({
@@ -275,8 +246,7 @@
 							var tpl = $api.byId('addresstpl').text;
 							var tempFn = doT.template(tpl);
 							include.innerHTML = tempFn(ret);
-							
-						}else {
+						} else {
 							alert(JSON.stringify(err));
 						}
 					});
