@@ -58,7 +58,7 @@ var orderid = $api.getStorage('orderid');
 	var classpic = $api.getStorage('classpic');
 	var classname = $api.getStorage('classname');
 	var j = 0;
-	for (var i = 0; i < length; i++) {
+	for (var i = 0; i <= length; i++) {
 		var singleorder = $api.getStorage('orderData' + '[' + i + ']');
 		singleorder = JSON.parse(singleorder);
 		if (singleorder.amount == 0) {
