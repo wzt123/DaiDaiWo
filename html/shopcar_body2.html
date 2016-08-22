@@ -294,13 +294,28 @@
 		<div class="item style2">
 			<div class="itemshelf">
 				<div class="shelfinfo01">
+					莲菜
+				</div>
+				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp;月售2602份
+				</div>
+			</div>
+			<div class="buybtn">
+				<p tapmode="" onclick="buyfood(4)">
+					￥2.5
+				</p>
+				<span class="minusorder"> <img src="../image/foodlist_bg_foodnum.png" alt="" class="numbg"><span class="thisordernum">0</span> <span class="minus" tapmode="" onclick="minuscash(3)">－</span> </span>
+			</div>
+		</div>
+		<div class="item style2">
+			<div class="itemshelf">
+				<div class="shelfinfo01">
 					莴笋
 				</div>
 				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp;月售2122份
 				</div>
 			</div>
 			<div class="buybtn">
-				<p tapmode="" onclick="buyfood(4)">
+				<p tapmode="" onclick="buyfood(5)">
 					￥0.9
 				</p>
 				<span class="minusorder"> <img src="../image/foodlist_bg_foodnum.png" alt="" class="numbg"><span class="thisordernum">0</span> <span class="minus" tapmode="" onclick="minuscash(5)">－</span> </span>
@@ -315,7 +330,7 @@
 				</div>
 			</div>
 			<div class="buybtn">
-				<p tapmode="" onclick="buyfood(5)">
+				<p tapmode="" onclick="buyfood(6)">
 					￥4.4
 				</p>
 				<span class="minusorder"> <img src="../image/foodlist_bg_foodnum.png" alt="" class="numbg"><span class="thisordernum">0</span> <span class="minus" tapmode="" onclick="minuscash(6)">－</span> </span>
@@ -330,7 +345,7 @@
 				</div>
 			</div>
 			<div class="buybtn">
-				<p tapmode="" onclick="buyfood(6)">
+				<p tapmode="" onclick="buyfood(7)">
 					￥2.4
 				</p>
 				<span class="minusorder"> <img src="../image/foodlist_bg_foodnum.png" alt="" class="numbg"><span class="thisordernum">0</span> <span class="minus" tapmode="" onclick="minuscash(7)">－</span> </span>
@@ -345,7 +360,7 @@
 				</div>
 			</div>
 			<div class="buybtn">
-				<p tapmode="" onclick="buyfood(7)">
+				<p tapmode="" onclick="buyfood(8)">
 					￥1.5
 				</p>
 				<span class="minusorder"> <img src="../image/foodlist_bg_foodnum.png" alt="" class="numbg"><span class="thisordernum">0</span> <span class="minus" tapmode="" onclick="minuscash(8)">－</span> </span>
@@ -360,7 +375,7 @@
 				</div>
 			</div>
 			<div class="buybtn">
-				<p tapmode="" onclick="buyfood(8)">
+				<p tapmode="" onclick="buyfood(9)">
 					￥3.0
 				</p>
 				<span class="minusorder"> <img src="../image/foodlist_bg_foodnum.png" alt="" class="numbg"><span class="thisordernum">0</span> <span class="minus" tapmode="" onclick="minuscash(9)">－</span> </span>
@@ -375,10 +390,25 @@
 				</div>
 			</div>
 			<div class="buybtn">
-				<p tapmode="" onclick="buyfood(9)">
+				<p tapmode="" onclick="buyfood(10)">
 					￥5.0
 				</p>
 				<span class="minusorder"> <img src="../image/foodlist_bg_foodnum.png" alt="" class="numbg"><span class="thisordernum">0</span> <span class="minus" tapmode="" onclick="minuscash(10)">－</span> </span>
+			</div>
+		</div>
+		<div class="item style2">
+			<div class="itemshelf">
+				<div class="shelfinfo01">
+					蕨菜
+				</div>
+				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp;月售2602份
+				</div>
+			</div>
+			<div class="buybtn">
+				<p tapmode="" onclick="buyfood(11)">
+					￥3.0
+				</p>
+				<span class="minusorder"> <img src="../image/foodlist_bg_foodnum.png" alt="" class="numbg"><span class="thisordernum">0</span> <span class="minus" tapmode="" onclick="minuscash(3)">－</span> </span>
 			</div>
 		</div>
 		<div class="item style2">
@@ -390,7 +420,7 @@
 				</div>
 			</div>
 			<div class="buybtn">
-				<p tapmode="" onclick="buyfood(10)">
+				<p tapmode="" onclick="buyfood(12)">
 					￥1.5
 				</p>
 				<span class="minusorder"> <img src="../image/foodlist_bg_foodnum.png" alt="" class="numbg"><span class="thisordernum">0</span> <span class="minus" tapmode="" onclick="minuscash(12)">－</span> </span>
@@ -486,42 +516,54 @@
 					cashArray[index] += 3.0;
 					break;
 				case 4:
+					totalcash += 2.5;
+					buynum += 1;
+					numArray[index] += 1;
+					cashArray[index] += 2.5;
+					break;
+				case 5:
 					totalcash += 0.9;
 					buynum += 1;
 					numArray[index] += 1;
 					cashArray[index] += 0.9;
 					break;
-				case 5:
+				case 6:
 					totalcash += 4.4;
 					buynum += 1;
 					numArray[index] += 1;
 					cashArray[index] += 4.4;
 					break;
-				case 6:
+				case 7:
 					totalcash += 2.4;
 					buynum += 1;
 					numArray[index] += 1;
 					cashArray[index] += 2.4;
 					break;
-				case 7:
+				case 8:
 					totalcash += 1.5;
 					buynum += 1;
 					numArray[index] += 1;
 					cashArray[index] += 1.5;
 					break;
-				case 8:
+				case 9:
 					totalcash += 3.0;
 					buynum += 1;
 					numArray[index] += 1;
 					cashArray[index] += 3.0;
 					break;
-				case 9:
+				case 10:
 					totalcash += 5;
 					buynum += 1;
 					numArray[index] += 1;
 					cashArray[index] += 5;
 					break;
-				case 10:
+				case 11:
+					totalcash += 3.0;
+					buynum += 1;
+					numArray[index] += 1;
+					cashArray[index] += 3.0;
+					break;
+				case 12:
 					totalcash += 1.5;
 					buynum += 1;
 					numArray[index] += 1;
@@ -583,42 +625,55 @@
 					cashArray[index] -= 3.0;
 					break;
 				case 4:
+					totalcash -= 2.5;
+					buynum -= 1;
+					numArray[index] -= 1;
+					cashArray[index] -= 2.5;
+					break;	
+				case 5:
 					totalcash -= 0.9;
 					buynum -= 1;
 					numArray[index] -= 1;
 					cashArray[index] -= 0.9;
 					break;
-				case 5:
+					
+				case 6:
 					totalcash -= 4.4;
 					buynum -= 1;
 					numArray[index] -= 1;
 					cashArray[index] -= 4.4;
 					break;
-				case 6:
+				case 7:
 					totalcash -= 2.4;
 					buynum -= 1;
 					numArray[index] -= 1;
 					cashArray[index] -= 2.4;
 					break;
-				case 7:
+				case 8:
 					totalcash -= 1.5;
 					buynum -= 1;
 					numArray[index] -= 1;
 					cashArray[index] -= 1.5;
 					break;
-				case 8:
+				case 9:
 					totalcash -= 3.0;
 					buynum -= 1;
 					numArray[index] -= 1;
 					cashArray[index] -= 3.0;
 					break;
-				case 9:
+				case 10:
 					totalcash -= 5;
 					buynum -= 1;
 					numArray[index] -= 1;
 					cashArray[index] -= 5;
 					break;
-				case 10:
+				case 11:
+					totalcash -= 3;
+					buynum -= 1;
+					numArray[index] -= 1;
+					cashArray[index] -= 3;
+					break;	
+				case 12:
 					totalcash -= 1.5;
 					buynum -= 1;
 					numArray[index] -= 1;

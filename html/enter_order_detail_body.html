@@ -39,22 +39,12 @@
 		</style>
 	</head>
 	<body>
-		<div class="step1" style="margin-top:10px" tapmode onclick="openaddress()">
-			<!--<div>收货地址</div>	-->
-			<b class="s1-borderT"></b>
-			<!--<div>
-			<div style="font-size: 16px;">周杰伦 <span class="" style="margin-left: 25px;">18663767656</span></div>
-			<div>山东省济南市历下区华强电子世界B栋2308</div>
-			</div>-->
-			<b class="s1-borderB"></b>
-			<span class="s-point"></span>
-		</div>
 		<div class="aui-content">
 			<ul class="aui-list-view aui-in">
 				<li class="aui-list-view-cell">
 					配送时间<span class="aui-text-danger" id="deliveryTime">*</span>
 					<div class="aui-pull-right aui-text-danger" id="orderCash1">
-						￥49.90
+						07:30
 					</div>
 				</li>
 			</ul>
@@ -79,7 +69,7 @@
 					<div class="aui-pull-left" id="orderName">
 					{{=it.name}}：
 					</div>
-					<div class="aui-text-default aui-pull-right" id="orderamount"style="padding-left:20px">
+					<div class="aui-text-default aui-pull-right" id="orderamount"style="padding-left:10px">
 					数量：{{=it.amount}}
 					</div>
 					<div class="aui-pull-left" id="orderCash2">
@@ -94,31 +84,10 @@
 				<div id="orderinclude"></div>
 			</li>
 		</ul>
-		<!--<div class="aui-content">
-		<ul class="aui-list-view">
-		<li class="aui-list-view-cell aui-img aui-counter-list" >
-		<img class="aui-img-object aui-pull-left" src="../image/pic.jpg" data-echo="../image/pic.jpg">
-		<div class="aui-img-body">
-		<div class="aui-text-default aui-ellipsis-1" id="orderName">
-		茅山榴莲王 越南进口越南进口越南进口
-		</div>
-		<div class="aui-counter-box">
-		<div class="aui-pull-left" id="orderCash2">
-		￥48.00
-		</div>
-		<div class="aui-text-default aui-pull-right">
-		x 1
-		</div>
-		</div>
-		</div>
-		</li>
-		</ul>
-		</div>-->
 		<div class="aui-content">
 			<ul class="aui-list-view aui-in">
 				<li class="aui-list-view-cell">
-					<div class="aui-input-row">
-						<!--<div class="aui-input-addon">具体要求</div>-->
+					<div class="aui-input-row" style="height:20px">
 						<input type="text" class="aui-input" placeholder="点击输入具体要求"  onchange="writeRequest()" id="orderRequest">
 					</div>
 				</li>
@@ -127,7 +96,7 @@
 		<div class="aui-content" tapmode onclick="setaddress()">
 			<div class="aui-content">
 				<div id="slect">
-					点我设置地址
+					点此添加地址
 				</div>
 			</div>
 		</div>

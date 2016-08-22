@@ -241,7 +241,22 @@
 			</div>
 			<div class="buybtn">
 				<p tapmode="" onclick="buyfood(0)">
-					￥50
+					￥30
+				</p>
+				<span class="minusorder"> <img src="../image/foodlist_bg_foodnum.png" alt="" class="numbg"><span class="thisordernum">0</span> <span class="minus" tapmode="" onclick="minuscash(0)">－</span> </span>
+			</div>
+		</div>
+		<div class="item style2">
+			<div class="itemshelf">
+				<div class="shelfinfo01">
+					银针
+				</div>
+				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp;月售6630份
+				</div>
+			</div>
+			<div class="buybtn">
+				<p tapmode="" onclick="buyfood(1)">
+					￥12
 				</p>
 				<span class="minusorder"> <img src="../image/foodlist_bg_foodnum.png" alt="" class="numbg"><span class="thisordernum">0</span> <span class="minus" tapmode="" onclick="minuscash(0)">－</span> </span>
 			</div>
@@ -255,8 +270,8 @@
 				</div>
 			</div>
 			<div class="buybtn">
-				<p tapmode="" onclick="buyfood(1)">
-					￥60
+				<p tapmode="" onclick="buyfood(2)">
+					￥25
 				</p>
 				<span class="minusorder"> <img src="../image/foodlist_bg_foodnum.png" alt="" class="numbg"><span class="thisordernum">0</span> <span class="minus" tapmode="" onclick="minuscash(2)">－</span> </span>
 			</div>
@@ -270,7 +285,7 @@
 				</div>
 			</div>
 			<div class="buybtn">
-				<p tapmode="" onclick="buyfood(2)">
+				<p tapmode="" onclick="buyfood(3)">
 					￥8.5
 				</p>
 				<span class="minusorder"> <img src="../image/foodlist_bg_foodnum.png" alt="" class="numbg"><span class="thisordernum">0</span> <span class="minus" tapmode="" onclick="minuscash(3)">－</span> </span>
@@ -285,7 +300,7 @@
 				</div>
 			</div>
 			<div class="buybtn">
-				<p tapmode="" onclick="buyfood(3)">
+				<p tapmode="" onclick="buyfood(4)">
 					￥6.0
 				</p>
 				<span class="minusorder"> <img src="../image/foodlist_bg_foodnum.png" alt="" class="numbg"><span class="thisordernum">0</span> <span class="minus" tapmode="" onclick="minuscash(4)">－</span> </span>
@@ -357,24 +372,30 @@
 			minusorderdom[index].style.display = 'inline-block';
 			switch(index) {
 				case 0:
-					totalcash += 50;
+					totalcash += 30;
 					buynum += 1;
 					numArray[index] += 1;
-					cashArray[index] += 50;			
+					cashArray[index] += 30;			
 					break;
 				case 1:
-					totalcash += 60;
+					totalcash += 12;
 					buynum += 1;
 					numArray[index] += 1;
-					cashArray[index] += 60;
+					cashArray[index] += 12;
 					break;
 				case 2:
+					totalcash += 25;
+					buynum += 1;
+					numArray[index] += 1;
+					cashArray[index] += 25;
+					break;
+				case 3:
 					totalcash += 8.5;
 					buynum += 1;
 					numArray[index] += 1;
 					cashArray[index] += 8.5;
 					break;
-				case 3:
+				case 4:
 					totalcash += 6;
 					buynum += 1;
 					numArray[index] += 1;
@@ -412,29 +433,35 @@
 			}
 			switch(index) {
 				case 0:
-					totalcash -= 50;
+					totalcash -= 30;
 					buynum -= 1;
 					numArray[index] -= 1;
-					cashArray[index] -= 50;			
+					cashArray[index] -= 30;			
 					break;
 				case 1:
-					totalcash -= 60;
+					totalcash -= 12;
 					buynum -= 1;
 					numArray[index] -= 1;
-					cashArray[index] -= 60;
+					cashArray[index] -= 12;
 					break;
 				case 2:
+					totalcash -= 25;
+					buynum -= 1;
+					numArray[index] -= 1;
+					cashArray[index] -= 25;
+					break;
+				case 3:
 					totalcash -= 8.5;
 					buynum -= 1;
 					numArray[index] -= 1;
 					cashArray[index] -= 8.5;
 					break;
-				case 3:
+				case 4:
 					totalcash -= 6;
 					buynum -= 1;
 					numArray[index] -= 1;
 					cashArray[index] -= 6;
-					break;
+					break;	
 				default:
 					break;
 			}

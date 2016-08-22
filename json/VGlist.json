@@ -3,84 +3,84 @@ var vgjson={
 	[
                  {
                  "name": "白菜",
-                 "price": 25,
+                 "price": 0.5,
                  "amount": 0,
 				 "money": 0
                  },
                  {
                  "name": "青菜",
-                 "price": 20,
+                 "price": 1.0,
                  "amount": 0,
 				 "money": 0
                  },
 				 {
                  "name": "菠菜",
-                 "price": 20,
+                 "price": 1.7,
                  "amount": 0,
 				 "money": 0
                  },
 				 {
                  "name": "油麦菜",
-                 "price": 30,
+                 "price": 3.5,
                  "amount": 0,
 				 "money": 0
                  },
 				 {
                  "name": "油菜",
-                 "price": 30,
+                 "price": 2.5,
                  "amount": 0,
 				 "money": 0
                  },{
                  "name": "韭菜",
-                 "price": 30,
+                 "price": 1.2,
                  "amount": 0,
 				 "money": 0
                  },
 				 {
                  "name": "蒜苗",
-                 "price": 30,
+                 "price": 4.0,
                  "amount": 0,
 				 "money": 0
                  },
 				 {
                  "name": "芹菜",
-                 "price": 30,
+                 "price": 0.5,
                  "amount": 0,
 				 "money": 0
                  },
 				 {
                  "name": "空心菜",
-                 "price": 30,
+                 "price": 1.2,
                  "amount": 0,
 				 "money": 0
                  },
                  {
                  "name": "海带",
-                 "price": 30,
+                 "price": 6.5,
                  "amount": 0,
 				 "money": 0
                  },
 				 {
                  "name": "紫菜",
-                 "price": 30,
+                 "price": 50,
                  "amount": 0,
 				 "money": 0
                  },
 				 {
                  "name": "荠菜",
-                 "price": 30,
+                 "price": 2.5,
                  "amount": 0,
 				 "money": 0
                  },
 				 {
                  "name": "葱",
-                 "price": 30,
+                 "price": 0.7,
                  "amount": 0,
 				 "money": 0
                  },
 				 {
                  "name": "辣根",
-                 "price": 30,
+                 "price": 3.0,
                  "amount": 0,
 				 "money": 0
                  }
@@ -91,80 +91,80 @@ var vgjson={
 	[
 				{
                  "name": "萝卜",
-                 "price": 25,
+                 "price": 0.7,
                  "amount": 0,
 				 "money": 0
                  },
 				 {
                  "name": "大蒜",
-                 "price": 20,
+                 "price": 11,
                  "amount": 0,
 				 "money": 0
                  },
 				 {
                  "name": "洋葱",
-                 "price": 20,
+                 "price": 1.3,
                  "amount": 0,
 				 "money": 0
                  },
 				 {
                  "name": "生姜",
-                 "price": 30,
+                 "price": 3.0,
                  "amount": 0,
 				 "money": 0
                  },
 				 {
                  "name": "莲菜",
-                 "price": 30,
+                 "price": 2.5,
                  "amount": 0,
 				 "money": 0
                  },
 				 
 				 {
                  "name": "莴笋",
-                 "price": 30,
+                 "price": 0.9,
                  "amount": 0,
 				 "money": 0
                  },
 				 {
                  "name": "山药",
-                 "price": 30,
+                 "price": 4.4,
                  "amount": 0,
 				 "money": 0
                  },
 				 {
                  "name": "芋头",
-                 "price": 30,
+                 "price": 2.4,
                  "amount": 0,
 				 "money": 0
                  },
 				 {
                  "name": "土豆",
-                 "price": 30,
+                 "price": 1.5,
                  "amount": 0,
 				 "money": 0
                  },
 				 {
                  "name": "红薯",
-                 "price": 30,
+                 "price": 3.0,
                  "amount": 0,
 				 "money": 0
                  },
 				 {
                  "name": "竹笋",
-                 "price": 30,
+                 "price": 5.0,
                  "amount": 0,
 				 "money": 0
                  },
 				 {
                  "name": "蕨菜",
-                 "price": 30,
+                 "price": 3.0,
                  "amount": 0,
 				 "money": 0
                  },
 				 {
                  "name": "莲藕",
-                 "price": 30,
+                 "price": 1.5,
                  "amount": 0,
 				 "money": 0
                  }				 
@@ -173,31 +173,31 @@ var vgjson={
 	[
 		{
 		 "name": "木耳",
-		 "price": 25,
-		 "amount": 0,
-		 "money": 0
-		 },	
-		 {
-		 "name": "银针",
-		 "price": 20,
-		 "amount": 0,
-		 "money": 0
-		 },	
-		 {
-		 "name": "杏鲍菇",
-		 "price": 20,
-		 "amount": 0,
-		 "money": 0
-		 },	
-		 {
-		 "name": "金针菇",
 		 "price": 30,
 		 "amount": 0,
 		 "money": 0
 		 },	
 		 {
+		 "name": "银针",
+		 "price": 12,
+		 "amount": 0,
+		 "money": 0
+		 },	
+		 {
+		 "name": "杏鲍菇",
+		 "price": 25,
+		 "amount": 0,
+		 "money": 0
+		 },	
+		 {
+		 "name": "金针菇",
+		 "price": 8.5,
+		 "amount": 0,
+		 "money": 0
+		 },	
+		 {
 		 "name": "香菇",
-		 "price": 30, 
+		 "price": 6.0, 
 		 "amount": 0,
 		 "money": 0
 		 }		 
@@ -207,79 +207,79 @@ var vgjson={
 	[
 		 {
 		 "name": "辣椒",
-		 "price": 25,
+		 "price": 3.2,
 		 "amount": 0,
 		 "money": 0
 		 },	
 		 {
 		 "name": "南瓜",
-		 "price": 20,
+		 "price": 1.5,
 		 "amount": 0,
 		 "money": 0
 		 },	
 		 {
 		 "name": "冬瓜",
-		 "price": 20,
+		 "price": 1.6,
 		 "amount": 0,
 		 "money": 0
 		 },	
 		 {
 		 "name": "苦瓜",
-		 "price": 30,
+		 "price": 4.0,
 		 "amount": 0,
 		 "money": 0
 		 },	
 		 {
 		 "name": "黄瓜",
-		 "price": 30,
+		 "price": 3.8,
 		 "amount": 0,
 		 "money": 0
 		 },	
 		 {
 		 "name": "丝瓜",
-		 "price": 30,
+		 "price": 3.6,
 		 "amount": 0,
 		 "money": 0
 		 },	
 		 {
 		 "name": "西葫芦",
-		 "price": 30,
+		 "price": 1.4,
 		 "amount": 0,
 		 "money": 0
 		 },	
 		 {
 		 "name": "番茄",
-		 "price": 30,
+		 "price": 1.6,
 		 "amount": 0,
 		 "money": 0
 		 },	
 		 {
 		 "name": "茄子",
-		 "price": 30,
+		 "price": 2.2,
 		 "amount": 0,
 		 "money": 0
 		 },	
 		 {
 		 "name": "豌豆",
-		 "price": 30,
+		 "price": 2.8,
 		 "amount": 0,
 		 "money": 0
 		 },	
 		 {
 		 "name": "扁豆",
-		 "price": 30,
+		 "price": 1.5,
 		 "amount": 0,
 		 "money": 0
 		 },	
 		 {
 		 "name": "毛豆",
-		 "price": 30,
+		 "price": 3.5,
 		 "amount": 0,
 		 "money": 0
 		 },	
 		 {
 		 "name": "玉米",
-		 "price": 30,
+		 "price": 1.0,
 		 "amount": 0,
 		 "money": 0
 		 }
@@ -288,31 +288,31 @@ var vgjson={
 	[
 		 {
 		 "name": "花椰菜",
-		 "price": 25,
+		 "price": 1.5,
 		 "amount": 0,
 		 "money": 0
 		 },	
 		 {
 		 "name": "金针菜",
-		 "price": 20,
+		 "price": 1.7,
 		 "amount": 0,
 		 "money": 0
 		 },	
 		 {
 		 "name": "青花菜",
-		 "price": 20,
+		 "price": 1.6,
 		 "amount": 0,
 		 "money": 0
 		 },	
 		 {
 		 "name": "紫菜曼",
-		 "price": 30,
+		 "price": 3.0,
 		 "amount": 0,
 		 "money": 0
 		 },	
 		 {
 		 "name": "芥蓝",
-		 "price": 30,
+		 "price": 10,
 		 "amount": 0,
 		 "money": 0
 		 }
@@ -323,37 +323,37 @@ var vgjson={
 		
 		 {
 		 "name": "黄豆芽",
-		 "price": 25,
+		 "price": 1.8,
 		 "amount": 0,
 		 "money": 0
 		 },	
 		 {
 		 "name": "萝卜芽",
-		 "price": 20,
+		 "price": 5.0,
 		 "amount": 0,
 		 "money": 0
 		 },	
 		 {
 		 "name": "豌豆芽",
-		 "price": 20,
+		 "price": 3.2,
 		 "amount": 0,
 		 "money": 0
 		 },	
 		 {
 		 "name": "荞麦菜",
-		 "price": 30,
+		 "price": 3.0,
 		 "amount": 0,
 		 "money": 0
 		 },	
 		 {
 		 "name": "姜芽",
-		 "price": 30,
+		 "price": 3.2,
 		 "amount": 0,
 		 "money": 0
 		 },	
 		 {
 		 "name": "绿豆芽",
-		 "price": 30,
+		 "price": 2.4,
 		 "amount": 0,
 		 "money": 0
 		 }
@@ -363,68 +363,68 @@ var vgjson={
 	[
 		{
                  "name": "大米",
-                 "price": 25,
+                 "price": 2.5,
                  "amount": 0,
 				 "money": 0
                  },
                  {
                  "name": "小米",
-                 "price": 20,
+                 "price": 5.5,
                  "amount": 0,
 				 "money": 0
                  },
                  {
                  "name": "白面",
-                 "price": 20,
+                 "price": 2.2,
                  "amount": 0,
 				 "money": 0
                  }
                  ,
                  {
                  "name": "植物油",
-                 "price": 30,
+                 "price": 12,
                  "amount": 0,
 				 "money": 0
                  },
                  {
                  "name": "醋",
-                 "price": 30,
+                 "price": 2.0,
                  "amount": 0,
 				 "money": 0
                  },
                  {
                  "name": "苦荞米",
-                 "price": 30,
+                 "price": 3.5,
                  "amount": 0,
 				 "money": 0
                  },
                  {
                  "name": "江米",
-                 "price": 30,
+                 "price": 3.8,
                  "amount": 0,
 				 "money": 0
                  },
                  {
                  "name": "酱油",
-                 "price": 30,
+                 "price": 3.0,
                  "amount": 0,
 				 "money": 0
                  },
                  {
                  "name": "香油",
-                 "price": 30,
+                 "price": 25,
                  "amount": 0,
 				 "money": 0
                  },
                  {
                  "name": "芥末油",
-                 "price": 30,
+                 "price": 15,
                  "amount": 0,
 				 "money": 0
                  },
                  {
                  "name": "辣椒油",
-                 "price": 30,
+                 "price": 8,
                  "amount": 0,
 				 "money": 0
                  }		 
@@ -433,7 +433,7 @@ var vgjson={
 	[
 		{
                  "name": "猪肉",
-                 "price": 25,
+                 "price": 12,
                  "amount": 0,
 				 "money": 0
                  },
@@ -445,26 +445,26 @@ var vgjson={
                  },
                  {
                  "name": "羊肉",
-                 "price": 20,
+                 "price": 25,
                  "amount": 0,
 				 "money": 0
                  }
                  ,
                  {
                  "name": "牛肉",
-                 "price": 30,
+                 "price": 18,
                  "amount": 0,
 				 "money": 0
                  },
                  {
                  "name": "鸡",
-                 "price": 30,
+                 "price": 10,
                  "amount": 0,
 				 "money": 0
                  },
                  {
                  "name": "鸭",
-                 "price": 30,
+                 "price": 8.0,
                  "amount": 0,
 				 "money": 0
                  },
@@ -474,25 +474,25 @@ var vgjson={
 	[
 		{
                  "name": "咸菜",
-                 "price": 25,
+                 "price": 7.5,
                  "amount": 0,
 				 "money": 0
                  },
                  {
                  "name": "泡菜",
-                 "price": 20,
+                 "price": 6.0,
                  "amount": 0,
 				 "money": 0
                  },
                  {
                  "name": "酸菜",
-                 "price": 20,
+                 "price": 5.5,
                  "amount": 0,
 				 "money": 0
                  },
                  {
                  "name": "腌蒜",
-                 "price": 30,
+                 "price": 6.0,
                  "amount": 0,
 				 "money": 0
                  },                 
