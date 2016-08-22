@@ -53,9 +53,6 @@
 			<ul class="aui-list-view aui-in">
 				<li class="aui-list-view-cell">
 					配送时间<span class="aui-text-danger" id="deliveryTime">*</span>
-					<div class="aui-pull-right aui-text-danger" id="orderCash1">
-						￥49.90
-					</div>
 				</li>
 			</ul>
 		</div>
@@ -94,26 +91,7 @@
 				<div id="orderinclude"></div>
 			</li>
 		</ul>
-		<!--<div class="aui-content">
-		<ul class="aui-list-view">
-		<li class="aui-list-view-cell aui-img aui-counter-list" >
-		<img class="aui-img-object aui-pull-left" src="../image/pic.jpg" data-echo="../image/pic.jpg">
-		<div class="aui-img-body">
-		<div class="aui-text-default aui-ellipsis-1" id="orderName">
-		茅山榴莲王 越南进口越南进口越南进口
-		</div>
-		<div class="aui-counter-box">
-		<div class="aui-pull-left" id="orderCash2">
-		￥48.00
-		</div>
-		<div class="aui-text-default aui-pull-right">
-		x 1
-		</div>
-		</div>
-		</div>
-		</li>
-		</ul>
-		</div>-->
+		
 		<div class="aui-content">
 			<ul class="aui-list-view aui-in">
 				<li class="aui-list-view-cell">
@@ -231,6 +209,9 @@
 			var classname = $api.getStorage('classname');
 			orderName.innerHTML = classname
 			var length = $api.getStorage('jArray');
+			var totalcash = $api.getStorage('totalcash');	        
+//			var orderCash1 = $api.byId('orderCash1');
+//			orderCash1.innerHTML = totalcash;
 			for (var j = 0; j <= length; j += 1) {
 				var order = $api.getStorage('orderData' + '[' + j + ']');
 				order = JSON.parse(order);
@@ -245,7 +226,7 @@
 				var tempFn = doT.template(tpl);
 				para.innerHTML = tempFn(order);
 			}
-			var totalcash = $api.getStorage('totalcash');
+//			var totalcash = $api.getStorage('totalcash');
 			//			var cash = $api.byId('cash');
 			//			cash.innerHTML = totalcash;
 			//////获取地址
