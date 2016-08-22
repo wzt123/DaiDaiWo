@@ -241,24 +241,9 @@
 			</div>
 			<div class="buybtn">
 				<p tapmode="" onclick="buyfood(0)">
-					￥25
+					￥50
 				</p>
 				<span class="minusorder"> <img src="../image/foodlist_bg_foodnum.png" alt="" class="numbg"><span class="thisordernum">0</span> <span class="minus" tapmode="" onclick="minuscash(0)">－</span> </span>
-			</div>
-		</div>
-		<div class="item style2">
-			<div class="itemshelf">
-				<div class="shelfinfo01">
-					银针
-				</div>
-				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp;月售14438份
-				</div>
-			</div>
-			<div class="buybtn">
-				<p tapmode="" onclick="buyfood(1)">
-					￥20
-				</p>
-				<span class="minusorder"> <img src="../image/foodlist_bg_foodnum.png" alt="" class="numbg"><span class="thisordernum">0</span> <span class="minus" tapmode="" onclick="minuscash(1)">－</span> </span>
 			</div>
 		</div>
 		<div class="item style2">
@@ -270,8 +255,8 @@
 				</div>
 			</div>
 			<div class="buybtn">
-				<p tapmode="" onclick="buyfood(2)">
-					￥20
+				<p tapmode="" onclick="buyfood(1)">
+					￥60
 				</p>
 				<span class="minusorder"> <img src="../image/foodlist_bg_foodnum.png" alt="" class="numbg"><span class="thisordernum">0</span> <span class="minus" tapmode="" onclick="minuscash(2)">－</span> </span>
 			</div>
@@ -285,8 +270,8 @@
 				</div>
 			</div>
 			<div class="buybtn">
-				<p tapmode="" onclick="buyfood(3)">
-					￥30
+				<p tapmode="" onclick="buyfood(2)">
+					￥8.5
 				</p>
 				<span class="minusorder"> <img src="../image/foodlist_bg_foodnum.png" alt="" class="numbg"><span class="thisordernum">0</span> <span class="minus" tapmode="" onclick="minuscash(3)">－</span> </span>
 			</div>
@@ -300,8 +285,8 @@
 				</div>
 			</div>
 			<div class="buybtn">
-				<p tapmode="" onclick="buyfood(4)">
-					￥30
+				<p tapmode="" onclick="buyfood(3)">
+					￥6.0
 				</p>
 				<span class="minusorder"> <img src="../image/foodlist_bg_foodnum.png" alt="" class="numbg"><span class="thisordernum">0</span> <span class="minus" tapmode="" onclick="minuscash(4)">－</span> </span>
 			</div>
@@ -372,35 +357,28 @@
 			minusorderdom[index].style.display = 'inline-block';
 			switch(index) {
 				case 0:
-					totalcash += 25;
+					totalcash += 50;
 					buynum += 1;
 					numArray[index] += 1;
-					cashArray[index] += 25;
-					
+					cashArray[index] += 50;			
 					break;
 				case 1:
-					totalcash += 20;
+					totalcash += 60;
 					buynum += 1;
 					numArray[index] += 1;
-					cashArray[index] += 20;
+					cashArray[index] += 60;
 					break;
 				case 2:
-					totalcash += 20;
+					totalcash += 8.5;
 					buynum += 1;
 					numArray[index] += 1;
-					cashArray[index] += 20;
+					cashArray[index] += 8.5;
 					break;
 				case 3:
-					totalcash += 30;
+					totalcash += 6;
 					buynum += 1;
 					numArray[index] += 1;
-					cashArray[index] += 30;
-					break;
-				case 4:
-					totalcash += 30;
-					buynum += 1;
-					numArray[index] += 1;
-					cashArray[index] += 30;
+					cashArray[index] += 6;
 					break;
 				default:
 					break;
@@ -434,35 +412,28 @@
 			}
 			switch(index) {
 				case 0:
-					totalcash -= 25;
+					totalcash -= 50;
 					buynum -= 1;
 					numArray[index] -= 1;
-					cashArray[index] -= 25;
-					
+					cashArray[index] -= 50;			
 					break;
 				case 1:
-					totalcash -= 20;
+					totalcash -= 60;
 					buynum -= 1;
 					numArray[index] -= 1;
-					cashArray[index] -= 20;
+					cashArray[index] -= 60;
 					break;
 				case 2:
-					totalcash -= 20;
+					totalcash -= 8.5;
 					buynum -= 1;
 					numArray[index] -= 1;
-					cashArray[index] -= 20;
+					cashArray[index] -= 8.5;
 					break;
 				case 3:
-					totalcash -= 30;
+					totalcash -= 6;
 					buynum -= 1;
 					numArray[index] -= 1;
-					cashArray[index] -= 30;
-					break;
-				case 4:
-					totalcash -= 30;
-					buynum += 1;
-					numArray[index] -= 1;
-					cashArray[index] -= 30;
+					cashArray[index] -= 6;
 					break;
 				default:
 					break;
