@@ -206,6 +206,9 @@
 						}
 						ajaxRequest(registerUrl, 'post', JSON.stringify(bodyParam), function(ret, err) {
 							if (ret) {
+								api.closeToWin({
+	                                name: 'root'
+                                });
 								api.alert({
 									msg : '保存成功！'
 								}, function() {
