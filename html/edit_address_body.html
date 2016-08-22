@@ -74,10 +74,10 @@
 						<span class="aui-input-addon">允许获取您当前坐标</span>
 						<input type="checkbox" class="aui-switch aui-pull-right" id="getlocation" checked="">
 					</div>
-					<div class="aui-input-row" style="padding: 10px 0;">
+					<!--<div class="aui-input-row" style="padding: 10px 0;">
 						<span class="aui-input-addon">设为默认地址</span>
 						<input type="checkbox" class="aui-switch aui-pull-right" id="defAdd" checked="defAddress()">
-					</div>
+					</div>-->
 					<div class="aui-col-xs-12 aui-text-center aui-padded-15">
 						<div class="aui-col-xs-6">
 							<button class="aui-btn aui-btn-danger" onclick="delete()">
@@ -141,58 +141,55 @@
 						title : '保存中...',
 						modal : false
 					});
-					
 					if (ret.status) {
-					
 						var address = {
 							lon : ret.lon,
 							lat : ret.lat
 						}
-						var	lon = ret.lon;
-						var	lat = ret.lat;
-						
-						var def;
-						if (defAdd.checked) {
-							def = true;
-							$api.setStorage('lon',ret.lon);
-							$api.setStorage('lat',ret.lat);
-							query.createQuery({
-                            },function(ret,err){
-                            	if(ret&&ret.qid)
-                            	{
-                            		query.whereEqual({
-	                                    qid:ret.qid,
-	                                    column:'userid',
-	                                    value:uid
-                                    });
-                                    query.whereEqual({
-	                                    qid:ret.qid,
-	                                    column:'def',
-	                                    value:true
-                                    });
-                                    model.findAll({
-	                                    class:'userAddress',
-	                                    qid:ret.qid
-                                    },function(ret,err){
-                                    if(ret){
-                                    	for(var i=0 ;i<ret.length-1;i++){
-                                    	model.updateById({
-	                                        class:'userAddress',
-	                                        id:ret[i].id,
-	                                        value:{
-	                                        	def:false
-	                                        }
-                                        },function(ret,err){
-                                        	//coding...
-                                        });
-                                    	}
-                                    }
-                                    });
-                            	}
-                            });
-						} else {
-							def = false;
-						}
+						var lon = ret.lon;
+						var lat = ret.lat;
+						//						var def;
+						//						if (defAdd.checked) {
+						//							def = true;
+						//							$api.setStorage('lon',ret.lon);
+						//							$api.setStorage('lat',ret.lat);
+						//							query.createQuery({
+						//                          },function(ret,err){
+						//                          	if(ret&&ret.qid)
+						//                          	{
+						//                          		query.whereEqual({
+						//	                                    qid:ret.qid,
+						//	                                    column:'userid',
+						//	                                    value:uid
+						//                                  });
+						//                                  query.whereEqual({
+						//	                                    qid:ret.qid,
+						//	                                    column:'def',
+						//	                                    value:true
+						//                                  });
+						//                                  model.findAll({
+						//	                                    class:'userAddress',
+						//	                                    qid:ret.qid
+						//                                  },function(ret,err){
+						//                                  if(ret){
+						//                                  	for(var i=0 ;i<ret.length-1;i++){
+						//                                  	model.updateById({
+						//	                                        class:'userAddress',
+						//	                                        id:ret[i].id,
+						//	                                        value:{
+						//	                                        	def:false
+						//	                                        }
+						//                                      },function(ret,err){
+						//                                      	//coding...
+						//                                      });
+						//                                  	}
+						//                                  }
+						//                                  });
+						//                          	}
+						//                          });
+						//						} else {
+						//							def = false;
+						//						}
 						var registerUrl = '/userAddress';
 						var bodyParam = {
 							name : name,
@@ -202,13 +199,13 @@
 							address : address,
 							lon : lon,
 							lat : lat,
-							def : def
+							//							def : def
 						}
 						ajaxRequest(registerUrl, 'post', JSON.stringify(bodyParam), function(ret, err) {
 							if (ret) {
 								api.closeToWin({
-	                                name: 'root'
-                                });
+									name : 'root'
+								});
 								api.alert({
 									msg : '保存成功！'
 								}, function() {

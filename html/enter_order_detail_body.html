@@ -119,7 +119,8 @@
 				<li class="aui-list-view-cell">
 					<div class="aui-input-row">
 						<!--<div class="aui-input-addon">具体要求</div>-->
-						<input type="text" class="aui-input" placeholder="点击输入具体要求"  onchange="writeRequest()" id="orderRequest">
+						<input type="text" class="aui-input" placeholder="点击输入具体要求" id="orderRequest">
+						<button onclick = "writeRequest()">确定</button>
 					</div>
 				</li>
 			</ul>
@@ -205,7 +206,7 @@
 
 		function writeRequest() {
 			var orderRequest = document.getElementById("orderRequest").value;
-			$api.setStorage('orderRequest', orderRequest);
+			$api.setStorage('orderRequest', orderRequest);			
 		}
 
 
