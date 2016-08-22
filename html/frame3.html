@@ -183,7 +183,7 @@
 				</ul>
 			</script>
 			<div id="inclu"></div>
-			<div class=" aui-tree aui-text-center aui-text-686868">
+			<!--<div class=" aui-tree aui-text-center aui-text-686868">
 				<div class="aui-col-xs-4">
 					积分<span class="aui-text-FF9800">100</span>
 				</div>
@@ -193,7 +193,7 @@
 				<div class="aui-col-xs-4" tapmode onclick="">
 					优惠券<span class="aui-text-FF9800">2</span>
 				</div>
-			</div>
+			</div>-->
 		</div>
 		<div class="aui-content">
 			<ul class="aui-grid-nine">
@@ -373,6 +373,19 @@
 			});
 			api.parseTapmode();
 			//doLogin('../login/login_head');
+			api.setRefreshHeaderInfo({
+				visible : true,
+				loadingImg : '../image/refresh.png',
+				bgColor : '#ccc',
+				textColor : '#fff',
+				textDown : '下拉刷新...',
+				textUp : '松开刷新...',
+				showTime : true
+			}, function(ret, err) {
+				//在这里从服务器加载数据，加载完成后调用api.refreshHeaderLoadDone()方法恢复组件到默认状态
+				init();
+				api.refreshHeaderLoadDone();
+			});
 		}
 	</script>
 </html>

@@ -1,4 +1,4 @@
- <!DOCTYPE HTML>
+<!DOCTYPE HTML>
 <html>
 	<head>
 		<meta charset="utf-8">
@@ -43,9 +43,12 @@
 			<ul class="aui-list-view aui-in">
 				<li class="aui-list-view-cell">
 					配送时间<span class="aui-text-danger" id="deliveryTime">*</span>
+<<<<<<< HEAD
 					<div class="aui-pull-right aui-text-danger" id="orderCash1">
 						07:30
 					</div>
+=======
+>>>>>>> 3b34ebf3a49063800513c9d7834e7fddeb49976d
 				</li>
 			</ul>
 		</div>
@@ -83,12 +86,14 @@
 				</script>
 				<div id="orderinclude"></div>
 			</li>
-		</ul>
+		</ul>		
 		<div class="aui-content">
 			<ul class="aui-list-view aui-in">
 				<li class="aui-list-view-cell">
-					<div class="aui-input-row" style="height:20px">
-						<input type="text" class="aui-input" placeholder="点击输入具体要求"  onchange="writeRequest()" id="orderRequest">
+					<div class="aui-input-row">
+						<!--<div class="aui-input-addon">具体要求</div>-->
+						<input type="text" class="aui-input" placeholder="点击输入具体要求" id="orderRequest">
+						<button onclick = "writeRequest()">确定</button>
 					</div>
 				</li>
 			</ul>
@@ -143,18 +148,38 @@
 			$api.rmStorage('orderRequest');
 			api.parseTapmode();
 			initFrame();
+			api.setRefreshHeaderInfo({
+				visible : true,
+				loadingImg : '../image/refresh.png',
+				bgColor : '#ccc',
+				textColor : '#fff',
+				textDown : '下拉刷新获取地址...',
+				textUp : '松开刷新获取地址...',
+				showTime : true
+			}, function(ret, err) {
+				//在这里从服务器加载数据，加载完成后调用api.refreshHeaderLoadDone()方法恢复组件到默认状态
+				getaddress();
+				api.refreshHeaderLoadDone();
+			});
 		};
 		function setaddress() {
-			api.openWin({
-				name : 'address_head',
-				url : './address_head.html'
-			});
+			var islogin = $api.getStorage('islogin');
+			if (islogin) {
+				api.openWin({
+					name : 'address_head',
+					url : './address_head.html'
+				});
+			} else {
+				api.openWin({
+					name : 'user_login_frm',
+					url : './user_login_frm.html'
+				});
+			}
 		}
 
 		function writeRequest() {
 			var orderRequest = document.getElementById("orderRequest").value;
-			$api.setStorage('orderRequest', orderRequest);
-			
+			$api.setStorage('orderRequest', orderRequest);			
 		}
 
 
@@ -179,6 +204,9 @@
 			var classname = $api.getStorage('classname');
 			orderName.innerHTML = classname
 			var length = $api.getStorage('jArray');
+			var totalcash = $api.getStorage('totalcash');	        
+//			var orderCash1 = $api.byId('orderCash1');
+//			orderCash1.innerHTML = totalcash;
 			for (var j = 0; j <= length; j += 1) {
 				var order = $api.getStorage('orderData' + '[' + j + ']');
 				order = JSON.parse(order);
@@ -193,10 +221,14 @@
 				var tempFn = doT.template(tpl);
 				para.innerHTML = tempFn(order);
 			}
-			var totalcash = $api.getStorage('totalcash');
+//			var totalcash = $api.getStorage('totalcash');
 			//			var cash = $api.byId('cash');
 			//			cash.innerHTML = totalcash;
 			//////获取地址
+			getaddress();
+		}
+
+		function getaddress() {
 			var uid = $api.getStorage('uid');
 			query.createQuery({
 			}, function(ret, err) {
