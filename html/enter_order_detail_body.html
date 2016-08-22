@@ -1,4 +1,4 @@
- <!DOCTYPE HTML>
+<!DOCTYPE HTML>
 <html>
 	<head>
 		<meta charset="utf-8">
@@ -179,36 +179,33 @@
 				loadingImg : '../image/refresh.png',
 				bgColor : '#ccc',
 				textColor : '#fff',
-				textDown : '下拉刷新...',
-				textUp : '松开刷新...',
+				textDown : '下拉刷新获取地址...',
+				textUp : '松开刷新获取地址...',
 				showTime : true
 			}, function(ret, err) {
 				//在这里从服务器加载数据，加载完成后调用api.refreshHeaderLoadDone()方法恢复组件到默认状态
-				initFrame();
+				getaddress();
 				api.refreshHeaderLoadDone();
 			});
 		};
 		function setaddress() {
-		var islogin = $api.getStorage('islogin');
-		if(islogin){
-			api.openWin({
-				name : 'address_head',
-				url : './address_head.html'
-			});
-		}
-		else
-		{
-		api.openWin({
-				name : 'user_login_frm',
-				url : './user_login_frm.html'
-			});
-		}
+			var islogin = $api.getStorage('islogin');
+			if (islogin) {
+				api.openWin({
+					name : 'address_head',
+					url : './address_head.html'
+				});
+			} else {
+				api.openWin({
+					name : 'user_login_frm',
+					url : './user_login_frm.html'
+				});
+			}
 		}
 
 		function writeRequest() {
 			var orderRequest = document.getElementById("orderRequest").value;
 			$api.setStorage('orderRequest', orderRequest);
-			
 		}
 
 
@@ -251,6 +248,10 @@
 			//			var cash = $api.byId('cash');
 			//			cash.innerHTML = totalcash;
 			//////获取地址
+			getaddress();
+		}
+
+		function getaddress() {
 			var uid = $api.getStorage('uid');
 			query.createQuery({
 			}, function(ret, err) {
