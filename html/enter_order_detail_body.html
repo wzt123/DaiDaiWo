@@ -39,16 +39,21 @@
 		</style>
 	</head>
 	<body>
+	    <div class="step1" style="margin-top:10px" tapmode onclick="setaddress()">		
+			<b class="s1-borderT"></b>				
+			<div id="slect">
+					点此添加地址
+				</div>
+			<b class="s1-borderB"></b>
+			<span class="s-point"></span>
+		</div>
 		<div class="aui-content">
 			<ul class="aui-list-view aui-in">
 				<li class="aui-list-view-cell">
 					配送时间<span class="aui-text-danger" id="deliveryTime">*</span>
-<<<<<<< HEAD
 					<div class="aui-pull-right aui-text-danger" id="orderCash1">
 						07:30
 					</div>
-=======
->>>>>>> 3b34ebf3a49063800513c9d7834e7fddeb49976d
 				</li>
 			</ul>
 		</div>
@@ -86,25 +91,22 @@
 				</script>
 				<div id="orderinclude"></div>
 			</li>
-		</ul>		
+		</ul>	
 		<div class="aui-content">
 			<ul class="aui-list-view aui-in">
-				<li class="aui-list-view-cell">
-					<div class="aui-input-row">
-						<!--<div class="aui-input-addon">具体要求</div>-->
-						<input type="text" class="aui-input" placeholder="点击输入具体要求" id="orderRequest">
-						<button onclick = "writeRequest()">确定</button>
-					</div>
+				<li class="aui-list-view-cell">					
+						<input type="text" style="font-size: 14px" placeholder="订单补充说明…" id="orderRequest">
+						<button style="margin-left: 83%; color: red; font-size: 14px" onclick = "writeRequest()">确定</button>
 				</li>
 			</ul>
-		</div>
-		<div class="aui-content" tapmode onclick="setaddress()">
+		</div>	
+		<!--<div class="aui-content" tapmode onclick="setaddress()">
 			<div class="aui-content">
 				<div id="slect">
 					点此添加地址
 				</div>
 			</div>
-		</div>
+		</div>-->
 		<script id="addresstpl" type="text/x-dot-template" >
 			{{for(var i in it) { }}
 			<li class="aui-list-view-cell">
@@ -112,9 +114,10 @@
 			<div class="aui-img-body">
 			<div>收件人：{{=it[i].name}}</div>
 			<div>电话：{{=it[i].tel}}</div>
-			<p class='aui-ellipsis-2' style="margin-right:12px;">
+			<!--<p class='aui-ellipsis-2' style="margin-right:12px;">
 			地址：{{=it[i].addressname}}
-			</p>
+			</p>-->
+			<div>地址：{{=it[i].addressname}}</div>
 			</div>
 			</div>
 			</li>
@@ -122,8 +125,8 @@
 		</script>
 		<div class="aui-content">
 			<div >
-				<div id="slect">
-					默认地址
+				<div id="slect" style="margin-left: 5%">
+					默认地址:
 				</div>
 				<ul class="aui-list-view aui-in" id="include"></ul>
 			</div>
