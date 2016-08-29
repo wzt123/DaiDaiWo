@@ -150,6 +150,7 @@
 			//				$api.setStorage('lon', ret.lon);
 			//				$api.setStorage('lat', ret.lat);
 			//			});
+			init();
 			api.setRefreshHeaderInfo({
 				visible : true,
 				loadingImg : '../image/refresh.png',
@@ -160,7 +161,7 @@
 				showTime : true
 			}, function(ret, err) {
 				//在这里从服务器加载数据，加载完成后调用api.refreshHeaderLoadDone()方法恢复组件到默认状态
-				init()
+				init();
 				api.refreshHeaderLoadDone();
 			});
 		}
