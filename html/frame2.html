@@ -84,7 +84,7 @@
 	<body>
 		<script id="ordertpl" type="text/x-dot-template" >
 			{{for(var i in it) { }}
-			{{if(it[i].buyerid==null) { }}
+			{{if(it[i].buyerid===null) { }}
 			<div>
 			<div class="aui-img-body">
 			<div class="aui-counter-box">
@@ -103,10 +103,7 @@
 			<div class="aui-line-x" style="margin: 17px 0 8px 0;"></div>
 			<p class="aui-text-right" style="color:#E74C3C;font-size:15px;padding-right: 20px">总金额：{{=it[i].money}}元</p>
 			</li>
-			<li>
-			<!--<p class="aui-text-right" style="color:#E74C3C;font-size:15px;padding-right: 20px" tapmode onclick=" ">立即抢单</p>-->
-			<button style="margin-left: 75%; color: red; font-size: 14px" onclick="helpthis('{{=it[i].id}}')">立即抢单</button>
-			</li>
+			
 			<li><div ><!--具体要求：{{=it[i].orderRequest}}-->
 			{{? it[i].orderRequest }}
 			具体要求：<em>{{=it[i].orderRequest}}</em>
@@ -114,6 +111,10 @@
 			具体要求：<em>无</em>
 			{{?}}
 			</div>
+			</li>
+			<li>
+			<!--<p class="aui-text-right" style="color:#E74C3C;font-size:15px;padding-right: 20px" tapmode onclick=" ">立即抢单</p>-->
+			<button style="margin-left: 75%; color: red; font-size: 14px" onclick="helpthis('{{=it[i].id}}')">立即抢单</button>
 			</li>
 			</ul>
 			</div>
@@ -197,6 +198,12 @@
 							})
 						}
 					});
+				}else {
+				api.alert({
+                msg:"这单被别人抢了，试试别的吧~"
+                },function(ret,err){
+                	//coding...
+                });
 				}
 			});
 		}
