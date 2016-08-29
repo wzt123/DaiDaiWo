@@ -84,7 +84,8 @@
 	<body>
 		<script id="ordertpl" type="text/x-dot-template" >
 			{{for(var i in it) { }}
-			<div onclick="helpthis('{{=it[i].lon}}','{{=it[i].lat}}');">
+			{{if(it[i].buyerid==null) { }}
+			<div>
 			<div class="aui-img-body">
 			<div class="aui-counter-box">
 			<h5 class="font-color" style="padding-left:10px; padding-top:10px;">种类：{{=it[i].classname}}</h5>
@@ -103,17 +104,20 @@
 			<p class="aui-text-right" style="color:#E74C3C;font-size:15px;padding-right: 20px">总金额：{{=it[i].money}}元</p>
 			</li>
 			<li><div ><!--具体要求：{{=it[i].orderRequest}}-->
-			{{? it[i].orderRequest }}			
-			具体要求：<em>{{=it[i].orderRequest}}</em>			
-			{{??}}			
-			具体要求：<em>无</em>			
+			{{? it[i].orderRequest }}
+			具体要求：<em>{{=it[i].orderRequest}}</em>
+			{{??}}
+			具体要求：<em>无</em>
 			{{?}}
 			</div>
 			</li>
 			</ul>
 			</div>
-			{{ } }}
 			</div>
+			<button onclick="helpthis('{{=it[i].id}}')">抢单</button>
+			</div>
+			{{}}}
+			{{ } }}
 		</script>
 		<ul class="aui-list-view" id="include"></ul>
 	</body>
@@ -123,18 +127,6 @@
 	<script type="text/javascript">
 		var model;
 		var query;
-		function helpthis(lon, lat) {
-			$api.setStorage('endlon', lon);
-			$api.setStorage('endlat', lat);
-			api.openWin({
-				name : 'baidumaphead',
-				url : './baidumaphead.html',
-				//				pageParam : {
-				//					name : 'test'
-				//				}
-			});
-		}
-
 		apiready = function() {
 			model = api.require('model');
 			query = api.require('query');
@@ -157,6 +149,55 @@
 				api.refreshHeaderLoadDone();
 			});
 		};
+		function helpthis(id) {
+			//			$api.setStorage('endlon', lon);
+			//			$api.setStorage('endlat', lat);
+			//			api.openWin({
+			//				name : 'baidumaphead',
+			//				url : './baidumaphead.html',
+			//				//				pageParam : {
+			//				//					name : 'test'
+			//				//				}
+			//			});
+			//判断是否已经被人抢单
+			//			query.createQuery({
+			//          },function(ret,err){
+			//          	//coding...
+			//          	if(ret&&ret.qid){
+			//
+			//          	}
+			//          });
+			model.findById({
+				class : 'orderForm',
+				id : id
+			}, function(ret, err) {
+				//coding...
+				if (ret.buyerid == null) {
+					//下单
+					var uid = $api.getStorage('uid');
+					var orderUrl = '/orderForm/' + id;
+					var bodyParam = {
+						buyerid : uid
+					}
+					ajaxRequest(orderUrl, 'put', JSON.stringify(bodyParam), function(ret, err) {
+						if (ret) {
+							//update personal center
+							setTimeout(function() {
+								api.alert({
+									msg : '抢单成功'
+								}, function(ret, err) {
+								});
+							}, 200);
+						} else {
+							api.toast({
+								msg : err.msg
+							})
+						}
+					});
+				}
+			});
+		}
+
 		function allorder() {
 			var date = new Date().Format("yyyy-MM-dd");
 			query.createQuery({
