@@ -52,6 +52,11 @@
 			.font-color {
 				color: #E74C3C;
 			}
+			.aui-nnav{line-height:40px;}
+				.demo{font-size:15px;color: red;background:#fff;}
+		.buy{ background:white;
+		    color: red;
+		    font-weight:bold }
 		</style>
 	</head>
 	<body>
@@ -87,7 +92,13 @@
 				<div class="aui-line-x" style="margin: 17px 0 8px 0;"></div>
 				<p class="aui-text-right" style="color:#6ab494;font-size:17px;padding-right: 20px">总金额：{{=it[i].money}}元</p>
 				<div class="aui-line-x" style="margin: 8px 0 5px 0;"></div>
-				<button style="margin-left: 75%; color: red; font-size: 14px" onclick="checkOut('{{=it[i].id}}')">结算</button>
+				
+				<div class="aui-col-xs-12 aui-text-center aui-nnav">
+				    <div class="aui-col-xs-8 demo">未完成支付</div>
+				    <div class="aui-col-xs-4 buy" tapmode onclick="checkOut('{{=it[i].id}}')">结算</div>
+			    </div>
+				
+				<!--<button style="margin-left: 75%; color: red; font-size: 14px" onclick="checkOut('{{=it[i].id}}')">结算</button>-->
 				<div class="aui-line-x" style="margin: 17px 0 8px 0;"></div>
 				</div>
 				</div>
