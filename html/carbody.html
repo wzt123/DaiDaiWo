@@ -56,9 +56,10 @@
 	</head>
 	<body>
 		<div class="aui-content">
-		<script id="ordertpl" type="text/x-dot-template" >
-				<div onclick="helpthis('{{=it.lon}}','{{=it.lat}}');">
+			<script id="car_ordertpl" type="text/x-dot-template" >
+				<ul class="aui-list-view">
 				{{for(var i in it) { }}
+				<li class="aui-list-view-cell aui-img aui-counter-list" tapmode onclick="">
 				<div class="aui-img-body">
 				<div class="aui-counter-box">
 				<div class="aui-pull-left" id="orderName" style="color:#E74C3C;font-size:15px;">
@@ -76,17 +77,27 @@
 				{{ } }}
 				</div>
 				<div class="aui-line-x" style="margin: 17px 0 8px 0;"></div>
-	                	<p class="aui-text-right" style="color:#6ab494;font-size:17px;padding-right: 20px">总金额：{{=it[i].money}}元</p>
-	             <div class="aui-line-x" style="margin: 8px 0 5px 0;"></div>
+				<div ><!--具体要求：{{=it[i].orderRequest}}-->
+				{{? it[i].orderRequest }}
+				具体要求：<em>{{=it[i].orderRequest}}</em>
+				{{??}}
+				具体要求：<em>无</em>
+				{{?}}
+				</div>
+				<div class="aui-line-x" style="margin: 17px 0 8px 0;"></div>
+				<p class="aui-text-right" style="color:#6ab494;font-size:17px;padding-right: 20px">总金额：{{=it[i].money}}元</p>
+				<div class="aui-line-x" style="margin: 8px 0 5px 0;"></div>
+				<button style="margin-left: 75%; color: red; font-size: 14px" onclick="checkOut('{{=it[i].id}}')">结算</button>
+				<div class="aui-line-x" style="margin: 17px 0 8px 0;"></div>
 				</div>
 				</div>
+				</li>
 				{{ } }}
-				</div>
+				</ul>
 			</script>
 			<!--<div id="orderinclude"></div>-->
-			<ul class="aui-list-view" id="include"></ul>		
+			<div class="aui-list-view" id="car_include"></div>
 		</div>
-		
 	</body>
 	<script type="text/javascript" src="../script/api.js"></script>
 	<script type="text/javascript" src="../script/zepto.min.js"></script>
@@ -126,9 +137,28 @@
 				api.refreshHeaderLoadDone();
 			});
 		}
+		function checkOut(id) {
+			model.updateById({
+				class : 'orderForm',
+				id : id,
+				value : {
+					checkOut : true
+				}
+			}, function(ret, err) {
+				//coding...
+				if (ret) {
+					api.alert({
+						msg : "结算成功"
+					}, function(ret, err) {
+						//coding...
+					});
+				}
+			});
+		}
+
 		function initframe() {
 			var userid = $api.getStorage('uid');
-			userid = '"'+userid+'"';
+			userid = '"' + userid + '"';
 			if (userid == null) {
 				api.alert({
 					msg : "亲，要先登录哦~"
@@ -157,10 +187,9 @@
 						class : 'orderForm',
 						qid : ret.qid
 					}, function(ret, err) {
-						if (ret){
-							
-							var include = $api.byId('include');
-							var tpl = $api.byId('ordertpl').text;
+						if (ret) {
+							var include = $api.byId('car_include');
+							var tpl = $api.byId('car_ordertpl').text;
 							var tempFn = doT.template(tpl);
 							include.innerHTML = tempFn(ret);
 						}
