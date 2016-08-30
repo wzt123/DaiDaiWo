@@ -8,15 +8,14 @@
 		<link rel="stylesheet" type="text/css" href="../css/aui.css" />
 		<link rel="stylesheet" type="text/css" href="../css/common.css" />
 		<link rel="stylesheet" type="text/css" href="../css/aui-slide.css" />
-		<style type="text/css">			
+		<style type="text/css">
 			.bg-dark {
 				background: #333333 !important;
 			}
 			.aui-slide-node img {
-			   	width:100%;
-			    height: 100%;
+				width: 100%;
+				height: 100%;
 			}
-			
 			.item-item {
 				height: 73px;
 				width: 100%;
@@ -37,63 +36,62 @@
 				background-size: cover;
 				-webkit-background-size: cover;
 			}
-				.topmenu {
-			background: #e74c3c;
-			overflow: hidden;
-			padding: 10px 0;
-			margin-bottom: 0;
-		}
-		.topmenu .aui-iconfont,
-		.topmenu p {
-			color: #ffffff;
-		}
-		.topmenu .aui-iconfont {
-			font-size: 1.6em;
-		}
-		.slider img {
-			width: 100%;
-			height: 120px;
-			display: inherit;
-		}
-        .aui-content.box{
-            background: #fff;
-        }
-        .box {
-            /*padding-top: 15px;*/
-        }
-        .box-title {
-            margin: 15px 10px 5px 10px;
-            /*margin-bottom: 5px;*/
-            height: 20px;
-            line-height: 20px;
-            border-left: 5px solid #ff9900;
-            color: #666;
-            font-weight: 700;
-            padding-left: 10px;
-        }
-        .box .aui-list-view {
-            margin-bottom: 0;
-        }
-        .aui-list-view i.aui-iconfont {
-            margin-right: 0;
-        }
-.aui-ellipsis-1 {
-	padding-right: 1px !important;
-	display: -webkit-box;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    word-wrap: break-word;
-    white-space: normal !important;
-    -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;
-}
-.aui-ellipsis-2 {
-	padding-right: 5px !important;
-}
+			.topmenu {
+				background: #e74c3c;
+				overflow: hidden;
+				padding: 10px 0;
+				margin-bottom: 0;
+			}
+			.topmenu .aui-iconfont, .topmenu p {
+				color: #ffffff;
+			}
+			.topmenu .aui-iconfont {
+				font-size: 1.6em;
+			}
+			.slider img {
+				width: 100%;
+				height: 120px;
+				display: inherit;
+			}
+			.aui-content.box {
+				background: #fff;
+			}
+			.box {
+				/*padding-top: 15px;*/
+			}
+			.box-title {
+				margin: 15px 10px 5px 10px;
+				/*margin-bottom: 5px;*/
+				height: 20px;
+				line-height: 20px;
+				border-left: 5px solid #ff9900;
+				color: #666;
+				font-weight: 700;
+				padding-left: 10px;
+			}
+			.box .aui-list-view {
+				margin-bottom: 0;
+			}
+			.aui-list-view i.aui-iconfont {
+				margin-right: 0;
+			}
+			.aui-ellipsis-1 {
+				padding-right: 1px !important;
+				display: -webkit-box;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				word-wrap: break-word;
+				white-space: normal !important;
+				-webkit-line-clamp: 1;
+				-webkit-box-orient: vertical;
+			}
+			.aui-ellipsis-2 {
+				padding-right: 5px !important;
+			}
 		</style>
 	</head>
 	<body>
-	  <div id="aui-slide">
+		<div id="aui-slide">
 			<div class="aui-slide-wrap" >
 				<div class="aui-slide-node bg-dark aui-slide-node-middle aui-slide-node-center">
 					<img src="../image/banner.jpg" />
@@ -105,68 +103,71 @@
 					<img src="../image/banner.jpg" />
 				</div>
 			</div>
-			<div class="aui-slide-page-wrap"><!--分页容器--></div>
+			<div class="aui-slide-page-wrap">
+				<!--分页容器-->
+			</div>
 		</div>
 		<div class="aui-content box">
-        <p class="aui-padded-10 aui-bg-ffffff aui-text-black"><label class="active-ars"></label>蔬菜.油粮.肉类</p>        
-        <ul class="aui-list-view aui-grid-view">
-            <li class="aui-list-view-cell aui-img aui-col-xs-4" tapmode onclick="openshopcar1()">
-                <img class="aui-img-object" src="../image/yecai.png" data-echo="../image/yecai.png">
-                <div class="aui-img-body aui-text-left">
-                    	<span class="aui-ellipsis-1">叶菜类蔬菜</span>
-                </div>
-            </li>
-            <li class="aui-list-view-cell aui-img aui-col-xs-4" tapmode onclick="openshopcar6()">
-                <img class="aui-img-object" src="../image/yamiao.png" data-echo="../image/yamiao.png">
-                <div class="aui-img-body aui-text-left aui-ellipsis-2">
-                    <span class="aui-ellipsis-1">芽苗类蔬菜</span>
-                </div>
-            </li>
-            <li class="aui-list-view-cell aui-img aui-col-xs-4" tapmode onclick="openshopcar3()">
-                <img class="aui-img-object" src="../image/junlei.png" data-echo="../image/junlei.png">
-                <div class="aui-img-body aui-text-left aui-ellipsis-2">
-                    <span class="aui-ellipsis-1">菌类蔬菜</span>                 
-                </div>
-            </li>
-            <li class="aui-list-view-cell aui-img aui-col-xs-4" tapmode onclick="openshopcar2()">
-                <img class="aui-img-object" src="../image/genjing.png" data-echo="../image/genjing.png">
-                <div class="aui-img-body aui-text-left aui-ellipsis-2">
-                    <span class="aui-ellipsis-1">根茎类蔬菜</span>
-                </div>
-            </li>
-            <li class="aui-list-view-cell aui-img aui-col-xs-4" tapmode onclick="openshopcar4()">
-                <img class="aui-img-object" src="../image/guocai.png" data-echo="../image/guocai.png">
-                <div class="aui-img-body aui-text-left aui-ellipsis-2">
-                    <span class="aui-ellipsis-1">果菜类蔬菜</span>
-                </div>
-            </li>
-            <li class="aui-list-view-cell aui-img aui-col-xs-4" tapmode onclick="openshopcar5()">
-                <img class="aui-img-object" src="../image/huacai.png" data-echo="../image/huacai.png">
-                <div class="aui-img-body aui-text-left aui-ellipsis-2">
-                    <span class="aui-ellipsis-1">花菜类蔬菜</span>
-                </div>
-            </li>
-            <li class="aui-list-view-cell aui-img aui-col-xs-4" tapmode onclick="openshopcar7()">
-                <img class="aui-img-object" src="../image/huacai.png" data-echo="../image/liangyou1.png">
-                <div class="aui-img-body aui-text-left aui-ellipsis-2">
-                    <span class="aui-ellipsis-1">油粮类</span>
-                </div>
-            </li>
-            <li class="aui-list-view-cell aui-img aui-col-xs-4" tapmode onclick="openshopcar8()">
-                <img class="aui-img-object" src="../image/huacai.png" data-echo="../image/rou1.png">
-                <div class="aui-img-body aui-text-left aui-ellipsis-2">
-                    <span class="aui-ellipsis-1">肉类</span>
-                </div>
-            </li>
-            <li class="aui-list-view-cell aui-img aui-col-xs-4" tapmode onclick="openshopcar9()">
-                <img class="aui-img-object" src="../image/huacai.png" data-echo="../image/xiancai1.png">
-                <div class="aui-img-body aui-text-left aui-ellipsis-2">
-                    <span class="aui-ellipsis-1">咸菜类</span>
-                </div>
-            </li>
-            
-        </ul>
-    </div>
+			<p class="aui-padded-10 aui-bg-ffffff aui-text-black">
+				<label class="active-ars"></label>蔬菜.油粮.肉类
+			</p>
+			<ul class="aui-list-view aui-grid-view">
+				<li class="aui-list-view-cell aui-img aui-col-xs-4" tapmode onclick="openshopcar1()">
+					<img class="aui-img-object" src="../image/yecai.png" data-echo="../image/yecai.png">
+					<div class="aui-img-body aui-text-left">
+						<span class="aui-ellipsis-1">叶菜类蔬菜</span>
+					</div>
+				</li>
+				<li class="aui-list-view-cell aui-img aui-col-xs-4" tapmode onclick="openshopcar6()">
+					<img class="aui-img-object" src="../image/yamiao.png" data-echo="../image/yamiao.png">
+					<div class="aui-img-body aui-text-left aui-ellipsis-2">
+						<span class="aui-ellipsis-1">芽苗类蔬菜</span>
+					</div>
+				</li>
+				<li class="aui-list-view-cell aui-img aui-col-xs-4" tapmode onclick="openshopcar3()">
+					<img class="aui-img-object" src="../image/junlei.png" data-echo="../image/junlei.png">
+					<div class="aui-img-body aui-text-left aui-ellipsis-2">
+						<span class="aui-ellipsis-1">菌类蔬菜</span>
+					</div>
+				</li>
+				<li class="aui-list-view-cell aui-img aui-col-xs-4" tapmode onclick="openshopcar2()">
+					<img class="aui-img-object" src="../image/genjing.png" data-echo="../image/genjing.png">
+					<div class="aui-img-body aui-text-left aui-ellipsis-2">
+						<span class="aui-ellipsis-1">根茎类蔬菜</span>
+					</div>
+				</li>
+				<li class="aui-list-view-cell aui-img aui-col-xs-4" tapmode onclick="openshopcar4()">
+					<img class="aui-img-object" src="../image/guocai.png" data-echo="../image/guocai.png">
+					<div class="aui-img-body aui-text-left aui-ellipsis-2">
+						<span class="aui-ellipsis-1">果菜类蔬菜</span>
+					</div>
+				</li>
+				<li class="aui-list-view-cell aui-img aui-col-xs-4" tapmode onclick="openshopcar5()">
+					<img class="aui-img-object" src="../image/huacai.png" data-echo="../image/huacai.png">
+					<div class="aui-img-body aui-text-left aui-ellipsis-2">
+						<span class="aui-ellipsis-1">花菜类蔬菜</span>
+					</div>
+				</li>
+				<li class="aui-list-view-cell aui-img aui-col-xs-4" tapmode onclick="openshopcar7()">
+					<img class="aui-img-object" src="../image/huacai.png" data-echo="../image/liangyou1.png">
+					<div class="aui-img-body aui-text-left aui-ellipsis-2">
+						<span class="aui-ellipsis-1">油粮类</span>
+					</div>
+				</li>
+				<li class="aui-list-view-cell aui-img aui-col-xs-4" tapmode onclick="openshopcar8()">
+					<img class="aui-img-object" src="../image/huacai.png" data-echo="../image/rou1.png">
+					<div class="aui-img-body aui-text-left aui-ellipsis-2">
+						<span class="aui-ellipsis-1">肉类</span>
+					</div>
+				</li>
+				<li class="aui-list-view-cell aui-img aui-col-xs-4" tapmode onclick="openshopcar9()">
+					<img class="aui-img-object" src="../image/huacai.png" data-echo="../image/xiancai1.png">
+					<div class="aui-img-body aui-text-left aui-ellipsis-2">
+						<span class="aui-ellipsis-1">咸菜类</span>
+					</div>
+				</li>
+			</ul>
+		</div>
 	</body>
 	<script type="text/javascript" src="../script/api.js"></script>
 	<script type="text/javascript" src="../script/common.js"></script>
@@ -174,16 +175,16 @@
 	<script type="text/javascript" src="../script/echo.min.js"></script>
 	<script type="text/javascript" src="../script/aui-slide.js"></script>
 	<script type="text/javascript">
-	var slide = new auiSlide({
-			container:document.getElementById("aui-slide"),
+		var slide = new auiSlide({
+			container : document.getElementById("aui-slide"),
 			// "width":300,
-			"height":180,
-			"speed":300,
-			"autoPlay": 3000, //自动播放
-			"pageShow":true,
-			"pageStyle":'dot',
-			"loop":true,
-			'dotPosition':'center'
+			"height" : 180,
+			"speed" : 300,
+			"autoPlay" : 3000, //自动播放
+			"pageShow" : true,
+			"pageStyle" : 'dot',
+			"loop" : true,
+			'dotPosition' : 'center'
 		});
 		echo.init({
 			offset : 100,
@@ -205,13 +206,14 @@
 				//H.$openWin('case_view_head', 'case_view_head.html');
 			});
 		});
-		function randomSwitchBtn(obj, name, index){
+		function randomSwitchBtn(obj, name, index) {
 			var jsfun = "randomSwitchBtn(this,'分类',1);";
-				api.execScript({
-					name: 'root',
-				    script: jsfun
-				});
+			api.execScript({
+				name : 'root',
+				script : jsfun
+			});
 		}
+
 		apiready = function() {
 			api.parseTapmode();
 			api.setRefreshHeaderInfo({
@@ -228,65 +230,101 @@
 				api.refreshHeaderLoadDone();
 			});
 		};
-		
+		//顶部文章推送
+		function getBanner(id) {
+			api.showProgress({
+				title : '加载中...',
+				modal : false
+			});
+			var getTabBarBannerUrl = '/tabBar?filter=';
+			var urlParam = {
+				include : ["banner"],
+				where : {
+					id : id
+				}
+			};
+			ajaxRequest(getTabBarBannerUrl + JSON.stringify(urlParam), 'GET', '', function(ret, err) {
+				if (ret) {
+					var content = $api.byId('banner-content');
+					var tpl = $api.byId('banner-template').text;
+					var tempFn = doT.template(tpl);
+					content.innerHTML = tempFn(ret[0].banner);
+					initSlide();
+				} else {
+					api.toast({
+						msg : err.msg,
+						location : 'middle'
+					})
+				}
+			})
+		}
+
 		function openshopcar1() {
-		$api.setStorage('classpic',"../image/yecai.png");	
+			$api.setStorage('classpic', "../image/yecai.png");
 			api.openWin({
 				name : 'shopcar_body1',
 				url : '../html/shopcar_body1.html'
 			});
 		}
+
 		function openshopcar2() {
-		$api.setStorage('classpic',"../image/genjing.png");	
+			$api.setStorage('classpic', "../image/genjing.png");
 			api.openWin({
 				name : 'shopcar_body2',
 				url : '../html/shopcar_body2.html'
 			});
 		}
-		function openshopcar3() {	
-		$api.setStorage('classpic',"../image/junlei.png");
+
+		function openshopcar3() {
+			$api.setStorage('classpic', "../image/junlei.png");
 			api.openWin({
 				name : 'shopcar_body3',
 				url : '../html/shopcar_body3.html'
 			});
 		}
+
 		function openshopcar4() {
-		$api.setStorage('classpic',"../image/guocai.png");	
+			$api.setStorage('classpic', "../image/guocai.png");
 			api.openWin({
 				name : 'shopcar_body4',
 				url : '../html/shopcar_body4.html'
 			});
 		}
+
 		function openshopcar5() {
-		$api.setStorage('classpic',"../image/huacai.png");	
+			$api.setStorage('classpic', "../image/huacai.png");
 			api.openWin({
 				name : 'shopcar_body5',
 				url : '../html/shopcar_body5.html'
 			});
 		}
+
 		function openshopcar6() {
-		$api.setStorage('classpic',"../image/yamiao.png");	
+			$api.setStorage('classpic', "../image/yamiao.png");
 			api.openWin({
 				name : 'shopcar_body6',
 				url : '../html/shopcar_body6.html'
 			});
 		}
+
 		function openshopcar7() {
-		$api.setStorage('classpic',"../image/liangyou1.png");	
+			$api.setStorage('classpic', "../image/liangyou1.png");
 			api.openWin({
 				name : 'shopcar_body7',
 				url : '../html/shopcar_body7.html'
 			});
 		}
+
 		function openshopcar8() {
-		$api.setStorage('classpic',"../image/rou1.png");	
+			$api.setStorage('classpic', "../image/rou1.png");
 			api.openWin({
 				name : 'shopcar_body8',
 				url : '../html/shopcar_body8.html'
 			});
 		}
+
 		function openshopcar9() {
-		$api.setStorage('classpic',"../image/xiancai1.png");	
+			$api.setStorage('classpic', "../image/xiancai1.png");
 			api.openWin({
 				name : 'shopcar_body9',
 				url : '../html/shopcar_body9.html'
