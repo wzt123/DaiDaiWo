@@ -92,6 +92,28 @@
 	</head>
 	<body>
 		<div id="aui-slide">
+			<script id="banner-template" type="text/x-dot-template">
+				{{ for(var i=0; i< it.length; i++) { }}
+				<div>
+				<img src="{{=it[i].img.url}}" />
+				<label><div class="blur"></div>{{=it[i].name}}</label>
+				</div>
+				{{ } }}
+			</script>
+			<div id='slide' class='swipe'>
+				<div class='swipe-wrap' id="banner-content"></div>
+				<ul id="pointer">
+					<li>
+						<a class="active"></a>
+					</li>
+					<li>
+						<a></a>
+					</li>
+					<li>
+						<a></a>
+					</li>
+				</ul>
+			</div>
 			<div class="aui-slide-wrap" >
 				<div class="aui-slide-node bg-dark aui-slide-node-middle aui-slide-node-center">
 					<img src="../image/banner.jpg" />
@@ -175,6 +197,43 @@
 	<script type="text/javascript" src="../script/echo.min.js"></script>
 	<script type="text/javascript" src="../script/aui-slide.js"></script>
 	<script type="text/javascript">
+		function getData() {
+			api.showProgress({
+				title : '加载中',
+				model : false
+			});
+			var model = api.require('model');
+			//
+			var query = api.require('query');
+			model.config({
+				appKey : '02***07C-****-C2FF-****-F816****D17A', //appKey，apicloud后台可获得
+				host : 'https://d.apicloud.com'
+			});
+			query.createQuery(function(ret, err) {
+				if (ret && ret.qid) {// 如果成功返回句柄ret.qid
+					var queryId = ret.qid;
+					model.findAll({
+						class : "activity",
+						qid : queryId
+					}, function(ret, err) {// 查询表activity中所有内容
+						if (ret) {
+							var content = $api.byId('act-content');
+							// 获取幻灯片显示容器
+							var tpl = $api.byId('act-template').text;
+							// 获取模板引擎的内容，以便21行进行模板的编译，后面会说
+							var tempFn = doT.template(tpl);
+							// 根据模板的内容，进行编译，其实就是生成一个匿名函数
+							content.innerHTML = tempFn(ret);
+							// 根据实际数据，填充模板
+							api.hideProgress();
+						} else {
+							//error
+						}
+					});
+				}
+			});
+		}
+
 		var slide = new auiSlide({
 			container : document.getElementById("aui-slide"),
 			// "width":300,
@@ -216,6 +275,7 @@
 
 		apiready = function() {
 			api.parseTapmode();
+			getData();
 			api.setRefreshHeaderInfo({
 				visible : true,
 				loadingImg : '../image/refresh.png',
