@@ -1,4 +1,3 @@
-
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -31,142 +30,178 @@
 				width: 100%;
 			}
 			.aui-counter-box {
-			    width: 100%;
-			    padding: 0;
-			    line-height: 26px;
-			    color:#848f94;
-			    font-size:14px;
+				width: 100%;
+				padding: 0;
+				line-height: 26px;
+				color: #848f94;
+				font-size: 14px;
 			}
 			.aui-list-view .aui-img-object {
-			    max-width: 60px;
-			    height: 60px;
-			    line-height: 60px;
-			    border:1px solid #ECF0F1;
-			    border-radius: 4px;
+				max-width: 60px;
+				height: 60px;
+				line-height: 60px;
+				border: 1px solid #ECF0F1;
+				border-radius: 4px;
 			}
 			.aui-list-view {
-			    background-color:#F3F3F3;
+				background-color: #F3F3F3;
 			}
 			.aui-list-view-cell {
-			    position: relative;
-			    padding: 12px 15px;
-			    overflow: hidden;
-			    -webkit-transform-style: preserve-3d;
-			    transform-style: preserve-3d;
-			    -webkit-touch-callout: none;
-			    background:#fff;
-			    margin-bottom:8px;
+				position: relative;
+				padding: 12px 15px;
+				overflow: hidden;
+				-webkit-transform-style: preserve-3d;
+				transform-style: preserve-3d;
+				-webkit-touch-callout: none;
+				background: #fff;
+				margin-bottom: 8px;
 			}
 			.aui-list-view-cell:after {
-			    border-bottom:0px solid #e2e2e2;
-			    display: block;
-			    content: '';
-			    position: absolute;
-			    top: 0;
-			    right: 0;
-			    bottom: 0;
-			    left: 0;
-			    -webkit-transform-origin: 0 0;
-			    -webkit-transform: scale(1);
-			    pointer-events: none;			    
+				border-bottom: 0px solid #e2e2e2;
+				display: block;
+				content: '';
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				-webkit-transform-origin: 0 0;
+				-webkit-transform: scale(1);
+				pointer-events: none;
 			}
-	
 			.aui-list-view-cell:last-child:after {
-			    border-bottom: 0px solid #e2e2e2;
+				border-bottom: 0px solid #e2e2e2;
 			}
-			.aui-clearfix{height:5px;}
-			.font-color{color:#8F8F94 ;font-size:15px;}
+			.aui-clearfix {
+				height: 5px;
+			}
+			.font-color {
+				color: #8F8F94;
+				font-size: 15px;
+			}
 		</style>
 	</head>
 	<body>
-        <div class="aui-content">
-	        <ul class="aui-list-view">
-	        <script id="VG_today_tpl" type="text/x-dot-template" >
-	        	<li class="aui-list-view-cell aui-img aui-counter-list" tapmode onclick="">
-	            	<h5 class="font-color">商铺: {{=it.username}}</h5>
-	            	<div class="aui-line-x" style="margin: 5px 0 8px 0;"></div>
-	                <img class="aui-img-object aui-pull-left" src="../image/junlei.png" data-echo="../image/junlei.png">
-	                <div class="aui-img-body">
-	                   <div class="aui-text-default aui-ellipsis-1"> 茅山榴莲王 越南进口越南进口越南进口</div>
-	                    <div class="aui-counter-box">
-	                        <div class="aui-pull-left">单价：{{=it.price}}</div>	                        
-	                    </div>	                    
-	                </div>
-	                <div class="aui-line-x" style="margin: 17px 0 8px 0;"></div>
-	                	<p class="aui-text-right">广告语广告语广告语广告语广告语广告语广告语</p>
-	                <div class="aui-line-x" style="margin: 8px 0 5px 0;"></div>
-	                	                
-	            </li>
-	        </script>            
-	            <li class="aui-list-view-cell aui-img aui-counter-list" tapmode onclick="">
-	            	<h5 class="font-color">商铺： 南华农贸批发市场</h5>
-	            	<div class="aui-line-x" style="margin: 5px 0 8px 0;"></div>
-	                <img class="aui-img-object aui-pull-left" src="../image/huacai.png" data-echo="../image/huacai.png">
-	                <div class="aui-img-body">
-	                   <div class="aui-text-default aui-ellipsis-1"> 茅山榴莲王 越南进口越南进口越南进口</div>
-	                    <div class="aui-counter-box">
-	                        <div class="aui-pull-left">12个/盒</div>	                        
-	                    </div>	                    
-	                </div>
-	                <div class="aui-line-x" style="margin: 17px 0 8px 0;"></div>
-	                	<p class="aui-text-right">广告语广告语广告语广告语广告语广告语广告语</p>
-	                <div class="aui-line-x" style="margin: 8px 0 5px 0;"></div>
-	                              
-	            </li>
-	            <li class="aui-list-view-cell aui-img aui-counter-list" tapmode onclick="">
-	            	<h5 class="font-color">商铺： 金钟蔬菜市场</h5>
-	            	<div class="aui-line-x" style="margin: 5px 0 8px 0;"></div>
-	                <img class="aui-img-object aui-pull-left" src="../image/huacai.png" data-echo="../image/huacai.png">
-	                <div class="aui-img-body">
-	                   <div class="aui-text-default aui-ellipsis-1"> 茅山榴莲王 越南进口越南进口越南进口</div>
-	                    <div class="aui-counter-box">
-	                        <div class="aui-pull-left">12个/盒</div>	                        
-	                    </div>	                     
-	                </div>
-	                <div class="aui-line-x" style="margin: 17px 0 8px 0;"></div>
-	                	<p class="aui-text-right">广告语广告语广告语广告语广告语广告语广告语</p>
-	                <div class="aui-line-x" style="margin: 8px 0 5px 0;"></div>
-	            </li>
-	            <li class="aui-list-view-cell aui-img aui-counter-list" tapmode onclick="">
-	            	<h5 class="font-color">商铺： 水屯农贸市场</h5>
-	            	<div class="aui-line-x" style="margin: 5px 0 8px 0;"></div>
-	                <img class="aui-img-object aui-pull-left" src="../image/huacai.png" data-echo="../image/huacai.png">
-	                <div class="aui-img-body">
-	                   <div class="aui-text-default aui-ellipsis-1"> 茅山榴莲王 越南进口越南进口越南进口</div>
-	                    <div class="aui-counter-box">
-	                        <div class="aui-pull-left">12个/盒</div>	                        
-	                    </div>	                    
-	                </div>
-	                <div class="aui-line-x" style="margin: 17px 0 8px 0;"></div>
-	                	<p class="aui-text-right">广告语广告语广告语广告语广告语广告语广告语</p>
-	                <div class="aui-line-x" style="margin: 8px 0 5px 0;"></div>
-	                	                
-	            </li>
-	            <li class="aui-list-view-cell aui-img aui-counter-list" tapmode onclick="">
-	            	<h5 class="font-color">商铺： 新发蔬菜批发市场</h5>
-	            	<div class="aui-line-x" style="margin: 5px 0 8px 0;"></div>
-	                <img class="aui-img-object aui-pull-left" src="../image/huacai.png" data-echo="../image/huacai.png">
-	                <div class="aui-img-body">
-	                   <div class="aui-text-default aui-ellipsis-1"> 茅山榴莲王 越南进口越南进口越南进口</div>
-	                    <div class="aui-counter-box">
-	                        <div class="aui-pull-left">12个/盒</div>	                        
-	                    </div>	                    
-	                </div>
-	                <div class="aui-line-x" style="margin: 17px 0 8px 0;"></div>
-	                	<p class="aui-text-right">广告语广告语广告语广告语广告语广告语广告语</p>
-	                <div class="aui-line-x" style="margin: 8px 0 5px 0;"></div>                
-	            </li>
-	        </ul>
-	    </div>
+		<div class="aui-content" id="include">
+			<ul class="aui-list-view" >
+				<script id="VG_today_tpl" type="text/x-dot-template" >
+					<ul class="aui-list-view">
+					{{for(var i in it) { }}
+					<li class="aui-list-view-cell aui-img aui-counter-list" tapmode onclick="">
+					<h5 class="font-color">商铺: {{=it[i].username}}</h5>
+					<div class="aui-line-x" style="margin: 5px 0 8px 0;"></div>
+					<img class="aui-img-object aui-pull-left" src="{{=it[i].pic.url}}" data-echo="{{=it[i].pic}}">
+					<div class="aui-img-body">
+					<div class="aui-text-default aui-ellipsis-1">{{=it[i].VGmsg}}</div>
+					<div class="aui-counter-box">
+					<div class="aui-pull-left">单价：{{=it[i].price}}</div>
+					</div>
+					</div>
+					</li>
+					{{ } }}
+					</ul>
+				</script>
+				<li class="aui-list-view-cell aui-img aui-counter-list" tapmode onclick="">
+					<h5 class="font-color">商铺： 南华农贸批发市场</h5>
+					<div class="aui-line-x" style="margin: 5px 0 8px 0;"></div>
+					<img class="aui-img-object aui-pull-left" src="../image/huacai.png" data-echo="../image/huacai.png">
+					<div class="aui-img-body">
+						<div class="aui-text-default aui-ellipsis-1">
+							茅山榴莲王 越南进口越南进口越南进口
+						</div>
+						<div class="aui-counter-box">
+							<div class="aui-pull-left">
+								12个/盒
+							</div>
+						</div>
+					</div>
+					<div class="aui-line-x" style="margin: 17px 0 8px 0;"></div>
+					<p class="aui-text-right">
+						广告语广告语广告语广告语广告语广告语广告语
+					</p>
+					<div class="aui-line-x" style="margin: 8px 0 5px 0;"></div>
+				</li>
+				<li class="aui-list-view-cell aui-img aui-counter-list" tapmode onclick="">
+					<h5 class="font-color">商铺： 金钟蔬菜市场</h5>
+					<div class="aui-line-x" style="margin: 5px 0 8px 0;"></div>
+					<img class="aui-img-object aui-pull-left" src="../image/huacai.png" data-echo="../image/huacai.png">
+					<div class="aui-img-body">
+						<div class="aui-text-default aui-ellipsis-1">
+							茅山榴莲王 越南进口越南进口越南进口
+						</div>
+						<div class="aui-counter-box">
+							<div class="aui-pull-left">
+								12个/盒
+							</div>
+						</div>
+					</div>
+					<div class="aui-line-x" style="margin: 17px 0 8px 0;"></div>
+					<p class="aui-text-right">
+						广告语广告语广告语广告语广告语广告语广告语
+					</p>
+					<div class="aui-line-x" style="margin: 8px 0 5px 0;"></div>
+				</li>
+				<li class="aui-list-view-cell aui-img aui-counter-list" tapmode onclick="">
+					<h5 class="font-color">商铺： 水屯农贸市场</h5>
+					<div class="aui-line-x" style="margin: 5px 0 8px 0;"></div>
+					<img class="aui-img-object aui-pull-left" src="../image/huacai.png" data-echo="../image/huacai.png">
+					<div class="aui-img-body">
+						<div class="aui-text-default aui-ellipsis-1">
+							茅山榴莲王 越南进口越南进口越南进口
+						</div>
+						<div class="aui-counter-box">
+							<div class="aui-pull-left">
+								12个/盒
+							</div>
+						</div>
+					</div>
+					<div class="aui-line-x" style="margin: 17px 0 8px 0;"></div>
+					<p class="aui-text-right">
+						广告语广告语广告语广告语广告语广告语广告语
+					</p>
+					<div class="aui-line-x" style="margin: 8px 0 5px 0;"></div>
+				</li>
+				<li class="aui-list-view-cell aui-img aui-counter-list" tapmode onclick="">
+					<h5 class="font-color">商铺： 新发蔬菜批发市场</h5>
+					<div class="aui-line-x" style="margin: 5px 0 8px 0;"></div>
+					<img class="aui-img-object aui-pull-left" src="../image/huacai.png" data-echo="../image/huacai.png">
+					<div class="aui-img-body">
+						<div class="aui-text-default aui-ellipsis-1">
+							茅山榴莲王 越南进口越南进口越南进口
+						</div>
+						<div class="aui-counter-box">
+							<div class="aui-pull-left">
+								12个/盒
+							</div>
+						</div>
+					</div>
+					<div class="aui-line-x" style="margin: 17px 0 8px 0;"></div>
+					<p class="aui-text-right">
+						广告语广告语广告语广告语广告语广告语广告语
+					</p>
+					<div class="aui-line-x" style="margin: 8px 0 5px 0;"></div>
+				</li>
+			</ul>
+		</div>
 	</body>
 	<script type="text/javascript" src="../script/api.js"></script>
 	<script type="text/javascript" src="../script/common.js"></script>
 	<script type="text/javascript" src="../script/zepto.min.js"></script>
-	<script type="text/javascript">		
-		
+	<script type="text/javascript" src="../script/doT.min.js"></script>
+	<script type="text/javascript">
+		var model;
+		var query;
 		apiready = function() {
+			model = api.require('model');
+			query = api.require('query');
+			model.config({
+				appId : 'A6925440802968',
+				appKey : '12204A03-269D-3589-0D2E-060FB653BE53',
+				host : 'https://d.apicloud.com'
+			});
 			api.parseTapmode();
-				api.setRefreshHeaderInfo({
+			init();
+			api.setRefreshHeaderInfo({
 				visible : true,
 				loadingImg : '../image/refresh.png',
 				bgColor : '#ccc',
@@ -176,11 +211,74 @@
 				showTime : true
 			}, function(ret, err) {
 				//在这里从服务器加载数据，加载完成后调用api.refreshHeaderLoadDone()方法恢复组件到默认状态
-				//init();
+				init();
 				api.refreshHeaderLoadDone();
 			});
 		};
-		
-		
+		function init() {
+			var date = new Date().Format("yyyy-MM-dd");
+			query.createQuery({
+			}, function(ret, err) {
+				api.showProgress({
+				});
+				if (ret.qid && ret) {
+					query.whereLike({
+						qid : ret.qid,
+						column : 'creatTime',
+						value : date
+					});			
+					model.findAll({
+						class : 'market',
+						qid : ret.qid
+					}, function(ret, err) {
+						if (ret) {
+							api.alert({
+                            msg:JSON.stringify(ret)
+                            },function(ret,err){
+                            	//coding...
+                            });						
+							var include = $api.byId('include');
+							var tpl = $api.byId('VG_today_tpl').text;
+							var tempFn = doT.template(tpl);
+							include.innerHTML = tempFn(ret);
+							api.hideProgress();
+						} else {
+							setTimeout(function() {
+								api.alert({
+									msg : '获取订单失败'+JSON.stringify(err)
+								}, function(ret, err) {
+								});
+								api.hideProgress();
+							}, 1200);
+							//							api.hideProgress();
+						}
+					});
+				}
+			});
+			api.hideProgress();
+		}
+		function ajaxToMarket() {
+			var common_url = 'https://d.apicloud.com/mcm/api';
+			var appId = 'A6913489764881';
+			var key = '7810E5E4-7F54-E1E6-B07F-9ADA6FA49D46';
+			var now = Date.now();
+			var appKey = SHA1(appId + "UZ" + key + "UZ" + now) + "." + now;
+			api.ajax({
+				url : common_url + url,
+				method : method,
+				cache : false,
+				timeout : 20,
+				headers : {
+					"Content-type" : "application/json;charset=UTF-8",
+					"X-APICloud-AppId" : appId,
+					"X-APICloud-AppKey" : appKey
+				},
+				data : {
+					body : bodyParam
+				}
+			}, function(ret, err) {
+				callBack(ret, err);
+			});
+		}
 	</script>
 </html>
