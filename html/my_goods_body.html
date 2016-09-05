@@ -75,6 +75,8 @@
 			.aui-clearfix {
 				height: 5px;
 			}
+			.aui-nnav{line-height:40px;}
+		   .demo{font-weight:bold;  font-size:15px;color:#E74C3C;background:#fff;}
 		</style>
 	</head>
 	<body>
@@ -83,7 +85,7 @@
 				<li class="active">
 					未完成
 				</li>
-				<li>
+				<li onclick="opendone()">
 					已完成
 				</li>
 				<!--  <li>已取消</li>-->
@@ -124,8 +126,8 @@
 				<p class="aui-text-right"> 实付金额: <span class="aui-text-danger">￥{{=it[i].money}}</span></p>
 				<div class="aui-line-x" style="margin: 8px 0 5px 0;"></div>
 				<div class="aui-text-right">
-				<div class="aui-btn aui-btn-outlined" onclick="helpthis('{{=it[i].lon}}','{{=it[i].lat}}')">导航</div>
-				<!--<div class="aui-btn aui-btn-warning aui-btn-outlined">签收</div>-->
+				  <div class="aui-btn aui-btn-warning aui-btn-outlined">确认完成</div>			
+				  <div class="aui-btn aui-btn-outlined" onclick="helpthis('{{=it[i].lon}}','{{=it[i].lat}}')">导航</div>				
 				</div>
 				</li>
 				{{ } }}
@@ -215,6 +217,14 @@
 				}
 			});
 			api.hideProgress();
+		}
+		 function opendone() {
+			api.openWin({
+				name : 'donemenu',
+				url : './donemenu.html',
+				opaque : true,
+				vScrollBarEnabled : false
+			});
 		}
 	</script>
 </html>
