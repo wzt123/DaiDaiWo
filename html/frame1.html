@@ -88,7 +88,7 @@
 					<ul class="aui-list-view">
 					{{for(var i in it) { }}
 					<li class="aui-list-view-cell aui-img aui-counter-list" tapmode onclick="">
-					<h5 class="font-color">商铺: {{=it[i].username}}</h5>
+					<h5 class="font-color">商铺: {{=it[i].marketname}}</h5>
 					<div class="aui-line-x" style="margin: 5px 0 8px 0;"></div>
 					<img class="aui-img-object aui-pull-left" src="{{=it[i].pic.url}}" data-echo="{{=it[i].pic}}">
 					<div class="aui-img-body">
@@ -217,50 +217,37 @@
 		};
 		function init() {
 			var date = new Date().Format("yyyy-MM-dd");
-			query.createQuery({
-			}, function(ret, err) {
-				api.showProgress({
-				});
-				if (ret.qid && ret) {
-					query.whereLike({
-						qid : ret.qid,
-						column : 'creatTime',
-						value : date
-					});			
-					model.findAll({
-						class : 'market',
-						qid : ret.qid
-					}, function(ret, err) {
-						if (ret) {
-							api.alert({
-                            msg:JSON.stringify(ret)
-                            },function(ret,err){
-                            	//coding...
-                            });						
-							var include = $api.byId('include');
-							var tpl = $api.byId('VG_today_tpl').text;
-							var tempFn = doT.template(tpl);
-							include.innerHTML = tempFn(ret);
-							api.hideProgress();
-						} else {
-							setTimeout(function() {
-								api.alert({
-									msg : '获取订单失败'+JSON.stringify(err)
-								}, function(ret, err) {
-								});
-								api.hideProgress();
-							}, 1200);
-							//							api.hideProgress();
-						}
+			api.showProgress({
+				title : '加载中...',
+				modal : false
+			});
+			var getTabBarBannerUrl = '/VG_today?filter=';
+			var urlParam = {
+//				include : ["file"],
+				where : {
+					creatTime : date
+				}
+			};
+			ajaxToMarket(getTabBarBannerUrl + JSON.stringify(urlParam), 'get', '', function(ret, err) {
+				if (ret) {
+					var include = $api.byId('include');
+					var tpl = $api.byId('VG_today_tpl').text;
+					var tempFn = doT.template(tpl);
+					include.innerHTML = tempFn(ret);
+					api.hideProgress();
+				} else {
+					api.alert({
+						msg : err.msg
 					});
 				}
 			});
 			api.hideProgress();
 		}
-		function ajaxToMarket() {
+
+		function ajaxToMarket(url, method, bodyParam, callBack) {
 			var common_url = 'https://d.apicloud.com/mcm/api';
-			var appId = 'A6913489764881';
-			var key = '7810E5E4-7F54-E1E6-B07F-9ADA6FA49D46';
+			var appId = 'A6925440802968';
+			var key = '12204A03-269D-3589-0D2E-060FB653BE53';
 			var now = Date.now();
 			var appKey = SHA1(appId + "UZ" + key + "UZ" + now) + "." + now;
 			api.ajax({
