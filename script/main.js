@@ -36,29 +36,6 @@ function openLifeDetail(title,type){
     });
 }
 
-function getData(id) {
-    var getTabBarActivityUrl = '/tabBar?filter=';
-    var urlParam = {
-        include: ["activity"],
-        where: {
-            id: id
-        }
-    };
-    ajaxRequest(getTabBarActivityUrl + JSON.stringify(urlParam), 'GET', '', function (ret, err) {
-        if (ret) {
-            var content = $api.byId('act-content');
-            var tpl = $api.byId('act-template').text;
-            var tempFn = doT.template(tpl);
-            content.innerHTML = tempFn(ret[0].activity);
-        } else {
-            api.alert({
-                msg: err.msg
-            });
-        }
-        api.hideProgress();
-    })
-}
-
 function getBanner(id) {
     api.showProgress({
         title: '加载中...',

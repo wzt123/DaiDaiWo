@@ -1,0 +1,37 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=0, width=device-width"/>
+    <title>api</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/common.css" />
+    <link rel="stylesheet" type="text/css" href="../css/carousel.css">
+    <link rel="stylesheet" type="text/css" href="../css/carousel-style.css">
+    <link rel="stylesheet" type="text/css" href="../css/actDetail.css" />
+</head>
+<body>
+    <div id="main">
+    	<script id="act-template" type="text/x-dot-template">
+			<div id="banner">
+	          <img src="{{=it.pic.url}}" />
+	          <label id="activeTitle">{{=it.title}}</label>
+	          <!--<a class="fav" id="activeId" tapmode=""  act-id="{{=it.id}}">收藏</a>-->
+	        </div>
+	        <h2>【详细内容】</h2>
+            <p id="actIntro">
+	          {{=it.content}}
+	        </p>
+		</script>
+		<div id="act-detail"></div>
+    
+    </div>
+</body>
+
+<script type="text/javascript" src="../script/api.js"></script>
+<script src="../script/zepto.js"></script>
+<script src="../script/carousel.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript" src="../script/doT.min.js"></script>
+<script type="text/javascript" src="../script/actDetail-con.js"></script>
+</html>

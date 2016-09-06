@@ -9,6 +9,7 @@
 		<link rel="stylesheet" type="text/css" href="../css/common.css" />
 		<link rel="stylesheet" type="text/css" href="../css/aui-slide.css" />
 		<link rel="stylesheet" type="text/css" href="../css/main.css" />
+		<link rel="stylesheet" type="text/css" href="../css/activity.css" />
 		<style type="text/css">
 			.bg-dark {
 				background: #333333 !important;
@@ -95,9 +96,11 @@
 		<script id="banner-template" type="text/x-dot-template">
 			{{ for(var i=0; i< it.length; i++) { }}
 			<div>
+			<a tapmode="" onclick="openActDetail('{{=it[i].id}}');">
 			<img src="{{=it[i].pic.url}}" />
 			<label><div class="blur"></div>{{=it[i].title}}</label>
 			</div>
+			</a>
 			{{ } }}
 		</script>
 		<div id='slide' class='swipe'>
@@ -185,6 +188,16 @@
 	<script type="text/javascript" src="../script/doT.min.js"></script>
 	<script type="text/javascript" src="../script/main.js"></script>
 	<script type="text/javascript">
+		function openActDetail(did) {
+			api.openWin({
+				name : 'actDetail',
+				url : 'actDetail.html',
+				pageParam : {
+					dataId : did
+				}
+			});
+		}
+
 		var slide = new auiSlide({
 			container : document.getElementById("aui-slide"),
 			// "width":300,
