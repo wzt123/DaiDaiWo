@@ -9,7 +9,7 @@ function ensure() {
 	var pwd = $api.byId('userName').value;
 	if (email.length == 0) {
 		api.alert({
-			msg : "手机号不能为空"
+			msg : "邮箱不能为空"
 		});
 		return
 	} else if (pwd.length == 0) {
@@ -22,19 +22,19 @@ function ensure() {
 		title : '正在核实...',
 		modal : false
 	});
-	var loginUlr = '/user';
+	var loginUlr = '/user/resetRequest';
 	var bodyParam = {
 		email : email,
 		password : pwd
 	}
-	ajaxRequest(loginUlr, 'get', JSON.stringify(bodyParam), function(ret, err) {
+	ajaxRequest(loginUlr, 'post', JSON.stringify(bodyParam), function(ret, err) {
 		if (ret) {
 			//$api.setStorage('islogin', 1);
 			//$api.setStorage('uid', ret.userId);
 			//$api.setStorage('token', ret.id);
-			$api.setStorage('username', ret.username);
-
-			$api.setStorage('email', ret.email);
+//			$api.setStorage('username', ret.username);
+//
+//			$api.setStorage('email', ret.email);
 			//			setTimeout(function() {
 			//				api.closeWin();
 			//			}, 100);
@@ -46,13 +46,12 @@ function ensure() {
 			//				});
 			var userId = ret.userId;
 			api.alert({
-				msg : "成功"
-			}, function() {
-				api.openWin({
-					name : 'findpassword1_head',
-					url : '../html/findpassword1_head.html',
-					opaque : true,
-					vScrollBarEnabled : false
+				msg : "请到邮箱查收邮件"
+			},function(ret, err) {
+				
+				// 回到首页
+				api.closeToWin({
+					name : 'root'
 				});
 			});
 		}
@@ -62,7 +61,7 @@ function ensure() {
 
 		else {
 			api.alert({
-				msg : "手机号或昵称错误"
+				msg : "账号或昵称错误"
 			});
 		}
 		//api.hideProgress();
