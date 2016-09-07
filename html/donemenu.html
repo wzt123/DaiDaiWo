@@ -1,23 +1,216 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
-<head>
-	<meta charset="utf-8">
-    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
-    <title>title</title>
-    <link rel="stylesheet" type="text/css" href="../css/api.css"/>
-    <style>
-    	body{
-    		
-    	}
-    </style>
-</head>
-<body>
-	
-</body>
-<script type="text/javascript" src="../script/api.js"></script>
-<script type="text/javascript">
-	apiready = function(){
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../css/aui.css" />
+		<link rel="stylesheet" type="text/css" href="../css/common.css" />
+		<style type="text/css">
+			.aui-tab-nav {
+				width: 100%;
+				display: box;
+				display: -webkit-box;
+				box-sizing: border-box;
+				font-size: 16px;
+				height: 40px;
+				background-color: #fff;
+				overflow: hidden;
+			}
+			.aui-tab-nav li {
+				height: 40px;
+				line-height: 40px;
+				box-flex: 1;
+				-webkit-box-flex: 1;
+				box-sizing: border-box;
+				text-align: center;
+				color: #666;
+				border-bottom: 2px solid transparent;
+				width: 100%;
+			}
+			.aui-counter-box {
+				width: 100%;
+				padding: 0;
+				line-height: 26px;
+				color: #848f94;
+				font-size: 14px;
+			}
+			.aui-list-view .aui-img-object {
+				max-width: 60px;
+				height: 60px;
+				line-height: 60px;
+				border: 1px solid #ECF0F1;
+				border-radius: 4px;
+			}
+			.aui-list-view {
+				background-color: #F3F3F3;
+			}
+			.aui-list-view-cell {
+				position: relative;
+				padding: 12px 15px;
+				overflow: hidden;
+				-webkit-transform-style: preserve-3d;
+				transform-style: preserve-3d;
+				-webkit-touch-callout: none;
+				background: #fff;
+				margin-bottom: 8px;
+			}
+			.aui-list-view-cell:after {
+				border-bottom: 0px solid #e2e2e2;
+				display: block;
+				content: '';
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				-webkit-transform-origin: 0 0;
+				-webkit-transform: scale(1);
+				pointer-events: none;
+			}
+			.aui-list-view-cell:last-child:after {
+				border-bottom: 0px solid #e2e2e2;
+			}
+			.aui-clearfix {
+				height: 5px;
+			}
+			.aui-nnav{line-height:40px;}
+		   .demo{font-weight:bold;  font-size:15px;color:#E74C3C;background:#fff;}
+		</style>
+	</head>
+	<body>
 		
-	};
-</script>
+		<div class="aui-content">
+			<script id="ordertpl" type="text/x-dot-template" >
+				{{for(var i in it) { }}
+				<li class="aui-list-view-cell aui-img aui-counter-list" tapmode onclick="">
+				<h5>订单编号:{{=it[i].id}}</h5>
+				<div class="aui-line-x" style="margin: 5px 0 8px 0;"></div>
+				<img class="aui-img-object aui-pull-left" src="../image/junlei.png" data-echo="../image/junlei.png">
+				<div class="aui-img-body">
+				<div class="aui-text-default aui-ellipsis-1"> {{=it[i].classname}}</div>
+				<div class="aui-pull-left" id="orderCash2">
+				{{ for(var prop in it[i].order) { }}
+				<div style=" padding-left: 15px;">菜名：{{= it[i].order[prop].name}}</div>
+				<div style=" padding-left: 15px;">单价：{{= it[i].order[prop].price}}/斤</div>
+				<div style=" padding-left: 15px;">数量：{{= it[i].order[prop].amount}}</div>
+				<div style=" padding-left: 15px;">总价：{{= it[i].order[prop].money}}</div><br/>
+				{{ } }}
+				</div>
+				</div>
+				<div >
+				{{? it[i].orderRequest }}
+				具体要求：<em>{{=it[i].orderRequest}}</em>
+				{{??}}
+				具体要求：<em>无</em>
+				{{?}}
+				</div>
+				<div class="aui-line-x" style="margin: 17px 0 8px 0;"></div>
+				<p class="aui-text-right"> 实付金额: <span class="aui-text-danger">￥{{=it[i].money}}</span></p>
+				<div class="aui-line-x" style="margin: 8px 0 5px 0;"></div>
+				
+				</li>
+				{{ } }}
+			</script>
+			<ul class="aui-list-view" id="include"></ul>
+		</div>
+	</body>
+	<script type="text/javascript" src="../script/api.js"></script>
+	<script type="text/javascript" src="../script/common.js"></script>
+	<script type="text/javascript" src="../script/doT.min.js"></script>
+	<script type="text/javascript" src="../script/zepto.min.js"></script>
+	<script type="text/javascript">
+		var model;
+		var query;
+		apiready = function() {
+			model = api.require('model');
+			query = api.require('query');
+			model.config({
+				appKey : '7810E5E4-7F54-E1E6-B07F-9ADA6FA49D46',
+				host : 'https://d.apicloud.com'
+			});
+			api.parseTapmode();
+			initframe();
+			api.setRefreshHeaderInfo({
+				visible : true,
+				loadingImg : '../image/refresh.png',
+				bgColor : '#ccc',
+				textColor : '#fff',
+				textDown : '下拉刷新...',
+				textUp : '松开刷新...',
+				showTime : true
+			}, function(ret, err) {
+				//在这里从服务器加载数据，加载完成后调用api.refreshHeaderLoadDone()方法恢复组件到默认状态
+				initframe()
+				api.refreshHeaderLoadDone();
+			});
+		};
+		function helpthis(lon, lat) {
+			$api.setStorage('endlon', lon);
+			$api.setStorage('endlat', lat);
+			api.showProgress({
+            });
+			api.openWin({
+	            name: 'baidumaphead',
+	            url: './baidumaphead.html'
+            });
+		}
+
+		function initframe() {
+			var userid = $api.getStorage('uid');
+			//			userid = '"' + userid + '"';
+			if (userid == null) {
+				api.alert({
+					msg : "亲，要先登录哦~"
+				}, function(ret, err) {
+					if (ret) {
+						api.closeToWin({
+							name : 'root'
+						});
+					}
+				});
+				return;
+			}
+			api.showProgress({
+				title : '正在查找...',
+				modal : false
+			});
+			query.createQuery({
+			}, function(ret, err) {
+				if (ret && ret.qid) {
+					query.whereEqual({
+						qid : ret.qid,
+						column : 'buyerid',
+						value : userid
+					});
+					query.whereEqual({
+						qid : ret.qid,
+						column : 'helpout',
+						value : true
+					});
+					model.findAll({
+						class : 'orderForm',
+						qid : ret.qid
+					}, function(ret, err) {
+						if (ret) {
+							var include = $api.byId('include');
+							var tpl = $api.byId('ordertpl').text;
+							var tempFn = doT.template(tpl);
+							include.innerHTML = tempFn(ret);
+						}
+					});
+				}
+			});
+			api.hideProgress();
+		}
+		 function opendone() {
+			api.openWin({
+				name : 'donemenu',
+				url : './donemenu.html',
+				opaque : true,
+				vScrollBarEnabled : false
+			});
+		}
+	</script>
 </html>

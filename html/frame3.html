@@ -1,113 +1,160 @@
-<!DOCTYPE html>	
-<html>	
-<head>	
-	<meta charset="utf-8">	
-	<title>frame</title>	
-	<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>	
-	<link rel="stylesheet" type="text/css" href="../css/api.css" />	
-    <link rel="stylesheet" type="text/css" href="../css/common.css" />	
-	
-    <style>	
-    	html, body {width: 100%;min-height: 100%;background: #f0f0f0;}	
-    	.h10 {height: 10px;background: #f0f0f0;}	
-		.h1 {height: 1px;margin-left: 15px;background: #f0f0f0;}	
-		.fr {float: right;}	
-		.hint {color: #666;font-size: 12px;margin-right: 5px;}	
-	
-		.firstblock, .secondblock, .thirdblock {background-color: #fff;}	
-		/* 头部登陆 */	
-		.login {position:relative;background-image: url(../image/api_31.png);background-repeat: no-repeat; background-size: contain;}	
-		.loginbg { width: 100%;}	
-		.login .personal_logo {position: absolute; left:0;top: 55px; width: 70px; margin-left: 20px;}	
-		.person_arrow {position: absolute;height: 20px; right: 10px; top: 90px;}	
-		.login .userinfo {position: absolute; top: 60px; margin-left: 100px;}	
-		.login .userinfo  {font-size: 20px; color: #fff;}	
-		.login .userinfo .subtitle {font-size: 14px; color: #1db6a0;border: 1px solid #fff;display: inline-block;padding: 3px;border-radius: 4px;margin-top: 5px;}	
-	    .title{font-size: 20px; color: #1db6a0;}
-		/* 设置条目 */	
-		.item {height: 50px;line-height: 50px;padding-left: 15px;background-color: #fff;}	
-		.item_ico {float: left;width: 30px;padding: 10px 10px 10px 0;}	
-		.item_arrow {float: right;width: 16px;padding: 17px 15px 15px 0;}	
-	
-		.presshover {background-color: #FAFAFA;}	
-    </style>	
-</head>	
-<body>	
-	<div class="login" onclick="" tapmode>	
-		<img src="../image/ucenter_bg1.png" alt="" class="loginbg">	
-		<img src="../image/login.png" alt="" class="personal_logo">			
-		<div class="userinfo">	
-			<p class="title" tapmode onclick="user_login();" id="requestLogin">
-				点击登录
-			</p>
-			<script id="login" type="text/x-dot-template">
-				<ul class="info shadow">
-				<li class="nickname">				
-				<a tapmode="" onclick="modifyNick('{{=it.username}}');">
-				<em>{{=it.username}}</em>
-				</a>
-				</li>
-				<li class="gender">				
-				<a>
-				<em>{{=it.email}}</em>
-				</a>				
-				</li>
-				</ul>
-			</script>
-			<div id="inclu"></div>	
-			<div class="subtitle">欢迎回来</div>	
-		</div>	
-		<img src="../image/personal_icon_arrow.png" alt="" class="person_arrow">	
-	</div>	
-	
-	
-	<!-- 第一块 -->	
-	<div class="firstblock">	
-		<div class="item" tapmode="presshover" onclick="openmenu()">	
-			<img src="../image/my_order_user_icon_normal.png" alt="" class="item_ico">	
-			<span>我的订单</span>	
-			<img src="../image/arrow.png" alt="" class="item_arrow">	
-		</div><div class="h1"></div>	
-		<div class="item" tapmode="presshover" onclick="opencar()">	
-			<img src="../image/my_coupon_user_icon_normal.png" alt="" class="item_ico">	
-			<span>我的购物车</span>	
-			<img src="../image/arrow.png" alt="" class="item_arrow">	
-		</div><div class="h1"></div>	
-		<div class="item" tapmode="presshover" onclick="setting()">	
-			<img src="../image/my_setting_user_icon_normal.png" alt="" class="item_ico">	
-			<span>个人资料</span>	
-			<img src="../image/arrow.png" alt="" class="item_arrow">
-		</div>	
-	</div>			
-	
-	<!-- 第二块 -->	
-	<div class="h10"></div>	
-	<div class="secondblock">	
-		<div class="item" tapmode="presshover" onclick="opennew()">			
-			<img src="../image/my_wallet_user_icon_normal.png" alt="" class="item_ico">	
-			<span>消息中心</span>	
-			<img src="../image/arrow.png" alt="" class="item_arrow">	
-			<span class="fr hint">最新优惠活动</span>		
-		</div><div class="h1"></div>	
-		<div class="item" tapmode="presshover" onclick="">	
-			<img src="../image/my_history_user_icon_normal.png" alt="" class="item_ico">	
-			<span>最近浏览</span>	
-			<img src="../image/arrow.png" alt="" class="item_arrow">	
-		</div><div class="h1"></div>	
-		<div class="item" tapmode="presshover" onclick="">	
-			<img src="../image/my_review_user_icon_normal.png" alt="" class="item_ico">	
-			<span>待点评</span>	
-			<img src="../image/arrow.png" alt="" class="item_arrow">	
-		</div>	
-	</div>	
-	<div class="h10"></div><div class="h10"></div>	
-</body>	
-    <script type="text/javascript" src="../script/api.js"></script>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>frame</title>
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+		<link rel="stylesheet" type="text/css" href="../css/api.css" />
+		<link rel="stylesheet" type="text/css" href="../css/common.css" />
+		<style>
+			html, body {
+				width: 100%;
+				min-height: 100%;
+				background: #f0f0f0;
+			}
+			.h10 {
+				height: 10px;
+				background: #f0f0f0;
+			}
+			.h1 {
+				height: 1px;
+				margin-left: 15px;
+				background: #f0f0f0;
+			}
+			.fr {
+				float: right;
+			}
+			.hint {
+				color: #666;
+				font-size: 12px;
+				margin-right: 5px;
+			}
+			.firstblock, .secondblock, .thirdblock {
+				background-color: #fff;
+			}
+			/* 头部登陆 */
+			.login {
+				position: relative;
+				background-image: url(../image/api_31.png);
+				background-repeat: no-repeat;
+				background-size: contain;
+			}
+			.loginbg {
+				width: 100%;
+			}
+			.login .personal_logo {
+				position: absolute;
+				left: 0;
+				top: 55px;
+				width: 70px;
+				margin-left: 20px;
+			}
+			.person_arrow {
+				position: absolute;
+				height: 20px;
+				right: 10px;
+				top: 90px;
+			}
+			.login .userinfo {
+				position: absolute;
+				top: 60px;
+				margin-left: 100px;
+			}
+			.login .userinfo {
+				font-size: 20px;
+				color: #fff;
+			}
+			.login .userinfo .subtitle {
+				font-size: 14px;
+				color: #1db6a0;
+				border: 1px solid #fff;
+				display: inline-block;
+				padding: 3px;
+				border-radius: 4px;
+				margin-top: 5px;
+			}
+			.title {
+				font-size: 20px;
+				color: #1db6a0;
+			}
+			/* 设置条目 */
+			.item {
+				height: 50px;
+				line-height: 50px;
+				padding-left: 15px;
+				background-color: #fff;
+			}
+			.item_ico {
+				float: left;
+				width: 30px;
+				padding: 10px 10px 10px 0;
+			}
+			.item_arrow {
+				float: right;
+				width: 16px;
+				padding: 17px 15px 15px 0;
+			}
+			.presshover {
+				background-color: #FAFAFA;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="login" onclick="" tapmode>
+			<img src="../image/ucenter_bg1.png" alt="" class="loginbg">
+			<img src="../image/login.png" alt="" class="personal_logo">
+			<div class="userinfo">
+				<p class="title" tapmode onclick="user_login();" id="requestLogin">
+					点击登录
+				</p>
+				<script id="login" type="text/x-dot-template">
+					<ul class="info shadow">
+					<li class="nickname">
+					<a tapmode="" onclick="modifyNick('{{=it.username}}');">
+					<em>{{=it.username}}</em>
+					</a>
+					</li>
+					<li class="gender">
+					<a>
+					<em>{{=it.email}}</em>
+					</a>
+					</li>
+					</ul>
+				</script>
+				<div id="inclu"></div>
+				<div class="subtitle">
+					欢迎回来
+				</div>
+			</div>
+			<img src="../image/personal_icon_arrow.png" alt="" class="person_arrow">
+		</div>
+		<!-- 第一块 -->
+		<div class="firstblock">
+			<div class="item" tapmode="presshover" onclick="openmenu()">
+				<img src="../image/my_order_user_icon_normal.png" alt="" class="item_ico">
+				<span>我的订单</span>
+				<img src="../image/arrow.png" alt="" class="item_arrow">
+			</div><div class="h1"></div>
+			<div class="item" tapmode="presshover" onclick="opencar()">
+				<img src="../image/my_coupon_user_icon_normal.png" alt="" class="item_ico">
+				<span>我的购物车</span>
+				<img src="../image/arrow.png" alt="" class="item_arrow">
+			</div><div class="h1"></div>
+			<div class="item" tapmode="presshover" onclick="setting()">
+				<img src="../image/my_setting_user_icon_normal.png" alt="" class="item_ico">
+				<span>个人资料</span>
+				<img src="../image/arrow.png" alt="" class="item_arrow">
+			</div>
+		</div>
+		<!-- 第二块 -->
+		<div class="h10"></div><div class="h10"></div>
+	</body>
+	<script type="text/javascript" src="../script/api.js"></script>
 	<script type="text/javascript" src="../script/doT.min.js"></script>
 	<script type="text/javascript" src="../script/common.js"></script>
 	<script type="text/javascript" src="../script/zepto.min.js"></script>
 	<script type="text/javascript">
-	function setting() {
+		function setting() {
 			api.openWin({
 				name : 'setting',
 				url : './setting.html',
@@ -115,8 +162,10 @@
 				vScrollBarEnabled : false
 			});
 		}
-		function modifyNick(name){
+
+		function modifyNick(name) {
 		}
+
 		function openmenu() {
 			api.openWin({
 				name : 'my_goods_head',
@@ -125,6 +174,7 @@
 				vScrollBarEnabled : false
 			});
 		}
+
 		function opennew() {
 			api.openWin({
 				name : 'official_head',
@@ -133,7 +183,8 @@
 				vScrollBarEnabled : false
 			});
 		}
-        function opencar() {
+
+		function opencar() {
 			api.openWin({
 				name : 'carhead',
 				url : './carhead.html',
@@ -148,6 +199,7 @@
 				url : './user_login_frm.html'
 			});
 		}
+
 		function init() {
 			islogin = $api.getStorage('islogin');
 			if (islogin) {
@@ -183,7 +235,7 @@
 
 		function refresh() {
 			document.execCommand('Refresh');
-		} 
+		}
 
 		apiready = function() {
 			init();
@@ -226,5 +278,5 @@
 				api.refreshHeaderLoadDone();
 			});
 		}
-</script>	
-</html>	
+	</script>
+</html>
