@@ -89,12 +89,13 @@
 	<body>
 		<div class="aui-tab aui-tab-warning aui-padded-5">
 			<ul class="aui-tab-nav aui-tab-border" id="demo2">
-				<li class="active">
+				<li onclick="opendone1()">
 					未完成
 				</li>
-				<li onclick="opendone()">
+				<li class="active">
 					已完成
 				</li>
+				<!--  <li>已取消</li>-->
 			</ul>
 		</div>
 		<div class="aui-content">
@@ -250,14 +251,13 @@
 			api.hideProgress();
 		}
 
-		function opendone() {
+		function opendone1() {
 			api.openWin({
-				name : 'my_goods_head1',
-				url : './my_goods_head1.html',
+				name : 'my_goods_head',
+				url : './my_goods_head.html',
 				opaque : true,
 				vScrollBarEnabled : false
 			});
 		}
-		
 	</script>
 </html>
