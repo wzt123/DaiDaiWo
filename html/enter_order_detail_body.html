@@ -110,7 +110,7 @@
 		<script id="addresstpl" type="text/x-dot-template" >
 			{{for(var i in it) { }}
 			<li class="aui-list-view-cell">
-			<div class="aui-user-view-cell aui-img drop-div" tapmode onclick="selectaddadress('{{=it[i].id}}')">
+			<div class="aui-user-view-cell aui-img drop-div" tapmode onclick="selectaddadress('{{=it[i].id}}','{{=it[i].lon}}','{{=it[i].lat}}')">
 			<div class="aui-img-body">
 			<div>收件人：{{=it[i].name}}</div>
 			<div>电话：{{=it[i].tel}}</div>
@@ -193,8 +193,11 @@
 			callback : function(element, op) {
 			}
 		});
-		function selectaddadress(id) {
+		function selectaddadress(id,lon,lat) {
+			
 			$api.setStorage('orderid', id);
+			$api.setStorage('userlon',lon);
+			$api.setStorage('userlat',lat);
 			alert("选择成功");
 		}
 

@@ -20,7 +20,7 @@ var model;
 function openoder() {
 	query = api.require('query');
 	model = api.require('model');
-var orderid = $api.getStorage('orderid');
+	var orderid = $api.getStorage('orderid');
 
 	model.config({
 		appKey : '7810E5E4-7F54-E1E6-B07F-9ADA6FA49D46',
@@ -72,7 +72,7 @@ var orderid = $api.getStorage('orderid');
 	//获取地址
 	var lon;
 	var lat;
-	
+
 	var getUserById = '/userAddress/' + orderid;
 	var bodyParam = {
 		id : orderid
@@ -82,9 +82,11 @@ var orderid = $api.getStorage('orderid');
 
 			lon = ret.lon;
 			lat = ret.lat;
+			var usertel = ret.tel;
+			
 			var time = new Date().Format("yyyy-MM-dd hh:mm:ss");
 			var totalcash = $api.getStorage('totalcash');
-			var orderRequest= $api.getStorage('orderRequest');
+			var orderRequest = $api.getStorage('orderRequest');
 			
 			var bodyParam = {
 				username : username,
@@ -97,7 +99,8 @@ var orderid = $api.getStorage('orderid');
 				classname : classname,
 				creatTime : time,
 				rec : false,
-				orderRequest:orderRequest,
+				orderRequest : orderRequest,
+				usertel : usertel
 			}
 
 			ajaxRequest(url, 'post', JSON.stringify(bodyParam), function(ret, err) {
