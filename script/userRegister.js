@@ -51,12 +51,13 @@ function ensure() {
 	var uname = $api.byId('userName').value;
 	var pwd = $api.byId('userPwd').value;
 	var pwd2 = $api.byId('userPwd2').value;
-	if (email.length == 0||email.length!=11) {
-		api.alert({
-			msg : "电话格式不对"
-		});
-		return;
-	} else if (pwd.length == 0||pwd2.length == 0) {
+//	if (email.length == 0||email.length!=11) {
+//		api.alert({
+//			msg : "电话格式不对"
+//		});
+//		return;
+//	} else if 
+		if	(pwd.length == 0||pwd2.length == 0) {
 		api.alert({
 			msg : "密码不能为空"
 		});
