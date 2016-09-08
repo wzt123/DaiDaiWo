@@ -75,15 +75,33 @@
 			.aui-clearfix {
 				height: 5px;
 			}
-			.aui-nnav{line-height:40px;}
-		   .demo{font-weight:bold;  font-size:15px;color:#E74C3C;background:#fff;}
+			.aui-nnav {
+				line-height: 40px;
+			}
+			.demo {
+				font-weight: bold;
+				font-size: 15px;
+				color: #E74C3C;
+				background: #fff;
+			}
 		</style>
 	</head>
 	<body>
-		
+		<div class="aui-tab aui-tab-warning aui-padded-5">
+			<ul class="aui-tab-nav aui-tab-border" id="demo2">
+				<li onclick="opendone1()">
+					未完成
+				</li>
+				<li class="active">
+					已完成
+				</li>
+				<!--  <li>已取消</li>-->
+			</ul>
+		</div>
 		<div class="aui-content">
 			<script id="ordertpl" type="text/x-dot-template" >
 				{{for(var i in it) { }}
+				{{if(it[i].helpout==null){ }}
 				<li class="aui-list-view-cell aui-img aui-counter-list" tapmode onclick="">
 				<h5>订单编号:{{=it[i].id}}</h5>
 				<div class="aui-line-x" style="margin: 5px 0 8px 0;"></div>
@@ -109,8 +127,12 @@
 				<div class="aui-line-x" style="margin: 17px 0 8px 0;"></div>
 				<p class="aui-text-right"> 实付金额: <span class="aui-text-danger">￥{{=it[i].money}}</span></p>
 				<div class="aui-line-x" style="margin: 8px 0 5px 0;"></div>
-				
+				<div class="aui-text-right">
+				<div class="aui-btn aui-btn-outlined" onclick="accomplish('{{=it[i].id}}')">确认完成</div>
+				<div class="aui-btn aui-btn-outlined" onclick="helpthis('{{=it[i].lon}}','{{=it[i].lat}}')">导航</div>
+				</div>
 				</li>
+				{{ }}}
 				{{ } }}
 			</script>
 			<ul class="aui-list-view" id="include"></ul>
@@ -146,15 +168,44 @@
 				api.refreshHeaderLoadDone();
 			});
 		};
+		function accomplish(id) {
+			api.showProgress({
+			});
+			model.updateById({
+				class : 'orderForm',
+				id : id,
+				value : {
+					helpout : true
+				}
+			}, function(ret, err) {
+				//coding...
+				if (ret) {
+					api.alert({
+						msg : "成功!"
+					}, function(ret, err) {
+						//coding...
+					});
+					api.hideProgress();
+				} else {
+					api.alert({
+						msg : JSON.stringify(err)
+					}, function(ret, err) {
+						//coding...
+					});
+					api.hideProgress();
+				}
+			});
+		}
+
 		function helpthis(lon, lat) {
 			$api.setStorage('endlon', lon);
 			$api.setStorage('endlat', lat);
 			api.showProgress({
-            });
+			});
 			api.openWin({
-	            name: 'baidumaphead',
-	            url: './baidumaphead.html'
-            });
+				name : 'baidumaphead',
+				url : './baidumaphead.html'
+			});
 		}
 
 		function initframe() {
@@ -184,11 +235,6 @@
 						column : 'buyerid',
 						value : userid
 					});
-					query.whereEqual({
-						qid : ret.qid,
-						column : 'helpout',
-						value : true
-					});
 					model.findAll({
 						class : 'orderForm',
 						qid : ret.qid
@@ -204,10 +250,11 @@
 			});
 			api.hideProgress();
 		}
-		 function opendone() {
+
+		function opendone1() {
 			api.openWin({
-				name : 'donemenu',
-				url : './donemenu.html',
+				name : 'my_goods_head',
+				url : './my_goods_head.html',
 				opaque : true,
 				vScrollBarEnabled : false
 			});

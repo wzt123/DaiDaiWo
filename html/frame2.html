@@ -86,6 +86,7 @@
 			<ul class="aui-list-view">
 			{{for(var i in it) { }}
 			{{if(it[i].buyerid===null) { }}
+			
 			<li class="aui-list-view-cell aui-img aui-counter-list" >
 			<div class="aui-list-view-cell aui-img aui-counter-list">
 			<div class="aui-img-body">
@@ -165,9 +166,11 @@
 				if (ret.buyerid == null) {
 					//下单
 					var uid = $api.getStorage('uid');
+					var buyertel = $api.getStorage('usertel');
 					var orderUrl = '/orderForm/' + id;
 					var bodyParam = {
-						buyerid : uid
+						buyerid : uid,
+						buyertel: buyertel
 					}
 					ajaxRequest(orderUrl, 'put', JSON.stringify(bodyParam), function(ret, err) {
 						if (ret) {
@@ -211,6 +214,37 @@
 						column : 'rec',
 						value : false
 					});
+					var userlon = $api.getStorage('userlon');
+					var userlat = $api.getStorage('userlat');
+					userlon = (userlon*100 - 0.5)/100;
+					userlat = (userlat*100 - 0.5)/100;
+					userlon = Math.round(userlon*100)/100;
+					userlat = Math.round(userlat*100)/100;
+					
+                    query.whereGreaterThanOrEqual({
+	                    qid:ret.qid,
+	                    column:'lat',
+	                    value:userlat
+                    });
+                    
+                    query.whereLessThanOrEqual({
+	                    qid:ret.qid,
+	                    column:'lat',
+	                    value:userlat
+                    });
+                    
+					query.whereGreaterThanOrEqual({
+	                    qid:ret.qid,
+	                    column:'lon',
+	                    value:userlon
+                    });
+                    query.whereLessThanOrEqual({
+	                    qid:ret.qid,
+	                    column:'lon',
+	                    value:userlon
+                    });
+                    
+                    
 					model.findAll({
 						class : 'orderForm',
 						qid : ret.qid
