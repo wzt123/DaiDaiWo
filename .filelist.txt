@@ -193,6 +193,7 @@
 /A6913489764881/css/aui-flex.css
 /A6913489764881/image/yamiao.png
 /A6913489764881/image/my_coupon_user_icon_normal.png
+/A6913489764881/html/orderopen-head.html
 /A6913489764881/css/modifyPwd.css
 /A6913489764881/html/activityBy.html
 /A6913489764881/image/image/api_31.png
@@ -375,6 +376,7 @@
 /A6913489764881/image/image/image/image/ucenter_bg.png
 /A6913489764881/image/image/pic2.jpg
 /A6913489764881/image/image/image/image/coupon_bg_orange.png
+/A6913489764881/html/orderopen.html
 /A6913489764881/image/image/image/image/hd.png
 /A6913489764881/image/image/image/ic_address_big.png
 /A6913489764881/script/zepto.js
@@ -413,6 +415,7 @@
 /A6913489764881/html/win_home.html
 /A6913489764881/html/baidumapbody.html
 /A6913489764881/image/personal_icon_arrow.png
+/A6913489764881/html/order-con.html
 /A6913489764881/image/ic-shop.png
 /A6913489764881/image/ic_back_u.png
 /A6913489764881/image/image/api_1.png

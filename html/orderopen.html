@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+		<title>title</title>
+		<link rel="stylesheet" type="text/css" href="../css/api.css"/>
+		<style>
+			body {
+			}
+		</style>
+	</head>
+	<body>
+		<div id="wrap">
+			<div id="main"></div>
+		</div>
+	</body>
+	<script type="text/javascript" src="../script/api.js"></script>
+	<script type="text/javascript">
+		apiready = function() {
+			var sys, ver, height = 44;
+			var dataId = api.pageParam.dataId;
+			api.openFrame({
+				name : 'order-con',
+				url : 'order-con.html',
+				pageParam : {
+					dataId : dataId
+				},
+				rect : {
+					x : 0,
+					y : height,
+					w : 'auto',
+					h : 'auto'
+				},
+				bounces : true,
+				opaque : true,
+				vScrollBarEnabled : false
+			});
+			//for iOS7 +
+//			var sys, ver, height = 44;
+			sys = api.systemType;
+			if (sys === 'ios') {
+				ver = api.systemVersion;
+				ver = parseInt(ver, 10);
+				if (ver >= 7) {
+					height += 20;
+				}
+			}
+			api.openFrame({
+				name : 'orderopen-head',
+				url : 'orderopen-head.html',
+				rect : {
+					x : 0,
+					y : 0,
+					w : api.winWidth,
+					h : height
+				},
+				bounces : false,
+				vScrollBarEnabled : false
+			});
+		};
+	</script>
+</html>

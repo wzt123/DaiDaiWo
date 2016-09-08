@@ -87,6 +87,11 @@ function openoder() {
 			var time = new Date().Format("yyyy-MM-dd hh:mm:ss");
 			var totalcash = $api.getStorage('totalcash');
 			var orderRequest = $api.getStorage('orderRequest');
+			var weight=0;
+			for(var pop in order)
+			{
+				weight = weight + order[pop].amount;
+			}
 			
 			var bodyParam = {
 				username : username,
@@ -100,7 +105,8 @@ function openoder() {
 				creatTime : time,
 				rec : false,
 				orderRequest : orderRequest,
-				usertel : usertel
+				usertel : usertel,
+				weight : weight
 			}
 
 			ajaxRequest(url, 'post', JSON.stringify(bodyParam), function(ret, err) {

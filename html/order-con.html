@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
 	<head>
 		<meta charset="utf-8">
@@ -84,75 +84,72 @@
 	<body>
 		<script id="ordertpl" type="text/x-dot-template" >
 			<ul class="aui-list-view">
-			{{for(var i in it) { }}
-			
-			<li class="aui-list-view-cell aui-img aui-counter-list" onclick="openthis('{{=it[i].id}}')">
+			<li class="aui-list-view-cell aui-img aui-counter-list" >
 			<div class="aui-list-view-cell aui-img aui-counter-list">
 			<div class="aui-img-body">
 			<div class="aui-counter-box">
-			<h5 class="font-color" style="padding-left:10px; padding-top:10px;">种类：{{=it[i].classname}}</h5>
+			<h5 class="font-color" style="padding-left:10px; padding-top:10px;">种类：{{=it.classname}}</h5>
+			<div class="aui-line-x" style="margin: 5px 0 8px 0;"></div>
+			<div class="aui-pull-left" >
+			{{ for(var prop in it.order) { }}
+			<div style=" padding-left: 15px;">菜名：{{= it.order[prop].name}}</div>
+			<div style=" padding-left: 15px;">单价：{{= it.order[prop].price}}/斤</div>
+			<div style=" padding-left: 15px;">数量：{{= it.order[prop].amount}}</div>
+			<div style=" padding-left: 15px;">总价：{{= it.order[prop].money}}</div><br/>
+			{{ } }}
+			</div>
 			<div class="aui-line-x" style="margin: 17px 0 8px 0;"></div>
-			<img class="aui-img-object aui-pull-left" src="{{=it[i].classpic}}" data-echo="{{=it[i].classpic}}">
-			<div class="aui-img-body">
-			<!--<p class="aui-text-right" style="color:#E74C3C;font-size:15px;padding-right: 20px">总金额：{{=it[i].money}}元</p>-->
-			
-			<p class="aui-text-left" > 总重量: <span class="aui-text-danger">{{=it[i].weight}}</span>斤</p>
-			<p class="aui-text-right" style="font-size:15px;"> 总金额: <span class="aui-text-danger">￥{{=it[i].money}}</span></p>
+			<!--<p class="aui-text-right" style="color:#E74C3C;font-size:15px;padding-right: 20px">总金额：{{=it.money}}元</p>-->
+			<p class="aui-text-left" > 总重量: <span class="aui-text-danger">{{=it.weight}}</span>斤</p>
+			<p class="aui-text-right" style="font-size:15px;"> 总金额: <span class="aui-text-danger">￥{{=it.money}}</span></p>
+			<div class="aui-line-x" style="margin: 17px 0 8px 0;"></div>
+			<div ><!--具体要求：{{=it.orderRequest}}-->
+			{{? it.orderRequest }}
+			具体要求：<em>{{=it.orderRequest}}</em>
+			{{??}}
+			具体要求：<em>无</em>
+			{{?}}
+			</div>
 			<div class="aui-line-x" style="margin: 17px 0 8px 0;"></div>
 			<!--<p class="aui-text-right" style="color:#E74C3C;font-size:15px;padding-right: 20px" tapmode onclick=" ">立即抢单</p>-->
-			<!--<button style="margin-left: 75%; color: red; font-size: 14px" onclick="helpthis('{{=it[i].id}}')">立即抢单</button>-->
+			<!--<button style="margin-left: 75%; color: red; font-size: 14px" onclick="helpthis('{{=it.id}}')">立即抢单</button>-->
 			<div class="aui-text-right">
-			<div class="aui-btn aui-btn-warning aui-btn-outlined" onclick="helpthis('{{=it[i].id}}')">立即抢单</div>
-			</div>
+			<div class="aui-btn aui-btn-warning aui-btn-outlined" onclick="helpthis('{{=it.id}}')">立即抢单</div>
 			</div>
 			</div>
 			</div>
 			</div>
 			</li>
-			
-			{{ } }}
 			</ul>
 		</script>
 		<ul class="aui-list-view" id="include"></ul>
 	</body>
 	<script type="text/javascript" src="../script/api.js"></script>
-	<script type="text/javascript" src="../script/common.js"></script>
+	<script src="../script/zepto.js"></script>
+	<script src="../script/carousel.js"></script>
 	<script type="text/javascript" src="../script/doT.min.js"></script>
 	<script type="text/javascript">
-		var model;
-		var query;
 		apiready = function() {
-			model = api.require('model');
-			query = api.require('query');
+			var dataId = api.pageParam.dataId;
+			var model = api.require('model');
+			var query = api.require('query');
 			model.config({
-				appKey : '7810E5E4-7F54-E1E6-B07F-9ADA6FA49D46',
-				host : 'https://d.apicloud.com'
+				appKey : '7810E5E4-7F54-E1E6-B07F-9ADA6FA49D46'
 			});
-			allorder();
-			api.setRefreshHeaderInfo({
-				visible : true,
-				loadingImg : '../image/refresh.png',
-				bgColor : '#ccc',
-				textColor : '#fff',
-				textDown : '下拉刷新...',
-				textUp : '松开刷新...',
-				showTime : true
+			model.findById({
+				class : 'orderForm',
+				id : dataId
 			}, function(ret, err) {
-				//在这里从服务器加载数据，加载完成后调用api.refreshHeaderLoadDone()方法恢复组件到默认状态
-				allorder();
-				api.refreshHeaderLoadDone();
-			});
-		};
-		function openthis(did) {
-			api.openWin({
-				name : 'orderopen',
-				url : 'orderopen.html',
-				pageParam : {
-					dataId : did
+				//coding...
+				if (ret) {
+					var include = $api.byId('include');
+					var tpl = $api.byId('ordertpl').text;
+					var tempFn = doT.template(tpl);
+					include.innerHTML = tempFn(ret);
+					api.hideProgress();
 				}
 			});
 		}
-
 		function helpthis(id) {
 			//判断是否已经被人抢单
 			model.findById({
@@ -192,80 +189,6 @@
 					});
 				}
 			});
-		}
-
-		function allorder() {
-			var date = new Date().Format("yyyy-MM-dd");
-			query.createQuery({
-			}, function(ret, err) {
-				api.showProgress({
-				});
-				if (ret.qid && ret) {
-					query.whereLike({
-						qid : ret.qid,
-						column : 'creatTime',
-						value : date
-					});
-					query.whereEqual({
-						qid : ret.qid,
-						column : 'rec',
-						value : false
-					});
-					var userlon = $api.getStorage('userlon');
-					var userlat = $api.getStorage('userlat');
-					userlon = (userlon * 100 - 0.5) / 100;
-					userlat = (userlat * 100 - 0.5) / 100;
-					userlon = Math.round(userlon * 100) / 100;
-					userlat = Math.round(userlat * 100) / 100;
-					query.whereGreaterThanOrEqual({
-						qid : ret.qid,
-						column : 'lat',
-						value : userlat
-					});
-					query.whereEqual({
-	                    qid:ret.qid,
-	                    column:'buyerid',
-	                    value:null
-                    });
-					query.whereLessThanOrEqual({
-						qid : ret.qid,
-						column : 'lat',
-						value : userlat
-					});
-					query.whereGreaterThanOrEqual({
-						qid : ret.qid,
-						column : 'lon',
-						value : userlon
-					});
-					query.whereLessThanOrEqual({
-						qid : ret.qid,
-						column : 'lon',
-						value : userlon
-					});
-					model.findAll({
-						class : 'orderForm',
-						qid : ret.qid
-					}, function(ret, err) {
-						if (ret) {
-							var include = $api.byId('include');
-							var tpl = $api.byId('ordertpl').text;
-							var tempFn = doT.template(tpl);
-							include.innerHTML = tempFn(ret);
-							api.hideProgress();
-						} else {
-							setTimeout(function() {
-								api.alert({
-									msg : '获取订单失败'
-								}, function(ret, err) {
-								});
-								api.hideProgress();
-							}, 1200);
-							//							api.hideProgress();
-						}
-					});
-				}
-			});
-			api.hideProgress();
 		}
 	</script>
 </html>
