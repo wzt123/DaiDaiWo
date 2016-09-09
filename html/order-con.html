@@ -99,11 +99,10 @@
 			{{ } }}
 			</div>
 			<div class="aui-line-x" style="margin: 17px 0 8px 0;"></div>
-			<!--<p class="aui-text-right" style="color:#E74C3C;font-size:15px;padding-right: 20px">总金额：{{=it.money}}元</p>-->
-			<p class="aui-text-left" > 总重量: <span class="aui-text-danger">{{=it.weight}}</span>斤</p>
+			<p class="aui-text-right" style="font-size:15px;"> 总重量: <span class="aui-text-danger">{{=it.weight}}</span>斤</p>
 			<p class="aui-text-right" style="font-size:15px;"> 总金额: <span class="aui-text-danger">￥{{=it.money}}</span></p>
 			<div class="aui-line-x" style="margin: 17px 0 8px 0;"></div>
-			<div ><!--具体要求：{{=it.orderRequest}}-->
+			<div >
 			{{? it.orderRequest }}
 			具体要求：<em>{{=it.orderRequest}}</em>
 			{{??}}
@@ -111,8 +110,6 @@
 			{{?}}
 			</div>
 			<div class="aui-line-x" style="margin: 17px 0 8px 0;"></div>
-			<!--<p class="aui-text-right" style="color:#E74C3C;font-size:15px;padding-right: 20px" tapmode onclick=" ">立即抢单</p>-->
-			<!--<button style="margin-left: 75%; color: red; font-size: 14px" onclick="helpthis('{{=it.id}}')">立即抢单</button>-->
 			<div class="aui-text-right">
 			<div class="aui-btn aui-btn-warning aui-btn-outlined" onclick="helpthis('{{=it.id}}')">立即抢单</div>
 			</div>

@@ -126,7 +126,6 @@
 					欢迎回来
 				</div>
 			</div>
-			<img src="../image/personal_icon_arrow.png" alt="" class="person_arrow">
 		</div>
 		<!-- 第一块 -->
 		<div class="firstblock">
@@ -147,7 +146,24 @@
 			</div>
 		</div>
 		<!-- 第二块 -->
-		<div class="h10"></div><div class="h10"></div>
+		<div class="h10"></div>	
+	<div class="secondblock">	
+		<div class="item" tapmode="presshover" onclick="opennew()">	
+			<img src="../image/my_order_user_icon_normal.png" alt="" class="item_ico">	
+			<span>活动中心</span>	
+			<img src="../image/arrow.png" alt="" class="item_arrow">	
+		</div><div class="h1"></div>	
+		<div class="item" tapmode="presshover" onclick="opentips()">	
+			<img src="../image/my_history_user_icon_normal.png" alt="" class="item_ico">	
+			<span>健康小贴士</span>	
+			<img src="../image/arrow.png" alt="" class="item_arrow">	
+		</div><div class="h1"></div>	
+		<div class="item" tapmode="presshover" onclick="openus()">	
+			<img src="../image/my_review_user_icon_normal.png" alt="" class="item_ico">	
+			<span>关于我们</span>	
+			<img src="../image/arrow.png" alt="" class="item_arrow">	
+		</div>	
+	</div>	
 	</body>
 	<script type="text/javascript" src="../script/api.js"></script>
 	<script type="text/javascript" src="../script/doT.min.js"></script>
@@ -179,6 +195,22 @@
 			api.openWin({
 				name : 'official_head',
 				url : './official_head.html',
+				opaque : true,
+				vScrollBarEnabled : false
+			});
+		}
+		function openus() {
+			api.openWin({
+				name : 'aboutMe_head',
+				url : './aboutMe_head.html',
+				opaque : true,
+				vScrollBarEnabled : false
+			});
+		}
+		function opentips() {
+			api.openWin({
+				name : 'tipshead',
+				url : './tipshead.html',
 				opaque : true,
 				vScrollBarEnabled : false
 			});
