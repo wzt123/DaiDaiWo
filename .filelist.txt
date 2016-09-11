@@ -92,6 +92,7 @@
 /A6913489764881/image/loading_more.gif
 /A6913489764881/image/image/image/ic-hot.png
 /A6913489764881/image/image/ic-hot.png
+/A6913489764881/html/my_goods_body1.html
 /A6913489764881/image/my_favorite_user_icon_normal.png
 /A6913489764881/image/image/union_pay.png
 /A6913489764881/css/api.css
@@ -106,6 +107,7 @@
 /A6913489764881/css/style.css
 /A6913489764881/image/ic-back.png
 /A6913489764881/image/nav_arrow.png
+/A6913489764881/html/aboutMe_head.html
 /A6913489764881/image/image/update.png
 /A6913489764881/image/image/cart.png
 /A6913489764881/image/image/image/main_index_tuan_normal.png
@@ -157,6 +159,7 @@
 /A6913489764881/image/image/image/arrow.png
 /A6913489764881/html/priceframe.html
 /A6913489764881/html/cityList_frm.html
+/A6913489764881/html/my_goods_head1.html
 /A6913489764881/image/image/loading_more.gif
 /A6913489764881/script/common.js
 /A6913489764881/script/userLogin.js
@@ -267,6 +270,7 @@
 /A6913489764881/css/actDetail.css
 /A6913489764881/image/image/image/detail_booking_icon.png
 /A6913489764881/image/image/more_icon_45.png
+/A6913489764881/html/aboutMe_body.html
 /A6913489764881/image/image/ic-check.png
 /A6913489764881/image/image/password.png
 /A6913489764881/image/image/image/detail_grouponicon.png
@@ -314,6 +318,7 @@
 /A6913489764881/script/aui-slide.js
 /A6913489764881/image/image/ic-article.png
 /A6913489764881/image/image/86.png
+/A6913489764881/html/tipshead.html
 /A6913489764881/image/marker_red_hd.png
 /A6913489764881/html/map.html
 /A6913489764881/image/image/image/coupon_bg_green.png
@@ -332,6 +337,7 @@
 /A6913489764881/html/shopcar_body5.html
 /A6913489764881/image/genjing.png
 /A6913489764881/image/image/image/image/loading_more.gif
+/A6913489764881/script/head_portrait.js
 /A6913489764881/script/user.js
 /A6913489764881/image/image/ic-more.png
 /A6913489764881/css/aui.css
@@ -350,6 +356,7 @@
 /A6913489764881/html/modifyPwd.html
 /A6913489764881/html/official_body.html
 /A6913489764881/html/map_function.html
+/A6913489764881/script/upfile.js
 /A6913489764881/image/main_index_my_normal.png
 /A6913489764881/image/image/image/my_coupon_user_icon_normal.png
 /A6913489764881/image/image/image/ucenter_bg.png
@@ -371,10 +378,11 @@
 /A6913489764881/image/image/image/blank.gif
 /A6913489764881/image/image/image/front.png
 /A6913489764881/image/image/image/more_icon_60.png
+/A6913489764881/html/tipsbody.html
 /A6913489764881/script/iscroll.js
 /A6913489764881/image/arr-t.png
-/A6913489764881/image/image/image/image/ucenter_bg.png
 /A6913489764881/image/image/pic2.jpg
+/A6913489764881/image/image/image/image/ucenter_bg.png
 /A6913489764881/image/image/image/image/coupon_bg_orange.png
 /A6913489764881/html/orderopen.html
 /A6913489764881/image/image/image/image/hd.png
@@ -429,6 +437,7 @@
 /A6913489764881/image/image/image/launch3.png
 /A6913489764881/image/image/image/main_index_my_pressed.png
 /A6913489764881/image/image/image/ic-check.png
+/A6913489764881/script/ajaxCloud.js
 /A6913489764881/image/image/image/remark.png
 /A6913489764881/html/payment_body.html
 /A6913489764881/image/ucenter_bg1.png

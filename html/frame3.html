@@ -97,12 +97,19 @@
 			.presshover {
 				background-color: #FAFAFA;
 			}
+			#divcss5{ margin:10px auto} 
+			#divcss5 img{ border-radius:50%} 
+			   
+        
+     
+       
 		</style>
 	</head>
 	<body>
 		<div class="login" onclick="" tapmode>
-			<img src="../image/ucenter_bg1.png" alt="" class="loginbg">
-			<img src="../image/login.png" alt="" class="personal_logo">
+		<img src="../image/ucenter_bg1.png" alt="" class="loginbg">
+			<div id="divcss5"><img src="../image/login.png" style="width:80px;height:80px" alt="" class="personal_logo" id="head_portrait" onclick="fnSetAvatar()"></div> 
+			
 			<div class="userinfo">
 				<p class="title" tapmode onclick="user_login();" id="requestLogin">
 					点击登录
@@ -146,29 +153,30 @@
 			</div>
 		</div>
 		<!-- 第二块 -->
-		<div class="h10"></div>	
-	<div class="secondblock">	
-		<div class="item" tapmode="presshover" onclick="opennew()">	
-			<img src="../image/my_order_user_icon_normal.png" alt="" class="item_ico">	
-			<span>活动中心</span>	
-			<img src="../image/arrow.png" alt="" class="item_arrow">	
-		</div><div class="h1"></div>	
-		<div class="item" tapmode="presshover" onclick="opentips()">	
-			<img src="../image/my_history_user_icon_normal.png" alt="" class="item_ico">	
-			<span>健康小贴士</span>	
-			<img src="../image/arrow.png" alt="" class="item_arrow">	
-		</div><div class="h1"></div>	
-		<div class="item" tapmode="presshover" onclick="openus()">	
-			<img src="../image/my_review_user_icon_normal.png" alt="" class="item_ico">	
-			<span>关于我们</span>	
-			<img src="../image/arrow.png" alt="" class="item_arrow">	
-		</div>	
-	</div>	
+		<div class="h10"></div>
+		<div class="secondblock">
+			<div class="item" tapmode="presshover" onclick="opennew()">
+				<img src="../image/my_order_user_icon_normal.png" alt="" class="item_ico">
+				<span>活动中心</span>
+				<img src="../image/arrow.png" alt="" class="item_arrow">
+			</div><div class="h1"></div>
+			<div class="item" tapmode="presshover" onclick="opentips()">
+				<img src="../image/my_history_user_icon_normal.png" alt="" class="item_ico">
+				<span>健康小贴士</span>
+				<img src="../image/arrow.png" alt="" class="item_arrow">
+			</div><div class="h1"></div>
+			<div class="item" tapmode="presshover" onclick="openus()">
+				<img src="../image/my_review_user_icon_normal.png" alt="" class="item_ico">
+				<span>关于我们</span>
+				<img src="../image/arrow.png" alt="" class="item_arrow">
+			</div>
+		</div>
 	</body>
 	<script type="text/javascript" src="../script/api.js"></script>
 	<script type="text/javascript" src="../script/doT.min.js"></script>
 	<script type="text/javascript" src="../script/common.js"></script>
 	<script type="text/javascript" src="../script/zepto.min.js"></script>
+	<script type="text/javascript" src="../script/ajaxCloud.js"></script>
 	<script type="text/javascript">
 		function setting() {
 			api.openWin({
@@ -199,6 +207,7 @@
 				vScrollBarEnabled : false
 			});
 		}
+
 		function openus() {
 			api.openWin({
 				name : 'aboutMe_head',
@@ -207,6 +216,7 @@
 				vScrollBarEnabled : false
 			});
 		}
+
 		function opentips() {
 			api.openWin({
 				name : 'tipshead',
@@ -255,6 +265,8 @@
 						var tpl = $api.byId('login').text;
 						var tempFn = doT.template(tpl);
 						inclu.innerHTML = tempFn(ret);
+						var head_portrait = $api.byId('head_portrait');
+						head_portrait.src = ret.head_portrait.url
 					} else {
 						api.toast({
 							msg : err.msg
@@ -267,6 +279,77 @@
 
 		function refresh() {
 			document.execCommand('Refresh');
+		}
+
+		function fnSetAvatar() {
+			api.actionSheet({
+				cancelTitle : '取消',
+				buttons : ['拍照', '打开相册']
+			}, function(ret, err) {
+				if (ret.buttonIndex == 3) {
+					return;
+				}
+				var sourceType = (ret.buttonIndex == 1) ? 'camera' : 'album';
+				api.getPicture({
+					sourceType : sourceType,
+					allowEdit : true,
+					quality : 100,
+					targetWidth : 100,
+					targetHeight : 100
+				}, function(ret, err) {
+					if (ret) {
+						if (ret.data) {
+							var avatarPath = api.fsDir + '/avatar.jpg';
+							var fs = api.require('fs');
+							fs.rename({
+								oldPath : ret.data,
+								newPath : avatarPath
+							}, function(ret, err) {
+								if (ret.status) {
+									var userid = $api.getStorage('uid');
+									var classInfo = {
+										className : "user",
+										fields : [{
+											"name" : "head_portrait",
+											"value" : avatarPath,
+											"type" : "file",
+											"filename" : 'photo',
+										}, {
+											"name" : "id",
+											"value" : userid
+										}]
+									}
+									var callback = function(ret, err) {
+										if (ret && ret.body.id) {
+											api.hideProgress();
+											api.alert({
+												msg : "更新成功!"
+											}, function(ret, err) {
+											});
+										} else {
+											api.alert({
+												msg : "失败：" + JSON.stringify(err)
+											}, function(ret, err) {
+												//coding...
+											});
+											api.hideProgress();
+										}
+									}
+									ajaxToAPICloud("A6913489764881", "7810E5E4-7F54-E1E6-B07F-9ADA6FA49D46", "put", classInfo, callback);
+									} else {
+									api.alert({
+										msg : err.msg
+									});
+								}
+							});
+						}
+					} else {
+						api.alert({
+							msg : err.msg
+						});
+					}
+				});
+			});
 		}
 
 		apiready = function() {
