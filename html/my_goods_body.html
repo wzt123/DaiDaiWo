@@ -90,10 +90,10 @@
 		<!--<div class="aui-tab aui-tab-warning aui-padded-5">-->
 		<header>
 			<ul class="aui-tab-nav aui-tab-border" id="demo2">
-				<li class="active" onclick="opendone0()">
+				<li class="active" onclick="opendone0()" id="li0">
 					未完成
 				</li>
-				<li onclick="opendone1()">
+				<li onclick="opendone1()" id="li1">
 					已完成
 				</li>
 			</ul>
@@ -122,6 +122,11 @@
 			opendone0();
 		};
 		function opendone0() {
+			var li1 = $api.byId("li1");
+			li1.class = "";
+			var li0 = $api.byId("li0");
+			li0.class = "active";
+			
 			api.closeFrame({
 				name : 'my_goods_body1'
 			});
@@ -138,6 +143,10 @@
 		}
 
 		function opendone1() {
+			var li0 = $api.byId("li0");
+			li0.class = "";
+			var li1 = $api.byId("li1");
+			li1.class = "active"
 			api.closeFrame({
 				name : 'my_goods_body0'
 			});
