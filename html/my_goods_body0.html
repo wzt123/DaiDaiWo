@@ -87,11 +87,22 @@
 		</style>
 	</head>
 	<body>
-		
+		<!--<div class="aui-tab aui-tab-warning aui-padded-5">-->
+		<!--<header>
+			<ul class="aui-tab-nav aui-tab-border" id="demo2">
+				<li class="active">
+					未完成
+				</li>
+				<li onclick="opendone()">
+					已完成
+				</li>
+			</ul>
+			</header>-->
+		<!--</div>-->
 		<div class="aui-content">
 			<script id="ordertpl" type="text/x-dot-template" >
 				{{for(var i in it) { }}
-				{{if(it[i].helpout!=null){ }}
+				{{if(it[i].helpout==null){ }}
 				<li class="aui-list-view-cell aui-img aui-counter-list" tapmode onclick="">
 				<h5>订单编号:{{=it[i].id}}</h5>
 				<div class="aui-line-x" style="margin: 5px 0 8px 0;"></div>
@@ -241,10 +252,10 @@
 			api.hideProgress();
 		}
 
-		function opendone1() {
+		function opendone() {
 			api.openWin({
-				name : 'my_goods_head',
-				url : './my_goods_head.html',
+				name : 'my_goods_head1',
+				url : './my_goods_head1.html',
 				opaque : true,
 				vScrollBarEnabled : false
 			});
