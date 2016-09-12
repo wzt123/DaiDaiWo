@@ -89,15 +89,15 @@
 	<body>
 		<!--<div class="aui-tab aui-tab-warning aui-padded-5">-->
 		<!--<header>
-			<ul class="aui-tab-nav aui-tab-border" id="demo2">
-				<li class="active">
-					未完成
-				</li>
-				<li onclick="opendone()">
-					已完成
-				</li>
-			</ul>
-			</header>-->
+		<ul class="aui-tab-nav aui-tab-border" id="demo2">
+		<li class="active">
+		未完成
+		</li>
+		<li onclick="opendone()">
+		已完成
+		</li>
+		</ul>
+		</header>-->
 		<!--</div>-->
 		<div class="aui-content">
 			<script id="ordertpl" type="text/x-dot-template" >
@@ -129,6 +129,7 @@
 				<p class="aui-text-right"> 实付金额: <span class="aui-text-danger">￥{{=it[i].money}}</span></p>
 				<div class="aui-line-x" style="margin: 8px 0 5px 0;"></div>
 				<div class="aui-text-right">
+				<div class="aui-btn aui-btn-outlined" onclick="callHe('{{=it[i].usertel}}')">联系对方</div>
 				<div class="aui-btn aui-btn-outlined" onclick="accomplish('{{=it[i].id}}')">确认完成</div>
 				<div class="aui-btn aui-btn-outlined" onclick="helpthis('{{=it[i].lon}}','{{=it[i].lat}}')">导航</div>
 				</div>
@@ -169,6 +170,13 @@
 				api.refreshHeaderLoadDone();
 			});
 		};
+		function callHe(usertel) {
+			api.call({
+				type : 'tel_prompt',
+				number : usertel
+			});
+		}
+
 		function accomplish(id) {
 			api.showProgress({
 			});

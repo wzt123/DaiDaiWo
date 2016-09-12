@@ -343,7 +343,7 @@
 			}
 			$api.setStorage('amount', buynum);
 			$api.setStorage('classname', "花菜类");
-			$api.setStorage('totalcash', totalcash);
+			$api.setStorage('totalcash', totalcash.toFixed(1)); 
 			api.sendEvent({
 				name : 'place_order_localstorage',
 				extra : {
@@ -412,7 +412,7 @@
 				minbuydom.style.display = 'none';
 				buyinfodom.style.display = 'inline-block';
 				buynumdom.innerHTML = buynum;
-				totalcashdom.innerHTML = totalcash;
+				totalcashdom.innerHTML = totalcash.toFixed(1);
 			}
 		}
 
@@ -475,7 +475,7 @@
 				// minbuydom.style.display = 'none';
 				buyinfodom.style.display = 'inline-block';
 				buynumdom.innerHTML = buynum;
-				totalcashdom.innerHTML = totalcash;
+				totalcashdom.innerHTML = totalcash.toFixed(1);
 			}
 		}
 

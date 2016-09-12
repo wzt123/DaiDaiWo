@@ -80,64 +80,76 @@
 				color: #E74C3C;
 				font-size: 15px;
 			}
-			.aui-nnav{line-height:40px;}
-		.demo{font-weight:bold;  font-size:15px;color:#E74C3C;background:#fff;}
-		.buy{background:#E74C3C ;color:white;}
+			.aui-nnav {
+				line-height: 40px;
+			}
+			.demo {
+				font-weight: bold;
+				font-size: 15px;
+				color: #E74C3C;
+				background: #fff;
+			}
+			.buy {
+				background: #E74C3C;
+				color: white;
+			}
 		</style>
 	</head>
 	<body>
-	<!--	<div class="aui-content">-->
-			<script id="car_ordertpl" type="text/x-dot-template" >
-				<ul class="aui-list-view">
-				{{for(var i in it) { }}
-				<li class="aui-list-view-cell aui-img aui-counter-list" >
-				<div class="aui-img-body">
-				<div class="aui-counter-box">
-				<div class="aui-pull-left" id="orderName" style="color:#E74C3C;font-size:15px;">
-				<b>种类：{{=it[i].classname}}</b>
-				</div>
-				<div class="aui-text-default aui-pull-sright" id="orderamount"style="padding-left:15px">
-				</div>
-				<br />
-				<div class="aui-pull-left" id="orderCash2">
-				{{ for(var prop in it[i].order) { }}
-				<div style="font-size:14px; padding-left: 15px">菜名：{{= it[i].order[prop].name}}</div>
-				<div style="font-size:14px; padding-left: 15px">单价：{{= it[i].order[prop].price}}/斤</div>
-				<div style="font-size:14px; padding-left: 15px">数量：{{= it[i].order[prop].amount}}</div>
-				<div style="font-size:14px; padding-left: 15px">总价：{{= it[i].order[prop].money}}</div><br/>
-				{{ } }}
-				</div>
-				<div class="aui-line-x" style="margin: 17px 0 8px 0;"></div>
-				<div ><!--具体要求：{{=it[i].orderRequest}}-->
-				{{? it[i].orderRequest }}
-				具体要求：<em>{{=it[i].orderRequest}}</em>
-				{{??}}
-				具体要求：<em>无</em>
-				{{?}}
-				</div>
-				<div class="aui-line-x" style="margin: 17px 0 8px 0;"></div>
-				<!--<p class="aui-text-right" style="color:#6ab494;font-size:15px;padding-right: 20px">总金额：{{=it[i].money}}元</p>-->
-				<p class="aui-text-right" style="font-size:15px;"> 总金额: <span class="aui-text-danger">￥{{=it[i].money}}</span></p>
-				<div class="aui-line-x" style="margin: 8px 0 5px 0;"></div>
-				
-				<!--<div class="aui-col-xs-12 aui-text-center aui-nnav">
-				    <div class="aui-col-xs-8 demo">未完成支付!</div>
-				    <div class="aui-col-xs-4 buy" tapmode onclick="checkOut('{{=it[i].id}}')">结算</div>
-			    </div>-->
-				<div class="aui-text-right">
-				  <div class="aui-btn aui-btn-warning aui-btn-outlined">未完成支付!</div><!--支付完成显示灰色-->			
-				  <div class="aui-btn aui-btn-warning aui-btn-outlined" onclick="checkOut('{{=it[i].id}}')">结算</div><!--结算完成显示灰底黑字-->				
-				</div>
-				<!--<button style="margin-left: 75%; color: red; font-size: 14px" onclick="checkOut('{{=it[i].id}}')">结算</button>-->
-				<!--<div class="aui-line-x" style="margin: 17px 0 8px 0;"></div>-->
-				</div>
-				</div>
-				</li>
-				{{ } }}
-				</ul>
-			</script>
-			<div class="aui-list-view" id="car_include"></div>
-		<!--</div>-->
+		<!--	<div class="aui-content">-->
+		<script id="car_ordertpl" type="text/x-dot-template" >
+			<ul class="aui-list-view">
+			{{for(var i in it) { }}
+			<li class="aui-list-view-cell aui-img aui-counter-list" >
+			<div class="aui-img-body">
+			<div class="aui-counter-box">
+			<div class="aui-pull-left" id="orderName" style="color:#E74C3C;font-size:15px;">
+			<b>种类：{{=it[i].classname}}</b>
+			</div>
+			<div class="aui-text-default aui-pull-sright" id="orderamount"style="padding-left:15px">
+			</div>
+			<br />
+			<div class="aui-pull-left" id="orderCash2">
+			{{ for(var prop in it[i].order) { }}
+			<div style="font-size:14px; padding-left: 15px">菜名：{{= it[i].order[prop].name}}</div>
+			<div style="font-size:14px; padding-left: 15px">单价：{{= it[i].order[prop].price}}/斤</div>
+			<div style="font-size:14px; padding-left: 15px">数量：{{= it[i].order[prop].amount}}</div>
+			<div style="font-size:14px; padding-left: 15px">总价：{{= it[i].order[prop].money}}</div><br/>
+			{{ } }}
+			</div>
+			<div class="aui-line-x" style="margin: 17px 0 8px 0;"></div>
+			<div ><!--具体要求：{{=it[i].orderRequest}}-->
+			{{? it[i].orderRequest }}
+			具体要求：<em>{{=it[i].orderRequest}}</em>
+			{{??}}
+			具体要求：<em>无</em>
+			{{?}}
+			</div>
+			<div class="aui-line-x" style="margin: 17px 0 8px 0;"></div>
+			<!--<p class="aui-text-right" style="color:#6ab494;font-size:15px;padding-right: 20px">总金额：{{=it[i].money}}元</p>-->
+			<p class="aui-text-left" style="font-size:15px;"> 时间: <span class="aui-text-danger">{{=it[i].creatTime}}</span></p>
+			<p class="aui-text-left" style="font-size:15px;"> 总金额: <span class="aui-text-danger">￥{{=it[i].money}}</span></p>
+			<div class="aui-line-x" style="margin: 8px 0 5px 0;"></div>
+			<!--<div class="aui-col-xs-12 aui-text-center aui-nnav">
+			<div class="aui-col-xs-8 demo">未完成支付!</div>
+			<div class="aui-col-xs-4 buy" tapmode onclick="checkOut('{{=it[i].id}}')">结算</div>
+			</div>-->
+			<div class="aui-text-right">
+			{{if(it[i].checkOut==true){ }}
+			<div class="aui-btn aui-btn-warning aui-btn-outlined" style="color: :#C0C0C0">完成支付!</div><!--支付完成显示灰色-->
+			<div class="aui-btn aui-btn-warning aui-btn-outlined" style="color: :#C0C0C0">结算</div>
+			{{}else{}}
+			<div class="aui-btn aui-btn-warning aui-btn-outlined" style="color: : #00FF00">未完成支付!</div><!--支付完成显示灰色-->
+			<div class="aui-btn aui-btn-warning aui-btn-outlined" style="color: : #00FF00">结算</div>
+			{{}}}
+			</div>
+			</div>
+			</div>
+			</li>
+			{{ } }}
+			</ul>
+		</script>
+		<div class="aui-list-view" id="car_include"></div>
 	</body>
 	<script type="text/javascript" src="../script/api.js"></script>
 	<script type="text/javascript" src="../script/zepto.min.js"></script>
@@ -222,6 +234,10 @@
 						qid : ret.qid,
 						column : 'userid',
 						value : userid
+					});
+					query.desc({
+						qid : ret.qid,
+						column : 'creatTime'
 					});
 					model.findAll({
 						class : 'orderForm',
