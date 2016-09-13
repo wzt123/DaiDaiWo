@@ -44,33 +44,85 @@
 	</head>
 	<body>
 		<div class="aui-content active-area">
-			<ul>
+			<script id="ordertpl" type="text/x-dot-template" >
+				{{if(it.length!=0){}}
+				{{for(var i in it) {}}
 				<li class="aui-list-view" tapmode>
-					<div class="aui-col-xs-12 aui-padded-5" style="padding: 8px 5px;">
-						<label class="active-ars">Tips</label>健康小贴士开课啦！
-					</div>
-					<div class="aui-col-xs-12 image">
-						<img src="../image/cai.png">
-					</div>
-					<div class="aui-col-xs-12 aui-ellipsis-2 aui-padded-5 content">
-						 番茄味甘、酸，微寒。有清热解毒、生津止渴、健胃消食等作用。临床上多用于治疗口干舌燥、食欲不振、胃热口苦、牙龈出血等
-					</div>
+				<div class="aui-col-xs-12 aui-padded-5" style="padding: 8px 5px;">
+				<label class="active-ars">建议：</label>{{=it[i].title}}
+				</div>
+				<div class="aui-col-xs-12 image">
+				<img src="{{=it[i].pic.url}}">
+				</div>
+				<div class="aui-col-xs-12 aui-ellipsis-2 aui-padded-5 content">
+				{{=it[i].content}}
+				</div>
 				</li>
-				<li class="aui-list-view" tapmode>
-					<div class="aui-col-xs-12 aui-padded-5" style="padding: 8px 5px;">
-						<label class="active-ars">Tips</label>健康小贴士开课啦！
-					</div>
-					<div class="aui-col-xs-12 image">
-						<img src="../image/genjing1.png">
-					</div>
-					<div class="aui-col-xs-12 aui-ellipsis-2 aui-padded-5 content">
-						萝卜含有大量的糖类和维生素A、维生素B、维生素C，维生素C对防治坏血症有着重要作用。
-					</div>
+				{{}}}
+				{{}else{}}
+				<li class="aui-list-view-cell aui-img aui-counter-list" tapmode onclick="">
+				<h2 class="font-color">暂时没有相关建议</h5>
 				</li>
+				{{}}}
+			</script>
+			<ul id="tip_include">
+				
 			</ul>
 		</div>
 	</body>
 	<script type="text/javascript" src="../script/api.js"></script>
+	<script type="text/javascript" src="../script/common.js"></script>
 	<script type="text/javascript" src="../script/zepto.min.js"></script>
-	<script type="text/javascript"></script>
+	<script type="text/javascript" src="../script/doT.min.js"></script>
+	<script type="text/javascript">
+		var model;
+		var query;
+		apiready = function() {
+			model = api.require('model');
+			query = api.require('query');
+			model.config({
+				appKey : '7810E5E4-7F54-E1E6-B07F-9ADA6FA49D46',
+				host : 'https://d.apicloud.com'
+			});
+			init();
+			api.setRefreshHeaderInfo({
+				visible : true,
+				loadingImg : '../image/refresh.png',
+				bgColor : '#ccc',
+				textColor : '#fff',
+				textDown : '下拉刷新...',
+				textUp : '松开刷新...',
+				showTime : true
+			}, function(ret, err) {
+				//在这里从服务器加载数据，加载完成后调用api.refreshHeaderLoadDone()方法恢复组件到默认状态
+				init();
+				api.refreshHeaderLoadDone();
+			});
+		};
+		function init() {
+			
+			api.showProgress({
+				title : '加载中...',
+				modal : false
+			});
+			var getTabBarBannerUrl = '/healthTip?filter=';
+			var urlParam = {
+			};
+			ajaxRequest(getTabBarBannerUrl + JSON.stringify(urlParam), 'get', '', function(ret, err) {
+				if (ret) {
+					var include = $api.byId('tip_include');
+					var tpl = $api.byId('ordertpl').text;
+					var tempFn = doT.template(tpl);
+					include.innerHTML = tempFn(ret);
+					api.hideProgress();
+				} else {
+					api.alert({
+						msg : err.msg
+					});
+				}
+			});
+			api.hideProgress();
+		}
+		
+	</script>
 </html>
