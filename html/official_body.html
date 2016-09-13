@@ -44,33 +44,115 @@
 	</head>
 	<body>
 		<div class="aui-content active-area">
-			<ul>
+			<script id="activity_tpl" type="text/x-dot-template">
+				{{if(it.length!=0){}}
+				{{for(var i in it){}}
 				<li class="aui-list-view" tapmode>
-					<div class="aui-col-xs-12 aui-padded-5" style="padding: 8px 5px;">
-						<label class="active-ars">活动</label>“带带我”回报新老客户啦！
-					</div>
-					<div class="aui-col-xs-12 image">
-						<img src="../image/active.jpg">
-					</div>
-					<div class="aui-col-xs-12 aui-ellipsis-2 aui-padded-5 content">
-						“带带我”的成长离不开新老客户的支持，即日起每单满50元者可享受一次补贴10元优惠活动！
-					</div>
+				<div class="aui-col-xs-12 aui-padded-5" style="padding: 8px 5px;">
+				<label class="active-ars">活动</label>{{=it[i].title}}
+				</div>
+				<div class="aui-col-xs-12 image">
+				<img src="{{=it[i].pic.url}}">
+				</div>
+				<div class="aui-col-xs-12 aui-ellipsis-2 aui-padded-5 content">
+				{{it[i].content}}
+				</div>
+				<div class="aui-counter-box">
+				<p class="aui-text-left" style="font-size:15px;"> 市场: <span class="aui-text-danger">{{=it[i].marketname}}</span></p>
+				<p class="aui-text-left" style="font-size:15px;"> 起始时间: <span class="aui-text-danger">{{=it[i].act_time_start}}</span></p>
+				<p class="aui-text-left" style="font-size:15px;"> 终止时间: <span class="aui-text-danger">{{=it[i].act_time_end}}</span></p>
+				</div>
 				</li>
-				<li class="aui-list-view" tapmode>
-					<div class="aui-col-xs-12 aui-padded-5" style="padding: 8px 5px;">
-						<label class="active-ars">活动</label>“带带我”回报新老客户啦！
-					</div>
-					<div class="aui-col-xs-12 image">
-						<img src="../image/active.jpg">
-					</div>
-					<div class="aui-col-xs-12 aui-ellipsis-2 aui-padded-5 content">
-						“带带我”的成长离不开新老客户的支持，即日起推荐他人使用本平台者满可享受一次领取10元优惠券
-					</div>
+				{{}}}
+				{{}else{}}
+				<li class="aui-list-view-cell aui-img aui-counter-list" tapmode onclick="">
+				<h2 class="font-color">暂时没有市场发布活动~</h5>
 				</li>
-			</ul>
+				{{}}}
+			</script>
+			<ul id="include"></ul>
 		</div>
 	</body>
 	<script type="text/javascript" src="../script/api.js"></script>
 	<script type="text/javascript" src="../script/zepto.min.js"></script>
-	<script type="text/javascript"></script>
+	<script type="text/javascript" src="../script/common.js"></script>
+	<script type="text/javascript" src="../script/doT.min.js"></script>
+	<script type="text/javascript">
+		var model;
+		var query;
+		apiready = function() {
+			model = api.require('model');
+			query = api.require('query');
+			model.config({
+				appId : 'A6925440802968',
+				appKey : '12204A03-269D-3589-0D2E-060FB653BE53',
+				host : 'https://d.apicloud.com'
+			});
+			api.parseTapmode();
+			init();
+			api.setRefreshHeaderInfo({
+				visible : true,
+				loadingImg : '../image/refresh.png',
+				bgColor : '#ccc',
+				textColor : '#fff',
+				textDown : '下拉刷新...',
+				textUp : '松开刷新...',
+				showTime : true
+			}, function(ret, err) {
+				//在这里从服务器加载数据，加载完成后调用api.refreshHeaderLoadDone()方法恢复组件到默认状态
+				init();
+				api.refreshHeaderLoadDone();
+			});
+		};
+		function init() {
+			var date = new Date().Format("yyyy-MM-dd");
+			api.showProgress({
+				title : '加载中...',
+				modal : false
+			});
+			var getTabBarBannerUrl = '/activity?filter=';
+			var urlParam = {
+				
+			};
+			ajaxToMarket(getTabBarBannerUrl + JSON.stringify(urlParam), 'get', '', function(ret, err) {
+				if (ret) {
+					var include = $api.byId('include');
+					var tpl = $api.byId('activity_tpl').text;
+					var tempFn = doT.template(tpl);
+					include.innerHTML = tempFn(ret);
+					api.hideProgress();
+				} else {
+					api.alert({
+						msg : err.msg
+					});
+				}
+			});
+			api.hideProgress();
+		}
+
+		function ajaxToMarket(url, method, bodyParam, callBack) {
+			var common_url = 'https://d.apicloud.com/mcm/api';
+			var appId = 'A6925440802968';
+			var key = '12204A03-269D-3589-0D2E-060FB653BE53';
+			var now = Date.now();
+			var appKey = SHA1(appId + "UZ" + key + "UZ" + now) + "." + now;
+			api.ajax({
+				url : common_url + url,
+				method : method,
+				cache : false,
+				timeout : 20,
+				headers : {
+					"Content-type" : "application/json;charset=UTF-8",
+					"X-APICloud-AppId" : appId,
+					"X-APICloud-AppKey" : appKey
+				},
+				data : {
+					body : bodyParam
+				}
+			}, function(ret, err) {
+				callBack(ret, err);
+			});
+		}
+	</script>
+	</script>
 </html>
