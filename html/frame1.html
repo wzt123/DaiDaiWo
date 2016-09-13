@@ -84,6 +84,7 @@
 	<body>
 		<script id="VG_today_tpl" type="text/x-dot-template">
 			<ul class="aui-list-view">
+			{{if(it.length!=0){}}
 			{{for(var i in it) { }}
 			<li class="aui-list-view-cell aui-img aui-counter-list" tapmode onclick="">
 			<h5 class="font-color">商铺: {{=it[i].marketname}}</h5>
@@ -92,11 +93,17 @@
 			<div class="aui-img-body">
 			<div class="aui-text-default aui-ellipsis-1">{{=it[i].VGmsg}}</div>
 			<div class="aui-counter-box">
-			<div class="aui-pull-left">单价：{{=it[i].price}}</div>
+			<p class="aui-text-left" style="font-size:15px;"> 单价: <span class="aui-text-danger">￥{{=it[i].price}}</span></p>
+			<p class="aui-text-left" style="font-size:15px;"> 时间: <span class="aui-text-danger">{{=it[i].creatTime}}</span></p>
 			</div>
 			</div>
 			</li>
 			{{ } }}
+			{{}else{}}
+			<li class="aui-list-view-cell aui-img aui-counter-list" tapmode onclick="">
+			<h2 class="font-color">市场端还没有发布今日特价~</h5>
+			</li>
+			{{}}}
 			</ul>
 		</script>
 		<div class="aui-content" id="include"></div>
