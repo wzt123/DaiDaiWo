@@ -135,12 +135,15 @@
 			<div class="aui-col-xs-4 buy" tapmode onclick="checkOut('{{=it[i].id}}')">结算</div>
 			</div>-->
 			<div class="aui-text-right">
-			{{if(it[i].checkOut==true){ }}
-			<div class="aui-btn aui-btn-warning aui-btn-outlined" style="color: :#C0C0C0">完成支付!</div><!--支付完成显示灰色-->
-			<div class="aui-btn aui-btn-warning aui-btn-outlined" style="color: :#C0C0C0">结算</div>
+			{{if(it[i].buyerid!=null){}}
+			<div class="aui-btn aui-btn-warning aui-btn-outlined" style="color: :#C0C0C0" onclick="callHelper('{{=it[i].buyertel}}')">联系帮助者</div><!--支付完成显示灰色-->
 			{{}else{}}
-			<div class="aui-btn aui-btn-warning aui-btn-outlined" style="color: : #00FF00">未完成支付!</div><!--支付完成显示灰色-->
-			<div class="aui-btn aui-btn-warning aui-btn-outlined" style="color: : #00FF00">结算</div>
+			<div class="aui-btn aui-btn-warning aui-btn-outlined" style="color: :#C0C0C0" onclick="">没有人帮助呢</div><!--支付完成显示灰色-->
+			{{}}}
+			{{if(it[i].checkOut==true){ }}
+			<div class="aui-btn aui-btn-warning aui-btn-outlined" style="color: :#C0C0C0">已经完成支付了!</div><!--支付完成显示灰色-->
+			{{}else{}}
+			<div class="aui-btn aui-btn-warning aui-btn-outlined" style="color: : #00FF00" onclick="checkOut('{{=it[i].id}}')">结算</div>
 			{{}}}
 			</div>
 			</div>
@@ -189,20 +192,78 @@
 				api.refreshHeaderLoadDone();
 			});
 		}
+		function callHelper(tel) {
+			api.call({
+				number : tel
+			});
+		}
+
 		function checkOut(id) {
-			model.updateById({
-				class : 'orderForm',
-				id : id,
-				value : {
-					checkOut : true
+			api.appInstalled({
+				appBundle : 'com.eg.android.AlipayGphone'
+			}, function(ret, err) {
+				if (ret.installed) {
+					//应用已安装
+					api.openApp({
+						androidPkg : 'com.eg.android.AlipayGphone'
+					}, function(ret, err) {
+						//coding...
+						if (ret) {
+						}
+					});
+				} else {
+					//应用未安装
+					api.appInstalled({
+						appBundle : 'com.tencent.mm'
+					}, function(ret, err) {
+						if (ret.installed) {
+							//应用已安装
+							api.openApp({
+								androidPkg : 'com.tencent.mm'
+							}, function(ret, err) {
+								//coding...
+							});
+						} else {
+							//应用未安装
+							api.alert({
+								msg : "请安装支付宝或者微信进行支付"
+							}, function(ret, err) {
+								//coding...
+							});
+						}
+					});
 				}
+			});
+			api.confirm({
+				msg : "请确认是否收到货",
+				buttons : ["收到了", "没有"]
 			}, function(ret, err) {
 				//coding...
 				if (ret) {
-					api.alert({
-						msg : "结算成功"
+					model.updateById({
+						class : 'orderForm',
+						id : id,
+						value : {
+							helpout : true
+						}
 					}, function(ret, err) {
 						//coding...
+						if (ret) {
+							var index = ret.buttonIndex;
+							if (index == 1) {
+								api.alert({
+									msg : "完成支付，下拉刷新一下"
+								}, function(ret, err) {
+									//coding...
+								});
+							}
+						} else {
+							api.alert({
+								msg : err.msg
+							}, function(ret, err) {
+								//coding...
+							});
+						}
 					});
 				}
 			});

@@ -126,11 +126,12 @@
 				{{?}}
 				</div>
 				<div class="aui-line-x" style="margin: 17px 0 8px 0;"></div>
-				<p class="aui-text-right"> 实付金额: <span class="aui-text-danger">￥{{=it[i].money}}</span></p>
+			<p class="aui-text-left" style="font-size:15px;"> 时间: <span class="aui-text-danger">{{=it[i].creatTime}}</span></p>
+			<p class="aui-text-left" style="font-size:15px;"> 总金额: <span class="aui-text-danger">￥{{=it[i].money}}</span></p>
 				<div class="aui-line-x" style="margin: 8px 0 5px 0;"></div>
 				<div class="aui-text-right">
 				<div class="aui-btn aui-btn-outlined" onclick="callHe('{{=it[i].usertel}}')">联系对方</div>
-				<div class="aui-btn aui-btn-outlined" onclick="accomplish('{{=it[i].id}}')">确认完成</div>
+				<div class="aui-btn aui-btn-outlined" onclick="accomplish('{{=it[i].id}}')">确认支付</div>
 				<div class="aui-btn aui-btn-outlined" onclick="helpthis('{{=it[i].lon}}','{{=it[i].lat}}')">导航</div>
 				</div>
 				</li>
@@ -184,7 +185,7 @@
 				class : 'orderForm',
 				id : id,
 				value : {
-					helpout : true
+					checkOut : true
 				}
 			}, function(ret, err) {
 				//coding...

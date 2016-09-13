@@ -117,8 +117,7 @@
 				<p class="aui-text-right"> 实付金额: <span class="aui-text-danger">￥{{=it[i].money}}</span></p>
 				<div class="aui-line-x" style="margin: 8px 0 5px 0;"></div>
 				<div class="aui-text-right">
-				<div class="aui-btn aui-btn-outlined" onclick="accomplish('{{=it[i].id}}')">确认完成</div>
-				<div class="aui-btn aui-btn-outlined" onclick="helpthis('{{=it[i].lon}}','{{=it[i].lat}}')">导航</div>
+				<div class="aui-btn aui-btn-outlined" onclick="callHe('{{=it[i].usertel}}')">联系对方</div>
 				</div>
 				</li>
 				{{ }}}
@@ -157,46 +156,13 @@
 				api.refreshHeaderLoadDone();
 			});
 		};
-		function accomplish(id) {
-			api.showProgress({
-			});
-			model.updateById({
-				class : 'orderForm',
-				id : id,
-				value : {
-					helpout : true
-				}
-			}, function(ret, err) {
-				//coding...
-				if (ret) {
-					api.alert({
-						msg : "成功!"
-					}, function(ret, err) {
-						//coding...
-					});
-					api.hideProgress();
-				} else {
-					api.alert({
-						msg : JSON.stringify(err)
-					}, function(ret, err) {
-						//coding...
-					});
-					api.hideProgress();
-				}
+		function callHe(usertel) {
+			api.call({
+				type : 'tel_prompt',
+				number : usertel
 			});
 		}
-
-		function helpthis(lon, lat) {
-			$api.setStorage('endlon', lon);
-			$api.setStorage('endlat', lat);
-			api.showProgress({
-			});
-			api.openWin({
-				name : 'baidumaphead',
-				url : './baidumaphead.html'
-			});
-		}
-
+		
 		function initframe() {
 			var userid = $api.getStorage('uid');
 			//			userid = '"' + userid + '"';
