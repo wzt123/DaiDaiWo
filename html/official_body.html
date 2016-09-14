@@ -44,7 +44,7 @@
 	</head>
 	<body>
 		<div class="aui-content active-area">
-			<script id="activity_tpl" type="text/x-dot-template">
+			<!--<script id="activity_tpl" type="text/x-dot-template">
 				{{if(it.length!=0){}}
 				{{for(var i in it){}}
 				<li class="aui-list-view" tapmode>
@@ -69,8 +69,40 @@
 				<h2 class="font-color">暂时没有市场发布活动~</h5>
 				</li>
 				{{}}}
-			</script>
-			<ul id="include"></ul>
+			</script>-->
+			
+			<script id="activity_tpl" type="text/x-dot-template">
+			
+			{{if(it.length!=0){}}
+			{{for(var i in it) { }}
+			<li class="aui-list-view-cell aui-img aui-counter-list" tapmode onclick="">
+			
+			<div class="aui-col-xs-12 aui-padded-5" style="padding: 8px 5px;">
+				<label class="active-ars">活动</label>{{=it[i].title}}
+				</div>
+			<div class="aui-line-x" style="margin: 5px 0 8px 0;"></div>
+			
+			<img class="aui-img-object aui-pull-left" src="{{=it[i].pic.url}}" data-echo="{{=it[i].pic.url}}">
+			<div class="aui-img-body">
+			
+			<div class="aui-text-default aui-ellipsis-1"></div>
+			<div class="aui-counter-box">
+			
+				<p class="aui-text-left" style="font-size:15px;"> 市场: <span class="aui-text-danger">{{=it[i].marketname}}</span></p>
+				<p class="aui-text-left" style="font-size:15px;"> 起始时间: <span class="aui-text-danger">{{=it[i].act_time_start}}</span></p>
+				<p class="aui-text-left" style="font-size:15px;"> 终止时间: <span class="aui-text-danger">{{=it[i].act_time_end}}</span></p>
+				</div>
+			</div>
+			<p class="aui-text-left" style="font-size:15px;"> 内容: <span class="aui-text-danger">{{=it[i].content}}</span></p>
+			</li>
+			{{ } }}
+			{{}else{}}
+			<li class="aui-list-view-cell aui-img aui-counter-list" tapmode onclick="">
+			<h2 class="font-color">暂时没有市场发布活动~</h5>
+			</li>
+			{{}}}
+		</script>
+			<ul class="aui-list-view" id="include"></ul>
 		</div>
 	</body>
 	<script type="text/javascript" src="../script/api.js"></script>
