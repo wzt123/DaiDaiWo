@@ -370,6 +370,8 @@
 			}, function(ret, err) {
 				if (ret) {
 					var requestLogin2 = $api.byId('requestLogin');
+					var head_pic = $api.byId('head_portrait');
+					head_pic.src ="../image/login.png"
 					requestLogin2.innerHTML = "登录";
 					var includ = {
 						username : "",

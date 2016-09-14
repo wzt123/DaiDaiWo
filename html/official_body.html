@@ -43,8 +43,9 @@
 		</style>
 	</head>
 	<body>
-		<div class="aui-content active-area">
+		
 			<script id="activity_tpl" type="text/x-dot-template">
+			<ul class="aui-list-view" >
 				{{if(it.length!=0){}}
 				{{for(var i in it) { }}
 				<li class="aui-list-view-cell aui-img aui-counter-list" tapmode onclick="">
@@ -62,16 +63,21 @@
 				</div>
 				</div>
 				<p class="aui-text-left" style="font-size:15px;"> 内容: <span class="aui-text-danger">{{=it[i].content}}</span></p>
+				<div class="aui-line-x" style="margin: 5px 0 8px 0;"></div>
+				<div class="aui-text-right">
+				<div class="aui-btn aui-btn-outlined" onclick="helpthis('{{=it[i].lon}}','{{=it[i].lat}}')">导航</div>
+				</div>
 				</li>
 				{{ } }}
 				{{}else{}}
 				<li class="aui-list-view-cell aui-img aui-counter-list" tapmode onclick="">
-				<h2 class="font-color">暂时没有市场发布活动~</h5>
+				<h2 class="font-color">暂时没有市场发布活动~</h2>
 				</li>
 				{{}}}
+				</ul>
 			</script>
-			<ul class="aui-list-view" id="include"></ul>
-		</div>
+			<div class="aui-content" id="include"></div>
+	
 	</body>
 	<script type="text/javascript" src="../script/api.js"></script>
 	<script type="text/javascript" src="../script/zepto.min.js"></script>
@@ -104,6 +110,17 @@
 				api.refreshHeaderLoadDone();
 			});
 		};
+		function helpthis(lon, lat) {
+			$api.setStorage('endlon', lon);
+			$api.setStorage('endlat', lat);
+			api.showProgress({
+			});
+			api.openWin({
+				name : 'baidumaphead',
+				url : './baidumaphead.html'
+			});
+			api.hideProgress();
+		}
 		function init() {
 			var date = new Date().Format("yyyy-MM-dd");
 			api.showProgress({

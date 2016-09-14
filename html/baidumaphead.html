@@ -80,6 +80,7 @@
 		}
 
 		apiready = function() {
+		
 			var endlon = $api.getStorage('endlon');
 			var endlat = $api.getStorage('endlat');
 			api.parseTapmode();
@@ -95,23 +96,23 @@
 			}, function(ret, err) {
 				var startlon = ret.lon;
 				var startlat = ret.lat;
-				bMap.open({
-					rect : {
-						x : 0,
-						y : 0,
-						w : 'auto',
-						h : 'auto'
-					},
-					center : {
-						lon : ret.lon,
-						lat : ret.lat
-					},
-					zoomLevel : 10,
-					showUserLocation : true,
-					// fixedOn: api.frameName,
-					fixed : true
-				}, function(ret) {
-					if (ret.status) {
+//				bMap.open({
+//					rect : {
+//						x : 0,
+//						y : 0,
+//						w : 'auto',
+//						h : 'auto'
+//					},
+//					center : {
+//						lon : ret.lon,
+//						lat : ret.lat
+//					},
+//					zoomLevel : 10,
+//					showUserLocation : true,
+//					// fixedOn: api.frameName,
+//					fixed : true
+//				}, function(ret) {
+//					if (ret.status) {
 						
 						var baiduNavigation = api.require('baiduNavigation');
 								baiduNavigation.start({
@@ -161,8 +162,8 @@
 										});
 									}
 								});
-					}
-				});
+//					}
+//				});
 				bMap.showUserLocation({
 					isShow : true,
 					trackingMode : 'follow'
