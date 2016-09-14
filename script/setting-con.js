@@ -101,8 +101,8 @@ function clearData() {
 
 function openAbout() {
 	api.openWin({
-		name : 'about',
-		url : './about.html'
+		name : 'aboutMe_head',
+		url : 'aboutMe_head.html'
 	});
 }
 
