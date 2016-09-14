@@ -97,6 +97,9 @@
 			<p class="aui-text-left" style="font-size:15px;"> 时间: <span class="aui-text-danger">{{=it[i].creatTime}}</span></p>
 			</div>
 			</div>
+			<div class="aui-text-right">
+				<div class="aui-btn aui-btn-outlined" onclick="helpthis('{{=it[i].lon}}','{{=it[i].lat}}')">导航</div>
+				</div>
 			</li>
 			{{ } }}
 			{{}else{}}
@@ -139,6 +142,17 @@
 				api.refreshHeaderLoadDone();
 			});
 		};
+		function helpthis(lon, lat) {
+			$api.setStorage('endlon', lon);
+			$api.setStorage('endlat', lat);
+			api.showProgress({
+			});
+			api.openWin({
+				name : 'baidumaphead',
+				url : './baidumaphead.html'
+			});
+		}
+		
 		function init() {
 			var date = new Date().Format("yyyy-MM-dd");
 			api.showProgress({
