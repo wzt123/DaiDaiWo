@@ -236,7 +236,7 @@
 				<div class="shelfinfo01">
 					猪肉
 				</div>
-				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp;月售6630份
+				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp; 
 				</div>
 			</div>
 			<div class="buybtn">
@@ -251,7 +251,7 @@
 				<div class="shelfinfo01">
 					鱼肉
 				</div>
-				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp;月售14438份
+				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp; 
 				</div>
 			</div>
 			<div class="buybtn">
@@ -266,7 +266,7 @@
 				<div class="shelfinfo01">
 					羊肉
 				</div>
-				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp;月售9587份
+				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp; 
 				</div>
 			</div>
 			<div class="buybtn">
@@ -281,7 +281,7 @@
 				<div class="shelfinfo01">
 					牛肉
 				</div>
-				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp;月售2602份
+				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp; 
 				</div>
 			</div>
 			<div class="buybtn">
@@ -296,7 +296,7 @@
 				<div class="shelfinfo01">
 					鸡肉
 				</div>
-				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp;月售2122份
+				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp; 
 				</div>
 			</div>
 			<div class="buybtn">
@@ -311,7 +311,7 @@
 				<div class="shelfinfo01">
 					鸭肉
 				</div>
-				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp;月售2122份
+				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp; 
 				</div>
 			</div>
 			<div class="buybtn">
@@ -414,7 +414,7 @@
 				minbuydom.style.display = 'none';
 				buyinfodom.style.display = 'inline-block';
 				buynumdom.innerHTML = buynum;
-				totalcashdom.innerHTML = totalcash;
+				totalcashdom.innerHTML = totalcash.toFixed(1);
 			}
 		}
 
@@ -485,7 +485,7 @@
 				// minbuydom.style.display = 'none';
 				buyinfodom.style.display = 'inline-block';
 				buynumdom.innerHTML = buynum;
-				totalcashdom.innerHTML = totalcash;
+				totalcashdom.innerHTML = totalcash.toFixed(1);
 			}
 		}
 
@@ -517,7 +517,7 @@
 			}
 			$api.setStorage('amount', buynum);
 			$api.setStorage('classname', "肉类");
-			$api.setStorage('totalcash', totalcash);
+			$api.setStorage('totalcash', totalcash.toFixed(1)); 
 			api.sendEvent({
 				name : 'place_order_localstorage',
 				extra : {

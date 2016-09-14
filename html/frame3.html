@@ -167,7 +167,7 @@
 			</div><div class="h1"></div>
 			<div class="item" tapmode="presshover" onclick="openus()">
 				<img src="../image/my_review_user_icon_normal.png" alt="" class="item_ico">
-				<span>关于我们</span>
+				<span>联系我们</span>
 				<img src="../image/arrow.png" alt="" class="item_arrow">
 			</div>
 		</div>
@@ -188,6 +188,10 @@
 		}
 
 		function modifyNick(name) {
+		api.openWin({
+	        name: 'modifyNick',
+	        url: 'modifyNick.html'
+        });
 		}
 
 		function openmenu() {

@@ -236,7 +236,7 @@
 				<div class="shelfinfo01">
 					黄豆芽
 				</div>
-				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp;月售6630份
+				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp; 
 				</div>
 			</div>
 			<div class="buybtn">
@@ -251,7 +251,7 @@
 				<div class="shelfinfo01">
 					萝卜芽
 				</div>
-				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp;月售14438份
+				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp; 
 				</div>
 			</div>
 			<div class="buybtn">
@@ -266,7 +266,7 @@
 				<div class="shelfinfo01">
 					豌豆芽
 				</div>
-				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp;月售9587份
+				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp; 
 				</div>
 			</div>
 			<div class="buybtn">
@@ -281,7 +281,7 @@
 				<div class="shelfinfo01">
 					荞麦菜
 				</div>
-				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp;月售2602份
+				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp; 
 				</div>
 			</div>
 			<div class="buybtn">
@@ -296,7 +296,7 @@
 				<div class="shelfinfo01">
 					姜芽
 				</div>
-				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp;月售2122份
+				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp; 
 				</div>
 			</div>
 			<div class="buybtn">
@@ -311,7 +311,7 @@
 				<div class="shelfinfo01">
 					绿豆芽
 				</div>
-				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp;月售2122份
+				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp; 
 				</div>
 			</div>
 			<div class="buybtn">
@@ -358,7 +358,7 @@
 			}
 			$api.setStorage('amount', buynum);
 			$api.setStorage('classname', "芽苗类");
-			$api.setStorage('totalcash', totalcash);
+			$api.setStorage('totalcash', totalcash.toFixed(1));
 			api.sendEvent({
 				name : 'place_order_localstorage',
 				extra : {
@@ -432,7 +432,7 @@
 				minbuydom.style.display = 'none';
 				buyinfodom.style.display = 'inline-block';
 				buynumdom.innerHTML = buynum;
-				totalcashdom.innerHTML = totalcash;
+				totalcashdom.innerHTML = totalcash.toFixed(1);
 			}
 		}
 
@@ -501,7 +501,7 @@
 				// minbuydom.style.display = 'none';
 				buyinfodom.style.display = 'inline-block';
 				buynumdom.innerHTML = buynum;
-				totalcashdom.innerHTML = totalcash;
+				totalcashdom.innerHTML = totalcash.toFixed(1);
 			}
 		}
 

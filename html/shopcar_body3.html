@@ -236,7 +236,7 @@
 				<div class="shelfinfo01">
 					木耳
 				</div>
-				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp;月售6630份
+				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp; 
 				</div>
 			</div>
 			<div class="buybtn">
@@ -251,7 +251,7 @@
 				<div class="shelfinfo01">
 					银针
 				</div>
-				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp;月售6630份
+				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp;
 				</div>
 			</div>
 			<div class="buybtn">
@@ -266,7 +266,7 @@
 				<div class="shelfinfo01">
 					杏鲍菇
 				</div>
-				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp;月售9587份
+				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp; 
 				</div>
 			</div>
 			<div class="buybtn">
@@ -281,7 +281,7 @@
 				<div class="shelfinfo01">
 					金针菇
 				</div>
-				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp;月售2602份
+				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp; 
 				</div>
 			</div>
 			<div class="buybtn">
@@ -296,7 +296,7 @@
 				<div class="shelfinfo01">
 					香菇
 				</div>
-				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp;月售2122份
+				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp; 
 				</div>
 			</div>
 			<div class="buybtn">
@@ -309,7 +309,7 @@
 		<div class="h50"></div>
 		<div class="bottom">
 			<img src="../image/cart.png" alt="">
-			<span class="buyinfo" id="buyinfo"><span id="buynum">1</span>份 ￥<span id="totalcash">10</span></span>
+			<span class="buyinfo" id="buyinfo"><span id="buynum">1</span> ￥<span id="totalcash">10</span></span>
 			<span id="minbuy">￥0元起送</span>
 			<span id="buyit" tapmode="total-hover" onclick="openorder()">去结算</span>
 		</div>
@@ -343,7 +343,7 @@
 			}
 			$api.setStorage('amount', buynum);
 			$api.setStorage('classname', "菌类");
-			$api.setStorage('totalcash', totalcash);
+			$api.setStorage('totalcash', totalcash.toFixed(1));
 			api.sendEvent({
 				name : 'place_order_localstorage',
 				extra : {
@@ -411,7 +411,7 @@
 				minbuydom.style.display = 'none';
 				buyinfodom.style.display = 'inline-block';
 				buynumdom.innerHTML = buynum;
-				totalcashdom.innerHTML = totalcash;
+				totalcashdom.innerHTML = totalcash.toFixed(1);
 			}
 		}
 
@@ -474,7 +474,7 @@
 				// minbuydom.style.display = 'none';
 				buyinfodom.style.display = 'inline-block';
 				buynumdom.innerHTML = buynum;
-				totalcashdom.innerHTML = totalcash;
+				totalcashdom.innerHTML = totalcash.toFixed(1);
 			}
 		}
 

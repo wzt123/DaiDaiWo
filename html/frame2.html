@@ -81,6 +81,7 @@
 	<body>
 		<script id="ordertpl" type="text/x-dot-template" >
 			<ul class="aui-list-view">
+			{{if(it.length!=0){}}
 			{{for(var i in it) { }}			
 			<li class="aui-list-view-cell aui-img aui-counter-list" onclick="openthis('{{=it[i].id}}')">
 			<div class="aui-list-view-cell aui-img aui-counter-list">
@@ -102,6 +103,11 @@
 			</div>
 			</li>		
 			{{ } }}
+			{{}else{}}
+			<li class="aui-list-view-cell aui-img aui-counter-list" tapmode onclick="">
+			<h2 class="font-color">暂时没有人下单呢~</h5>
+			</li>
+			{{}}}
 			</ul>
 		</script>
 		<ul class="aui-list-view" id="include"></ul>

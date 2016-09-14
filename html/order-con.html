@@ -124,12 +124,16 @@
 	<script type="text/javascript" src="../script/api.js"></script>
 	<script src="../script/zepto.js"></script>
 	<script src="../script/carousel.js"></script>
+	<script src="../script/ajaxCloud.js"></script>
+	<script type="text/javascript" src="../script/common.js"></script>
 	<script type="text/javascript" src="../script/doT.min.js"></script>
 	<script type="text/javascript">
+		var model;
+		var query;
 		apiready = function() {
 			var dataId = api.pageParam.dataId;
-			var model = api.require('model');
-			var query = api.require('query');
+			model = api.require('model');
+			query = api.require('query');
 			model.config({
 				appKey : '7810E5E4-7F54-E1E6-B07F-9ADA6FA49D46'
 			});
@@ -149,6 +153,8 @@
 		}
 		function helpthis(id) {
 			//判断是否已经被人抢单
+			api.showProgress({
+            });
 			model.findById({
 				class : 'orderForm',
 				id : id
@@ -166,17 +172,16 @@
 					ajaxRequest(orderUrl, 'put', JSON.stringify(bodyParam), function(ret, err) {
 						if (ret) {
 							//update personal center
-							setTimeout(function() {
-								api.alert({
-									msg : '抢单成功'
-								}, function(ret, err) {
-								});
-							}, 200);
+							api.alert({
+								msg : '抢单成功'
+							}, function(ret, err) {
+							});
 						} else {
 							api.toast({
 								msg : err.msg
 							})
 						}
+						api.hideProgress();
 					});
 				} else {
 					api.alert({
@@ -184,6 +189,7 @@
 					}, function(ret, err) {
 						//coding...
 					});
+					api.hideProgress();
 				}
 			});
 		}

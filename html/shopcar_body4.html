@@ -236,7 +236,7 @@
 				<div class="shelfinfo01">
 					辣椒
 				</div>
-				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp;月售6630份
+				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp; 
 				</div>
 			</div>
 			<div class="buybtn">
@@ -251,7 +251,7 @@
 				<div class="shelfinfo01">
 					南瓜
 				</div>
-				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp;月售14438份
+				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp; 
 				</div>
 			</div>
 			<div class="buybtn">
@@ -266,7 +266,7 @@
 				<div class="shelfinfo01">
 					冬瓜
 				</div>
-				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp;月售9587份
+				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp; 
 				</div>
 			</div>
 			<div class="buybtn">
@@ -281,7 +281,7 @@
 				<div class="shelfinfo01">
 					苦瓜
 				</div>
-				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp;月售2602份
+				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp; 
 				</div>
 			</div>
 			<div class="buybtn">
@@ -296,7 +296,7 @@
 				<div class="shelfinfo01">
 					黄瓜
 				</div>
-				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp;月售2122份
+				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp; 
 				</div>
 			</div>
 			<div class="buybtn">
@@ -311,7 +311,7 @@
 				<div class="shelfinfo01">
 					丝瓜
 				</div>
-				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp;月售2122份
+				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp; 
 				</div>
 			</div>
 			<div class="buybtn">
@@ -326,7 +326,7 @@
 				<div class="shelfinfo01">
 					西葫芦
 				</div>
-				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp;月售2122份
+				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp; 
 				</div>
 			</div>
 			<div class="buybtn">
@@ -341,7 +341,7 @@
 				<div class="shelfinfo01">
 					番茄
 				</div>
-				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp;月售2122份
+				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp; 
 				</div>
 			</div>
 			<div class="buybtn">
@@ -356,7 +356,7 @@
 				<div class="shelfinfo01">
 					茄子
 				</div>
-				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp;月售2122份
+				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp; 
 				</div>
 			</div>
 			<div class="buybtn">
@@ -371,7 +371,7 @@
 				<div class="shelfinfo01">
 					豌豆
 				</div>
-				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp;月售2122份
+				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp; 
 				</div>
 			</div>
 			<div class="buybtn">
@@ -386,7 +386,7 @@
 				<div class="shelfinfo01">
 					扁豆
 				</div>
-				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp;月售2122份
+				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp; 
 				</div>
 			</div>
 			<div class="buybtn">
@@ -401,7 +401,7 @@
 				<div class="shelfinfo01">
 					毛豆
 				</div>
-				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp;月售2122份
+				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp; 
 				</div>
 			</div>
 			<div class="buybtn">
@@ -416,7 +416,7 @@
 				<div class="shelfinfo01">
 					玉米
 				</div>
-				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp;月售2122份
+				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp; 
 				</div>
 			</div>
 			<div class="buybtn">
@@ -463,7 +463,7 @@
 			}
 			$api.setStorage('amount', buynum);
 			$api.setStorage('classname', "果菜类");
-			$api.setStorage('totalcash', totalcash);
+			$api.setStorage('totalcash', totalcash.toFixed(1)); 
 			api.sendEvent({
 				name : 'place_order_localstorage',
 				extra : {
@@ -579,7 +579,7 @@
 				minbuydom.style.display = 'none';
 				buyinfodom.style.display = 'inline-block';
 				buynumdom.innerHTML = buynum;
-				totalcashdom.innerHTML = totalcash;
+				totalcashdom.innerHTML = totalcash.toFixed(1);
 			}
 		}
 
@@ -690,7 +690,7 @@
 				// minbuydom.style.display = 'none';
 				buyinfodom.style.display = 'inline-block';
 				buynumdom.innerHTML = buynum;
-				totalcashdom.innerHTML = totalcash;
+				totalcashdom.innerHTML = totalcash.toFixed(1);
 			}
 		}
 

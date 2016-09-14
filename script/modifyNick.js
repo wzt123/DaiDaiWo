@@ -4,7 +4,7 @@ function ensure() {
 
     var updateNickNameUrl = '/user/' + uid;
     var bodyParam = {
-        nickname: nickname
+        username: nickname
     }
     ajaxRequest(updateNickNameUrl, 'put', JSON.stringify(bodyParam), function (ret, err) {
         if (ret) {

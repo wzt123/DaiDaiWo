@@ -236,7 +236,7 @@
 				<div class="shelfinfo01">
 					花椰菜
 				</div>
-				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp;月售6630份
+				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp; 
 				</div>
 			</div>
 			<div class="buybtn">
@@ -251,7 +251,7 @@
 				<div class="shelfinfo01">
 					金针菜
 				</div>
-				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp;月售6630份
+				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp; 
 				</div>
 			</div>
 			<div class="buybtn">
@@ -266,7 +266,7 @@
 				<div class="shelfinfo01">
 					青花菜
 				</div>
-				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp;月售9587份
+				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp; 
 				</div>
 			</div>
 			<div class="buybtn">
@@ -281,7 +281,7 @@
 				<div class="shelfinfo01">
 					花椰菜
 				</div>
-				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp;月售6630份
+				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp; 
 				</div>
 			</div>
 			<div class="buybtn">
@@ -296,7 +296,7 @@
 				<div class="shelfinfo01">
 					芥蓝
 				</div>
-				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp;月售2122份
+				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp; 
 				</div>
 			</div>
 			<div class="buybtn">
@@ -343,7 +343,7 @@
 			}
 			$api.setStorage('amount', buynum);
 			$api.setStorage('classname', "花菜类");
-			$api.setStorage('totalcash', totalcash);
+			$api.setStorage('totalcash', totalcash.toFixed(1)); 
 			api.sendEvent({
 				name : 'place_order_localstorage',
 				extra : {
@@ -412,7 +412,7 @@
 				minbuydom.style.display = 'none';
 				buyinfodom.style.display = 'inline-block';
 				buynumdom.innerHTML = buynum;
-				totalcashdom.innerHTML = totalcash;
+				totalcashdom.innerHTML = totalcash.toFixed(1);
 			}
 		}
 
@@ -475,7 +475,7 @@
 				// minbuydom.style.display = 'none';
 				buyinfodom.style.display = 'inline-block';
 				buynumdom.innerHTML = buynum;
-				totalcashdom.innerHTML = totalcash;
+				totalcashdom.innerHTML = totalcash.toFixed(1);
 			}
 		}
 
