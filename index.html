@@ -117,31 +117,31 @@
 		model.config({
 			appKey : '7810E5E4-7F54-E1E6-B07F-9ADA6FA49D46'
 		});
-		model.findById({
-			class : 'price_Today',
-			id : '57d3de8ae302e1e26a72d037'
-		}, function(ret, err) {
-			//coding...
-			if (ret) {
-				model.downloadFile({
-					report : true,
-					url : ret.todayPrice.url,
-					savePath : 'json/VGlist.json'
-				}, function(ret, err) {
-					if (ret) {
-						alert("今日菜价获取成功")
-					} else {
-						alert("今日菜价获取失败，请检查网络")
-					}
-				});
-			} else {
-				api.alert({
-					msg : "今日菜价获取失败，请检查网络"
-				}, function(ret, err) {
-					//coding...
-				});
-			}
-		});
+//		model.findById({
+//			class : 'price_Today',
+//			id : '57d3de8ae302e1e26a72d037'
+//		}, function(ret, err) {
+//			//coding...
+//			if (ret) {
+//				model.downloadFile({
+//					report : true,
+//					url : ret.todayPrice.url,
+//					savePath : 'json/VGlist.json'
+//				}, function(ret, err) {
+//					if (ret) {
+//						alert("今日菜价获取成功")
+//					} else {
+//						alert("今日菜价获取失败，请检查网络")
+//					}
+//				});
+//			} else {
+//				api.alert({
+//					msg : "今日菜价获取失败，请检查网络"
+//				}, function(ret, err) {
+//					//coding...
+//				});
+//			}
+//		});
 	}
 	function funIniGroup() {
 		var eHeaderLis = $api.domAll('header li'), frames = [];

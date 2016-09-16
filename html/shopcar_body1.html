@@ -27,7 +27,7 @@
 				line-height: 40px;
 				text-align: center;
 				color: white;
-				background-color: #ff9700;
+				background-color: #1db6a0;
 			}
 			/**/
 			.item {
@@ -231,247 +231,117 @@
 		<div class="darktitle">
 			叶菜类/蔬菜
 		</div>
-		<div class="item style2">
+		<script id="shop_tpl" type="text/x-dot-template">
+			{{for(var i in it){}}
+			<div class="item style2">
 			<div class="itemshelf">
-				<div class="shelfinfo01">
-					白菜
-				</div>
-				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp; 
-				</div>
+			<div class="shelfinfo01">
+			{{=it[i].name}}
+			</div>
+			<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp;
+			</div>
 			</div>
 			<div class="buybtn">
-				<p tapmode="" onclick="buyfood(0)">
-					￥0.5
-				</p>
-				<span class="minusorder"> <img src="../image/foodlist_bg_foodnum.png" alt="" class="numbg"><span class="thisordernum">0</span> <span class="minus" tapmode="" onclick="minuscash(0)">－</span> </span>
+			<p tapmode="" onclick="buyfood({{=i}},{{=it[i].price}})">
+			{{=it[i].price}}
+			</p>
+			<span class="minusorder"> <img src="../image/foodlist_bg_foodnum.png" alt="" class="numbg"><span class="thisordernum">0</span> <span class="minus" tapmode="" onclick="minuscash({{=i}},{{=it[i].price}})">－</span> </span>
 			</div>
-		</div>
-		<div class="item style2">
-			<div class="itemshelf">
-				<div class="shelfinfo01">
-					青菜
-				</div>
-				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp; 
-				</div>
 			</div>
-			<div class="buybtn">
-				<p tapmode="" onclick="buyfood(1)">
-					￥1.0
-				</p>
-				<span class="minusorder"> <img src="../image/foodlist_bg_foodnum.png" alt="" class="numbg"><span class="thisordernum">0</span> <span class="minus" tapmode="" onclick="minuscash(1)">－</span> </span>
-			</div>
-		</div>
-		<div class="item style2">
-			<div class="itemshelf">
-				<div class="shelfinfo01">
-					菠菜
-				</div>
-				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp; 
-				</div>
-			</div>
-			<div class="buybtn">
-				<p tapmode="" onclick="buyfood(2)">
-					￥1.7
-				</p>
-				<span class="minusorder"> <img src="../image/foodlist_bg_foodnum.png" alt="" class="numbg"><span class="thisordernum">0</span> <span class="minus" tapmode="" onclick="minuscash(2)">－</span> </span>
-			</div>
-		</div>
-		<div class="item style2">
-			<div class="itemshelf">
-				<div class="shelfinfo01">
-					油麦菜
-				</div>
-				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp; 
-				</div>
-			</div>
-			<div class="buybtn">
-				<p tapmode="" onclick="buyfood(3)">
-					￥3.5
-				</p>
-				<span class="minusorder"> <img src="../image/foodlist_bg_foodnum.png" alt="" class="numbg"><span class="thisordernum">0</span> <span class="minus" tapmode="" onclick="minuscash(3)">－</span> </span>
-			</div>
-		</div>
-		<div class="item style2">
-			<div class="itemshelf">
-				<div class="shelfinfo01">
-					油菜
-				</div>
-				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp; 
-				</div>
-			</div>
-			<div class="buybtn">
-				<p tapmode="" onclick="buyfood(4)">
-					￥2.5
-				</p>
-				<span class="minusorder"> <img src="../image/foodlist_bg_foodnum.png" alt="" class="numbg"><span class="thisordernum">0</span> <span class="minus" tapmode="" onclick="minuscash(4)">－</span> </span>
-			</div>
-		</div>
-		<div class="item style2">
-			<div class="itemshelf">
-				<div class="shelfinfo01">
-					韭菜
-				</div>
-				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp; 
-				</div>
-			</div>
-			<div class="buybtn">
-				<p tapmode="" onclick="buyfood(5)">
-					￥1.2
-				</p>
-				<span class="minusorder"> <img src="../image/foodlist_bg_foodnum.png" alt="" class="numbg"><span class="thisordernum">0</span> <span class="minus" tapmode="" onclick="minuscash(5)">－</span> </span>
-			</div>
-		</div>
-		<div class="item style2">
-			<div class="itemshelf">
-				<div class="shelfinfo01">
-					蒜苗
-				</div>
-				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp; 
-				</div>
-			</div>
-			<div class="buybtn">
-				<p tapmode="" onclick="buyfood(6)">
-					￥4.0
-				</p>
-				<span class="minusorder"> <img src="../image/foodlist_bg_foodnum.png" alt="" class="numbg"><span class="thisordernum">0</span> <span class="minus" tapmode="" onclick="minuscash(6)">－</span> </span>
-			</div>
-		</div>
-		<div class="item style2">
-			<div class="itemshelf">
-				<div class="shelfinfo01">
-					芹菜
-				</div>
-				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp; 
-				</div>
-			</div>
-			<div class="buybtn">
-				<p tapmode="" onclick="buyfood(7)">
-					￥0.5
-				</p>
-				<span class="minusorder"> <img src="../image/foodlist_bg_foodnum.png" alt="" class="numbg"><span class="thisordernum">0</span> <span class="minus" tapmode="" onclick="minuscash(7)">－</span> </span>
-			</div>
-		</div>
-		<div class="item style2">
-			<div class="itemshelf">
-				<div class="shelfinfo01">
-					空心菜
-				</div>
-				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp; 
-				</div>
-			</div>
-			<div class="buybtn">
-				<p tapmode="" onclick="buyfood(8)">
-					￥1.2
-				</p>
-				<span class="minusorder"> <img src="../image/foodlist_bg_foodnum.png" alt="" class="numbg"><span class="thisordernum">0</span> <span class="minus" tapmode="" onclick="minuscash(8)">－</span> </span>
-			</div>
-		</div>
-		<div class="item style2">
-			<div class="itemshelf">
-				<div class="shelfinfo01">
-					海带
-				</div>
-				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp; 
-				</div>
-			</div>
-			<div class="buybtn">
-				<p tapmode="" onclick="buyfood(9)">
-					￥6.5
-				</p>
-				<span class="minusorder"> <img src="../image/foodlist_bg_foodnum.png" alt="" class="numbg"><span class="thisordernum">0</span> <span class="minus" tapmode="" onclick="minuscash(9)">－</span> </span>
-			</div>
-		</div>
-		<div class="item style2">
-			<div class="itemshelf">
-				<div class="shelfinfo01">
-					紫菜
-				</div>
-				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp; 
-				</div>
-			</div>
-			<div class="buybtn">
-				<p tapmode="" onclick="buyfood(10)">
-					￥50
-				</p>
-				<span class="minusorder"> <img src="../image/foodlist_bg_foodnum.png" alt="" class="numbg"><span class="thisordernum">0</span> <span class="minus" tapmode="" onclick="minuscash(10)">－</span> </span>
-			</div>
-		</div>
-		<div class="item style2">
-			<div class="itemshelf">
-				<div class="shelfinfo01">
-					荠菜
-				</div>
-				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp; 
-				</div>
-			</div>
-			<div class="buybtn">
-				<p tapmode="" onclick="buyfood(11)">
-					￥2.5
-				</p>
-				<span class="minusorder"> <img src="../image/foodlist_bg_foodnum.png" alt="" class="numbg"><span class="thisordernum">0</span> <span class="minus" tapmode="" onclick="minuscash(11)">－</span> </span>
-			</div>
-		</div>
-		<div class="item style2">
-			<div class="itemshelf">
-				<div class="shelfinfo01">
-					葱
-				</div>
-				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp; 
-				</div>
-			</div>
-			<div class="buybtn">
-				<p tapmode="" onclick="buyfood(12)">
-					￥0.7
-				</p>
-				<span class="minusorder"> <img src="../image/foodlist_bg_foodnum.png" alt="" class="numbg"><span class="thisordernum">0</span> <span class="minus" tapmode="" onclick="minuscash(12)">－</span> </span>
-			</div>
-		</div>
-		<div class="item style2">
-			<div class="itemshelf">
-				<div class="shelfinfo01">
-					辣根
-				</div>
-				<div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">&nbsp; 
-				</div>
-			</div>
-			<div class="buybtn">
-				<p tapmode="" onclick="buyfood(13)">
-					￥3.0
-				</p>
-				<span class="minusorder"> <img src="../image/foodlist_bg_foodnum.png" alt="" class="numbg"><span class="thisordernum">0</span> <span class="minus" tapmode="" onclick="minuscash(13)">－</span> </span>
-			</div>
-		</div>
-		<div class="h50"></div>
-		<div class="bottom">
+			{{}}}
+			<div class="h50"></div>
+			<div class="bottom">
 			<img src="../image/cart.png" alt="">
 			<span class="buyinfo" id="buyinfo"><span id="buynum">1</span>份 ￥<span id="totalcash">10</span></span>
 			<span id="minbuy">￥0元起送</span>
 			<span id="buyit" tapmode="total-hover" onclick="openorder()">去结算</span>
-		</div>
+			</div>
+		</script>
+		<div id="shop_include"></div>
 	</body>
 	<script type="text/javascript" src="../script/api.js"></script>
-	<script type="text/javascript" src="../script/localDB.js"></script>
+	<script type="text/javascript" src="../script/common.js"></script>
 	<script type="text/javascript" src="../script/zepto.min.js"></script>
-	<script type="text/javascript"  src="../json/VGlist.json"></script>
+	<script type="text/javascript" src="../script/doT.min.js"></script>
 	<script type="text/javascript">
 		var totalcash = 0;
 		var cashArray = new Array();
 		var buynum = 0;
 		var numArray = new Array();
 		apiready = function() {
-			for (var i = 0; i < 14; i++) {
-				
-					cashArray[i] = 0;
-				
-			}
-			for (var i = 0; i < 14; i++) {
-				
-					numArray[i] = 0;
-				
-			}
+			init();
+			api.setRefreshHeaderInfo({
+				visible : true,
+				loadingImg : '../image/refresh.png',
+				bgColor : '#ccc',
+				textColor : '#fff',
+				textDown : '下拉刷新...',
+				textUp : '松开刷新...',
+				showTime : true
+			}, function(ret, err) {
+				//在这里从服务器加载数据，加载完成后调用api.refreshHeaderLoadDone()方法恢复组件到默认状态
+				init();
+				api.refreshHeaderLoadDone();
+			});
 		}
-		function buyfood(index) {
-		
+		function init() {
+			api.showProgress({
+			});
+			var model = api.require('model');
+			var query = api.require('query');
+			model.config({
+				appKey : '7810E5E4-7F54-E1E6-B07F-9ADA6FA49D46'
+			});
+			query.createQuery({
+			}, function(ret, err) {
+				//coding...
+				if (ret && ret.qid) {
+					query.whereEqual({
+						qid : ret.qid,
+						column : 'classname',
+						value : 'yecai'
+					});
+					model.findAll({
+						class : 'price_Today',
+						qid : ret.qid
+					}, function(ret, err) {
+						//coding...
+						if (ret) {
+							var include = $api.byId('shop_include');
+							var tpl = $api.byId('shop_tpl').text;
+							var tempFn = doT.template(tpl);
+							include.innerHTML = tempFn(ret);
+							window.dataObj = ret;
+							for (var i in ret) {
+								cashArray[i] = 0;
+							}
+							for (var i in ret) {
+								numArray[i] = 0;
+							}
+							api.hideProgress();
+						} else {
+							setTimeout(function() {
+								api.alert({
+									msg : '获取菜价失败' + err.msg
+								}, function(ret, err) {
+								});
+								api.hideProgress();
+							}, 1200);
+							//							api.hideProgress();
+						}
+					});
+				} else {
+					api.alert({
+						msg : err.msg
+					}, function(ret, err) {
+						//coding...
+					});
+				}
+			});
+		api.hideProgress();
+		}
+
+		function buyfood(index, price) {
 			var buyinfodom = document.getElementById('buyinfo');
 			var buynumdom = document.getElementById('buynum');
 			var totalcashdom = document.getElementById('totalcash');
@@ -485,96 +355,10 @@
 				thisordernumdom[index].innerHTML = num;
 			}
 			minusorderdom[index].style.display = 'inline-block';
-			
-			switch(index) {
-				case 0:
-					totalcash += 0.5;
-					buynum += 1;
-					numArray[index] += 1;
-					cashArray[index] += 0.5;
-					
-					break;
-				case 1:
-					totalcash += 1.0;
-					buynum += 1;
-					numArray[index] += 1;
-					cashArray[index] += 1.0;
-					break;
-				case 2:
-					totalcash += 1.7;
-					buynum += 1;
-					numArray[index] += 1;
-					cashArray[index] += 1.7;
-					break;
-				case 3:
-					totalcash += 3.5;
-					buynum += 1;
-					numArray[index] += 1;
-					cashArray[index] += 3.5;
-					break;
-				case 4:
-					totalcash += 2.5;
-					buynum += 1;
-					numArray[index] += 1;
-					cashArray[index] += 2.5;
-					break;
-				case 5:
-					totalcash += 1.2;
-					buynum += 1;
-					numArray[index] += 1;
-					cashArray[index] += 1.2;
-					break;
-				case 6:
-					totalcash += 4.0;
-					buynum += 1;
-					numArray[index] += 1;
-					cashArray[index] += 4.0;
-					break;
-				case 7:
-					totalcash += 0.5;
-					buynum += 1;
-					numArray[index] += 1;
-					cashArray[index] += 0.5;
-					break;
-				case 8:
-					totalcash += 1.2;
-					buynum += 1;
-					numArray[index] += 1;
-					cashArray[index] += 1.2;
-					break;
-				case 9:
-					totalcash += 6.5;
-					buynum += 1;
-					numArray[index] += 1;
-					cashArray[index] += 6.5;
-					break;
-				case 10:
-					totalcash += 50;
-					buynum += 1;
-					numArray[index] += 1;
-					cashArray[index] += 50;
-					break;
-				case 11:
-					totalcash += 2.5;
-					buynum += 1;
-					numArray[index] += 1;
-					cashArray[index] += 2.5;
-					break;
-				case 12:
-					totalcash += 0.7;
-					buynum += 1;
-					numArray[index] += 1;
-					cashArray[index] += 0.7;
-					break;
-				case 13:
-					totalcash += 3.0;
-					buynum += 1;
-					numArray[index] += 1;
-					cashArray[index] += 3.0;
-					break;
-				default:
-					break;
-			}
+			totalcash += price;
+			buynum += 1;
+			numArray[index] += 1;
+			cashArray[index] += price;
 			if (totalcash == 0) {
 				buyinfodom.style.display = 'none';
 			} else {
@@ -586,7 +370,7 @@
 			}
 		}
 
-		function minuscash(index) {
+		function minuscash(index, price) {
 			var buyinfodom = document.getElementById('buyinfo');
 			var buynumdom = document.getElementById('buynum');
 			var totalcashdom = document.getElementById('totalcash');
@@ -602,96 +386,10 @@
 				thisordernumdom[index].innerHTML = num;
 				minusorderdom[index].style.display = 'none';
 			}
-			switch(index) {
-				case 0:
-					totalcash -= 0.5;
-					buynum -= 1;
-					numArray[index] -= 1;
-					cashArray[index] -= 0.5;
-					
-					break;
-				case 1:
-					totalcash -= 1.0;
-					buynum -= 1;
-					numArray[index] -= 1;
-					cashArray[index] -= 1.0;
-					break;
-				case 2:
-					totalcash -= 1.7;
-					buynum -= 1;
-					numArray[index] -= 1;
-					cashArray[index] -= 1.7;
-					break;
-				case 3:
-					totalcash -= 3.5;
-					buynum -= 1;
-					numArray[index] -= 1;
-					cashArray[index] -= 3.5;
-					break;
-				case 4:
-					totalcash -= 2.5;
-					buynum -= 1;
-					numArray[index] -= 1;
-					cashArray[index] -= 2.5;
-					break;
-				case 5:
-					totalcash -= 1.2;
-					buynum -= 1;
-					numArray[index] -= 1;
-					cashArray[index] -= 1.2;
-					break;
-				case 6:
-					totalcash -= 4.0;
-					buynum -= 1;
-					numArray[index] -= 1;
-					cashArray[index] -= 4.0;
-					break;
-				case 7:
-					totalcash -= 0.5;
-					buynum -= 1;
-					numArray[index] -= 1;
-					cashArray[index] -= 0.5;
-					break;
-				case 8:
-					totalcash -= 1.2;
-					buynum -= 1;
-					numArray[index] -= 1;
-					cashArray[index] -= 1.2;
-					break;					
-				case 9:
-					totalcash -= 6.5;
-					buynum -= 1;
-					numArray[index] -= 1;
-					cashArray[index] -= 6.5;
-					break;
-				case 10:
-					totalcash -= 50;
-					buynum -= 1;
-					numArray[index] -= 1;
-					cashArray[index] -= 50;
-					break;
-				case 11:
-					totalcash -= 2.5;
-					buynum -= 1;
-					numArray[index] -= 1;
-					cashArray[index] -= 2.5;
-					break;
-
-				case 12:
-					totalcash -= 0.7;
-					buynum -= 1;
-					numArray[index] -= 1;
-					cashArray[index] -= 0.7;
-					break;
-				case 13:
-					totalcash -= 3.0;
-					buynum -= 1;
-					numArray[index] -= 1;
-					cashArray[index] -= 3.0;
-					break;
-				default:
-					break;
-			}
+			totalcash -= price;
+			buynum -= 1;
+			numArray[index] -= 1;
+			cashArray[index] -= price;
 			if (totalcash == 0) {
 				buyinfodom.style.display = 'none';
 				minbuydom.style.display = 'inline-block';
@@ -700,7 +398,7 @@
 				// buyitdom.style.display = 'inline-block';
 				// minbuydom.style.display = 'none';
 				buyinfodom.style.display = 'inline-block';
-				buynumdom.innerHTML = buynum ;
+				buynumdom.innerHTML = buynum;
 				totalcashdom.innerHTML = totalcash.toFixed(1);
 			}
 		}
@@ -720,11 +418,11 @@
 		}
 
 		function openorder() {
-			var orderData = new Array(14);
-			for (var j = 0; j < numArray.length; j += 1) {
+			var orderData = new Array(dataObj.length);
+			for (var j in dataObj) {
 				orderData[j] = {
-					name : vgjson.yecai[j].name,
-					price : vgjson.yecai[j].price,
+					name : dataObj[j].name,
+					price : dataObj[j].price,
 					amount : numArray[j],
 					money : cashArray[j]
 				}
@@ -740,10 +438,10 @@
 					key : true
 				}
 			});
-						api.openWin({
-							name : 'enter_order_detail_head',
-							url : './enter_order_detail_head.html'
-						});
+			api.openWin({
+				name : 'enter_order_detail_head',
+				url : './enter_order_detail_head.html'
+			});
 		}
 	</script>
 </html>
