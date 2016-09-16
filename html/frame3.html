@@ -270,7 +270,9 @@
 						var tempFn = doT.template(tpl);
 						inclu.innerHTML = tempFn(ret);
 						var head_portrait = $api.byId('head_portrait');
+						if(ret.head_portrait.url!=null){
 						head_portrait.src = ret.head_portrait.url
+						}
 					} else {
 						api.toast({
 							msg : err.msg

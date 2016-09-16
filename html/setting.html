@@ -29,6 +29,20 @@
 	        $api.fixStatusBar(header); 
 	        var headerPos = $api.offset(header);
         		var body_h = $api.offset($api.dom('body')).h;
+        		var userid = $api.getStorage('uid');
+			//			userid = '"' + userid + '"';
+			if (userid == null) {
+				api.alert({
+					msg : "亲，要先登录哦~"
+				}, function(ret, err) {
+					if (ret) {
+						api.closeToWin({
+							name : 'root'
+						});
+					}
+				});
+				return;
+			}
 	        api.openFrame({
 	            name: 'setting-con',
 	            url: 'setting-con.html',

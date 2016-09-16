@@ -177,6 +177,20 @@
 				host : 'https://d.apicloud.com'
 			});
 			api.parseTapmode();
+			var userid = $api.getStorage('uid');
+			//			userid = '"' + userid + '"';
+			if (userid == null) {
+				api.alert({
+					msg : "亲，要先登录哦~"
+				}, function(ret, err) {
+					if (ret) {
+						api.closeToWin({
+							name : 'root'
+						});
+					}
+				});
+				return;
+			}
 			initframe();
 			api.setRefreshHeaderInfo({
 				visible : true,

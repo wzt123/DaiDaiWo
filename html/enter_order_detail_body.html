@@ -181,8 +181,14 @@
 		}
 
 		function writeRequest() {
+		
 			var orderRequest = document.getElementById("orderRequest").value;
-			$api.setStorage('orderRequest', orderRequest);			
+			$api.setStorage('orderRequest', orderRequest);	
+			api.alert({
+            msg:"要求输入成功，记得选择地址哦~"
+            },function(ret,err){
+            	//coding...
+            });		
 		}
 
 
