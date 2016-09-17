@@ -97,19 +97,19 @@
 			.presshover {
 				background-color: #FAFAFA;
 			}
-			#divcss5{ margin:10px auto} 
-			#divcss5 img{ border-radius:50%} 
-			   
-        
-     
-       
+			#divcss5 {
+				margin: 10px auto
+			}
+			#divcss5 img {
+				border-radius: 50%
+			}
 		</style>
 	</head>
 	<body>
 		<div class="login" onclick="" tapmode>
-		<img src="../image/ucenter_bg1.png" alt="" class="loginbg">
-			<div id="divcss5"><img src="../image/login.png" style="width:80px;height:80px" alt="" class="personal_logo" id="head_portrait" onclick="fnSetAvatar()"></div> 
-			
+			<img src="../image/ucenter_bg1.png" alt="" class="loginbg">
+			<div id="divcss5"><img src="../image/login.png" style="width:80px;height:80px" alt="" class="personal_logo" id="head_portrait" onclick="fnSetAvatar()">
+			</div>
 			<div class="userinfo">
 				<p class="title" tapmode onclick="user_login();" id="requestLogin">
 					点击登录
@@ -188,10 +188,10 @@
 		}
 
 		function modifyNick(name) {
-		api.openWin({
-	        name: 'modifyNick',
-	        url: 'modifyNick.html'
-        });
+			api.openWin({
+				name : 'modifyNick',
+				url : 'modifyNick.html'
+			});
 		}
 
 		function openmenu() {
@@ -270,8 +270,8 @@
 						var tempFn = doT.template(tpl);
 						inclu.innerHTML = tempFn(ret);
 						var head_portrait = $api.byId('head_portrait');
-						if(ret.head_portrait.url!=null){
-						head_portrait.src = ret.head_portrait.url
+						if (ret.head_portrait != null) {
+							head_portrait.src = ret.head_portrait.url
 						}
 					} else {
 						api.toast({
@@ -342,7 +342,7 @@
 										}
 									}
 									ajaxToAPICloud("A6913489764881", "7810E5E4-7F54-E1E6-B07F-9ADA6FA49D46", "put", classInfo, callback);
-									} else {
+								} else {
 									api.alert({
 										msg : err.msg
 									});
@@ -373,7 +373,7 @@
 				if (ret) {
 					var requestLogin2 = $api.byId('requestLogin');
 					var head_pic = $api.byId('head_portrait');
-					head_pic.src ="../image/login.png"
+					head_pic.src = "../image/login.png"
 					requestLogin2.innerHTML = "登录";
 					var includ = {
 						username : "",

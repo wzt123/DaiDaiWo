@@ -390,6 +390,7 @@
 /A6913489764881/html/orderopen.html
 /A6913489764881/image/image/image/image/hd.png
 /A6913489764881/image/image/image/ic_address_big.png
+/A6913489764881/html/shopcar_body_head.html
 /A6913489764881/script/zepto.js
 /A6913489764881/image/ic-check.png
 /A6913489764881/html/func.html

@@ -97,6 +97,8 @@ function clearData() {
 			msg : '缓存已清空!'
 		});
 	}, 300);
+	var clearD = $api.byId('clearD');
+	clearD.innerHTML = "0M";
 }
 
 function openAbout() {

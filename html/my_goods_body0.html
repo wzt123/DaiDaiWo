@@ -87,18 +87,6 @@
 		</style>
 	</head>
 	<body>
-		<!--<div class="aui-tab aui-tab-warning aui-padded-5">-->
-		<!--<header>
-		<ul class="aui-tab-nav aui-tab-border" id="demo2">
-		<li class="active">
-		未完成
-		</li>
-		<li onclick="opendone()">
-		已完成
-		</li>
-		</ul>
-		</header>-->
-		<!--</div>-->
 		<div class="aui-content">
 			<script id="ordertpl" type="text/x-dot-template" >
 				{{for(var i in it) { }}
@@ -216,6 +204,7 @@
 				name : 'baidumaphead',
 				url : './baidumaphead.html'
 			});
+			api.hideProgress();
 		}
 
 		function initframe() {

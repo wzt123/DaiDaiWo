@@ -122,55 +122,55 @@
 				<label class="active-ars"></label>蔬菜.油粮.肉类
 			</p>
 			<ul class="aui-list-view aui-grid-view">
-				<li class="aui-list-view-cell aui-img aui-col-xs-4" tapmode onclick="openshopcar1()">
+				<li class="aui-list-view-cell aui-img aui-col-xs-4" tapmode onclick="openshopcar(1, '../image/yecai.png')">
 					<img class="aui-img-object" src="../image/yecai.png" data-echo="../image/yecai.png">
 					<div class="aui-img-body aui-text-left">
 						<span class="aui-ellipsis-1">叶菜类蔬菜</span>
 					</div>
 				</li>
-				<li class="aui-list-view-cell aui-img aui-col-xs-4" tapmode onclick="openshopcar6()">
+				<li class="aui-list-view-cell aui-img aui-col-xs-4" tapmode onclick="openshopcar(6, '../image/yamiao.png')">
 					<img class="aui-img-object" src="../image/yamiao.png" data-echo="../image/yamiao.png">
 					<div class="aui-img-body aui-text-left aui-ellipsis-2">
 						<span class="aui-ellipsis-1">芽苗类蔬菜</span>
 					</div>
 				</li>
-				<li class="aui-list-view-cell aui-img aui-col-xs-4" tapmode onclick="openshopcar3()">
+				<li class="aui-list-view-cell aui-img aui-col-xs-4" tapmode onclick="openshopcar(3, '../image/junlei.png')">
 					<img class="aui-img-object" src="../image/junlei.png" data-echo="../image/junlei.png">
 					<div class="aui-img-body aui-text-left aui-ellipsis-2">
 						<span class="aui-ellipsis-1">菌类蔬菜</span>
 					</div>
 				</li>
-				<li class="aui-list-view-cell aui-img aui-col-xs-4" tapmode onclick="openshopcar2()">
+				<li class="aui-list-view-cell aui-img aui-col-xs-4" tapmode onclick="openshopcar(2, '../image/genjing.png')">
 					<img class="aui-img-object" src="../image/genjing.png" data-echo="../image/genjing.png">
 					<div class="aui-img-body aui-text-left aui-ellipsis-2">
 						<span class="aui-ellipsis-1">根茎类蔬菜</span>
 					</div>
 				</li>
-				<li class="aui-list-view-cell aui-img aui-col-xs-4" tapmode onclick="openshopcar4()">
+				<li class="aui-list-view-cell aui-img aui-col-xs-4" tapmode onclick="openshopcar(4, '../image/guocai.png')">
 					<img class="aui-img-object" src="../image/guocai.png" data-echo="../image/guocai.png">
 					<div class="aui-img-body aui-text-left aui-ellipsis-2">
 						<span class="aui-ellipsis-1">果菜类蔬菜</span>
 					</div>
 				</li>
-				<li class="aui-list-view-cell aui-img aui-col-xs-4" tapmode onclick="openshopcar5()">
+				<li class="aui-list-view-cell aui-img aui-col-xs-4" tapmode onclick="openshopcar(5, '../image/huacai.png')">
 					<img class="aui-img-object" src="../image/huacai.png" data-echo="../image/huacai.png">
 					<div class="aui-img-body aui-text-left aui-ellipsis-2">
 						<span class="aui-ellipsis-1">花菜类蔬菜</span>
 					</div>
 				</li>
-				<li class="aui-list-view-cell aui-img aui-col-xs-4" tapmode onclick="openshopcar7()">
+				<li class="aui-list-view-cell aui-img aui-col-xs-4" tapmode onclick="openshopcar(7, '../image/liangyou1.png')">
 					<img class="aui-img-object" src="../image/huacai.png" data-echo="../image/liangyou1.png">
 					<div class="aui-img-body aui-text-left aui-ellipsis-2">
 						<span class="aui-ellipsis-1">油粮类</span>
 					</div>
 				</li>
-				<li class="aui-list-view-cell aui-img aui-col-xs-4" tapmode onclick="openshopcar8()">
+				<li class="aui-list-view-cell aui-img aui-col-xs-4" tapmode onclick="openshopcar(8, '../image/rou1.png')">
 					<img class="aui-img-object" src="../image/huacai.png" data-echo="../image/rou1.png">
 					<div class="aui-img-body aui-text-left aui-ellipsis-2">
 						<span class="aui-ellipsis-1">肉类</span>
 					</div>
 				</li>
-				<li class="aui-list-view-cell aui-img aui-col-xs-4" tapmode onclick="openshopcar9()">
+				<li class="aui-list-view-cell aui-img aui-col-xs-4" tapmode onclick="openshopcar(9, '../image/xiancai1.png')">
 					<img class="aui-img-object" src="../image/huacai.png" data-echo="../image/xiancai1.png">
 					<div class="aui-img-body aui-text-left aui-ellipsis-2">
 						<span class="aui-ellipsis-1">咸菜类</span>
@@ -237,75 +237,14 @@
 			});
 		}
 
-		function openshopcar1() {
-			$api.setStorage('classpic', "../image/yecai.png");
+		function openshopcar(shoptype, img_src) {
+			$api.setStorage('classpic', img_src);
 			api.openWin({
-				name : 'shopcar_body1',
-				url : '../html/shopcar_body1.html'
-			});
-		}
-
-		function openshopcar2() {
-			$api.setStorage('classpic', "../image/genjing.png");
-			api.openWin({
-				name : 'shopcar_body2',
-				url : '../html/shopcar_body2.html'
-			});
-		}
-
-		function openshopcar3() {
-			$api.setStorage('classpic', "../image/junlei.png");
-			api.openWin({
-				name : 'shopcar_body3',
-				url : '../html/shopcar_body3.html'
-			});
-		}
-
-		function openshopcar4() {
-			$api.setStorage('classpic', "../image/guocai.png");
-			api.openWin({
-				name : 'shopcar_body4',
-				url : '../html/shopcar_body4.html'
-			});
-		}
-
-		function openshopcar5() {
-			$api.setStorage('classpic', "../image/huacai.png");
-			api.openWin({
-				name : 'shopcar_body5',
-				url : '../html/shopcar_body5.html'
-			});
-		}
-
-		function openshopcar6() {
-			$api.setStorage('classpic', "../image/yamiao.png");
-			api.openWin({
-				name : 'shopcar_body6',
-				url : '../html/shopcar_body6.html'
-			});
-		}
-
-		function openshopcar7() {
-			$api.setStorage('classpic', "../image/liangyou1.png");
-			api.openWin({
-				name : 'shopcar_body7',
-				url : '../html/shopcar_body7.html'
-			});
-		}
-
-		function openshopcar8() {
-			$api.setStorage('classpic', "../image/rou1.png");
-			api.openWin({
-				name : 'shopcar_body8',
-				url : '../html/shopcar_body8.html'
-			});
-		}
-
-		function openshopcar9() {
-			$api.setStorage('classpic', "../image/xiancai1.png");
-			api.openWin({
-				name : 'shopcar_body9',
-				url : '../html/shopcar_body9.html'
+				name : 'shopcar_body_head',
+				url : '../html/shopcar_body_head.html',
+				pageParam : {
+					shop_type : shoptype,
+				}
 			});
 		}
 	</script>

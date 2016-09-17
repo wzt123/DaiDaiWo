@@ -79,20 +79,27 @@ function openoder() {
 	}
 	ajaxRequest(getUserById, 'get', JSON.stringify(bodyParam), function(ret, err) {
 		if (ret) {
-
+			if (ret.lon == null || ret.lat == null) {
+				api.alert({
+					msg : "没有相关地址，请在设置中设置收货地址"
+				}, function(ret, err) {
+					//coding...
+				});
+				api.hideProgress();
+				return
+			}
 			lon = ret.lon;
 			lat = ret.lat;
 			var usertel = ret.tel;
-			
+
 			var time = new Date().Format("yyyy-MM-dd hh:mm:ss");
 			var totalcash = $api.getStorage('totalcash');
 			var orderRequest = $api.getStorage('orderRequest');
-			var weight=0;
-			for(var pop in order)
-			{
+			var weight = 0;
+			for (var pop in order) {
 				weight = weight + order[pop].amount;
 			}
-			
+
 			var bodyParam = {
 				username : username,
 				money : totalcash,
@@ -129,7 +136,7 @@ function openoder() {
 
 		} else {
 			api.toast({
-				msg : JSON.stringify(err)
+				msg : err.msg
 			})
 		}
 	})
