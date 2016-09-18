@@ -203,6 +203,10 @@
 						column : 'creatTime',
 						value : date
 					});
+					query.desc({
+						qid : ret.qid,
+						column : 'creatTime'
+					});
 					query.whereEqual({
 						qid : ret.qid,
 						column : 'rec',

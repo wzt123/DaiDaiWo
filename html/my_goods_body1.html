@@ -94,7 +94,7 @@
 				<li class="aui-list-view-cell aui-img aui-counter-list" tapmode onclick="">
 				<h5>订单编号:{{=it[i].id}}</h5>
 				<div class="aui-line-x" style="margin: 5px 0 8px 0;"></div>
-				<img class="aui-img-object aui-pull-left" src="../image/junlei.png" data-echo="../image/junlei.png">
+				<img class="aui-img-object aui-pull-left" src="{{=it[i].classpic}}" data-echo="{{=it[i].classpic}}">
 				<div class="aui-img-body">
 				<div class="aui-text-default aui-ellipsis-1"> {{=it[i].classname}}</div>
 				<div class="aui-pull-left" id="orderCash2">
@@ -189,6 +189,10 @@
 						qid : ret.qid,
 						column : 'buyerid',
 						value : userid
+					});
+					query.desc({
+						qid : ret.qid,
+						column : 'creatTime'
 					});
 					model.findAll({
 						class : 'orderForm',
